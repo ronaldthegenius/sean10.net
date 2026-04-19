@@ -29,24 +29,24 @@
 // i opted for OPTION 2 AS BELOW
 document.addEventListener('DOMContentLoaded', () => {
     const filterButtons = document.querySelectorAll('.filter-btn');
-    const products = document.querySelectorAll('.product');
-
-    console.log("System Ready: Found " + filterButtons.length + " buttons and " + products.length + " products.");
 
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
+            // MOVE THIS INSIDE: Look for products only when the button is clicked
+            const products = document.querySelectorAll('.product');
             const selectedCategory = button.getAttribute('data-category');
-            console.log("Button clicked! Looking for category: " + selectedCategory);
+            
+            console.log(`Filtering ${products.length} products for: ${selectedCategory}`);
 
             products.forEach(product => {
-                // This part handles the extra spaces by splitting correctly
                 const categoryString = product.dataset.category || "";
+                // Use includes() for a safer check with multi-category strings
                 const productCategories = categoryString.trim().split(/\s+/); 
 
                 if (selectedCategory === 'all' || productCategories.includes(selectedCategory)) {
-                    product.classList.remove('hidden');
+                    product.style.display = 'block'; // Or product.classList.remove('hidden')
                 } else {
-                    product.classList.add('hidden');
+                    product.style.display = 'none';  // Or product.classList.add('hidden')
                 }
             });
         });
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const allItems = document.querySelectorAll('.sidebar-content.product');
     
     // Number of items per page
-    const itemsPerPage = 3;
+    const itemsPerPage = 2;
     let currentPage = 1;
     const totalPages = Math.ceil(allItems.length / itemsPerPage);
     
@@ -236,43 +236,76 @@ function renderProducts() {
                 <img height="100px" width="110px" src="${product.image}" alt="${product.name}">
                 ${product.isNew ? '<mark>new</mark>' : ''}
                 <h3><span>${product.name}</span></h3>
-                <p class="price-container">
-                    <del>${product.oldPrice}</del> 
-                    <strong>${product.newPrice}</strong>
+<p class="price-container">
+    <span> <del> ${product.oldPrice}</del> - ${product.newPrice}</span>
+</p>
                 </p>
             </div>
         </div>
     `).join('');
 }
 
+//   CLOSE THE PREVIEW
+function closePreview() {
+    const previewContainer = document.getElementById('products-preview-container');
+    
+    if (previewContainer) {
+        // 1. Hide it immediately from the user's view
+        previewContainer.style.display = 'none';
+        
+        // 2. Clear the HTML to free up memory and reset the scroll position
+        previewContainer.innerHTML = '';
+        
+        // Optional: If you use a class to show/hide (like .active), remove it too
+        previewContainer.classList.remove('active');
+    }
+}
+// PREVIEW CLOSED
+// Ensure the DOM is loaded before running
+// document.addEventListener('DOMContentLoaded', renderProducts);
+
+
+
 // 2. The Preview Function
 function openPreview(productId) {
-    // Use == instead of === to match even if one is a string and one is a number
     const product = myProducts.find(p => p.id == productId);
     const previewContainer = document.getElementById('products-preview-container');
     
     if (!product || !previewContainer) return;
 
-    // Use bracket notation ['data-full'] for keys with hyphens
-    const fullImgPath = product['data-full'] || product.image; 
+    // We use imgLink here so every image in the array gets displayed
+    const galleryHTML = product.gallery.map(imgLink => `
+        <img src="${imgLink}" class="product-thumbnail" onclick="openFullImage('${imgLink}')">
+    `).join(''); 
 
-    // ... inside openPreview function ...
     previewContainer.innerHTML = `
         <div class="preview active">
             <i class="fas fa-times" onclick="closePreview()"></i>
             <h2>Product Details</h2>
             <div class="image-gallery">
                 <div class="gallery-grid">
-                    <img src="${product.image}" class="product-thumbnail" onclick="openFullImage('${fullImgPath}')"> 
-                    <img src="${product.image2 || product.image}" class="product-thumbnail" onclick="openFullImage('${fullImgPath}')"> 
-                    <img src="${product.image3 || product.image}" class="product-thumbnail" onclick="openFullImage('${fullImgPath}')"> 
-                    <img src="${product.image4 || product.image}" class="product-thumbnail" onclick="openFullImage('${fullImgPath}')"> 
-                    
-                    <p class="water-mark">headles.com</p>
+                    ${galleryHTML} 
+                    <p class="water-mark">sean10.net</p>
                 </div>
             </div>
+             <div class="contact_seller" id="seller">
+             <h3>contact seller bellow </h3>
+    <ul>
+        <li> 
+    <a href="https://wa.me/${product.whatsappNumber}"><i class="bi bi-whatsapp"></i></a>
+</li>
+        <li> 
+    <a href="tel:${product.phoneNumber}" ><i class="bi bi-telephone"></i> </a>
+</li>
+       
+    
+        <form class="online_chat">
+            <input type="text" id="online_chat" placeholder="chat online">
+            <button tabindex="submit">send_chat</button>
+        </form>
+    </ul>
+  </div>
             <h3>${product.name}</h3>
-            <p class="special-price"><strong>Special Price:</strong> ${product.newPrice}</p>
             <div class="description">${product.description}</div>
         </div>
         
@@ -286,24 +319,24 @@ function openPreview(productId) {
     previewContainer.style.display = 'flex';
 }
 
+//end of preview
+
 // 3. Modal Logic Functions
 function openFullImage(imgSrc) {
     const modal = document.getElementById('productImageModal');
     const fullImg = document.getElementById('productFullImage');
+    
     if (modal && fullImg) {
         fullImg.src = imgSrc;
-        modal.style.display = 'flex';
+        modal.classList.add('active'); // This matches your .modal.active CSS
     }
 }
 
 function closeFullImage() {
     const modal = document.getElementById('productImageModal');
-    if (modal) modal.style.display = 'none';
-}
-
-function closePreview() {
-    const previewContainer = document.getElementById('products-preview-container');
-    if (previewContainer) previewContainer.style.display = 'none';
+    if (modal) {
+        modal.classList.remove('active');
+    }
 }
 
 // Ensure the DOM is loaded before running
