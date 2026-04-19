@@ -1023,6 +1023,7 @@ iframe {
 
 /* start of Pricing and Buttons */
 .products-preview .contact_seller{
+  overflow: hidden;
   /* width: clamp(300px, 50vw, 800px); */
   background: #fff;
   border: inset;
@@ -1151,6 +1152,7 @@ font-family: Georgia, 'Times New Roman', Times, serif;
     display: inline-block;
     text-transform: uppercase;
     text-decoration: underline #fff;
+    margin-top: 1em;
 }
 
 
@@ -1161,8 +1163,10 @@ font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: initial;
     font-family: cursive;
     text-transform: capitalize;
-    text-decoration: underline blue;
+    /* text-decoration: underline blue; */
+    text-decoration: none;
 }
+
 
 .products-preview .water-mark{
         color: red;
@@ -1780,15 +1784,18 @@ header  .buttons   .all:hover{
     text-transform: lowercase;
     text-align: center; */
 }
+
 .products-preview form{
   margin-bottom: 1em;
   gap: 3px;
+  border: none;
 }
 
 .products-preview form input{
   font-size: 10px;
 }
 
+ 
 .products-preview .description{
     /* color: #000;
     font-size: 1rem;
