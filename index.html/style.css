@@ -1009,11 +1009,13 @@ iframe {
 }
 
 .products-preview h3{
+    padding: 4px;
+    display: inline-flex;
     font-size: clamp(1em, calc(1vh + 1em), 1em);
     margin: 3px;
     border-radius: 10px;
     color: #fff;
-    border: grey dotted;
+    /* border: grey dotted; */
     background: darkblue;
     text-transform: lowercase;
     text-align: center;
@@ -1084,8 +1086,9 @@ iframe {
 background: #fff;
 font-weight: bold;
 padding: 1rem;
+overflow: hidden;
 border-radius: 20px;
-font-size: clamp(1rem, (50vhv + 1em), 2em);
+/* font-size: clamp(1rem, (50vhv + 1em), 2em); */
 font-family: "poppins", sans-serif;
 }
 
@@ -1093,7 +1096,8 @@ font-family: "poppins", sans-serif;
 .products-preview form input{
   padding: 2px;
 border-radius: 20px;
-font-size: clamp(1rem, (50vhv + 1em), 2em);
+width: min-content;
+/* font-size: clamp(1rem, (50vhv + 1em), 2em); */
 font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
@@ -1101,8 +1105,8 @@ font-family: Georgia, 'Times New Roman', Times, serif;
 
 .products-preview form  .placeholder{
   text-align: center;
-  align-items: center;
-  font-size: clamp(1rem, (50vhv + 1em), 2em);
+  align-items: center;width: min-content;
+  /* font-size: clamp(1rem, (50vhv + 1em), 2em); */
  background: linear-gradient(to left, #4CAF50, blue, cyan, red, yellowgreen);
   background-clip: text;
   color: transparent;
@@ -1129,12 +1133,35 @@ font-family: Georgia, 'Times New Roman', Times, serif;
 /*end of  Pricing and Buttons */
 
 
-.products-preview .description{
-    color: #000;
+.products-preview .pdtdescription{
+     text-align: center;
+     align-items:center;
+     justify-content: center;
+}
+
+
+.products-preview .descriptionTitle{
+         color: #fff;
+    padding: 3px;
+    background: #000;
+    text-align: end;
+    border-radius: 7px;
+    font-size: clamp(1.3em, calc(1vh + 1em), 1em);
+    /* font-weight: bolder; */
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: underline #fff;
+}
+
+
+.products-preview  .paragraph{
+   color: green;
     font-size: clamp(1em, calc(1vh + 1em), 1em);
-    font-weight: 600;
+    font-weight: bold;
     text-align: initial;
     font-family: cursive;
+    text-transform: capitalize;
+    text-decoration: underline blue;
 }
 
 .products-preview .water-mark{
@@ -1755,7 +1782,13 @@ header  .buttons   .all:hover{
 }
 .products-preview form{
   margin-bottom: 1em;
+  gap: 3px;
 }
+
+.products-preview form input{
+  font-size: 10px;
+}
+
 .products-preview .description{
     /* color: #000;
     font-size: 1rem;
@@ -1763,7 +1796,17 @@ header  .buttons   .all:hover{
     text-align: initial;
     font-family: cursive; */
     margin: 1rem;
+    font-family: "poppins",sans-serif;
+    text-transform: capitalize;
     /* padding: 1rem; */
+}
+.products-preview .description p{
+   /*  */
+}
+
+
+.products-preview  .paragraph{
+   font-family: "poppins",sans-serif;
 }
 
 .products-preview .water-mark{
@@ -1779,27 +1822,7 @@ header  .buttons   .all:hover{
     font-size: 2rem;
 }
 
-/* Pricing and Buttons */
-.products-preview .preview .price {
-    /* font-size: 1.7rem;
-    color: forestgreen;
-    font-weight: bold;
-    margin: 3px; */
-}
 
-.products-preview .preview .buttons {
-    /* display: flex;
-    gap: 1rem;
-    justify-content: center;
-    margin-top: 1rem; */
-}
-
-.products-preview .preview .buttons a {
-    /* padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold; */
-}
 /* 
 .buttons .cart { background: #333; color: #fff; }
 .buttons .buy { background: #3498db; color: #fff; } */
@@ -1894,60 +1917,6 @@ del {
 
 
 
-.product-container .product .contacts {
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.product-container .product .contacts button {
-  font-size: 6px;
-  padding: 1px;
-  border-radius: 7px;
-}
-
-/* 
-.product-container .product .contacts button:hover {
-  transform: scale(0.9);
-  color: #fff;
-  background: #000;
-} */
-
-
-.product-container .product .contacts i {
-  font-size: 14px;
-}
-
-
-h6 {
-  font-size: 9px;
-  padding: 1px;
-}
-
-.product h6 span {
-  padding: 1px;
-}
-iframe {
-  /* margin-left: 10px; */
-  width:40px;
-   height:17px;
-}
-
-
-.product-container .product .between {
-   font-size: 8px;
-   padding: 0px;
-   letter-spacing: 0px;
-   border-radius: 3px;
-}
-
-.piece {
-  font-size: 8px;
-  letter-spacing: 0px;
-  padding: 0px;
-  border-radius: 3px;
-}  
 
 
 }

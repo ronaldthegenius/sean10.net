@@ -306,7 +306,10 @@ function openPreview(productId) {
     </ul>
   </div>
             <h3>${product.name}</h3>
-            <div class="description">${product.description}</div>
+            <div class="pdtdescription">
+            <div class="descriptionTitle">${product.descriptionTitle}</div>
+            <div class="paragraph"><p>${product.p}</p></div>
+            </div>
         </div>
         
         <div class="modal" id="productImageModal" style="display:none;">

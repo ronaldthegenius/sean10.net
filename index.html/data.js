@@ -13,7 +13,8 @@ const myProducts = [
       //  "https://th.bing.com/th?id=ORMS.3",
       //  "https://th.bing.com/th?id=ORMS.3",
     ],
-    "description": "these are free jerseys ,ie ; not for known professional team/s/clubs, we have differwnt colors though this package is green shirt and black trousers  ,medium size {size'M'}.",
+    "descriptionTitle" : "description;",
+    "p": "these are free jerseys ,ie ; not for known professional team/s/clubs, we have differwnt colors though this package is green shirt and black trousers  ,medium size {size'M'}.",
     "oldPrice": "50,000ugsh",
     "newPrice": "45,000ugsh",
     "whatsappNumber": "256750812318?text=Hello%20s̸e̸a̸n̸10.!%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
@@ -32,7 +33,8 @@ const myProducts = [
        "/images/used-pack/thumbnails/hp zbook 2.jpeg",
        "/images/used-pack/thumbnails/hp zbook 1.jpeg"
     ],
-    "description": [
+    "descriptionTitle" : "description;",
+    "p": [
       " processor [intel(R) core(TM) i7-4800MQ CPU @2.70GHz 2.70GHz]" ,
       " installed RAM (20.0GB /19.4Gb usable) DDR3",
       " Graphics card [NVIDIA Quadro K2100M(2 GB) intel(R) HD Graphics 4600'113MB']",
