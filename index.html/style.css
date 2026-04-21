@@ -1008,9 +1008,17 @@ iframe {
     letter-spacing: 2px;
 }
 
-.products-preview h3{
+/* h3 of preview */
+.products-preview .name {
+     display: inline-flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.products-preview .name h3{
     padding: 4px;
-    display: inline-flex;
     font-size: clamp(1em, calc(1vh + 1em), 1em);
     margin: 3px;
     border-radius: 10px;
@@ -1020,6 +1028,96 @@ iframe {
     text-transform: lowercase;
     text-align: center;
 }
+ .products-preview .name span{
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(1.5em, calc(5vh + 1em), 1.rem);
+    text-align: center;
+    background: green;
+    color: white;
+    margin: 0.2em;
+    padding: 3px;
+    text-transform: uppercase;
+    border-radius: 15px;
+    cursor: pointer;
+ }
+
+ .products-preview .name span:hover{
+    font-size: clamp(1.2em, calc(5vh + 1em), 1.1rem);
+    background: orangered;
+ }
+ .products-preview .name span .bi{
+ font-size: clamp(1.5em, calc(5vh + 1em),1.5rem);
+ color: green;
+ background: #fff;
+ padding: 4px;
+  border-radius: 40%;
+ }
+  .products-preview .name span .bi:hover{
+    background: green;
+    color: #fff;
+ }
+
+
+  
+
+.products-preview .condition{
+  padding: 3px;
+     display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #000;;
+  font-size: clamp(1.2em, calc(5vh + 1em), 1em);
+  font-weight: 600;
+  margin: 0.5em;
+  text-decoration: overline;
+}
+
+.products-preview .condition span{
+    display: inline-block; /* Add this line */
+    color: #fff;
+    background: linear-gradient(90deg, #00bdff, #0079ff);
+    border-radius: 50%;
+    border: #000 outset 2px;
+    padding: 4px;
+    overflow: hidden;
+    font-style: italic;
+    font-weight: 800;
+    font-size:  clamp(0.6rem, calc(5vh + 1em), 0.5rem);
+    text-transform: uppercase;
+    text-decoration: dotted;
+    box-shadow: 5px 12px 12px #000;
+    animation: borderRotate 7s linear infinite;
+
+}
+
+
+.products-preview .location{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #000;
+  font-size: clamp(1.2em, calc(5vh + 1em), 1em);
+  font-weight: 600;
+  padding: 3px;
+  margin: 0.5em;
+  text-decoration: underline;
+}
+
+.products-preview .location span{
+  color: #000;
+  opacity: 0.6;
+  font-size: clamp(0.6rem, calc(5vh + 1em), 0.9rem);
+  font-style: cursive;
+  background-color: cyan;
+}
+
+
+
 
 /* start of Pricing and Buttons */
 .products-preview .contact_seller{
@@ -1064,10 +1162,12 @@ iframe {
 
 .products-preview .contact_seller ul li a{
   /* t (to left, blue, red, green); */
-  background: linear-gradient(to left, #4CAF50, blue, cyan, red, yellowgreen);
+  /* background: linear-gradient(to left, #4CAF50, blue, cyan, red, yellowgreen);
   background-clip: text;
-  color: transparent;
-  font-size: clamp(1em, calc(5vw + 1em), 2em);
+  color: transparent; */
+  color: green;
+  background: #fff;
+  font-size: clamp(1.5em, calc(5vh + 1em), 2em);
   cursor: pointer;
 }
 
@@ -1121,9 +1221,11 @@ font-family: Georgia, 'Times New Roman', Times, serif;
   align-items: center;
   justify-content: center;
   font-size: clamp(1rem, (50vhv + 1em), 2em);
- background: linear-gradient(to left, #4CAF50, blue, cyan, red, yellowgreen);
+ /* background: linear-gradient(to left, #4CAF50, blue, cyan, red, yellowgreen);
   background-clip: text;
-  color: transparent;
+  color: transparent; */
+  background: green;
+  color: #fff;
  font-weight: bold;
  font-family: "poppind",sans-serif;
  border-radius: 5px;
@@ -1249,7 +1351,7 @@ font-family: Georgia, 'Times New Roman', Times, serif;
 
 /* END OF PRD'T MODAL */
 
-   .product-container .product .image_BX mark {
+   .product-container .product .image_BX .condition {
     display: inline-block; /* Add this line */
     color: #fff;
     background: linear-gradient(90deg, #00bdff, #0079ff);
@@ -1264,7 +1366,7 @@ font-family: Georgia, 'Times New Roman', Times, serif;
     text-decoration: dotted;
     position: relative;
      right: -3.5rem;
-    top: -7.5rem;
+    top: 1.5rem;
     /* z-index: -1; */
     /* opacity: 0.6; */
     box-shadow: 5px 12px 12px #000;
@@ -1785,6 +1887,13 @@ header  .buttons   .all:hover{
     text-align: center; */
 }
 
+
+.products-preview .contact_seller ul li a{
+  /* background: #fff;
+  color: green; */
+}
+
+
 .products-preview form{
   margin-bottom: 1em;
   gap: 3px;
@@ -1794,6 +1903,12 @@ header  .buttons   .all:hover{
 .products-preview form input{
   font-size: 10px;
 }
+
+.products-preview form  button{
+  /* background: green;
+  color: #fff; */
+}
+
 
  
 .products-preview .description{

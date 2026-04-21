@@ -233,6 +233,7 @@ function renderProducts() {
     productList.innerHTML = myProducts.map(product => `
         <div class="product" data-category="${product.category}" onclick="openPreview('${product.id}')">
             <div class="image_BX">
+              <span class="condition">${product.class}</span>
                 <img height="100px" width="110px" src="${product.image}" alt="${product.name}">
                 ${product.isNew ? '<mark>new</mark>' : ''}
                 <h3><span>${product.name}</span></h3>
@@ -305,7 +306,25 @@ function openPreview(productId) {
         </form>
     </ul>
   </div>
-            <h3>${product.name}</h3>
+            <div class="name"><h3>${product.name}</h3> <span id="Mybasket">add to my basket <i class="bi bi-cart4"></i></span></div>
+            <div class="condition">condition:<span>${product.condition}</span></div>
+           <div class="location">
+    Location: <span>${product.location || 'Not specified'}</span>
+</div>
+
+${product.mapUrl ? `
+    <div class="map-box">
+        <iframe 
+            src="${product.mapUrl}" 
+            width="width: 50%; min-width: 300px; height: 150px;" 
+            height="150" 
+            style="border:0" 
+            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
+    </div>` : ''
+}
+            
             <div class="pdtdescription">
             <div class="descriptionTitle">${product.descriptionTitle}</div>
             <div class="paragraph"><p>${product.p}</p></div>
@@ -344,3 +363,6 @@ function closeFullImage() {
 
 // Ensure the DOM is loaded before running
 document.addEventListener('DOMContentLoaded', renderProducts);
+
+
+

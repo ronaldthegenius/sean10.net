@@ -4,26 +4,29 @@
 const myProducts = [
   {
     "id": 1,
+    "class": "new",
     "name": "free jersey",
     "category": "jersey new_items",
     "image": "/images/new-park/jersey/jersey green.jpeg",
     "gallery": [
-       "/images/new-park/jersey/jersey green.jpeg",
-      //  "https://th.bing.com/th?id=ORMS.2",
-      //  "https://th.bing.com/th?id=ORMS.3",
-      //  "https://th.bing.com/th?id=ORMS.3",
+       "/images/new-park/jersey/jersey green.jpeg"
     ],
-    "descriptionTitle" : "description;",
+     "whatsappNumber": "+256750812318?text=Hello%20s̸e̸a̸n̸10.!%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
+    "phoneNumber": "+256750812318",
+    "location": " kampala central> ham plaza",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28928.808191227257!2d55.104990877735254!3d24.99668297781386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f12a5fc60c251%3A0xcb332e4004272dc9!2sJebel%20Ali%20Industrial%20Area%20-%20Jabal%20Ali%20Industrial%20First%20-%20Dubai!5e0!3m2!1sen!2sae!4v1776783267254!5m2!1sen!2sae",
+    "condition": "new",
+    "descriptionTitle" : "descriptions;",
     "p": "these are free jerseys ,ie ; not for known professional team/s/clubs, we have differwnt colors though this package is green shirt and black trousers  ,medium size {size'M'}.",
     "oldPrice": "50,000ugsh",
     "newPrice": "45,000ugsh",
-    "whatsappNumber": "256750812318?text=Hello%20s̸e̸a̸n̸10.!%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
-    "phoneNumber": "+256750812318",
+   
   },
 
  
   {
     "id": 2,
+    "class": "used",
     "name": "hp zbook",
     "category": "laptop used_items",
     "image": "/images/used-pack/hp zbook LOGO.jpg",
@@ -33,7 +36,12 @@ const myProducts = [
        "/images/used-pack/thumbnails/hp zbook 2.jpeg",
        "/images/used-pack/thumbnails/hp zbook 1.jpeg"
     ],
-    "descriptionTitle" : "description;",
+    "whatsappNumber": "+256750812318?text=Hello%20s̸e̸a̸n̸10.!%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
+    "phoneNumber": "+256750812318",
+    "location": " makindye > mubarack zone",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28928.808191227257!2d55.104990877735254!3d24.99668297781386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f12a5fc60c251%3A0xcb332e4004272dc9!2sJebel%20Ali%20Industrial%20Area%20-%20Jabal%20Ali%20Industrial%20First%20-%20Dubai!5e0!3m2!1sen!2sae!4v1776783267254!5m2!1sen!2sae",
+    "condition": " used",
+    "descriptionTitle" : "descriptions;",
     "p": [
       " processor [intel(R) core(TM) i7-4800MQ CPU @2.70GHz 2.70GHz]" ,
       " installed RAM (20.0GB /19.4Gb usable) DDR3",
@@ -47,6 +55,7 @@ const myProducts = [
     
     "oldPrice": "1,300,000ugsh",
     "newPrice": "1,200,000ugsh",
+    
   },
 
  
