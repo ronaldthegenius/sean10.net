@@ -1086,7 +1086,7 @@ iframe {
     overflow: hidden;
     font-style: italic;
     font-weight: 800;
-    font-size:  clamp(0.6rem, calc(5vh + 1em), 0.5rem);
+    font-size:  clamp(0.8rem, calc(5vh + 1em), 1rem);
     text-transform: lowercase;
     text-decoration: none;
     box-shadow: 5px 12px 12px #000;
@@ -1437,6 +1437,8 @@ font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 
+
+
 .products-preview .price-container{
     justify-content: center;
     align-items: center;
@@ -1448,6 +1450,18 @@ font-family: Georgia, 'Times New Roman', Times, serif;
     display: inline-flex;
     flex-wrap: wrap;
     border-radius: 12px;
+}
+
+  
+
+.products-preview  .price-container del{
+  font-size: clamp(1em, calc(5dvh + 1em), 1em);
+  color: brown;
+  border-radius: 8px;
+  text-decoration: line-through;
+  /* border: red 1px solid; */
+  background-color: sandybrown;
+  padding: 1px;
 }
 
 .products-preview .price-container span{
