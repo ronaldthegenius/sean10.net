@@ -1043,7 +1043,7 @@ iframe {
  }
 
  .products-preview .name span:hover{
-    font-size: clamp(1.2em, calc(5vh + 1em), 1.1rem);
+    /* font-size: clamp(1.2em, calc(5vh + 1em), 1.1rem); */
     background: orangered;
  }
  .products-preview .name span .bi{
@@ -1073,6 +1073,7 @@ iframe {
   font-weight: 600;
   margin: 0.5em;
   text-decoration: overline;
+  text-transform: uppercase;
 }
 
 .products-preview .condition span{
@@ -1086,8 +1087,8 @@ iframe {
     font-style: italic;
     font-weight: 800;
     font-size:  clamp(0.6rem, calc(5vh + 1em), 0.5rem);
-    text-transform: uppercase;
-    text-decoration: dotted;
+    text-transform: lowercase;
+    text-decoration: none;
     box-shadow: 5px 12px 12px #000;
     animation: borderRotate 7s linear infinite;
 
@@ -1106,6 +1107,7 @@ iframe {
   padding: 3px;
   margin: 0.5em;
   text-decoration: underline;
+  text-transform: uppercase;
 }
 
 .products-preview .location span{
@@ -1114,6 +1116,7 @@ iframe {
   font-size: clamp(0.6rem, calc(5vh + 1em), 0.9rem);
   font-style: cursive;
   background-color: cyan;
+  text-transform: lowercase;
 }
 
 
@@ -1419,24 +1422,11 @@ font-family: Georgia, 'Times New Roman', Times, serif;
 
 
 
-.product-container .product .image_BX p b {
-  align-items: center;
-    padding: 3px;
-    color: forestgreen;
-    font-size: clamp(1rem, calc(1vh + 1em), 1rem);
-    overflow: hidden;
-    
-  font-family: cursive;
-  margin-left: 0.5em;
-  /* border: red 1px solid; */
-}
 
 
 
 
-
-
-.product-container .product .image_BX del {
+.product-container .product .image_BX del{
   font-size: clamp(1em, calc(1vh + 1em), 1em);
   color: brown;
   border-radius: 8px;
@@ -1444,6 +1434,56 @@ font-family: Georgia, 'Times New Roman', Times, serif;
   /* border: red 1px solid; */
   background-color: sandybrown;
   padding: 1px;
+}
+
+
+.products-preview .price-container{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    border-style: outset;
+    padding: 4px;
+    margin: 1em;
+    display: inline-flex;
+    flex-wrap: wrap;
+    border-radius: 12px;
+}
+
+.products-preview .price-container span{
+    display: inline-block;
+    padding: 5px;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: #fff;
+    background: green;
+    font-weight: bold;
+    text-align: center;
+    resize: horizontal;
+    font-size: clamp(1em, calc(5dvh + 1em), 1.2em);
+    border-radius: 10px;
+    animation: marquee-scroll 20s linear infinite;
+}
+
+@keyframes marquee-scroll {
+    from { transform: translateX(0%); }
+    to { transform: translateX(-20%); }
+
+}
+/* Optional: Pause on hover so people can actually read it! */
+.products-preview .price-container:hover span {
+    animation-play-state: paused;
+}
+
+
+
+
+.products-preview .price-container  del{
+    color: orangered;
+    background: #fff;
+    text-decoration: line-through;
 }
 
 

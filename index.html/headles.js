@@ -238,9 +238,9 @@ function renderProducts() {
                 ${product.isNew ? '<mark>new</mark>' : ''}
                 <h3><span>${product.name}</span></h3>
 <p class="price-container">
-    <span> <del> ${product.oldPrice}</del> - ${product.newPrice}</span>
+    <span> <del> ${product.oldPrice}</del> -> ${product.newPrice}</span>
 </p>
-                </p>
+    
             </div>
         </div>
     `).join('');
@@ -289,6 +289,9 @@ function openPreview(productId) {
                     <p class="water-mark">sean10.net</p>
                 </div>
             </div>
+            <div class="price-container">
+    <span> <del> ${product.oldPrice}</del> - ${product.newPrice}</span>
+</div>
              <div class="contact_seller" id="seller">
              <h3>contact seller bellow </h3>
     <ul>
