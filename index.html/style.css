@@ -210,25 +210,24 @@ body  {
     border-radius: 20px;
     font-size: clamp(1em, (5vh + 1em), 2em);
   }
-   /* navButton start/close and open */
+  
  /* --- Small Screens (Mobile) --- */
+/* --- Small Screens (Mobile) --- */
 @media (max-width: 767px) {
   #sidebar {
-    display: none; /* Start hidden */
+    display: none !important; /* Force hide when closed */
   }
 
   /* When the JavaScript adds the .open class, show it */
   #sidebar.open {
-    position: sticky;
-        position: fixed;
-        top: -3.7em;
-        left: 0;
-        width: 80dvw;
-        width: 40vw;
-        height: 90vh;
-        height: 90dvh;
-        background: black;
-        z-index: 9999;
+    display: block !important; /* Force show when open */
+    position: fixed;
+    top: -3.7em;
+    left: 0;
+    width: 40vw;
+    height: 90dvh;
+    background: black;
+    z-index: 9999;
   }
 }
 
@@ -242,31 +241,7 @@ body  {
     display: none; /* Hide the toggle button on desktop */
   }
 }
-   /* navButton end/close and open */
-
-  /* Hide all items starting from the 6th one */
-  /* Hide all items initially except the first few */
-.sidebar-content.product {
-    display: none;
-}
-
-/* Show only the first 2 items initially (adjust number as needed) */
-.sidebar-content.product.visible-item {
-    display: block;
-}
-
-/* Optional: Add smooth transition */
-.sidebar-content.product {
-    transition: opacity 0.3s ease;
-}
-
-/* When showing all items */
-.sidebar-content.product.show-all {
-    display: block;
-    opacity: 1;
-}
-
-
+/* navENDS */
 
 /* Button styling */
 #toggleBtn {
@@ -1679,12 +1654,14 @@ font-family: Georgia, 'Times New Roman', Times, serif;
     padding: 0;
     grid-template-columns: 1fr;
   }
+
   aside{
     position: fixed;
     width: 300px;
     display: none;
   }
 
+ 
   /* start of navButton */
   #navButton{
     position: sticky;

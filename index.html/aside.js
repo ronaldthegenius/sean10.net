@@ -95,10 +95,10 @@ function showPreview(index) {
     const channelHTML = `
         <div id="channel">
             <ul>
-                <li><i class="bi bi-whatsapp"></i> WhatsApp</li>
+                <li><i class="bi bi-whatsapp"></i></li>
             </ul>
             <ul>
-                <li><i class="bi bi-telegram"></i> Telegram</li>
+                <li><i class="bi bi-telegram"></i></li>
             </ul>
             <p>used channels</p>
         </div>
