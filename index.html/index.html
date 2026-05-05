@@ -17,36 +17,38 @@
 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="favorites.css"> Specific favorites styles second -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"> 
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <!-- <a href="https://www.google.com/maps/search/?api=1&query=Empire+State+Building" target="_blank">View Empire State Building on Google Maps</a>
     <a href="https://www.google.com/maps/dir/My+Location/Eiffel+Tower" target="_blank">Get directions to Eiffel Tower</a> -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
-   
-
-    
-<script src="headles.js"defer></script>
-<script src="data.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script> 
+    <script src="sean10.net.js"defer></script>
+    <script src="sean10.netDATA.js"defer></script>
+    <script src="aside.js"defer></script>
+    <script src="asideData.js"defer></script>
+    <script src="tradingButtons.js"defer></script>
+    <script src="tradingButtonsDATA.js"defer></script>
+    <script src="paginationBtns.js"></script>
     <noscript>Sorry, your browser does not support JavaScript!</noscript>
 
     <title>sean10.net</title>
 </head>
-
-
-    
+   
  
       <header> 
-  
 
      <!-- logo -->
-    <div class="logo">   <a href="https://sean10.net" class="logo"> sean10.net</a> <!--<a href="sell" class="sellers">sell on!</a>--><span>     <div class="login"><a href="#" id="Login">SIGN-UP</a>  <i class="bi bi-cart" id="cart">cart</i></div>
+    <div class="logo">   <a href="https://sean10.net" class="logo"> sean10.net</a> <!--<a href="sell" class="sellers">sell on!</a>--><span></div> 
+      <!-- end of logo -->
+
+       <!-- <div class="login"><a href="#" id="Login">SIGN-UP</a>  <i class="bi bi-cart" id="cart">cart</i></div> -->
      
-      
+<!--       
       <form action="/search" method="get">
           <input type="search" id="searchBox" name="q" placeholder="search sean10.net">
           <button type="submit" style="border-radius: 7px; cursor: pointer;">Search</button>
-        </form></span> </div> 
-      <!-- end of logo -->
+        </form></span>  -->
         
       <p>
         <span style="color: #fff; text-transform: uppercase; ">*NOTE:</span> Please be advised that all stock timings are estimated and based on supplier timings given to us hence in case of any delay there is no further penalty liable to <a href="" style="color: #fff; text-decoration: none; ">sean10.net </a>beyond any advance payment that is paid. All payment requests are to be done 30-days prior to the original delivery date.
@@ -55,127 +57,19 @@
          
  
 
-      <div class="buttons"><button class="filter-btn all" data-category="all">HOME/ALL</button>
-<button class="filter-btn" data-category="laptops">LAPTOPS</button>
-<button class="filter-btn" data-category="phones">PHONES</button>
-<button class="filter-btn" data-category="keypad_phones">keypad_phones</button>
-<button class="filter-btn" data-category="smart_phones">smart_phones</button>
-<button class="filter-btn" data-category="game_controllers">GAME CONTROLLERS</button>
-<button class="filter-btn" data-category="chargers">CHARGERS</button>
-<button class="filter-btn" data-category="men">MEN'S SECTION</button>
-<button class="filter-btn" data-category="gaming_consoles">GAMING CONSOLES</button>
-<button class="filter-btn" data-category="ladies">LADIES' SECTION</button>
-<button class="filter-btn" data-category="kids">KIDS' SECTION</button>
-<button class="filter-btn" data-category="trusted_taxi">TRUSTED TAXI</button>
-<button class="filter-btn" data-category="sneekers">SNEEKERS</button>
-<button class="filter-btn" data-category="hard_drives">hard_drives</button>
-<button class="filter-btn" data-category="school_items">SCHOOL ITEMS</button>
-<button class="filter-btn" data-category="workshop_tools">WORKSHOP TOOLS</button>
-<button class="filter-btn" data-category="jobs">JOBS</button>
-<button class="filter-btn" data-category="jersey">jersey</button>
-<button class="filter-btn" data-category="caps">CAPS</button>
-<button class="filter-btn" data-category="bags">bags</button>
-<button class="filter-btn" data-category="vehicles">VEHICLES</button>
-<button class="filter-btn" data-category="jewerly">JEWELRY</button>
-<button class="filter-btn" data-category="art_craft">ART & CRAFT</button>
-<button class="filter-btn" data-category="mobile_money_agent">MOBILE MONEY AGENT</button>
-<button class="filter-btn" data-category="vegetables">VEGETABLES</button>
-<button class="filter-btn" data-category="batteries">BATTERIES</button>
-<button class="filter-btn" data-category="power_banks">POWER BANKS</button>
-<button class="filter-btn" data-category="used_items">
-    <span style="color: red;">USED ITEMS</span>
-</button>
-<button class="filter-btn" data-category="new_items">
-    <span style="color: green;">new_items</span>
-</button>
-<button class="filter-btn" data-category="tvs">TVS</button>
-<button class="filter-btn" data-category="freezers">FREEZERS</button>
-</div>
+       <!-- Your HTML stays this short forever -->
+      <div class="buttons" id="tradingButtons"></div>
 
-      
 </header>
- 
+  
 
 <body>
 
         <nav><button id="navButton" onclick="toggleSidebar()">show|hide sidebar</button></nav>
       <aside class="sidebar-list" id="sidebar">
+     <div class="pagination-controls" id="pagination"></div>
 
-      <div class="sidebar-content product" data-category="laptops used_items">
-        <span class="used-badge">used</span>
-        <img height="100px" width="110px" src="/images/used-pack/hp zbook LOGO.jpg" alt="hp zbook">
-        <div class="item-label">
-            <h1>laptops</h1>
-        </div>
-    </div>
-
-    
-    <div class="sidebar-content product" data-category="smart_phones used_items">
-        <span class="used-badge">used</span>
-        <img height="100px" width="110px" src="/images/used-pack/USED SMART_PHONES logo.jpeg" alt="smart_phones">
-        <div class="item-label">
-            <h1>smart PHONES</h1>
-        </div>
-    </div>
-
-    
-
-    
-    <div class="sidebar-content product" data-category="hard_drives used_items">
-        <span class="used-badge">used</span>
-        <img height="100px" width="110px" src="/images/used-pack/used hard_drives LOGO.jpeg" alt="hard_drives">
-        <div class="item-label">
-            <h1>hard_drives</h1>
-        </div>
-    </div>
-
-    
-    <div class="sidebar-content product" data-category="keypad_phones used_items">
-        <span class="used-badge">used</span>
-        <img height="100px" width="110px" src="/images/used-pack/NOKIA KEYPAD logo.jpeg" alt="keypad_phones">
-        <div class="item-label">
-            <h1>keypad PHONES</h1>
-        </div>
-    </div>
-
-    <div class="sidebar-content product" data-category="phones used_items">
-        <span class="used-badge">used</span>
-        <img height="100px" width="110px" src="/images/used-pack/phones PCB LOGO.webp" alt="phones PCB">
-        <div class="item-label">
-            <h1>phones PCBs</h1>
-        </div>
-    </div>
-
-    <div class="sidebar-content product" data-category="workshop_tools used_items">
-        <span class="used-badge">used</span>
-        <img height="100px" width="110px" src="/images/used-pack/used motherboard msi gs63 stealth 8re  LOGO.jpg" alt="used motherboard">
-        <div class="item-label">
-            <h1>PC PCBs</h1>
-        </div>
-    </div>
-
-    <div class="sidebar-content product" data-category="workshop_tools used_items">
-        <span class="used-badge">used</span>
-        <img height="100px" width="110px"  src="/images/used-pack/ct-1 LOGO.jpg" alt="ct-1">
-        <div class="item-label">
-            <h1>repair components</h1>
-        </div>
-    </div>
-
-     <div class="pagination-controls">
-    <button id="prevBtn" class="pagination-btn">← Previous</button>
-    <button id="nextBtn" class="pagination-btn">Next →</button>
-</div>
-
-    <div id="channel">
-        <ul>
-            <li><i class="bi bi-whatsapp"></i></li>
-        </ul>
-        <ul>
-            <li><i class="bi bi-telegram"></i></li>
-        </ul>
-        <p>used channels</p>
-    </div>
+    <div id="channel"></div>
       </aside>
      
 

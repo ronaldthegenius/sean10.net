@@ -165,24 +165,10 @@ body  {
     text-decoration: dotted;
    position: relative;
     right: -4.5rem;
-    top: -5rem;
+    top: -4rem;
     z-index: -1;
   }
 
-
-  aside .sidebar-content h1 {
-    font-size: 0.8rem;
-    font-weight: 200;
-    /* margin: 10px; */
-    align-items: center;
-    text-align: center;
-    border-radius: 8px;
-    text-transform: uppercase;
-    border: 1px red solid;
-    padding: 5px;
-    background-color: #000;
-    color: yellowgreen;
-  }
 
   aside .sidebar-content img {
     border: 2px red solid;
@@ -197,12 +183,66 @@ body  {
     margin-top: -90px;
     rotate: 10deg;
     margin-bottom: 10px;
+    height:100px;
+     width:110px;
   }
-   /* navButton start */
-   #navButton{
-    display: none;
+
+  
+  aside .sidebar-content h1 {
+    font-size: 0.8rem;
+    font-weight: 200;
+    /* margin: 10px; */
+    align-items: center;
+    text-align: center;
+    border-radius: 8px;
+    text-transform: uppercase;
+    border: 1px red solid;
+    padding: 5px;
+    background-color: #000;
+    color: yellowgreen;
   }
-   /* navButton end */
+
+
+  aside .sidebar-content .title {
+    color: green;
+    padding: 4px;
+    background: #fff;
+    border-radius: 20px;
+    font-size: clamp(1em, (5vh + 1em), 2em);
+  }
+   /* navButton start/close and open */
+ /* --- Small Screens (Mobile) --- */
+@media (max-width: 767px) {
+  #sidebar {
+    display: none; /* Start hidden */
+  }
+
+  /* When the JavaScript adds the .open class, show it */
+  #sidebar.open {
+    position: sticky;
+        position: fixed;
+        top: -3.7em;
+        left: 0;
+        width: 80dvw;
+        width: 40vw;
+        height: 90vh;
+        height: 90dvh;
+        background: black;
+        z-index: 9999;
+  }
+}
+
+/* --- Large Screens (Desktop) --- */
+@media (min-width: 768px) {
+  #sidebar {
+    display: block !important; /* Always visible on desktop */
+  }
+  
+  #navButton {
+    display: none; /* Hide the toggle button on desktop */
+  }
+}
+   /* navButton end/close and open */
 
   /* Hide all items starting from the 6th one */
   /* Hide all items initially except the first few */
@@ -225,6 +265,8 @@ body  {
     display: block;
     opacity: 1;
 }
+
+
 
 /* Button styling */
 #toggleBtn {
@@ -263,6 +305,7 @@ body  {
     border-radius: 4px;
     cursor: pointer;
     font-size: 14px;
+    height: fit-content;
     transition: all 0.3s ease;
 }
 
@@ -289,6 +332,7 @@ body  {
 
 /* start of channel */
 #channel{
+  /* width: clamp(150px, 50vw, 120px); */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -298,8 +342,8 @@ body  {
   border: groove 2px;
   overflow: hidden;
   background: #000;
-  border-top-left-radius: 20PX;
-  border-bottom-right-radius: 20PX;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   font-family: 'Courier New', Courier, monospace;
     margin-top: 1em;
      transition: all 0.2s ease-out;
@@ -313,44 +357,53 @@ body  {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: min(2em, 1%);
+  padding: min(2em, 5%);
+  display: flex;
+  flex-wrap: wrap;
+  text-decoration: none;
 }
 
 #channel li{
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* padding: min(2em, 5%); */
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  gap: 5px;
-  padding: min(1em, 10%);
+  text-decoration: none;
+  margin: 5px;
+  /* padding: min(1em, 10%); */
   font-size: clamp(2em, calc(1vh + 1em), 2em);
 }
 
 #channel li .bi{
-  color: green;
-  font-size: clamp(1em, calc(1vh + 1em), em);
+  font-size: clamp(1em, calc(1vh + 1em), 1em);
   cursor: pointer;
   transition: all 0.3s ease-out;
 }
-
+#channel li .bi.modal.active{
+      background-color: #333;
+    color: white;
+    border: 2px solid gold;
+}
 #channel li .bi:hover{
   transform: scale(1.1); /* Example: slight zoom */
 }
 
 #channel li .bi-whatsapp{
-  color: green;
+  color: #25d366;
 }
 
 #channel li .bi-whatsapp:hover {
   /* Add your hover styles here */
-  color: blue; /* Example: WhatsApp green */
+  color: teal; /* Example: WhatsApp green */
 }
 
 #channel li .bi-telegram{
-  color: green;
+  color: #24a1de;
 }
 #channel li .bi-telegram:hover {
-  /* Add your hover styles here */
-  color: #25D366; /* Example: WhatsApp green */
+  color: #0088cc;
 }
 
 #channel p{
@@ -485,18 +538,21 @@ align-items: center;
 }
 
 .logo .logo  {
-  background: linear-gradient(to left, #4CAF50, blue, cyan,  red, yellowgreen);
-  /* background: linear-gradient(to left, black, yellow, red); */
-  background-clip: text;
-  color: transparent;
-   padding: 5px;
-  border-radius: 10px;
-  text-decoration: none;
- font-size: 40px;
- font-weight: 800;
- border: groove;
- /* color: peru; */
- animation: bounce 7s infinite;
+  /* background: linear-gradient(to left, #4CAF50, blue, cyan, red, yellowgreen);  */
+    /* background: linear-gradient(to left, black, yellow, red); */
+    /* background-clip: text; */
+    /* color: transparent; */
+    color: green;
+    border-radius: 10% 20% 40%;
+    border-right-style: hidden;
+    padding: 5px;
+    /* border-radius: 10px; */
+    text-decoration: none;
+    font-size: 40px;
+    font-weight: 800;
+    border-top: solid;
+    /* color: peru; */
+    animation: bounce 7s infinite;
 }
 
 
@@ -672,41 +728,13 @@ header  .buttons   .all:hover{
   /* border: groove; */
 }
 
+.filter-btn.active {
+    background-color: #333;
+    color: white;
+    border: 2px solid gold; /* Or your brand color */
+}
 /* end of all */
 
-
-
-
-
-
-
-
-
-  /* start of MAIN INSIDE BODY*/
-
-
-
-
-
-
-
-
-/* 
-iframe {
-  margin-left: 10px;
-  margin-top: 3px;
-  width:80px;
-   height:25px;
-    border:#000 dashed 1px;
-    /* right: 0px; 
-    cursor: pointer;
-    box-shadow: 4px 5px #000;
-    border-radius: 3px;
-    border: red 1px solid;
-} */
-
-
-/*  */
 
 
 
@@ -768,6 +796,8 @@ iframe {
   display: flex;
   flex-wrap: wrap;
   text-align: center;
+  height: 80vh;
+    height: 80dvh;
 }
 
 
@@ -1134,7 +1164,7 @@ iframe {
   align-items: center;
   text-align: center;
   font-family: 'Courier New', Courier, monospace;
-  font-size: clamp(1rem, (50vhv+1em), 2em);
+  font-size: clamp(1rem, (5vh + 1em), 1.2em);
   padding: 1em;
 }
 
@@ -1176,7 +1206,7 @@ iframe {
 
 
 .products-preview .contact_seller ul li a:hover{
-  font-size: clamp(2em, calc(5vw + 1em), 1em);
+  font-size: clamp(2em, calc(5vh + 1em), 1em);
   
 }
 
@@ -1234,8 +1264,6 @@ font-family: Georgia, 'Times New Roman', Times, serif;
  border-radius: 5px;
  padding: 4px;
 }
-
-
 /*end of  Pricing and Buttons */
 
 
@@ -1244,6 +1272,72 @@ font-family: Georgia, 'Times New Roman', Times, serif;
      align-items:center;
      justify-content: center;
 }
+
+/* start of favourites */
+
+    .products-preview nav{
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .products-preview nav a{
+      font-size: clamp(1em, calc(5vh + 1em), 1em);
+    padding: 4px;
+    border-right-style: dashed;
+    border-right-color: #e63946;
+    color: #e63946;
+    border-radius: 15px;
+    border-left-color: GREEN;
+    border-left-style: double;
+    border-top-style: ridge;
+    border-bottom-style: outset;
+    display: inline-flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0.2em;
+    cursor: pointer;
+    text-decoration: none;
+    }
+
+   
+   .products-preview .fav-icon {
+      position: absolute;
+    top: 1em;
+    left: 1em;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #e63946;
+    color: #e63946;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    font-size: 18px;
+    cursor: pointer;
+    }
+  
+    .fav-icon.active {
+    color: red;
+    font-weight: bold;
+}
+
+/* end of favourites */
+
+.products-preview  p{
+ background: #fff;
+    text-align: center;
+    margin-top: 0.5em;
+    font-size: clamp(1em, calc(6vh + 1em), 1.3em);
+    border-radius: 10px;
+    color: saddlebrown;
+    border-bottom-style: outset;
+    border-top: solid;
+    font-weight: 500;
+}
+
 
 
 .products-preview .descriptionTitle{
@@ -1271,6 +1365,44 @@ font-family: Georgia, 'Times New Roman', Times, serif;
     /* text-decoration: underline blue; */
     text-decoration: none;
 }
+
+
+.products-preview .noteTitle{
+      display: table;
+    align-items: center;
+    text-align: center;
+    /* display: table; */
+    text-decoration: underline green 3px;
+    background: #000;
+    color: #fff;
+    opacity: 0.8;
+    margin-top: 1em;
+    margin-bottom: 0.2em;
+    padding: 5px;
+    border-radius: 20px 20px 0;
+    font-size: clamp(1.4em, calc(1vh + 1em), 1.3em);
+}
+
+
+.products-preview .note{
+  text-align: center;
+    align-items: center;
+    display: table;
+    /* justify-content: center; */
+    padding: 5px;
+    opacity: 0.9;
+    color: #000;
+    font-weight: bolder;
+    background: orangered;
+    text-align: end;
+    border-radius: 0 20px 20px;
+    font-size: clamp(1em, calc(1vh + 1em), 1em);
+    /* font-weight: bolder; */
+    text-transform: lowercase;
+    margin-left: 4em;
+    font-family: 'poppins,sans-serif';
+}
+
 
 
 .products-preview .water-mark{
@@ -1317,8 +1449,8 @@ font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .full-image {
-    width: 90dvw;
-    height: 90dvh;
+    width: 80dvw;
+    height: 80dvh;
     display: block;
     background: #000;
     border-radius: 10px;
@@ -1440,6 +1572,7 @@ font-family: Georgia, 'Times New Roman', Times, serif;
 
 
 .products-preview .price-container{
+  font-size: clamp(1em, calc(5vh + 1em), 1.2em);
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -1455,7 +1588,7 @@ font-family: Georgia, 'Times New Roman', Times, serif;
   
 
 .products-preview  .price-container del{
-  font-size: clamp(1em, calc(5dvh + 1em), 1em);
+  font-size: clamp(1em, calc(5vh + 1em), 1em);
   color: brown;
   border-radius: 8px;
   text-decoration: line-through;
@@ -1476,7 +1609,7 @@ font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
     text-align: center;
     resize: horizontal;
-    font-size: clamp(1em, calc(5dvh + 1em), 1.2em);
+    /* font-size: clamp(1em, calc(5vh + 1em), 1.2em); */
     border-radius: 10px;
     animation: marquee-scroll 20s linear infinite;
 }
@@ -1551,29 +1684,19 @@ font-family: Georgia, 'Times New Roman', Times, serif;
     width: 300px;
     display: none;
   }
-  .show{
-        /* filter: drop-shadow(2px 4px 6px black); */
-        /* overflow-y: scroll; */
-        /* background-color: #000; */
-        /* filter: drop-shadow(2px 4px 6px black); */
-        align-content: center;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        z-index: 999999;
-        aspect-ratio: 1 / 1;
-        object-fit: cover;
-        top: auto;
-        height: 90vh;
-        /* margin: 2rem; */
-        background-clip: text;
-        height: 90dvh;
-        width: stretch;
-  }
+
   /* start of navButton */
   #navButton{
-    display: flex;
+    position: sticky;
+        margin-top: 150px;
+        display: flex;
+        color: forestgreen;
+        padding: 4px;
+        border-style: groove;
+        border-radius: 10px;
+        font-weight: bold;
+        
+        
   }
   /* end of navButton */
 
@@ -2114,6 +2237,9 @@ del {
 
 /* START OF 992PX */
   @media screen and (min-width: 769px) and (max-width: 992px) {
+    #sidebar {
+    display: block !important; /* Force visibility on large screens */
+    position: static;}
   }
 /* END OF 992PX  */
 

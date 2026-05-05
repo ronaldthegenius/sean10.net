@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+/* FAVOURITES PAGE */
+*{
+    margin: 0;
+    padding: 0;
+    background: #fff;
+}
+body{
+       display: inline-block;
+    background: #000;
+    width: 100%;
+    margin: 1em;
+    padding: 2em;
+    align-items: center;
+    text-align: center;
+    border-radius: 2em;
+}
+
+main{
+    text-transform: lowercase;
+    border-radius: 2em;
+    background: #fff;
+    display: inline-block;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    border: outset;
+    padding: 1em;
+    width: 90dvw;
+    height: 100dvh;
+    height: 100vh;
+}
+.back{
+    display: inline-block;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    border: outset;
+    padding: 1em;
+    border-radius: 20px;
+}
+
+.back h1{
+
+    display: inline-block;
+    text-align: center;
+    align-items: center;
+    padding: 4px;
+    border-radius: 10px;
+    color: #e63946;
+     font-size: clamp(2em, (5vh + 1em), 1em);
+    text-decoration: none;
+    /* color:#fff; */
+    text-align: center;
+    align-items: center;
+}
+
+
+.back a, span{
+    font-weight: 800;
+    padding: 4px;
+    border-radius: 10px;
+    color: green;
+     font-size: clamp(1em, (5vh + 1em), 1.4em);
+    text-decoration: none;
+    /* color:#fff; */
+    text-align: center;
+    align-items: center;
+}
+
+
+
+.fav-container{
+  padding: 4px;
+  color: green;
+  background: blue;
+  border-style: outset;
+  border-radius: 20px;
+  font-size: clamp(1.2em, (5vh + 1em), 1.5em);
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  text-decoration: none;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  border: red 1px solid;
+}
+.fav-container a{
+  color: #e63946;
+  background: #fff;
+  padding: 4px;
+  margin: 0.5em;
+}
+
+/* The grid container */
+.fav-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* The red heart when active */
+.fav-icon.active {
+    color: red;
+    cursor: pointer;
+}
+
+/* The empty message styling */
+#empty-msg {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 1.2rem;
+    color: #666;
+}
+/* END OF FAVOURITES PAGE */

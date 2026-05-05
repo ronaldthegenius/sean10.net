@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorites - Sean10</title>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    
+    <!-- LINK YOUR MAIN CSS HERE TOO -->
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="favorites.css">
+
+    <!-- Data must load before logic -->
+   
+</head>
+<body>
+<main>
+    
+    <div class="back"> <h1>♥️ My Favorites</h1>
+        <a href="index.html">← Back to shopping</a>
+        <span class="nav-fav">♥️ (<span class="fav-count">0</span>)</span>
+    
+</div>
+   
+
+    <div id="fav-container" class="fav-grid"></div>
+
+    <div id="empty-msg" style="display:none;">
+        <!-- <p>No favorites yet.</p> -->
+        <a href="index.html">Go shopping</a>
+    </div>
+
+</main>
+ <script src="products.js"></script> 
+    <!-- <script src="favorites-logic.js"></script>  -->
+</body>
+</html>
