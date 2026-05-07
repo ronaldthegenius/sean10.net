@@ -105,14 +105,14 @@ function showPreview(index) {
     `;
 
     sidebar.innerHTML = `
-        <div class="sidebar-preview-content" style="padding: 15px;">
-            <button onclick="loadSidebarList()" class="back-btn" style="cursor:pointer; margin-bottom:10px;">← Back to Shop</button>
-            <img src="${imgSrc}" alt="${item.title}" style="width:100%; border-radius:8px;">
+        <div class="sidebar-preview-content">
+            <button onclick="loadSidebarList()" class="back-btn"">← Back to Shop</button>
+            <img src="${imgSrc}" alt="${item.title}" >
             <h2>${item.title}</h2>
             <p><b>Price:</b> UGX ${item.price}</p>
             <p>${item.paragraph}</p>
-            <a href="https://wa.me/256750812318?text=${encodedMsg}" target="_blank" class="buy-btn" style="display:block; text-align:center; padding:10px; background:#25D366; color:white; text-decoration:none; border-radius:5px;">
-                WhatsApp Us
+            <a href="https://wa.me/256750812318?text=${encodedMsg}" target="_blank" class="buy-btn">
+                WhatsApp owner
             </a>
         </div>
         ${channelHTML}

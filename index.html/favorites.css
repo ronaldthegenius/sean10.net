@@ -18,16 +18,20 @@ body{
 }
 
 main{
+   padding: 0;
+    margin: 0;
     text-transform: lowercase;
     border-radius: 2em;
     background: #fff;
-    display: inline-block;
+    display: flex;
+    flex-wrap: wrap;
     text-align: center;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     border: outset;
-    padding: 1em;
+    /* padding: 1em; */
     width: 90dvw;
+    width: 90vw;
     height: 100dvh;
     height: 100vh;
 }

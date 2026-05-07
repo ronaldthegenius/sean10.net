@@ -127,9 +127,20 @@ previewContainer.innerHTML = `
                 </iframe>
             </div>` : ''
         }
-           
+
+   
+
             <div class="pdtdescription">
-    ${product.descriptionTitle ? `<div class="descriptionTitle">${product.descriptionTitle}</div>` : ''} 
+             ${product.descriptionTitle ? `<div class="descriptionTitle">${product.descriptionTitle}</div>` : ''} 
+
+            
+     ${product.pcName ? `<div class="laptopsDetails"><b>${product.pcName}</b><span>pcName</span></div>` : ''}
+    ${product.processor ? `<div class="laptopsDetails"><b>${product.processor}</b><span>processor/s</span></div>` : ''}
+    ${product.ram ? `<div class="laptopsDetails"><b>${product.ram}</b><span>storage</span></div>` : ''}
+    ${product.storage ? `<div class="laptopsDetails"><b>${product.storage}</b><span>ram</span></div>` : ''}
+    ${product.card ? `<div class="laptopsDetails"><b>${product.card}</b><span>card</span></div>` : ''}
+
+   
     ${product.details ? `<div class="paragraph"><b>${product.details}</b></div>` : ''}
     ${product.noteDetails ? `<div class="noteTitle">${product.noteDetails}</div>` : ''} 
     ${product.note ? `<div class="note">${product.note}</div>` : ''}

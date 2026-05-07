@@ -229,15 +229,18 @@ body  {
 
   /* When the JavaScript adds the .open class, show it */
   #sidebar.open {
-    display: block !important; /* Force show when open */
-    position: fixed;
-    top: -3.7em;
-    left: 0;
-    width: 40vw;
-    height: 90dvh;
-    background: black;
-    z-index: 9999;
+    display: block !important;
+        position: fixed;
+        top: -3.7em;
+        left: -5em;
+        width: 80vw;
+        width: 80dvw;
+        height: 90dvh;
+        height: 90vh;
+        background: black;
+        z-index: 9999;
   }
+  
 }
 
 /* --- Large Screens (Desktop) --- */
@@ -251,7 +254,61 @@ body  {
   }
 }
 /* navENDS */
+/* START OF sidebar preview */
+.sidebar-preview-content{
+  padding: 3px;
+  font-family: 'poppins',sans-serif;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 
+.sidebar-preview-content  .back-btn{
+  margin-bottom: 0.5em;
+    border-radius: 10px;
+    padding: 3px;
+    background: green;
+    color: #fff;
+    font-size: clamp(1em, calc(5vh + 1em), 1em);
+}
+.sidebar-preview-content img{
+  border-radius: 10px;
+  width: 100%;
+}
+.sidebar-preview-content h2{
+  font-size: clamp(1.5em, calc(5vh + 1em), 1em);
+  color: #999;
+}
+.sidebar-preview-content p{
+  font-size: clamp(1em, calc(5vh + 1em), 1em);
+    color: green;
+    border-radius: 10px;
+    padding: 3px;
+    text-align: center;
+    align-items: center;
+    background: #ccc;
+    font-weight: 800;
+    margin-bottom: 0.2em;
+}
+.sidebar-preview-content p b{
+  font-size: clamp(1em, calc(5vh + 1em), 1em);
+    color: black;
+    font-weight: 800;
+    text-decoration-line: spelling-error;
+}
+.sidebar-preview-content .buy-btn{
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+   background:#25D366;
+   color:white;
+     padding:10px;
+   border-radius:20px;
+    text-decoration:none;
+     display:flex;
+     flex-wrap: wrap; 
+}
+/* END OF SIDEBAR preview */
 /* Button styling */
 #toggleBtn {
   margin-top: 10px;
@@ -698,7 +755,7 @@ header .buttons button:hover{
 
 
 /* home */
-header  .buttons .all{
+/* header  .buttons .all{
   background-color: forestgreen;
   color: #fff;
   font-family: 'poppins',sans-serif;
@@ -709,8 +766,8 @@ header  .buttons .all{
 header  .buttons   .all:hover{
   color: green;
   background-color: transparent;
-  /* border: groove; */
-}
+  
+} */
 
 .filter-btn.active {
     background-color: #333;
@@ -771,7 +828,7 @@ header  .buttons   .all:hover{
 
 
 .product-container {
-  overflow: hidden;
+  overflow: scroll;
   /* border: 1px solid red; */
   background-color: #000;
   /* background-image: url(/images/george2.jpg); */
@@ -1250,6 +1307,35 @@ font-family: Georgia, 'Times New Roman', Times, serif;
 }
 /*end of  Pricing and Buttons */
 
+/* START OF laptopsDetails */
+ .products-preview .pdtdescription .laptopsDetails{
+  background: orangered;
+  color: #fff;
+  padding: 7px;
+  font-size: clamp(1.5rem, calc(5vh + 1), 1rem);
+  border-radius: 15px;
+  text-align: center;
+  align-items: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: max-content;
+    margin: 0.5em;
+    display: flex;
+}
+.products-preview .pdtdescription .laptopsDetails span{
+  border-radius: 10px;
+  background: #fff;
+  color: green;
+  padding: 4px;
+  font-size: clamp(1rem, calc(5vh + 1), 1rem);
+  border-radius: 15px;
+  text-align: center;
+  align-items: center;
+  text-decoration: none;
+  text-transform: lowercase;
+  margin-left: 1em;
+}
+/* END OF laptopsDetails */
 
 .products-preview .pdtdescription{
      text-align: center;
@@ -1673,16 +1759,19 @@ font-family: Georgia, 'Times New Roman', Times, serif;
  
   /* start of navButton */
   #navButton{
-    position: sticky;
+           border-top: outset;
+        z-index: 999999999;
+        position: sticky;
         margin-top: 150px;
         display: flex;
-        color: forestgreen;
+        color: #fff;
+        background: green;
         padding: 4px;
-        border-style: groove;
         border-radius: 10px;
         font-weight: bold;
-        
-        
+  }
+  #navButton.active{
+           background: orangered;
   }
   /* end of navButton */
 
