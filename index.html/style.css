@@ -44,8 +44,8 @@ all items margin top & bottom set to 15px
 
 body  {
     border: 1px red solid;
-    margin-left: 6em;
-    margin-right: 6em;
+    /* margin-left: 6em;
+    margin-right: 6em; */
     margin-top: 1em;
     margin-bottom: 1em;
     padding-top: 5px;
@@ -54,6 +54,7 @@ body  {
     padding-right: 15px;
     text-transform: lowercase;
   min-height: 100vh;
+  min-height: 100dvh;
    background-color:var(--bg-color);
    display: grid;
    grid-template-columns:350px 1fr;
@@ -66,6 +67,7 @@ body  {
 
   header {
     grid-area: header;
+    
      margin-top: 4em;
     font-size: 12px;
     padding-top: 5px;
@@ -180,6 +182,10 @@ body  {
 
 
   aside .sidebar-content img {
+    font-family: sans-serif;
+    color: green;
+    background: #fff;
+    font-size: clamp(1em, calc(5vh + 1em), 1.1em);
     border: 2px red solid;
     border-radius: 20px;
     max-width: 100%;
@@ -274,7 +280,12 @@ body  {
 .sidebar-preview-content img{
   border-radius: 10px;
   width: 100%;
+  color: orangered;
+  font-family: cursive;
+  font-size: clamp(1em, calc(7vh + 1em), 1em);
+  text-transform: uppercase;
 }
+
 .sidebar-preview-content h2{
   font-size: clamp(1.5em, calc(5vh + 1em), 1em);
   color: #999;
@@ -887,6 +898,12 @@ header  .buttons   .all:hover{
 
      
 .product-container  .product .image_BX {
+  color: green;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: clamp(1em, calc(5vh + 1em), 1em);
+    width: clamp(75px, 120px, 120px);
+    height: max-content;
+    font-size: clamp(1em, calc(5vh + 1em), 1em);
     width: 125px;
     height: fit-content;
     /* overflow: hidden; */
@@ -1333,7 +1350,7 @@ font-family: Georgia, 'Times New Roman', Times, serif;
   align-items: center;
   text-decoration: none;
   text-transform: lowercase;
-  margin-left: 1em;
+  margin-right: 1em;
 }
 /* END OF laptopsDetails */
 

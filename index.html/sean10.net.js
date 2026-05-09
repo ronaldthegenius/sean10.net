@@ -134,11 +134,11 @@ previewContainer.innerHTML = `
              ${product.descriptionTitle ? `<div class="descriptionTitle">${product.descriptionTitle}</div>` : ''} 
 
             
-     ${product.pcName ? `<div class="laptopsDetails"><b>${product.pcName}</b><span>pcName</span></div>` : ''}
-    ${product.processor ? `<div class="laptopsDetails"><b>${product.processor}</b><span>processor/s</span></div>` : ''}
-    ${product.ram ? `<div class="laptopsDetails"><b>${product.ram}</b><span>storage</span></div>` : ''}
-    ${product.storage ? `<div class="laptopsDetails"><b>${product.storage}</b><span>ram</span></div>` : ''}
-    ${product.card ? `<div class="laptopsDetails"><b>${product.card}</b><span>card</span></div>` : ''}
+     ${product.pcName ? `<div class="laptopsDetails"> <span>pcName</span><b>${product.pcName}</b></div>` : ''}
+    ${product.processor ? `<div class="laptopsDetails"><span>processor/s</span><b>${product.processor}</b></div>` : ''}
+    ${product.ram ? `<div class="laptopsDetails"><span>storage</span><b>${product.ram}</b></div>` : ''}
+    ${product.storage ? `<div class="laptopsDetails"><span>ram</span><b>${product.storage}</b></div>` : ''}
+    ${product.card ? `<div class="laptopsDetails"><span>card</span><b>${product.card}</b></div>` : ''}
 
    
     ${product.details ? `<div class="paragraph"><b>${product.details}</b></div>` : ''}
