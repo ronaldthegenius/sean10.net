@@ -11,7 +11,7 @@ function renderProducts() {
     productList.innerHTML = myProducts.map(product => `
         <div class="product" data-category="${product.category}" onclick="openPreview('${product.id}')">
             <div class="image_BX">
-              <span class="condition">${product.class}</span>
+              <span class="condition">${product.class}</span> 
                 <img height="100px" width="110px" src="${product.image}" alt="${product.name}">
                 ${product.isNew ? '<mark>new</mark>' : ''}
                 <h3><span>${product.name}</span></h3>

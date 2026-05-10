@@ -474,10 +474,10 @@ body  {
 
   main {
     grid-area: main;
-    background: #fff;
+    /* background: #fff; */
     font-family: 'Courier New', Courier, monospace;
       /* border: 1px red solid; */
-    /* margin-left: 6em; */
+    /* margin-left: 6em;  */
     margin-right: 6em;
     margin-top: 1em;
     margin-bottom: 1em;
@@ -488,6 +488,7 @@ body  {
     text-transform: lowercase;
     justify-content: center;
 align-items: center; 
+text-align: center;
   }
 
   footer {
@@ -1666,8 +1667,8 @@ font-family: Georgia, 'Times New Roman', Times, serif;
   footer {
 
       /* border: 1px red solid; */
-    /* margin-left: 6em; */
-    margin-right: 6em;
+    margin-left: 1em;
+    margin-right: 7em;
     margin-top: 1em;
     margin-bottom: 1em;
     padding-top: 5px;
@@ -1698,11 +1699,19 @@ font-family: Georgia, 'Times New Roman', Times, serif;
     padding: 0;
     text-align: center;
   }
+  header{
+    margin-left: 1em;
+    margin-right: 1em;
+  }
 
   body{
     margin: 0;
     padding: 0;
     grid-template-columns: 1fr;
+  }
+  main{
+     margin-left: -5em; 
+    margin-right: 0;
   }
 
   aside{
@@ -1888,7 +1897,7 @@ header  .buttons   .all:hover{
 
  /*start of prdts  */
  .product-container{
-  /*  */
+  overflow: scroll;
  }
 
  .product-container .product {
@@ -1907,14 +1916,14 @@ header  .buttons   .all:hover{
 
 
   .product-container  .product img {
-      width: 75px;
-    height: 75px;
+      /* width: 75px;
+    height: 75px; */
       /* border-radius: 0px; */
   }
   
   .product-container .product .image_BX .condition{
-    right: -1.2rem;
-    top: 1.7rem;
+    /* right: -1.2rem;
+    top: 1.7rem; */
     font-size: 9px;
   }
 .product-container .product .image_BX .price-container span{
@@ -2235,7 +2244,10 @@ del {
   font-size: 10px;
 }
 
-
+footer{
+  margin-left: -4em;
+    margin-right: 1em;
+}
 
 
 
