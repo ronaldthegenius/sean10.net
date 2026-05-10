@@ -779,7 +779,7 @@ header  .buttons   .all:hover{
 
 
 .product-container {
-  overflow: scroll;
+  overflow: hidden;
   /* border: 1px solid red; */
   background-color: #000;
   /* background-image: url(/images/george2.jpg); */
@@ -1699,6 +1699,16 @@ font-family: Georgia, 'Times New Roman', Times, serif;
     padding: 0;
     text-align: center;
   }
+  .logo{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .logo .logo {
+    font-size: 2em;
+  }
   header{
     margin-left: 1em;
     margin-right: 1em;
@@ -1743,18 +1753,7 @@ font-family: Georgia, 'Times New Roman', Times, serif;
     /* font-size:7px; */
   }
 
-/* start of logo */
-     .logo{
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-evenly;
-     }
 
-  .logo .logo {
-    font-size: 1rem;
-  } 
-  /* end of logo */
 
   /* start of form */
   form{
@@ -1898,6 +1897,7 @@ header  .buttons   .all:hover{
  /*start of prdts  */
  .product-container{
   overflow: scroll;
+  gap: 10px;
  }
 
  .product-container .product {
