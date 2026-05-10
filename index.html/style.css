@@ -43,11 +43,10 @@ all items margin top & bottom set to 15px
  
 
 body  {
-    border: 1px red solid;
+    /* border: 1px red solid; */
     /* margin-left: 6em;
     margin-right: 6em; */
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin: 2em;
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 15px;
@@ -75,7 +74,7 @@ body  {
     padding-left: 15px;
     margin-left: 6em;
     margin-right: 8em;
-    border: 1px red solid;
+    /* border: 1px red solid; */
     text-transform: lowercase;
     justify-content: center;
     align-items: center;
@@ -146,7 +145,7 @@ body  {
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    padding: 10px;
    /* end of glass */
   }
 
@@ -169,7 +168,7 @@ body  {
     margin: 10px;
     border-radius: 8px;
     text-transform: uppercase;
-    border: 1px red solid;
+    /* border: 1px red solid; */
     padding: 5px;
     background: #000;
     color: yellowgreen;
@@ -186,7 +185,7 @@ body  {
     color: green;
     background: #fff;
     font-size: clamp(1em, calc(5vh + 1em), 1.1em);
-    border: 2px red solid;
+    /* border: 2px red solid; */
     border-radius: 20px;
     max-width: 100%;
     margin: 5px;
@@ -211,7 +210,7 @@ body  {
     text-align: center;
     border-radius: 8px;
     text-transform: uppercase;
-    border: 1px red solid;
+    /* border: 1px red solid; */
     padding: 5px;
     background-color: #000;
     color: yellowgreen;
@@ -267,6 +266,7 @@ body  {
   justify-content: center;
   align-items: center;
   text-align: center;
+  overflow: scroll;
 }
 
 .sidebar-preview-content  .back-btn{
@@ -476,7 +476,7 @@ body  {
     grid-area: main;
     background: #fff;
     font-family: 'Courier New', Courier, monospace;
-      border: 1px red solid;
+      /* border: 1px red solid; */
     /* margin-left: 6em; */
     margin-right: 6em;
     margin-top: 1em;
@@ -494,72 +494,11 @@ align-items: center;
     grid-area: footer;
   }
 
-/* background blur */
-/* .bg-image { */
-  /* The image used */
-  /* background-image: url("/images/george2.jpg"); */
-
-  /* Add the blur effect */
-  /* filter: blur(8px); */
-  /* -webkit-filter: blur(8px); */
-
-  /* Full height */
-  /* height: 100%; */
-
-  /* Center and scale the image nicely */
-  /* background-position: center; */
-  /* background-repeat: no-repeat; */
-  /* background-size: cover; */
-/* } */
-
-/* end of that above */
 
 
-  /* USED BOX*/
-  /* 
-   <div class="product-container">  ----1---
-       
-        <div class="product"  data-category="jewerly">
-          <img src="/images/hp z book 15 work station.jpg" alt="hp z book 15"> 
-          <div class="group"><h3>hp z book 15</h3> <h5>used</h5></div>
-          <p>Price:  <del>$370.4</del><span style="color: forestgreen; font-size: 20px; margin-top: 1px; overflow: hidden;"><b>$344.1</b></span><span>offer 7%</span></p>
-          <div class="contacts"><a href="tel:+256750812318"><i class="bi bi-telephone"></i></a>  <a href="#"><i class="bi bi-telegram"></i></a> <a href="whatsapp://+256750812318"><i class="bi bi-whatsapp"></i></a> <a href="#"><i class="bi bi-wechat"></i></a>  <button>Add to Cart</button></div>
-         <h6>location; <span>uae abu dhabi</span><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7344.456522077665!2d54.48444080000001!3d24.368420600000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e413ebd13d805%3A0xa30ec5a4782255c4!2sBudget%20Rent%20a%20Car%20%7C%20Musaffah%20Abu%20Dhabi!5e1!3m2!1sen!2sae!4v1722891807268!5m2!1sen!2sae"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></h6>
-         <div class="piece">1 piece available</div>
-        </div>
-       
-    
-    
+
 
     
-    */
-
-    /* FREE/NEW BOX  ----1---*/  
-
-    /* 
-      <div class="product"  data-category="game_controllers">
-          <img src="/images/hp z book 15 work station.jpg" alt="hp z book 15"> 
-          <div class="group"><h3>  xbox controller</h3> <h5>new</h5></div>
-          <p>Price:<del>$71.42</del><span style="color: forestgreen; font-size: 20px; margin-top: 1px; overflow: hidden;"><b>$57.14</b></span><span>offer 20%</span></p>  
-          <div class="contacts"><a href="tel:+256750812318"><i class="bi bi-telephone"></i></a>  <a href="#"><i class="bi bi-telegram"></i></a> <a href="whatsapp://+256750812318"><i class="bi bi-whatsapp"></i></a> <a href="#"><i class="bi bi-wechat"></i></a>  <button>Add to Cart</button></div>
-          <h6>location; <span>uae abu dhabi</span><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7344.456522077665!2d54.48444080000001!3d24.368420600000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e413ebd13d805%3A0xa30ec5a4782255c4!2sBudget%20Rent%20a%20Car%20%7C%20Musaffah%20Abu%20Dhabi!5e1!3m2!1sen!2sae!4v1722891807268!5m2!1sen!2sae"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></h6>
-          <!-- <div class="supplier"><span>MADE IN</span><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/1920px-Flag_of_Mexico.svg.png" alt=""></div> -->
-         <div class="between">min.order: 1 piece</div>
-        </div>
-       
-        
-        */
- 
-
-
-
-
-
-        /* END OF RETURN BOX */
-
-        /* nav button{
-          display: none;
-        } */
 
   header p {
     margin: 5px;
@@ -571,7 +510,7 @@ align-items: center;
     font-weight: 900;
     background: #333;
     border-radius: 4px;
-    border: 1px red solid;
+    /* border: 1px red solid; */
     justify-content: center;
     align-items: center;
   }
@@ -582,7 +521,7 @@ align-items: center;
 
 .logo {
   overflow: hidden;
-  border: 1px red solid;
+  /* border: 1px red solid; */
   justify-content: center;
   align-items: center;
   padding:1em;
@@ -855,26 +794,26 @@ header  .buttons   .all:hover{
 
 
  .product-container .product {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content:center;
-  align-items: center;
-   width: fit-content;
+  
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
     height: fit-content;
     /* overflow: hidden; */
-    margin: 10px;
-    font-size: 12px;
-    padding: 10px;
+    margin: 9px;
+    font-size: 15px;
+    padding: 2px;
    
 /* start of glass */
-   background: rgba(255, 255, 255, 0.2);
-   /* background: #fff; */
+   /* background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: 10% 50% 10% 50% / 50% 10% 50% 10%;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
+    /* padding: 10px; */
    /* end of glass */
    
   }
@@ -883,7 +822,7 @@ header  .buttons   .all:hover{
     transform: scale(1.02);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: groove 4px;
+    border: none;
 
   }
   
@@ -903,7 +842,6 @@ header  .buttons   .all:hover{
     font-size: clamp(1em, calc(5vh + 1em), 1em);
     width: clamp(75px, 120px, 120px);
     height: max-content;
-    font-size: clamp(1em, calc(5vh + 1em), 1em);
     width: 125px;
     height: fit-content;
     /* overflow: hidden; */
@@ -923,8 +861,6 @@ header  .buttons   .all:hover{
 .product-container  .product .image_BX  img {
   /* border: red 1px dotted; */
     padding: 3px;
-    display: flex;
-    flex-wrap: wrap;
     background: yellow;
     /* justify-content: center; */
     align-items: center;
@@ -1326,18 +1262,19 @@ font-family: Georgia, 'Times New Roman', Times, serif;
 
 /* START OF laptopsDetails */
  .products-preview .pdtdescription .laptopsDetails{
-  background: orangered;
-  color: #fff;
-  padding: 7px;
-  font-size: clamp(1.5rem, calc(5vh + 1), 1rem);
-  border-radius: 15px;
-  text-align: center;
-  align-items: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  width: max-content;
+  font-weight: lighter;
+    background: orangered;
+    color: #fff;
+    padding: 7px;
+    font-size: clamp(1em, calc(5vh + 1em), 1em);
+    border-radius: 15px;
+    text-align: center;
+    align-items: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    /* width: min-content; */
     margin: 0.5em;
-    display: flex;
+    display: inline-flex;
 }
 .products-preview .pdtdescription .laptopsDetails span{
   border-radius: 10px;
@@ -1350,7 +1287,7 @@ font-family: Georgia, 'Times New Roman', Times, serif;
   align-items: center;
   text-decoration: none;
   text-transform: lowercase;
-  margin-right: 1em;
+  margin-left: 1em;
 }
 /* END OF laptopsDetails */
 
@@ -1626,7 +1563,7 @@ font-family: Georgia, 'Times New Roman', Times, serif;
     align-items: center;
     text-align: center;
     resize: horizontal;
-    font-size: clamp(1em, calc(5dvh + 1em), 1.2em);
+    font-size: clamp(1em, calc(5vh + 1em), 1.2em);
 }
 
 @keyframes marquee-scroll {
@@ -1646,7 +1583,7 @@ font-family: Georgia, 'Times New Roman', Times, serif;
 
 
 .product-container .product .image_BX del{
-  font-size: clamp(1em, calc(1vh + 1em), 1em);
+  font-size: clamp(1em, calc(1vh + 1em), 1.2em);
   color: brown;
   border-radius: 8px;
   text-decoration: line-through;
@@ -1659,7 +1596,7 @@ font-family: Georgia, 'Times New Roman', Times, serif;
 
 
 .products-preview .price-container{
-  font-size: clamp(1em, calc(5vh + 1em), 1.2em);
+  font-size: clamp(1em, calc(5vh + 1em), 1em);
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -1670,6 +1607,7 @@ font-family: Georgia, 'Times New Roman', Times, serif;
     display: inline-flex;
     flex-wrap: wrap;
     border-radius: 12px;
+    overflow: scroll;
 }
 
   
@@ -1727,7 +1665,7 @@ font-family: Georgia, 'Times New Roman', Times, serif;
   /* FOOTER */
   footer {
 
-      border: 1px red solid;
+      /* border: 1px red solid; */
     /* margin-left: 6em; */
     margin-right: 6em;
     margin-top: 1em;
@@ -1954,9 +1892,11 @@ header  .buttons   .all:hover{
  }
 
  .product-container .product {
-    /* width: 100%;
-    height: 330px; */
     border-radius: 8px;
+        width: 150px;
+        /* border: 1px red solid; */
+        height: 150px;
+        font-size: 12px;
   }
 
   .product-container h3 {
@@ -1965,32 +1905,21 @@ header  .buttons   .all:hover{
    }
 
 
-  /* .product-container .product .group  {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: 1px;
-    margin-bottom: 1px;
-    border: red 1px solid;
-    padding: 2px;
-    
-} */
-
-/* .product-container .product .group h5 {
-  padding:2px ;
-  margin-left: 1px;
-  font-size: 10px;
- 
-}
 
   .product-container  .product img {
-      width: 100%;
-      height: 100px;
-      border-radius: 0px;
+      width: 75px;
+    height: 75px;
+      /* border-radius: 0px; */
   }
-   */
-
+  
+  .product-container .product .image_BX .condition{
+    right: -1.2rem;
+    top: 1.7rem;
+    font-size: 9px;
+  }
+.product-container .product .image_BX .price-container span{
+  font-size: 13px;
+}
   
 /* ============================================
    STARTB OF PRODUCTS PREVIEW (The Detail Window)

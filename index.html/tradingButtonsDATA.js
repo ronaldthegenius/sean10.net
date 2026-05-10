@@ -9,6 +9,8 @@ const categories = [
     { id: "game_controllers", label: "GAME CONTROLLERS" },
     { id: "gaming_pc", label: "GAMING PC" },
     { id: "power_banks", label: "POWER BANKS" },
-    { id: "consoles", label: "GAMING CONSOLES" }
+    { id: "consoles", label: "GAMING CONSOLES" },
+    { id: "gaming", label: "GAMING" },
+    { id: "workshop_tools", label: "WORKSHOP" }
     
 ];

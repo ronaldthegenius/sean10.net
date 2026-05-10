@@ -40,7 +40,7 @@ function loadSidebarList() {
                 ${conditionBadge} 
                 <img src="${imgSrc}" alt="${item.title}">
                 <div class="item-label">
-                    <h1>${item.title}</h1>
+                    ${item.name ? `<h1>${item.name}</h1>` : ''}
                 </div>
             </div>
         `;
@@ -63,8 +63,16 @@ function loadSidebarList() {
     const channelHTML = `
         <div id="channel">
             <ul>
-                <li><i class="bi bi-whatsapp"></i></li>
-                <li><i class="bi bi-telegram"></i></li>
+               <li>
+  <a href="https://whatsapp.com/channel/0029Vb7vjWABvvsWn25bfx3e?text=your%27e%20most%20welcome%20dear%20to%20sean10.net%20used%20channel" target="_blank" rel="noopener noreferrer">
+    <i class="bi bi-whatsapp"></i>
+  </a>
+</li>
+               <li>
+  <a href="https://t.me/+grKIq1DZyWdkMjM0?text=your%27e%20most%20welcome%20dear%20to%20sean10.net%20used%20channel" target="_blank" rel="noopener noreferrer">
+    <i class="bi bi-telegram"></i>
+  </a>
+</li>
             </ul>
             <p>used channels</p>
         </div>
@@ -95,10 +103,16 @@ function showPreview(index) {
     const channelHTML = `
         <div id="channel">
             <ul>
-                <li><i class="bi bi-whatsapp"></i></li>
-            </ul>
-            <ul>
-                <li><i class="bi bi-telegram"></i></li>
+               <li>
+  <a href="https://whatsapp.com/channel/0029Vb7vjWABvvsWn25bfx3e?text=your%27e%20most%20welcome%20dear%20to%20sean10.net%20used%20channel" target="_blank" rel="noopener noreferrer">
+    <i class="bi bi-whatsapp"></i>
+  </a>
+</li>
+               <li>
+  <a href="https://t.me/+grKIq1DZyWdkMjM0?text=your%27e%20most%20welcome%20dear%20to%20sean10.net%20used%20channel" target="_blank" rel="noopener noreferrer">
+    <i class="bi bi-telegram"></i>
+  </a>
+</li>
             </ul>
             <p>used channels</p>
         </div>
@@ -111,7 +125,7 @@ function showPreview(index) {
             <h2>${item.title}</h2>
             <p><b>Price:</b> UGX ${item.price}</p>
             <p>${item.paragraph}</p>
-            <a href="https://wa.me/256750812318?text=${encodedMsg}" target="_blank" class="buy-btn">
+            <a href="https://wa.me/${item.owner}?text=${encodedMsg}" target="_blank" class="buy-btn">
                 WhatsApp owner
             </a>
         </div>
