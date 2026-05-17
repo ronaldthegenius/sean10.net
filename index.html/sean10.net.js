@@ -95,23 +95,23 @@ previewContainer.innerHTML = `
             </a>
         </li>
         
-        // <form class="online_chat">
-        //     <input type="text" id="online_chat" placeholder="chat online">
-        //     <button type="submit">send_chat</button>
-        // </form>
+        <form class="online_chat">
+            <input type="text" id="online_chat" placeholder="chat online">
+            <button type="submit">send_chat</button>
+        </form>
     </ul>
 </div>
-//         <div class="name">
-//             <h3>${product.name}</h3> 
-//             <span id="Mybasket">DROP IN basket <i class="bi bi-cart4"></i></span>
-//         </div>
-//             <button class="fav-icon" data-id="${product.id}">♡</button> 
+        <div class="name">
+            <h3>${product.name}</h3> 
+            <span id="Mybasket">DROP IN basket <i class="bi bi-cart4"></i></span>
+        </div>
+            <button class="fav-icon" data-id="${product.id}">♡</button> 
 
-//   <nav>
-//   <a href="favorites.html" class="nav-fav">
-//     ♥️ Favorites (<span class="fav-count">0</span>)
-//   </a>
-// </nav>
+  <nav>
+  <a href="favorites.html" class="nav-fav">
+    ♥️ Favorites (<span class="fav-count">0</span>)
+  </a>
+</nav>
         <div class="condition">condition: <span>${product.condition}</span></div>
         <div class="location">
             Location: <span>${product.location || 'Not specified'}</span>
