@@ -287,8 +287,14 @@ body  {
 }
 
 .sidebar-preview-content h2{
-  font-size: clamp(1.5em, calc(5vh + 1em), 1em);
+  font-size: clamp(1em, (5vh + 1em), 1em);
   color: #999;
+}
+
+.sidebar-preview-content h1{
+  padding: 3px;
+  color: orange;
+    font-size: clamp(1em, (5vh + 1em), 1em);
 }
 .sidebar-preview-content p{
   font-size: clamp(1em, calc(5vh + 1em), 1em);

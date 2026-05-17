@@ -123,6 +123,7 @@ function showPreview(index) {
             <button onclick="loadSidebarList()" class="back-btn"">← Back to Shop</button>
             <img src="${imgSrc}" alt="${item.title}" >
             <h2>${item.title}</h2>
+            ${item.name ? `<h1>${item.name}</h1>` : ''}
             <p><b>Price:</b> UGX ${item.price}</p>
             <p>${item.paragraph}</p>
             <a href="https://wa.me/${item.owner}?text=${encodedMsg}" target="_blank" class="buy-btn">
