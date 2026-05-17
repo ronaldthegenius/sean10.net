@@ -1483,6 +1483,19 @@ font-family: Georgia, 'Times New Roman', Times, serif;
     object-fit: contain;
 }
 
+.product-thumbnail mark{
+
+        color: red;
+    opacity: 0.3;
+    text-decoration: dotted;
+    text-decoration-line: initial;
+    text-decoration-thickness: initial;
+    text-decoration-style: dotted;
+    text-decoration-color: initial;
+    position: absolute;
+    font-size: clamp(3em, calc(1vh + 1em), 1em);
+
+}
 
 .close-btn {
     position: absolute;
@@ -1609,7 +1622,7 @@ font-family: Georgia, 'Times New Roman', Times, serif;
     display: inline-flex;
     flex-wrap: wrap;
     border-radius: 12px;
-    overflow: scroll;
+    /* overflow: scroll; */
 }
 
   
@@ -1898,7 +1911,9 @@ header  .buttons   .all:hover{
  /*start of prdts  */
  .product-container{
   overflow: scroll;
-  gap: 10px;
+        gap: 5px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
  }
 
  .product-container .product {
