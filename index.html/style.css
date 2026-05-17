@@ -226,8 +226,23 @@ body  {
   }
   
  /* --- Small Screens (Mobile) --- */
+  
+ @media screen and (min-width: 600px) and (max-width: 700px)  {
+  #sidebar.open {
+    display: block !important;
+        position: fixed;
+        top: -3.7em;
+        left: -5em;
+        width: 85vw;
+        width: 85dvw;
+        height: 90dvh;
+        height: 90vh;
+        background: black;
+        z-index: 9999;
+  }
+ }
 /* --- Small Screens (Mobile) --- */
-@media (max-width: 767px) {
+@media (max-width: 701px) {
   #sidebar {
     display: none !important; /* Force hide when closed */
   }
@@ -237,9 +252,9 @@ body  {
     display: block !important;
         position: fixed;
         top: -3.7em;
-        left: -5em;
-        width: 80vw;
-        width: 80dvw;
+        left: -3em;
+        width: 88vw;
+        width: 88dvw;
         height: 90dvh;
         height: 90vh;
         background: black;
