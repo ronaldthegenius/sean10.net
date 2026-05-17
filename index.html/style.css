@@ -233,8 +233,8 @@ body  {
         position: fixed;
         top: -3.7em;
         left: -5em;
-        width: 85vw;
-        width: 85dvw;
+        width: 80vw;
+        width: 80dvw;
         height: 90dvh;
         height: 90vh;
         background: black;
@@ -252,7 +252,7 @@ body  {
     display: block !important;
         position: fixed;
         top: -3.7em;
-        left: -3em;
+        left: -5.5em;
         width: 88vw;
         width: 88dvw;
         height: 90dvh;
