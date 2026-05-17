@@ -8,8 +8,9 @@ const categories = [
     { id: "new_items", label: "NEW ITEMS", color: "green" },
     { id: "game_controllers", label: "GAME CONTROLLERS" },
     { id: "gaming_pc", label: "GAMING PC" },
-    { id: "power_banks", label: "POWER BANKS" },
+    { id: "batteries", label: "BATTERIES" },
     { id: "consoles", label: "GAMING CONSOLES" },
+    { id: "chargers", label: "CHARGERS" },
     { id: "gaming", label: "GAMING" },
     { id: "workshop_tools", label: "WORKSHOP" }
     

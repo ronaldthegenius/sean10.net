@@ -135,10 +135,11 @@ previewContainer.innerHTML = `
 
             
     ${product.Name ? `<div class="laptopsDetails">${product.PCname}<span><b>${product.PCtitle}</b></span></div>` : ''}
-    ${product.processor ? `<div class="laptopsDetails">${product.gpu}<span><b>${product.processor}</b></span></div>` : ''}
+    ${product.processor ? `<div class="laptopsDetails">${product.cpu}<span><b>${product.processor}</b></span></div>` : ''}
     ${product.ram ? `<div class="laptopsDetails">${product.installedRam}<span><b>${product.ram}</b></span></div>` : ''}
     ${product.storage ? `<div class="laptopsDetails">${product.installedStorage}<span><b>${product.storage}</b></span></div>` : ''}
-    ${product.card ? `<div class="laptopsDetails">${product.card}<span><b>${product.graphics}</b></span></div>` : ''}
+    ${product.gpu ? `<div class="laptopsDetails">${product.gpu}<span><b>${product.graphics}</b></span></div>` : ''}
+    ${product.dedicatedGPU ? `<div class="laptopsDetails">${product.dedicatedGPU}<span><b>${product.dedicatedGPUsize}</b></span></div>` : ''}
     ${product.keypad ? `<div class="laptopsDetails">${product.keypad}<span><b>${product.keypadLight}</b></span></div>` : ''}
 
    

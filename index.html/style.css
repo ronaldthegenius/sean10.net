@@ -1552,6 +1552,7 @@ font-family: Georgia, 'Times New Roman', Times, serif;
     /* width: 100%; */
     align-items: center;
     align-items: center;
+    resize: none;
 }
 
 .product-container .product .image_BX .price-container span {
@@ -1563,7 +1564,7 @@ font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
     align-items: center;
     text-align: center;
-    resize: horizontal;
+    resize: none;
     font-size: clamp(1em, calc(5vh + 1em), 1.2em);
 }
 
