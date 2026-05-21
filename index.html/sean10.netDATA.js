@@ -14,6 +14,8 @@ const myProducts = [
        "/images/used-pack/thumbnails/sean thumbnails/ds4 1.jpeg",
        "/images/used-pack/thumbnails/sean thumbnails/ds4 2.jpeg",
     ],
+    "span" : "price per piece",
+    "h4" : "1 piece available",
       "whatsappNumber": "256750812318?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
     "phoneNumber": "256750812318",
     "location": " uae shrjah> ",
@@ -27,10 +29,35 @@ const myProducts = [
     "newPrice": "40,000ugsh",
    
   },
+
+  {
+    "id": "evisa",
+    "class": "new",
+    "name": "uae 2 year visas",
+    "category": "evisa  new_items",
+    "image": "/images/new-park/sean/bye and fly.jpeg",
+    "gallery": [
+      "/images/new-park/sean/thumbnails/bye and fly 4.jpeg",
+      "/images/new-park/sean/thumbnails/bye and fly 3.jpeg",
+      "/images/new-park/sean/thumbnails/bye and fly 2.jpeg",
+      "/images/new-park/sean/thumbnails/bye and fly 1.jpeg"
+    ],
+      "whatsappNumber": "971522608061?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
+    "phoneNumber": "971522608061",
+    "location": " uae > dubai ",
+     "mapUrl": "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3605.3303571042147!2d55.385342490731425!3d25.36024238775342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjXCsDIxJzM2LjkiTiA1NcKwMjMnMTYuNCJF!5e0!3m2!1sen!2sae!4v1779392992416!5m2!1sen!2sae",
+    "condition": "new",
+    "descriptionTitle" : "descriptions;",
+    "details": "from far outside | within the united arab emirates; get yourself an employment visa for 2 years in less than a week, just halla!.... or inbox for more. *trust, believe us",
+    "noteDetails" : "note",
+    "note": "we only deal in 2 years' visa/employment visas",
+    "oldPrice": "7500aed",
+    "newPrice": "7000",
+
+  },
   {
     "id": "batteries",
     "class": "used",
-    "mark": "sean",
     "name": "rechargeable batteries",
     "category": "batteries  used_items new_items",
     "image": "/images/used-pack/sean/AA and AAA charger batteries.jpeg",
@@ -41,6 +68,8 @@ const myProducts = [
       "/images/used-pack/thumbnails/sean thumbnails/AA and AAA charger batteries 2.jpeg",
       "/images/used-pack/thumbnails/sean thumbnails/AA and AAA charger batteries 4.jpeg",
     ],
+    "span" : "price per pair",
+    // "h4" : "1 piece available",
       "whatsappNumber": "256750812318?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
     "phoneNumber": "256750812318",
     "location": " uae shrjah> ",
@@ -52,8 +81,9 @@ const myProducts = [
     "note": "remember these are AA batteries",
     "oldPrice": "50.000ugsh",
     "newPrice": "50,000ugsh",
-   
+
   },
+
   {
     "id": "chargers",
     "class": "used",
@@ -64,6 +94,8 @@ const myProducts = [
        "/images/used-pack/thumbnails/sean thumbnails/AA and AAA charger 2.jpeg",
        "/images/used-pack/thumbnails/sean thumbnails/AA and AAA charger 1.jpeg",
     ],
+    "span" : "price per piece",
+    // "h4" : "1 piece available",
       "whatsappNumber": "256750812318?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
     "phoneNumber": "256750812318",
     "location": " uae shrjah> ",
@@ -93,6 +125,8 @@ const myProducts = [
       "whatsappNumber": "256750812318?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
     "phoneNumber": "256750812318",
     "location": " dubai> ",
+    "span" : "price per piece",
+    // "h4" : "1 piece available",
      "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28928.808191227257!2d55.104990877735254!3d24.99668297781386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f12a5fc60c251%3A0xcb332e4004272dc9!2sJebel%20Ali%20Industrial%20Area%20-%20Jabal%20Ali%20Industrial%20First%20-%20Dubai!5e0!3m2!1sen!2sae!4v1776783267254!5m2!1sen!2sae",
     "condition": "used",
     "descriptionTitle" : "descriptions;",
@@ -122,6 +156,8 @@ const myProducts = [
        "/images/used-pack/thumbnails/sean thumbnails/msi 2.jpeg",
        "/images/used-pack/thumbnails/sean thumbnails/msi 1.jpeg",
     ],
+    // "span" : "price per piece",
+    "h4" : "1 piece available",
       "whatsappNumber": "256750812318?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
     "phoneNumber": "256750812318",
     "location": " uae > dubai",
@@ -142,6 +178,8 @@ const myProducts = [
      "dedicatedGPUsize": "128mb",
      "keypad": "keypadLight",
      "keypadLight": "yes|its RGB",
+     "battery": "batteryLIFE",
+     "batteryLIFE": "3-4 hours when using cpu | intergrated card/simple work",
     "details": [
       "Chip type: Intel(R) UHD Graphics Family",
       " 64-bit operating system, x64-based processor",
@@ -170,6 +208,8 @@ const myProducts = [
        "/images/used-pack/thumbnails/sean thumbnails/hp zbook4.jpeg",
        "/images/used-pack/thumbnails/sean thumbnails/hp zbook5.jpg"
     ],
+    // "span" : "price per piece",
+    "h4" : "1 piece available",
       "whatsappNumber": "256750812318?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
     "phoneNumber": "256750812318",
     "location": " makindye > mubarack zone",
@@ -189,7 +229,9 @@ const myProducts = [
      "dedicatedGPU" : "dedicated gpu",
      "dedicatedGPUsize": "128mb",
      "keypad": "keypadLight",
-     "keypadLight": "yes",
+     "keypadLight": "yes; color #fff/white",
+     "battery": "batteryLIFE",
+     "batteryLIFE": "30 minutes/drained when using cpu | intergrated card/simple work",
     "details": [
       " System type[64-bit, *64-based processor]",
       " ROM/WRITER<yes>"
@@ -239,6 +281,8 @@ const myProducts = [
       "/images/used-pack/thumbnails/sean thumbnails/xbox 1 controller1.jpeg",
       "/images/used-pack/thumbnails/sean thumbnails/xbox 1 controller2.jpeg"
     ],
+    "span" : "price per piece",
+    // "h4" : "1 piece available",
       "whatsappNumber": "256750812318?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
     "phoneNumber": "256750812318",
     "location": " united arab emirates > sharjah|duabi",
@@ -265,6 +309,8 @@ const myProducts = [
       "/images/new-park/sean/thumbnails/xbox xseries controller cover.jpeg",
       "/images/new-park/sean/thumbnails/xbox xseries controller cover 2.jpeg"
     ],
+    "span" : "price per piece",
+    // "h4" : "1 piece available",
       "whatsappNumber": "256750812318?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
     "phoneNumber": "256750812318",
     "location": " china > guanzhou",
@@ -291,6 +337,8 @@ const myProducts = [
       "/images/new-park/sean/thumbnails/ct 1.jpeg",
       "/images/new-park/sean/thumbnails/ct-1  2.jpg"
     ],
+    "span" : "price per piece",
+    // "h4" : "1 piece available",
       "whatsappNumber": "256750812318?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
     "phoneNumber": "256750812318",
     "location": " china > guanzhou",
@@ -304,8 +352,52 @@ const myProducts = [
     "oldPrice": "40.000ugsh",
     "newPrice": "35.000ugsh",
 
-  }
+  
 // END OF SEAN10 ITEMS
+  },
+
+
+// 2 START OF RICHARD darlington
+  {
+    "id": "autommotives",
+    "class": "new",
+    "name": "rich autommotives",
+    "category": "autommotives new_items used_items",
+    "image": "/images/new-park/richard/automotives.jpeg",
+    "gallery": [
+      "/images/new-park/richard/thumbnails/automotives 17.jpeg",
+      "/images/new-park/richard/thumbnails/automotives 16.jpeg",
+      "/images/new-park/richard/thumbnails/automotives 15.jpeg",
+      "/images/new-park/richard/thumbnails/automotives 14.jpeg",
+      "/images/new-park/richard/thumbnails/automotives 13.jpeg",
+      "/images/new-park/richard/thumbnails/automotives 12.jpeg",
+      "/images/new-park/richard/thumbnails/automotives 11.jpeg",
+      "/images/new-park/richard/thumbnails/automotives 10.jpeg",
+      "/images/new-park/richard/thumbnails/automotives 9.jpeg",
+      "/images/new-park/richard/thumbnails/automotives 8.jpeg",
+      "/images/new-park/richard/thumbnails/automotives 7.jpeg",
+      "/images/new-park/richard/thumbnails/automotives 6.jpeg",
+      "/images/new-park/richard/thumbnails/automotives 5.jpeg",
+      "/images/new-park/richard/thumbnails/automotives 4.jpeg",
+      "/images/new-park/richard/thumbnails/automotives 3.jpeg",
+      "/images/new-park/richard/thumbnails/automotives 2.jpeg",
+      "/images/new-park/richard/thumbnails/automotives 1.jpeg",
+    ],
+      "whatsappNumber": "25675721863?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
+    "phoneNumber": "256757921863",
+    "location": " kampala uganda > kiseka market",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3989.756939569294!2d32.570137774964685!3d0.31781749967906453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMMKwMTknMDQuMSJOIDMywrAzNCcyMS44IkU!5e0!3m2!1sen!2sae!4v1779302633501!5m2!1sen!2sae",
+    "condition": " new",
+    "descriptionTitle" : "descriptions;",
+    "details": " we're dealing in new and used spare parts e.g bumpers,lights,doors,boot,bonnet,fender, etc.",
+     "noteDetails" : "note",
+     "note" : "price is negotiable respectively",
+    
+    "oldPrice": "negotiable",
+    "newPrice": "negotiable",
+
+  }
+//2 END OF RICHARD
  
 ];
 

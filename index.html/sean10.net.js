@@ -76,6 +76,7 @@ previewContainer.innerHTML = `
                 ${galleryHTML} 
                 <p class="water-mark">sean10.net</p>
             </div>
+            ${product.span ? `<div class="span"><span>${product.span}</span><h4>${product.h4}</h4></div>` : ''}
         </div>
         <div class="price-container">
             <span> <del>${product.oldPrice}</del> - ${product.newPrice}</span>
@@ -95,11 +96,23 @@ previewContainer.innerHTML = `
             </a>
         </li>
         
-       
+        <form class="online_chat">
+            <input type="text" id="online_chat" placeholder="chat online">
+            <button type="submit">send_chat</button>
+        </form>
     </ul>
 </div>
-       
+        <div class="name">
+            <h3>${product.name}</h3> 
+            <span id="Mybasket">DROP IN basket <i class="bi bi-cart4"></i></span>
+        </div>
+            <button class="fav-icon" data-id="${product.id}">♡</button> 
 
+  <nav>
+  <a href="favorites.html" class="nav-fav">
+    ♥️ Favorites (<span class="fav-count">0</span>)
+  </a>
+</nav>
         <div class="condition">condition: <span>${product.condition}</span></div>
         <div class="location">
             Location: <span>${product.location || 'Not specified'}</span>
@@ -129,6 +142,7 @@ previewContainer.innerHTML = `
     ${product.gpu ? `<div class="laptopsDetails">${product.gpu}<span><b>${product.graphics}</b></span></div>` : ''}
     ${product.dedicatedGPU ? `<div class="laptopsDetails">${product.dedicatedGPU}<span><b>${product.dedicatedGPUsize}</b></span></div>` : ''}
     ${product.keypad ? `<div class="laptopsDetails">${product.keypad}<span><b>${product.keypadLight}</b></span></div>` : ''}
+    ${product.battery ? `<div class="laptopsDetails">${product.battery}<span><b>${product.batteryLIFE}</b></span></div>` : ''}
 
    
     ${product.details ? `<div class="paragraph"><b>${product.details}</b></div>` : ''}

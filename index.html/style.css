@@ -1462,6 +1462,32 @@ font-family: Georgia, 'Times New Roman', Times, serif;
     position: absolute;
     font-size: clamp(3em, calc(1vh + 1em), 1em);
 }
+
+
+
+.products-preview .span{
+     text-align: center;
+     align-items: center;
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     padding: 3px;
+     margin: 1em;
+}
+
+
+.products-preview .span span{
+       padding: 3px;
+    color: orange;
+    font-size: clamp(1em, (5vh + 1em), 1em);
+}
+
+
+.products-preview .span h4{
+       padding: 3px;
+    color: green;
+    font-size: clamp(1em, (5vh + 1em), 1em);
+}
    /* ============================================
    END OF PRODUCTS PREVIEW (The Detail Window)
    ============================================ */

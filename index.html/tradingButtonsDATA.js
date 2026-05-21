@@ -3,6 +3,7 @@
 const categories = [
     { id: "all", label: "HOME/ALL" },
     // !DONT TOUCH
+    { id: "evisas", label: "EVISAs" },
     { id: "laptops", label: "LAPTOPS" },
     { id: "used_items", label: "USED ITEMS", color: "red" },
     { id: "new_items", label: "NEW ITEMS", color: "green" },
@@ -12,6 +13,7 @@ const categories = [
     { id: "consoles", label: "GAMING CONSOLES" },
     { id: "chargers", label: "CHARGERS" },
     { id: "gaming", label: "GAMING" },
+    { id: "autommotives", label: "AUTOMOTIVES" },
     { id: "workshop_tools", label: "WORKSHOP" }
     
 ];
