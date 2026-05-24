@@ -3,7 +3,7 @@
 // This is exactly like JSON, but assigned to a variable
 const myProducts = [
   {
-    "id": "controllers",
+    "id": "controllers 1",
     "class": "used",
     "name": "ds4 controller",
     "category": "game_controllers gaming used_items",
@@ -51,8 +51,8 @@ const myProducts = [
     "details": "from far outside | within the united arab emirates; get yourself an employment visa for 2 years in less than a week, just halla!.... or inbox for more. *trust, believe us",
     "noteDetails" : "note",
     "note": "we only deal in 2 years' visa/employment visas",
-    "oldPrice": "7500aed",
-    "newPrice": "7000",
+    "oldPrice": "7000aed",
+    "newPrice": "6500",
 
   },
   {
@@ -110,7 +110,7 @@ const myProducts = [
    
   },
   {
-    "id": "controllers",
+    "id": "controllers 2",
     "class": "used",
     "name": "xbox xseries controller",
     "category": "controllers gaming used_items",
@@ -126,7 +126,7 @@ const myProducts = [
     "phoneNumber": "256750812318",
     "location": " dubai> ",
     "span" : "price per piece",
-    // "h4" : "1 piece available",
+    "h4" : "2 pieces available",
      "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28928.808191227257!2d55.104990877735254!3d24.99668297781386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f12a5fc60c251%3A0xcb332e4004272dc9!2sJebel%20Ali%20Industrial%20Area%20-%20Jabal%20Ali%20Industrial%20First%20-%20Dubai!5e0!3m2!1sen!2sae!4v1776783267254!5m2!1sen!2sae",
     "condition": "used",
     "descriptionTitle" : "descriptions;",
@@ -366,7 +366,6 @@ const myProducts = [
     "image": "/images/new-park/richard/automotives.jpeg",
     "gallery": [
       "/images/new-park/richard/thumbnails/automotives 17.jpeg",
-      "/images/new-park/richard/thumbnails/automotives 16.jpeg",
       "/images/new-park/richard/thumbnails/automotives 15.jpeg",
       "/images/new-park/richard/thumbnails/automotives 14.jpeg",
       "/images/new-park/richard/thumbnails/automotives 13.jpeg",
@@ -377,7 +376,6 @@ const myProducts = [
       "/images/new-park/richard/thumbnails/automotives 8.jpeg",
       "/images/new-park/richard/thumbnails/automotives 7.jpeg",
       "/images/new-park/richard/thumbnails/automotives 6.jpeg",
-      "/images/new-park/richard/thumbnails/automotives 5.jpeg",
       "/images/new-park/richard/thumbnails/automotives 4.jpeg",
       "/images/new-park/richard/thumbnails/automotives 3.jpeg",
       "/images/new-park/richard/thumbnails/automotives 2.jpeg",

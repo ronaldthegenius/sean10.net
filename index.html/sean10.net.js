@@ -76,7 +76,7 @@ previewContainer.innerHTML = `
                 ${galleryHTML} 
                 <p class="water-mark">sean10.net</p>
             </div>
-            ${product.span ? `<div class="span"><span>${product.span}</span><h4>${product.h4}</h4></div>` : ''}
+          ${product.span && product.h4 ? `<div class="span"><span>${product.span}</span><h4>${product.h4}</h4></div>` : ''}
         </div>
         <div class="price-container">
             <span> <del>${product.oldPrice}</del> - ${product.newPrice}</span>

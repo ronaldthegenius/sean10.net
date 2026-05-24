@@ -3,7 +3,7 @@
 const categories = [
     { id: "all", label: "HOME/ALL" },
     // !DONT TOUCH
-    { id: "evisas", label: "EVISAs" },
+    { id: "evisa", label: "EVISAs" },
     { id: "laptops", label: "LAPTOPS" },
     { id: "used_items", label: "USED ITEMS", color: "red" },
     { id: "new_items", label: "NEW ITEMS", color: "green" },

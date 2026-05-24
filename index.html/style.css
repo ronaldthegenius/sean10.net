@@ -1947,7 +1947,8 @@ header  .buttons   .all:hover{
   overflow: scroll;
         gap: 10px;
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        /* grid-template-columns: repeat(2, 1fr); */
+        grid-template-columns: repeat(auto-fit,minmax(80px,1fr));
  }
 
  .product-container .product {
@@ -1956,26 +1957,41 @@ header  .buttons   .all:hover{
         /* border: 1px red solid; */
         height: 150px;
         font-size: 12px;
+        transform: scale(0.9);
   }
 
   .product-container h3 {
-    /* color: peru; */
-    /* font-size: 12px; */
+    padding: 4px 9px;
+    width: 50%;
+    border: blue 1px solid;
+    text-align: center;
+    align-items: center;
+    display: inline-block;
    }
 
 
 
   .product-container  .product img {
-      /* width: 75px;
-    height: 75px; */
-      /* border-radius: 0px; */
+      width: 70%;
+      height: 70%;
+      max-width: 80px;
   }
   
   .product-container .product .image_BX .condition{
     /* right: -1.2rem;
     top: 1.7rem; */
     font-size: 9px;
+    right: -2.3rem;
   }
+.product-container .product .image_BX .price-container{
+  padding: 3px;
+    width: 50%;
+    border: green 1px solid;
+    text-align: center;
+    align-items: center;
+    display: inline-block;
+}
+  
 .product-container .product .image_BX .price-container span{
   font-size: 10px;
 }
