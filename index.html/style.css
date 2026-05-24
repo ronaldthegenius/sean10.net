@@ -1957,7 +1957,11 @@ header  .buttons   .all:hover{
         /* border: 1px red solid; */
         height: 150px;
         font-size: 12px;
+        justify-content: center;
         transform: scale(0.9);
+        text-align: center;
+        align-items: center;
+        margin-left: -2em;
   }
 
   .product-container h3 {
