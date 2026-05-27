@@ -81,6 +81,18 @@ previewContainer.innerHTML = `
         <div class="price-container">
             <span> <del>${product.oldPrice}</del> - ${product.newPrice}</span>
         </div>
+           <div class="name">
+            <h3>${product.name}</h3> 
+            <span id="Mybasket">DROP IN basket <i class="bi bi-cart4"></i></span>
+        </div>
+            <button class="fav-icon" data-id="${product.id}">♡</button> 
+
+  <nav>
+  <a href="favorites.html" class="nav-fav">
+    ♥️ Favorites (<span class="fav-count">0</span>)
+  </a>
+</nav>
+
   <div class="contact_seller" id="seller">
     <h3>contact seller below</h3>
     <ul>
@@ -95,11 +107,51 @@ previewContainer.innerHTML = `
                 <i class="bi bi-telephone"></i>
             </a>
         </li>
-      
-    </ul>
+          </ul>
+
+<div class="emailSeller">     
+<!-- Dark Mode Toggle Switch -->
+<label class="dark-mode-toggle">
+    <input type="checkbox" id="darkModeToggle">
+    <span class="toggle-slider"></span>
+</label>
+
+<form class="online_chat" id="emailSellerForm" action="https://formspree.io/f/mjgzprel" method="POST">
+    <input type="email" name="email" id="userEmail" placeholder="Your email" required autocomplete="email">
+    
+    <textarea name="message" id="userMessage" placeholder="Your message" rows="4" maxlength="500"></textarea>
+    <div id="charCount">0/500 characters</div>
+    
+    <!-- Google reCAPTCHA -->
+    <div class="g-recaptcha" data-sitekey="6LcB4P4sAAAAAIcsZiuKKNCuzctrHcSPTC0mxK0D" data-callback="onRecaptchaSuccess" data-expired-callback="onRecaptchaExpired"></div>
+    <div id="recaptchaError" style="color: var(--error-color); font-size: 12px; display: none;">Please complete the reCAPTCHA</div>
+    
+    <!-- Honeypot for additional spam protection -->
+    <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
+    
+    <input type="hidden" name="_to" value="${product.email}">
+    <input type="hidden" name="_subject" value="New inquiry about your product">
+    
+    <button type="submit" id="submitBtn">Email Seller</button>
+    <div id="formStatus"></div>
+</form>
+
+<!-- Clipboard fallback -->
+<div id="clipboardFallback" style="display:none; margin-top:10px;">
+    <p style="color: var(--warning-color);">⚠️ Email form is unavailable. Copy this message manually:</p>
+    <textarea id="fallbackMessage" rows="3" readonly style="width:100%; background: var(--input-bg); color: var(--text-primary); border: 1px solid var(--border-color);"></textarea>
+    <button onclick="copyToClipboard()" style="margin-top:5px;">📋 Copy to Clipboard</button>
+    <a href="mailto:${product.email}" style="display:block; margin-top:5px; color: var(--button-bg);">✉️ Or open Email App</a>
 </div>
-      
+
+  
+ </div>
+  
+    
+</div>
+     
         <div class="condition">condition: <span>${product.condition}</span></div>
+
         <div class="location">
             Location: <span>${product.location || 'Not specified'}</span>
         </div>

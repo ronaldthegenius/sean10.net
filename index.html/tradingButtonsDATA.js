@@ -4,6 +4,7 @@ const categories = [
     { id: "all", label: "HOME/ALL" },
     // !DONT TOUCH
     { id: "evisa", label: "EVISAs" },
+    { id: "rides", label: "RIDES" },
     { id: "laptops", label: "LAPTOPS" },
     { id: "used_items", label: "USED ITEMS", color: "red" },
     { id: "new_items", label: "NEW ITEMS", color: "green" },
