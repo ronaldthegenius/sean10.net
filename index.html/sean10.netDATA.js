@@ -3,7 +3,7 @@
 // This is exactly like JSON, but assigned to a variable
 const myProducts = [
   {                
-    "id": "rides kampala",
+    "id": "rides",
     "class": "new",
     "name": "martin riders",
     "category": "rides  new_items",
