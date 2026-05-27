@@ -6,7 +6,7 @@ const myProducts = [
     "id": "rides kampala",
     "class": "new",
     "name": "martin riders",
-    "data-category": "rides  new_items",
+    "category": "rides  new_items",
     "image": "/images/new-park/asiimwe/martin riders.jpeg",
     "gallery": [
       "/images/new-park/asiimwe/thumbnails/martin riders.jpeg"
