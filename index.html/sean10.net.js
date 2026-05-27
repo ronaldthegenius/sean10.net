@@ -83,7 +83,7 @@ previewContainer.innerHTML = `
         </div>
            <div class="name">
             <h3>${product.name}</h3> 
-            <span id="Mybasket">DROP IN basket <i class="bi bi-cart4"></i></span>
+            
         </div>
 
 
@@ -104,11 +104,6 @@ previewContainer.innerHTML = `
           </ul>
 
 <div class="emailSeller">     
-<!-- Dark Mode Toggle Switch -->
-<label class="dark-mode-toggle">
-    <input type="checkbox" id="darkModeToggle">
-    <span class="toggle-slider"></span>
-</label>
 
 <form class="online_chat" id="emailSellerForm" action="https://formspree.io/f/mjgzprel" method="POST">
     <input type="email" name="email" id="userEmail" placeholder="Your email" required autocomplete="email">
