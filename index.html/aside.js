@@ -127,7 +127,7 @@ function showPreview(index) {
             <p><b>Price:</b> UGX ${item.price}</p>
             <p>${item.paragraph}</p>
             <a href="https://wa.me/${item.owner}?text=${encodedMsg}" target="_blank" class="buy-btn">
-                WhatsApp owner
+                WhatsApp owner <i class="bi bi-whatsapp"></i>
             </a>
         </div>
         ${channelHTML}
