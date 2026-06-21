@@ -13,7 +13,7 @@ const locationDropdown = `
             <option value="kireka">kireka</option>
             <option value="makindye">makindye</option>
             <option value="busega">busega</option>
-            <option value="zana">zana</option>
+            <option value="dubai">dubai</option>
         </select>
     </div>
 `;

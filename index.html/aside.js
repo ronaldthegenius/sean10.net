@@ -1,16 +1,15 @@
 function toggleSidebar() {
   const sidebar = document.getElementById("sidebar");
-  // This one line handles both opening and closing
-  sidebar.classList.toggle("open");
+  const isOpen = sidebar.classList.toggle("open");
+  
+  // Force display based on class
+  if (isOpen) {
+    sidebar.style.display = "block";
+    if (sidebar.innerHTML.trim() === "") loadSidebarList();
+  } else {
+    sidebar.style.display = "none";
+  }
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -38,7 +37,7 @@ function loadSidebarList() {
         return `
             <div class="sidebar-content" onclick="showPreview(${actualIndex})">
                 ${conditionBadge} 
-                <img src="${imgSrc}" alt="${item.title}">
+                <img src="${imgSrc}" alt="${item.alTtitle}
                 <div class="item-label">
                     ${item.name ? `<h1>${item.name}</h1>` : ''}
                 </div>
@@ -80,7 +79,7 @@ function loadSidebarList() {
 
     // Combine everything - items, pagination, then channel at bottom
     sidebar.innerHTML = listHTML + paginationHTML + channelHTML;
-    sidebar.style.display = "block";
+    // sidebar.style.display = "block";
 }
 
 // Function to change pages
@@ -121,15 +120,11 @@ function showPreview(index) {
     sidebar.innerHTML = `
         <div class="sidebar-preview-content">
             <button onclick="loadSidebarList()" class="back-btn"">← Back to Shop</button>
+           <h1>${item.name}</h1>
             <img src="${imgSrc}" alt="${item.title}" >
-            <h2>${item.title}</h2>
-            ${item.name ? `<h1>${item.name}</h1>` : ''}
-            <p><b>Price:</b> UGX ${item.price}</p>
-            <p>${item.paragraph}</p>
-            <a href="https://wa.me/${item.owner}?text=${encodedMsg}" target="_blank" class="buy-btn">
-                WhatsApp owner <i class="bi bi-whatsapp"></i>
-            </a>
-        </div>
+<button onclick="show_more('${item.name}', this)" class="show_more" id="show_more">read_more</button>
+            <div id="show_more-container"></div>
+            <div id="show_more-container"></div>
         ${channelHTML}
     `;
 }

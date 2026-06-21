@@ -71,6 +71,7 @@ previewContainer.innerHTML = `
     <div class="preview active">
         <i class="fas fa-times" onclick="closePreview()"></i>
         <h2>Product Details</h2>
+        ${product.name ? `<h3>${product.name}</h3>` : ''}
         <div class="image-gallery">
             <div class="gallery-grid">
                 ${galleryHTML} 
@@ -82,10 +83,15 @@ previewContainer.innerHTML = `
             <span> <del>${product.oldPrice}</del> - ${product.newPrice}</span>
         </div>
            <div class="name">
-            <h3>${product.name}</h3> 
-            
+            <span id="Mybasket">DROP IN basket <i class="bi bi-cart4"></i></span>
         </div>
+            <button class="fav-icon" data-id="${product.id}">♡</button> 
 
+  <nav>
+  <a href="favorites.html" class="nav-fav">
+    ♥️ Favorites (<span class="fav-count">0</span>)
+  </a>
+</nav>
 
   <div class="contact_seller" id="seller">
     <h3>contact seller below</h3>
@@ -103,40 +109,44 @@ previewContainer.innerHTML = `
         </li>
           </ul>
 
-<div class="emailSeller">     
+          <!-- Global Dark Mode Toggle - Put this in your navigation bar -->
+<label class="dark-mode-toggle" style="position: fixed; top: 10px; right: 10px; z-index: 9999;">
+    <input type="checkbox" id="globalDarkModeToggle">
+    <span class="toggle-slider"></span>
+    <span style="margin-left: 10px;">Dark Mode</span>
+</label>
+           
+      <!--   //   ============ YOUR HTML TEMPLATE ============  -->
+${product.sellerEmail ? `<div class="emailSeller" data-product-id="${product.id}">
+    <form class="online_chat" id="emailSellerForm_${product.id}" action="https://formspree.io/f/mjgzprel" method="POST">
+        <input type="email" name="email" id="userEmail_${product.id}" class="user-email" placeholder="Your email" required autocomplete="email">
+        
+        <textarea name="message" id="userMessage_${product.id}" class="user-message" placeholder="Your message" rows="4" maxlength="500"></textarea>
+        <div id="charCount_${product.id}" class="char-count">0/500 characters</div>
+        
+        <!-- Google reCAPTCHA -->
+        <div class="g-recaptcha" data-sitekey="6LcB4P4sAAAAAIcsZiuKKNCuzctrHcSPTC0mxK0D" data-callback="onRecaptchaSuccess_${product.id}" data-expired-callback="onRecaptchaExpired_${product.id}"></div>
+        <div id="recaptchaError_${product.id}" class="recaptcha-error" style="color: var(--error-color); font-size: 12px; display: none;">Please complete the reCAPTCHA</div>
+        
+        <!-- Honeypot -->
+        <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
+        
+        <input type="hidden" name="_to" value="${product.email}">
+        <input type="hidden" name="_subject" value="New inquiry about your product">
+        
+        <button type="submit" id="submitBtn_${product.id}" class="submit-btn">Email Seller</button>
+        <div id="formStatus_${product.id}" class="form-status"></div>
+    </form>
 
-<form class="online_chat" id="emailSellerForm" action="https://formspree.io/f/mjgzprel" method="POST">
-    <input type="email" name="email" id="userEmail" placeholder="Your email" required autocomplete="email">
-    
-    <textarea name="message" id="userMessage" placeholder="Your message" rows="4" maxlength="500"></textarea>
-    <div id="charCount">0/500 characters</div>
-    
-    <!-- Google reCAPTCHA -->
-    <div class="g-recaptcha" data-sitekey="6LcB4P4sAAAAAIcsZiuKKNCuzctrHcSPTC0mxK0D" data-callback="onRecaptchaSuccess" data-expired-callback="onRecaptchaExpired"></div>
-    <div id="recaptchaError" style="color: var(--error-color); font-size: 12px; display: none;">Please complete the reCAPTCHA</div>
-    
-    <!-- Honeypot for additional spam protection -->
-    <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
-    
-    <input type="hidden" name="_to" value="${product.email}">
-    <input type="hidden" name="_subject" value="New inquiry about your product">
-    
-    <button type="submit" id="submitBtn">Email Seller</button>
-    <div id="formStatus"></div>
-</form>
+    <!-- Clipboard fallback -->
+    <div id="clipboardFallback_${product.id}" class="clipboard-fallback" style="display:none; margin-top:10px;">
+        <p style="color: var(--warning-color);">⚠️ Email form is unavailable. Copy this message manually:</p>
+        <textarea id="fallbackMessage_${product.id}" class="fallback-message" rows="3" readonly style="width:100%; background: var(--input-bg); color: var(--text-primary); border: 1px solid var(--border-color);"></textarea>
+        <button onclick="copyToClipboard('${product.id}')" style="margin-top:5px;">📋 Copy to Clipboard</button>
+        <a href="mailto:${product.email}" style="display:block; margin-top:5px; color: var(--button-bg);">✉️ Or open Email App</a>
+    </div>
+</div>` : ''}
 
-<!-- Clipboard fallback -->
-<div id="clipboardFallback" style="display:none; margin-top:10px;">
-    <p style="color: var(--warning-color);">⚠️ Email form is unavailable. Copy this message manually:</p>
-    <textarea id="fallbackMessage" rows="3" readonly style="width:100%; background: var(--input-bg); color: var(--text-primary); border: 1px solid var(--border-color);"></textarea>
-    <button onclick="copyToClipboard()" style="margin-top:5px;">📋 Copy to Clipboard</button>
-    <a href="mailto:${product.email}" style="display:block; margin-top:5px; color: var(--button-bg);">✉️ Or open Email App</a>
-</div>
-
-  
- </div>
-  
-    
 </div>
      
         <div class="condition">condition: <span>${product.condition}</span></div>
