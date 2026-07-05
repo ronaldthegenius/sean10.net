@@ -1,14 +1,33 @@
+// const navButton = document.getElementById("navButton");
+// // navButton.style.color = "forestgreen"; // Change button text color
+// // navButton.style.fontWeight = "bold"; // Make button text bold
+// // navButton.style.padding = "5px"; // Add padding to the button
+// // navButton.style.borderRadius = "0px 10px"; // Add border radius to the button
+// // navButton.style.position = "sticky"; // Make button position sticky
+// // navButton.style.top = "500px"; // Set top position
+// // navButton.style.zIndex = 999999 ;
+// const sidebar = document.getElementById("sidebar");
+// // You can now manipulate 'sidebar' as needed, for example:
+// // sidebar.style.padding = "10px"; // Add padding
+// function toggleSidebar() {
+//     sidebar.classList.toggle("show");
+// }
+
+// Get the button and sidebar elements
+const navButton = document.getElementById("navButton");
+const sidebar = document.getElementById("sidebar");
+
+// Toggle function
 function toggleSidebar() {
-  const sidebar = document.getElementById("sidebar");
-  const isOpen = sidebar.classList.toggle("open");
-  
-  // Force display based on class
-  if (isOpen) {
-    sidebar.style.display = "block";
-    if (sidebar.innerHTML.trim() === "") loadSidebarList();
-  } else {
-    sidebar.style.display = "none";
-  }
+    // Toggle the 'show' class on the sidebar
+    sidebar.classList.toggle("show");
+    
+    // Optional: Change button text based on sidebar state
+    if (sidebar.classList.contains("show")) {
+        navButton.textContent = "hide sidebar";
+    } else {
+        navButton.textContent = "show|hide sidebar";
+    }
 }
 
 
