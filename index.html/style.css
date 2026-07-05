@@ -1894,21 +1894,50 @@ header  .buttons   .all:hover{
 
  
   /* start of navButton */
+  /* navButton START/open btn at 600px */
+  /* end of navButton */
   #navButton{
-           border-top: outset;
+    display: flex;
+       border-top: outset;
         z-index: 999999999;
         position: sticky;
         margin-top: 150px;
         display: flex;
-        color: #fff;
-        background: green;
         padding: 4px;
         border-radius: 10px;
         font-weight: bold;
+        color: #fff;
+        background:green;
+  }   
+#navButton:hover{
+  color: green;
+        background: #fff;
+}
+
+ 
+    .show{
+        /* filter: drop-shadow(2px 4px 6px black); */
+        /* overflow-y: scroll; */
+        /* background-color: #000; */
+        /* filter: drop-shadow(2px 4px 6px black); */
+        align-content: center;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        z-index: 999999;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        top: auto;
+        height: 90vh;
+        height: 90dvh;
+        /* margin: 2rem; */
+        background-clip: text;
+        height: 90dvh;
+        width: stretch;
   }
-  #navButton.active{
-           background: orangered;
-  }
+  /* navButton END/open btn at 600px */
+  /* end of navButton */
   /* end of navButton */
 
   .header p {
