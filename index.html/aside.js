@@ -13,6 +13,11 @@
 //     sidebar.classList.toggle("show");
 // }
 
+
+
+
+ 
+
 // Get the button and sidebar elements
 const navButton = document.getElementById("navButton");
 const sidebar = document.getElementById("sidebar");
@@ -20,10 +25,11 @@ const sidebar = document.getElementById("sidebar");
 // Toggle function
 function toggleSidebar() {
     // Toggle the 'show' class on the sidebar
-    sidebar.classList.toggle("show");
-    
+    sidebar.classList.toggle("open");
+
+   
     // Optional: Change button text based on sidebar state
-    if (sidebar.classList.contains("show")) {
+    if (sidebar.classList.contains("open")) {
         navButton.textContent = "hide sidebar";
     } else {
         navButton.textContent = "show|hide sidebar";
@@ -80,8 +86,8 @@ function loadSidebarList() {
     const channelHTML = `
         <div id="channel">
             <ul>
-               <li>
-  <a href="https://whatsapp.com/channel/0029Vb7vjWABvvsWn25bfx3e?text=your%27e%20most%20welcome%20dear%20to%20sean10.net%20used%20channel" target="_blank" rel="noopener noreferrer">
+               <li> 
+  <a href="https://chat.whatsapp.com/H6kRql2MC8K8DxZQWJaG0H?s=cl&p=a&ilr=1?text=your%27e%20most%20welcome%20dear%20to%20sean10.net%20whatsap%20group" target="_blank" rel="noopener noreferrer">
     <i class="bi bi-whatsapp"></i>
   </a>
 </li>
@@ -91,7 +97,7 @@ function loadSidebarList() {
   </a>
 </li>
             </ul>
-            <p>used channels</p>
+            <p>sean10.net groups</p>
         </div>
     `;
 

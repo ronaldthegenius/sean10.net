@@ -166,6 +166,7 @@ body  {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   }
+
     aside .sidebar-content span {
     font-size: 10px;
     font-weight: 800;
@@ -231,59 +232,71 @@ body  {
   
   
  /* --- Small Screens (Mobile) --- */
+  /* --- Small Screens (Mobile) --- */
   
-  /* navButton start/open btn at 600px */
-   #navButton{
-    display: none;
+ @media screen and (min-width: 600px) and (max-width: 700px)  {
+  #sidebar.open {
+    display: block !important;
+        position: fixed;
+        top: -3.7em;
+        left: -5em;
+        width: 80vw;
+        width: 80dvw;
+        height: 90dvh;
+        height: 90vh;
+        /* background: black; */
+        z-index: 9999;
+        /* start of glass */
+   background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10% 50% 10% 50% / 50% 10% 50% 10%;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); 
+    padding: 10px;
+   /* end of glass */
   }
-   /* navButton end */
-.sidebar-content.product {
-    display: none;
+ }
+/* --- Small Screens (Mobile) --- */
+@media (max-width: 701px) {
+  #sidebar {
+    display: none !important; /* Force hide when closed */
+  }
+
+  /* When the JavaScript adds the .open class, show it */
+  #sidebar.open {
+    display: block !important;
+        position: fixed;
+        top: -3.7em;
+        left: -5.5em;
+        width: 88vw;
+        width: 88dvw;
+        height: 90dvh;
+        height: 90vh;
+        /* background: black; */
+        z-index: 9999;
+        /* start of glass */
+   background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10% 50% 10% 50% / 50% 10% 50% 10%;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); 
+    padding: 10px;
+   /* end of glass */
+  }
+  
 }
 
-  /* Hide all items starting from the 6th one */
-  /* Hide all items initially except the first few */
-.sidebar-content.product {
-    display: none;
+/* --- Large Screens (Desktop) --- */
+@media (min-width: 768px) {
+  #sidebar {
+    display: block !important; /* Always visible on desktop */
+  }
 }
+  
+  #navButton {
+    display: none; /* Hide the toggle button on desktop */
+  }
 
-/* Show only the first 2 items initially (adjust number as needed) */
-.sidebar-content.product.visible-item {
-    display: none;
-}
-
-/* Optional: Add smooth transition */
-.sidebar-content.product {
-    transition: opacity 0.3s ease;
-}
-
-/* When showing all items */
-.sidebar-content.product.show-all {
-    display: none;
-    opacity: 1;
-}
-
-/* Button styling */
-#toggleBtn {
-  margin-top: 10px;
-    /* position: relative; */
-    align-items: center;
-    text-align: center;
-    font-size: 15px;
-    text-transform: lowercase;
-    display: flex;
-    padding: 5px;
-    border-radius: 10px;
-}
-
-#toggleBtn:hover{
- background-color: #000;
- color: #fff;
-  border: groove;
-  padding: 5px;
-}
-
-  /* navButton END/open btn at 600px */
 /* navENDS */
 
 
@@ -307,15 +320,25 @@ body  {
     font-size: clamp(1em, calc(5vh + 1em), 1em);
 }
 .sidebar-preview-content img{
-  border-radius: 10px;
-  width: 100%;
-  color: orangered;
-  font-family: cursive;
-  font-size: clamp(1em, calc(7vh + 1em), 1em);
-  text-transform: uppercase;
+  margin: 1em;
+  text-align: center;
+    display: inline-block;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    /* width: 40dvw; */
+    /* width: 40vw; */
+    height: 40dvh;
+    height: 40vh;
+    color: orangered;
+    font-family: cursive;
+    font-size: clamp(1em, calc(7vh + 1em), 1em);
+    text-transform: uppercase;
 }
 
 .sidebar-preview-content  h1{
+  display: inline-block;
     padding: 3px;
     color: orange;
     text-transform: lowercase;
@@ -325,27 +348,33 @@ body  {
     font-size: clamp(1em, (5vh + 1em), 1em);
 }
 
-
-
-@media screen and (max-width: 600px){
-  .sidebar-preview-content{
-        height: 70vh;
-        height: 70dvh;
-        margin-top: -2em;
-        overflow-y: scroll;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-  }
-  .sidebar-preview-content img{
-  height: 50dvh;
-  height: 50vh;
-}
-}
 /* END OF SIDEBAR preview */
 /* Button styling */
+
+/*this BTN is  for smaller screens */
+#navButton {
+  display: none;
+  text-decoration: none;
+  border: none;
+  /* margin-top: 10px;
+    /* color: forestgreen; */
+    /* position: relative; */
+    /* align-items: center;
+    text-align: center;
+    font-size: 15px;
+    text-transform: lowercase;
+    
+    padding: 5px;
+    border-radius: 10px;
+    background: #000; */ 
+}
+
+/* /* #toggleBtn:hover{ */
+ /* background-color: #0056b3; */
+  /* border: groove;
+  padding: 5px;
+} */ 
+/*end of toggleBtn for smaller screens */
 
 
 .pagination-controls {
@@ -1701,7 +1730,7 @@ header  .buttons   .all:hover{
 
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
-  *{
+   *{
     margin: 0;
     padding: 0;
     text-align: center;
@@ -1736,26 +1765,26 @@ header  .buttons   .all:hover{
     width: 300px;
     display: none;
   }
+
  
- 
-  /* navButton START/open btn at 600px */
-  /* end of navButton */
+  /* start of navButton */
   #navButton{
-    display: flex;
-       border-top: outset;
+           border-top: outset;
         z-index: 999999999;
         position: sticky;
         margin-top: 150px;
         display: flex;
+        color: #fff;
+        background: green;
         padding: 4px;
         border-radius: 10px;
         font-weight: bold;
-        color: #fff;
-        background:green;
-  }   
+  }  
 #navButton:hover{
   color: green;
         background: #fff;
+        border: outset;
+        border: groove;
 }
 
  
@@ -1766,7 +1795,7 @@ header  .buttons   .all:hover{
         /* filter: drop-shadow(2px 4px 6px black); */
         align-content: center;
         text-align: center;
-        display: none;
+        display: flex;
         justify-content: center;
         flex-wrap: wrap;
         z-index: 999999;
