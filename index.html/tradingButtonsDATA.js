@@ -16,6 +16,6 @@ const categories = [
     { id: "gaming", label: "GAMING" },
     { id: "autommotives", label: "AUTOMOTIVES" },
     { id: "workshop_tools", label: "WORKSHOP" },
-    { id: "personal_care", label: "personal_care" }
+    { id: "personal_care", label: "personal_care",  color: "forestgreen" }
     
 ];
