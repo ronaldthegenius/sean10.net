@@ -205,20 +205,6 @@ body  {
      width:110px;
   }
 
-
-  #show_more{
- font-size: clamp(1em, calc(5vh + 1em), 1.1em);
-    cursor: pointer;
-    padding: 4px;
-    text-align: center;
-    align-items: center;
-    display: inline-block;
-    margin: .2em;
-    margin-top: 1em;
-    border-radius: 10px;
-    color: #fff;
-    background: green;
-}
   
   aside .sidebar-content h1 {
     font-size: 0.8rem;
@@ -243,60 +229,65 @@ body  {
     font-size: clamp(1em, (5vh + 1em), 2em);
   }
   
+  
  /* --- Small Screens (Mobile) --- */
   
- @media screen and (min-width: 600px) and (max-width: 700px)  {
-  #sidebar.open {
-    display: block !important;
-        position: fixed;
-        top: -3.7em;
-        left: -5em;
-        width: 80vw;
-        width: 80dvw;
-        height: 90dvh;
-        height: 90vh;
-        background: black;
-        z-index: 9999;
+  /* navButton start/open btn at 600px */
+   #navButton{
+    display: none;
   }
- }
-/* --- Small Screens (Mobile) --- */
-@media (max-width: 701px) {
-  #sidebar {
-    display: none !important; /* Force hide when closed */
-  }
-
-  /* When the JavaScript adds the .open class, show it */
-  #sidebar.open {
-    /* display: block !important; */
-    #sidebar.open {
-  /* Your existing styles */
-  background: red !important; /* ← Add this test */
-  border: 5px solid red !important; /* Quick visual test */
-}
-        position: fixed;
-        top: -3.5em;
-        left: -5.5em;
-        width: 88vw;
-        width: 88dvw;
-        height: 90dvh;
-        height: 90vh;
-        background: black;
-        z-index: 9999;
-  }
-  
+   /* navButton end */
+.sidebar-content.product {
+    display: none;
 }
 
-/* --- Large Screens (Desktop) --- */
-@media (min-width: 768px) {
-  #sidebar {
-    display: block !important; /* Always visible on desktop */
-  }
-  
-  #navButton {
-    display: none; /* Hide the toggle button on desktop */
-  }
+  /* Hide all items starting from the 6th one */
+  /* Hide all items initially except the first few */
+.sidebar-content.product {
+    display: none;
 }
+
+/* Show only the first 2 items initially (adjust number as needed) */
+.sidebar-content.product.visible-item {
+    display: none;
+}
+
+/* Optional: Add smooth transition */
+.sidebar-content.product {
+    transition: opacity 0.3s ease;
+}
+
+/* When showing all items */
+.sidebar-content.product.show-all {
+    display: none;
+    opacity: 1;
+}
+
+/* Button styling */
+#toggleBtn {
+  margin-top: 10px;
+    /* position: relative; */
+    align-items: center;
+    text-align: center;
+    font-size: 15px;
+    text-transform: lowercase;
+    display: flex;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+#toggleBtn:hover{
+ background-color: #000;
+ color: #fff;
+  border: groove;
+  padding: 5px;
+}
+
+  /* navButton END/open btn at 600px */
 /* navENDS */
+
+
+
 /* START OF sidebar preview */
 .sidebar-preview-content{
   padding: 3px;
@@ -335,104 +326,6 @@ body  {
 }
 
 
-.sidebar-preview-content .moreDetails_container {
-   display: flex; gap: 15px; margin-bottom: 15px;
-   padding: 0;
-   margin: 0;
-   /* border: red 1px solid; */
-   flex-wrap: wrap;
-     justify-content: center;
-  align-items: center;
-  text-align: center;
-  /* margin: -2em; */
-}
-
-.sidebar-preview-content .more-images-grid  {
-         display: flex;
-    flex-wrap: wrap;
-        text-align: center;
-        align-items: center;
-        align-items: center;
-        justify-content: center;
-}
-
-.sidebar-preview-content .more-images-grid img {
-             height: 100px;
-    background: #999;
-    width: 90px;
-    box-shadow: 30px 2px 2px 5px green;
-    padding: 3px;
-    display: grid;
-    border-style: groove;
-    border-radius: 20px;
-    /* grid-template-columns: repeat(2, 1fr); */
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-}
-
-
-.sidebar-preview-content .moreDetails_container .fellows {
-   display: flex; 
-   gap: 15px;
-    margin-bottom: 15px;
-  padding: 1px;
-  flex-wrap: wrap;
-    justify-content: center;
-  align-items: center;
-  text-align: center;
-  border-radius: 15px;
-}
-
-.sidebar-preview-content .moreDetails_container h2{
- font-size: clamp(1em, (5vh + 1em), 1em);
-    color: #999;
-    background: black;
-    border-radius: 8px;
-    padding: 8px;
-    border-radius: 20px;
-    text-transform: capitalize;
-}
-
-
-.sidebar-preview-content .moreDetails_container p{
-  display: inline-block;
-  font-size: clamp(1em, calc(5vh + 1em), 1em);
-    color: green;
-    border-radius: 10px;
-    padding: 3px;
-    text-align: center;
-    align-items: center;
-    background: #ccc;
-    font-weight: 800;
-    margin-bottom: 0.2em;
-}
-.sidebar-preview-content .moreDetails_container p b{
-  display: inline-block;
-  font-size: clamp(1em, calc(5vh + 1em), 1em);
-    color: black;
-    font-weight: 800;
-    text-decoration-line: spelling-error;
-}
-.sidebar-preview-content .moreDetails_container .buy-btn{
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-   background:#25D366;
-   color:white;
-     padding:10px;
-   border-radius:20px;
-    text-decoration:none;
-     display:inline-block;
-}
-.sidebar-preview-content .moreDetails_container .buy-btn .bi-whatsapp{
-  font-size: clamp(1em, calc(5vh + 1em), 1.5em);
-    background: #ee480b;
-    border-radius: 60%;
-    color: #25D366;
-    padding: 5px;
-    text-align: center;
-    align-items: center;
-    display: inline-block;
-}
 
 @media screen and (max-width: 600px){
   .sidebar-preview-content{
@@ -453,25 +346,6 @@ body  {
 }
 /* END OF SIDEBAR preview */
 /* Button styling */
-#toggleBtn {
-  margin-top: 10px;
-    /* color: forestgreen; */
-    /* position: relative; */
-    align-items: center;
-    text-align: center;
-    font-size: 15px;
-    text-transform: lowercase;
-    display: flex;
-    padding: 5px;
-    border-radius: 10px;
-    background: #000;
-}
-
-#toggleBtn:hover{
- background-color: #0056b3;
-  border: groove;
-  padding: 5px;
-}
 
 
 .pagination-controls {
@@ -746,35 +620,6 @@ color: yellow;
 }
 
 
-/* sign */
-
-.logo .login  {
-  justify-content: center;
-  align-items: center;
-  border: red 1px solid;
-  width: 300px;
-  justify-content:space-between;
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  padding: 10px;
-  position: relative;
-  margin-right: 50px;
-}
-.logo .login  a{
-  color:red;
-  background: none;
-  cursor: pointer;
-  font-size: 20px;
-  text-decoration: none;
-}
-
-
-.logo .login  a:hover{
-  color: green;
-}
-/* sign end */
 
 
 /* the icons */
@@ -1445,7 +1290,7 @@ header  .buttons   .all:hover{
     border-right-color: #e63946;
     color: #e63946;
     border-radius: 15px;
-    border-left-color: GREEN;
+    border-left-color: green;
     border-left-style: double;
     border-top-style: ridge;
     border-bottom-style: outset;
@@ -1555,7 +1400,7 @@ header  .buttons   .all:hover{
     /* font-weight: bolder; */
     text-transform: lowercase;
     margin-left: 4em;
-    font-family: 'poppins,sans-serif';
+    font-family: 'poppins',sans-serif;
 }
 
 
@@ -1891,9 +1736,8 @@ header  .buttons   .all:hover{
     width: 300px;
     display: none;
   }
-
  
-  /* start of navButton */
+ 
   /* navButton START/open btn at 600px */
   /* end of navButton */
   #navButton{
@@ -1938,7 +1782,6 @@ header  .buttons   .all:hover{
   }
   /* navButton END/open btn at 600px */
   /* end of navButton */
-  /* end of navButton */
 
   .header p {
     /* font-size:7px; */
@@ -1946,64 +1789,7 @@ header  .buttons   .all:hover{
 
 
 
-  /* start of form */
-  form{
-    margin-top: 1rem;
-    padding: 1px;
-    border: 1px red solid;
-    display: inline-flex;
-    align-items: center;
-   }
-  
-  .logo span {
-    /* float: right;
-  display: inline-flex;
-  align-items: center; */
-  }
-  
-  .logo span input[type="search"] {
-  padding: 2px;
-  width:50px;
-  height: 15px;
-  font-size: 7px;
-  }
-  
-  .logo span button {
-  padding: 2px 3px;
-  font-size: 7px;
-  }
-  
-  
-  .logo span button:hover{
-  transform: scale(1.1);
-  color: yellow;
-  }
-  /* end of form */
-
-
-  /* start of loGIN */
-/* sign */
-
-.logo .login  {
-  border: red 1px solid;
- margin-top: 10px;
- padding: 2px;
- margin-right:5px;
- align-items: center;
- display: inline-block;
- width: 70px;
-}
-
-.logo .login  a{
-  font-size: 8px;
-}
-
-
-.logo .login  a:hover{
-  color: green;
-}
-/* sign end */
-  /* end of loGIN */
+ 
   
 
   /* cart */
@@ -2342,7 +2128,7 @@ header  .buttons   .all:hover{
     text-align: initial;
     font-family: cursive; */
     margin: 1rem;
-    font-family: "poppins",sans-serif;
+    /* font-family: "poppins",sans-serif; */
     text-transform: capitalize;
     /* padding: 1rem; */
 }
@@ -2477,7 +2263,7 @@ footer{
 /* Styles for larger screens (Tablets and Desktops - as before) */
 
  @media screen and (min-width: 601px) and (max-width: 768px)  {
-
+   
 
  }
 

@@ -33,7 +33,6 @@ function toggleSidebar() {
 
 
 
-
 let currentPage = 1;
 const itemsPerPage = 2;
 
@@ -98,7 +97,7 @@ function loadSidebarList() {
 
     // Combine everything - items, pagination, then channel at bottom
     sidebar.innerHTML = listHTML + paginationHTML + channelHTML;
-    // sidebar.style.display = "block";
+    sidebar.style.display = "block";
 }
 
 // Function to change pages

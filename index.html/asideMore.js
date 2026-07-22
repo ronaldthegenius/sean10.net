@@ -25,8 +25,8 @@ function show_more(selectedProductName, button) {
   // FIX: Injected your scale effects, cursor styling, and click preview mechanics cleanly here
   const imagesGridHTML = matchedItem.images.map(imgSrc => `
     <img 
-      width="130px" 
-      height="150px" 
+      width="120px" 
+      height="140px" 
       src="${imgSrc}" 
       alt="${matchedItem.title || 'Image'}" 
       class="grid-gallery-img"

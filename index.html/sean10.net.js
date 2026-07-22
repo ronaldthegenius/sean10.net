@@ -82,8 +82,16 @@ previewContainer.innerHTML = `
         <div class="price-container">
             <span> <del>${product.oldPrice}</del> - ${product.newPrice}</span>
         </div>
-           
+           <div class="name">
+            <span id="Mybasket">DROP IN basket <i class="bi bi-cart4"></i></span>
+        </div>
+            <button class="fav-icon" data-id="${product.id}">♡</button> 
 
+  <nav>
+  <a href="favorites.html" class="nav-fav">
+    ♥️ Favorites (<span class="fav-count">0</span>)
+  </a>
+</nav>
 
   <div class="contact_seller" id="seller">
     <h3>contact seller below</h3>
