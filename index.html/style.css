@@ -1766,7 +1766,7 @@ header  .buttons   .all:hover{
         /* filter: drop-shadow(2px 4px 6px black); */
         align-content: center;
         text-align: center;
-        display: flex;
+        display: none;
         justify-content: center;
         flex-wrap: wrap;
         z-index: 999999;
