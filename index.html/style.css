@@ -242,8 +242,8 @@ body  {
         left: -5em;
         width: 80vw;
         width: 80dvw;
-        height: 90dvh;
-        height: 90vh;
+        height: 98dvh;
+        height: 98vh;
         /* background: black; */
         z-index: 9999;
         /* start of glass */
@@ -270,8 +270,8 @@ body  {
         left: -5.5em;
         width: 88vw;
         width: 88dvw;
-        height: 90dvh;
-        height: 90vh;
+        height: 95dvh;
+        height: 95vh;
         /* background: black; */
         z-index: 9999;
         /* start of glass */
@@ -303,12 +303,18 @@ body  {
 
 /* START OF sidebar preview */
 .sidebar-preview-content{
-  padding: 3px;
-  font-family: 'poppins',sans-serif;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  overflow: scroll;
+ padding: 3px;
+    font-family: 'poppins', sans-serif;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: scroll;
+    height: 90dvh;
+    height: 90vh;
+    border: groove;
+    border-radius: 20px;
+    padding-bottom: 5em;
+    margin-bottom: 5em;
 }
 
 .sidebar-preview-content  .back-btn{
@@ -327,10 +333,10 @@ body  {
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    /* width: 40dvw; */
-    /* width: 40vw; */
-    height: 40dvh;
-    height: 40vh;
+    width: 20dvw; 
+    width: 20vw;
+    height: 20dvh;
+    height: 20vh;
     color: orangered;
     font-family: cursive;
     font-size: clamp(1em, calc(7vh + 1em), 1em);

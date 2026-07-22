@@ -137,7 +137,7 @@ function showPreview(index) {
   </a>
 </li>
             </ul>
-            <p>used channels</p>
+            <p>sean10.net groups</p>
         </div>
     `;
 
