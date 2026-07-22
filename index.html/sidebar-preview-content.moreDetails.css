@@ -62,16 +62,19 @@
 }
 
 .sidebar-preview-content .more-images-grid img {
-             height: 100px;
-    background: #999;
+     
+    /* height: 90px; */
+    /* background: #999; */
     width: 90px;
     /* box-shadow: 30px 2px 2px 5px green; */
-    padding: 3px;
-    display: grid;
-    border-style: groove;
+    /* padding: 3px; */
+    display: flex;
+    flex-wrap: wrap;
+    /* border-style: groove; */
     border-radius: 20px;
     /* grid-template-columns: repeat(2, 1fr); */
     grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+
 }
 
 
