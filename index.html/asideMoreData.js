@@ -49,7 +49,7 @@ const asideDataMore = [
     altName: "nokia",
     condition: "USED",
     price: "5000",
-    paragraph: "fully working, you can use it for use it or for spares",
+    paragraph: "fully working, you can use it  or for spares",
     owner: "256750812318?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?."
   },
   // Add other items here with their own arrays of images...
