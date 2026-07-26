@@ -17,7 +17,7 @@ const myProducts = [
       "/images/used-pack/thumbnails/sean thumbnails/acer adapter  2.jpeg"
     ],
     // "span" : "price per piece",
-    "h4" : "1 piece available",
+    // "h4" : "1 piece available",
       "whatsappNumber": "971522608061?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
     "phoneNumber": "971522608061",
     sellerEmail : "ronaldthegenius@gmail.com",
@@ -49,7 +49,7 @@ const myProducts = [
     "gallery": [
       "/images/new-park/sean/power disconnector.jpeg"
     ],
-    // "span" : "price per piece",
+    "span" : "price per piece",
     "h4" : "variaties available",
       "whatsappNumber": "971522608061?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
     "phoneNumber": "971522608061",
@@ -79,7 +79,7 @@ const myProducts = [
       "/images/new-park/sean/thumbnails/Type‑C Foldable Phone Holder Adapter  2.jpeg",
       "/images/new-park/sean/thumbnails/Type‑C Foldable Phone Holder Adapter 1.jpeg"
     ],
-    // "span" : "price per piece",
+    "span" : "price per piece",
     "h4" : "variaties available",
       "whatsappNumber": "971522608061?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
     "phoneNumber": "971522608061",
@@ -112,7 +112,7 @@ const myProducts = [
       "/images/new-park/asiimwe/thumbnails/martin riders.jpeg"
     ],
     // "span" : "price per piece",
-    "h4" : "variaties available",
+    // "h4" : "variaties available",
       "whatsappNumber": "9715592893398?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
     "phoneNumber": "0559289339",
     "location": " uganda > nansana,kawempe,kireka,kibuye, mengo,ntebe  ",
