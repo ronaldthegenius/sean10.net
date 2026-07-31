@@ -1,5 +1,5 @@
  // ============================================
-        // SMART SEARCH CLASS (FULL CODE)
+        // SMART SEARCH CLASS (Updated with Image Search)
         // ============================================
         class SmartSearch {
             constructor(options = {}) {
@@ -7,11 +7,14 @@
                 this.resultsContainer = document.getElementById(options.resultsId || 'searchResults');
                 this.products = options.products || [];
                 this.searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+                this.imageHistory = JSON.parse(localStorage.getItem('imageSearchHistory')) || [];
                 this.maxHistory = options.maxHistory || 10;
                 this.debounceTimer = null;
                 this.currentQuery = '';
                 this.isListening = false;
                 this.recognition = null;
+                this.uploadedImageData = null;
+                this.uploadedImageFeatures = null;
                 
                 this.init();
             }
@@ -48,6 +51,28 @@
                     voiceBtn.addEventListener('click', () => this.voiceSearch());
                 }
 
+                // Image search button
+                const imageBtn = document.getElementById('imageSearchBtn');
+                if (imageBtn) {
+                    imageBtn.addEventListener('click', () => this.openImageModal());
+                }
+
+                // Modal close
+                const modalClose = document.getElementById('modalCloseBtn');
+                if (modalClose) {
+                    modalClose.addEventListener('click', () => this.closeImageModal());
+                }
+
+                // Close modal on outside click
+                document.getElementById('imageUploadModal').addEventListener('click', (e) => {
+                    if (e.target === e.currentTarget) {
+                        this.closeImageModal();
+                    }
+                });
+
+                // Image upload
+                this.setupImageUpload();
+
                 // Close results on outside click
                 document.addEventListener('click', (e) => {
                     if (!e.target.closest('.search-wrapper')) {
@@ -57,9 +82,8 @@
 
                 // Render initial suggestions
                 this.renderSuggestions();
-                
-                // Show clear button if there's text
                 this.updateClearButton();
+                this.updateImageBadge();
             }
 
             // ============ MAIN SEARCH LOGIC ============
@@ -97,7 +121,6 @@
                 const searchTerms = q.split(' ');
                 
                 this.products.forEach(product => {
-                    // Create searchable text
                     const searchableText = [
                         product.name,
                         product.category,
@@ -105,50 +128,47 @@
                         product.tags ? product.tags.join(' ') : '',
                         product.brand,
                         product.model,
-                        product.location
+                        product.location,
+                        product.imageFeatures ? product.imageFeatures.join(' ') : ''
                     ].filter(Boolean).join(' ').toLowerCase();
                     
-                    // Calculate relevance score
                     let score = 0;
                     let matchCount = 0;
                     
-                    // Check each search term
                     searchTerms.forEach(term => {
                         if (term.length < 2) return;
                         
-                        // Exact matches get higher score
                         if (searchableText.includes(term)) {
                             score += 10;
                             matchCount++;
                         }
                         
-                        // Partial matches
                         if (searchableText.split(' ').some(word => word.includes(term))) {
                             score += 5;
                         }
                         
-                        // Category matches are weighted higher
                         if (product.category && product.category.toLowerCase().includes(term)) {
                             score += 15;
                         }
                         
-                        // Name matches are weighted highest
                         if (product.name && product.name.toLowerCase().includes(term)) {
                             score += 20;
                         }
                         
-                        // Brand matches
                         if (product.brand && product.brand.toLowerCase().includes(term)) {
                             score += 12;
                         }
+                        
+                        // Image features match
+                        if (product.imageFeatures && product.imageFeatures.some(f => f.toLowerCase().includes(term))) {
+                            score += 18;
+                        }
                     });
                     
-                    // Prioritize results with more term matches
                     if (matchCount > 0) {
                         score += matchCount * 2;
                     }
                     
-                    // Add to results if score > 0
                     if (score > 0) {
                         results.push({
                             ...product,
@@ -158,10 +178,7 @@
                     }
                 });
                 
-                // Sort by score (highest first)
                 results.sort((a, b) => b._score - a._score);
-                
-                // Return top 20 results
                 return results.slice(0, 20);
             }
 
@@ -201,10 +218,6 @@
                                 <div class="result-score">⭐ ${Math.round(product._score)}%</div>
                             </div>
                         `).join('')}
-                        
-                        ${results.length >= 20 ? `
-                            <div class="search-more">Showing top 20 results</div>
-                        ` : ''}
                     </div>
                 `;
                 
@@ -260,13 +273,9 @@
             saveToHistory(query) {
                 if (!query || query.length < 2) return;
                 
-                // Remove duplicates
                 this.searchHistory = this.searchHistory.filter(item => item !== query);
-                
-                // Add to front
                 this.searchHistory.unshift(query);
                 
-                // Limit size
                 if (this.searchHistory.length > this.maxHistory) {
                     this.searchHistory = this.searchHistory.slice(0, this.maxHistory);
                 }
@@ -336,7 +345,6 @@
                     this.currentQuery = product.name;
                     this.updateClearButton();
                     
-                    // Scroll to product in grid
                     const productCards = document.querySelectorAll('.product-card');
                     productCards.forEach(card => {
                         if (card.dataset.id == productId) {
@@ -348,25 +356,22 @@
                         }
                     });
                     
-                    // Save to history
                     this.saveToHistory(product.name);
                     
-                    // Show alert with product details
+                    // Show product details
                     alert(`✅ Selected: ${product.name}\nPrice: ${product.price}\nCategory: ${product.category}\nBrand: ${product.brand}`);
                 }
             }
 
             // ============ VOICE SEARCH ============
             voiceSearch() {
-                // Check if voice search is supported
                 const isSupported = 'webkitSpeechRecognition' in window || 'SpeechRecognition' in window;
                 
                 if (!isSupported) {
-                    document.getElementById('voiceFallback').classList.add('active');
+                    alert('🎤 Voice search is not supported in your browser. Please use Chrome or Edge.');
                     return;
                 }
 
-                // Check if already listening
                 if (this.isListening) {
                     this.stopVoiceSearch();
                     return;
@@ -375,24 +380,20 @@
                 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
                 const recognition = new SpeechRecognition();
                 
-                // Configure
                 recognition.lang = 'en-US';
                 recognition.continuous = false;
                 recognition.interimResults = true;
                 recognition.maxAlternatives = 3;
                 
-                // Visual feedback - show listening state
                 this.searchInput.placeholder = '🎤 Listening... Speak now';
                 this.searchInput.classList.add('listening');
                 
-                // Update button
                 const voiceBtn = document.getElementById('voiceBtn');
                 if (voiceBtn) {
                     voiceBtn.classList.add('active');
                     voiceBtn.innerHTML = '⏹️';
                 }
                 
-                // Show status
                 const status = document.getElementById('voiceStatus');
                 if (status) {
                     status.classList.add('active');
@@ -400,7 +401,6 @@
                 
                 this.isListening = true;
 
-                // Handle results
                 recognition.onresult = (event) => {
                     let finalTranscript = '';
                     let interimTranscript = '';
@@ -414,12 +414,10 @@
                         }
                     }
                     
-                    // Show interim results
                     if (interimTranscript) {
                         this.searchInput.value = interimTranscript;
                     }
                     
-                    // Process final result
                     if (finalTranscript) {
                         this.searchInput.value = finalTranscript;
                         this.currentQuery = finalTranscript;
@@ -433,26 +431,25 @@
                     }
                 };
 
-                // Handle errors
                 recognition.onerror = (event) => {
                     console.error('Voice search error:', event.error);
                     
                     let errorMessage = '';
                     switch(event.error) {
                         case 'not-allowed':
-                            errorMessage = '⚠️ Microphone access denied. Please allow microphone access.';
+                            errorMessage = '⚠️ Microphone access denied';
                             break;
                         case 'no-speech':
-                            errorMessage = '🔇 No speech detected. Please try again.';
+                            errorMessage = '🔇 No speech detected';
                             break;
                         case 'audio-capture':
-                            errorMessage = '🎤 Microphone not found. Please check your microphone.';
+                            errorMessage = '🎤 Microphone not found';
                             break;
                         case 'network':
-                            errorMessage = '🌐 Network error. Please check your internet connection.';
+                            errorMessage = '🌐 Network error';
                             break;
                         default:
-                            errorMessage = `❌ Voice search error: ${event.error}`;
+                            errorMessage = `❌ Error: ${event.error}`;
                     }
                     
                     this.searchInput.placeholder = errorMessage;
@@ -468,14 +465,12 @@
                     this.stopVoiceSearch();
                 };
 
-                // Handle end of speech
                 recognition.onend = () => {
                     if (this.isListening) {
                         this.stopVoiceSearch();
                     }
                 };
 
-                // Start listening
                 try {
                     recognition.start();
                 } catch (error) {
@@ -489,14 +484,12 @@
                     this.stopVoiceSearch();
                 }
 
-                // Store recognition for cleanup
                 this.recognition = recognition;
             }
 
             stopVoiceSearch() {
                 this.isListening = false;
                 
-                // Reset UI
                 this.searchInput.placeholder = '🔍 Search for products...';
                 this.searchInput.classList.remove('listening');
                 this.searchInput.style.borderColor = '';
@@ -512,14 +505,358 @@
                     status.classList.remove('active');
                 }
                 
-                // Stop recognition if active
                 if (this.recognition) {
                     try {
                         this.recognition.stop();
-                    } catch (e) {
-                        // Ignore errors on stop
-                    }
+                    } catch (e) {}
                     this.recognition = null;
+                }
+            }
+
+            // ============ IMAGE SEARCH ============
+            openImageModal() {
+                document.getElementById('imageUploadModal').classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            closeImageModal() {
+                document.getElementById('imageUploadModal').classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            setupImageUpload() {
+                const dropZone = document.getElementById('imageDropZone');
+                const fileInput = document.getElementById('imageInput');
+
+                // Click to upload
+                dropZone.addEventListener('click', () => {
+                    fileInput.click();
+                });
+
+                // File selected
+                fileInput.addEventListener('change', (e) => {
+                    const file = e.target.files[0];
+                    if (file) {
+                        this.handleImageUpload(file);
+                    }
+                });
+
+                // Drag and drop
+                dropZone.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    dropZone.classList.add('dragover');
+                });
+
+                dropZone.addEventListener('dragleave', (e) => {
+                    e.preventDefault();
+                    dropZone.classList.remove('dragover');
+                });
+
+                dropZone.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    dropZone.classList.remove('dragover');
+                    
+                    const file = e.dataTransfer.files[0];
+                    if (file && file.type.startsWith('image/')) {
+                        this.handleImageUpload(file);
+                    } else {
+                        alert('Please drop an image file!');
+                    }
+                });
+            }
+
+            handleImageUpload(file) {
+                // Check file size (max 5MB)
+                if (file.size > 5 * 1024 * 1024) {
+                    alert('Image is too large! Maximum 5MB.');
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    // Show preview
+                    const preview = document.getElementById('imagePreviewContainer');
+                    const img = document.getElementById('uploadedImagePreview');
+                    img.src = e.target.result;
+                    preview.classList.add('active');
+                    
+                    // Store image data
+                    this.uploadedImageData = e.target.result;
+                    
+                    // Extract image features
+                    this.extractImageFeatures(e.target.result);
+                    
+                    // Hide drop zone
+                    document.getElementById('imageDropZone').style.display = 'none';
+                    
+                    // Update badge
+                    this.updateImageBadge();
+                };
+                reader.readAsDataURL(file);
+            }
+
+            extractImageFeatures(imageData) {
+                const img = new Image();
+                img.onload = () => {
+                    // Get dominant colors
+                    const colors = this.getDominantColors(img);
+                    
+                    // Generate features
+                    const features = this.generateFeatures(img, colors);
+                    
+                    this.uploadedImageFeatures = {
+                        colors: colors,
+                        features: features,
+                        aspectRatio: img.width / img.height,
+                        width: img.width,
+                        height: img.height
+                    };
+                    
+                    console.log('✅ Image features extracted:', this.uploadedImageFeatures);
+                    
+                    // Auto-search
+                    this.searchByImage();
+                };
+                img.src = imageData;
+            }
+
+            getDominantColors(img) {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                canvas.width = 50;
+                canvas.height = 50;
+                ctx.drawImage(img, 0, 0, 50, 50);
+                
+                const imageData = ctx.getImageData(0, 0, 50, 50);
+                const data = imageData.data;
+                const colorCount = {};
+                
+                for (let i = 0; i < data.length; i += 20) {
+                    const r = data[i];
+                    const g = data[i + 1];
+                    const b = data[i + 2];
+                    const key = `${Math.round(r/20)*20},${Math.round(g/20)*20},${Math.round(b/20)*20}`;
+                    colorCount[key] = (colorCount[key] || 0) + 1;
+                }
+                
+                const sortedColors = Object.entries(colorCount)
+                    .sort((a, b) => b[1] - a[1])
+                    .slice(0, 5)
+                    .map(([color]) => {
+                        const [r, g, b] = color.split(',').map(Number);
+                        return this.rgbToName(r, g, b);
+                    });
+                
+                return sortedColors;
+            }
+
+            rgbToName(r, g, b) {
+                const colors = {
+                    'black': [0, 0, 0],
+                    'white': [255, 255, 255],
+                    'red': [255, 0, 0],
+                    'green': [0, 255, 0],
+                    'blue': [0, 0, 255],
+                    'yellow': [255, 255, 0],
+                    'purple': [128, 0, 128],
+                    'orange': [255, 165, 0],
+                    'pink': [255, 192, 203],
+                    'gray': [128, 128, 128],
+                    'silver': [192, 192, 192],
+                    'gold': [255, 215, 0],
+                    'brown': [165, 42, 42],
+                    'teal': [0, 128, 128],
+                    'navy': [0, 0, 128],
+                    'maroon': [128, 0, 0],
+                    'olive': [128, 128, 0],
+                    'lime': [0, 255, 0],
+                    'cyan': [0, 255, 255],
+                    'magenta': [255, 0, 255]
+                };
+                
+                let closest = 'unknown';
+                let minDistance = Infinity;
+                
+                for (const [name, rgb] of Object.entries(colors)) {
+                    const distance = Math.sqrt(
+                        Math.pow(r - rgb[0], 2) +
+                        Math.pow(g - rgb[1], 2) +
+                        Math.pow(b - rgb[2], 2)
+                    );
+                    if (distance < minDistance) {
+                        minDistance = distance;
+                        closest = name;
+                    }
+                }
+                
+                return closest;
+            }
+
+            generateFeatures(img, colors) {
+                const tags = [];
+                const width = img.width;
+                const height = img.height;
+                
+                tags.push(...colors);
+                
+                if (width > height * 1.5) tags.push('wide');
+                else if (height > width * 1.5) tags.push('tall');
+                else tags.push('square');
+                
+                if (width < 100 && height < 100) tags.push('small');
+                else if (width > 500 && height > 500) tags.push('large');
+                else tags.push('medium');
+                
+                return tags;
+            }
+
+            searchByImage() {
+                if (!this.uploadedImageFeatures) {
+                    alert('Please upload an image first!');
+                    return;
+                }
+                
+                const results = [];
+                const queryFeatures = this.uploadedImageFeatures.features;
+                const queryColors = this.uploadedImageFeatures.colors;
+                
+                this.products.forEach(product => {
+                    let score = 0;
+                    
+                    // Check feature matches
+                    if (product.imageFeatures) {
+                        product.imageFeatures.forEach(feature => {
+                            if (queryFeatures.some(qf => 
+                                qf.toLowerCase().includes(feature.toLowerCase()) ||
+                                feature.toLowerCase().includes(qf.toLowerCase())
+                            )) {
+                                score += 20;
+                            }
+                        });
+                    }
+                    
+                    // Check color matches
+                    if (product.dominantColors) {
+                        product.dominantColors.forEach(color => {
+                            if (queryColors.includes(color)) {
+                                score += 15;
+                            }
+                        });
+                    }
+                    
+                    // Check category matches
+                    if (product.category) {
+                        queryFeatures.forEach(feature => {
+                            if (product.category.toLowerCase().includes(feature.toLowerCase()) ||
+                                feature.toLowerCase().includes(product.category.toLowerCase())) {
+                                score += 10;
+                            }
+                        });
+                    }
+                    
+                    // Check name matches
+                    if (product.name) {
+                        queryFeatures.forEach(feature => {
+                            if (product.name.toLowerCase().includes(feature.toLowerCase()) ||
+                                feature.toLowerCase().includes(product.name.toLowerCase())) {
+                                score += 8;
+                            }
+                        });
+                    }
+                    
+                    if (score > 0) {
+                        results.push({
+                            ...product,
+                            matchScore: score,
+                            matchPercentage: Math.min(100, Math.round(score / 1.5))
+                        });
+                    }
+                });
+                
+                results.sort((a, b) => b.matchScore - a.matchScore);
+                this.displayImageResults(results);
+                
+                // Save to image history
+                this.saveImageToHistory();
+            }
+
+            displayImageResults(results) {
+                const container = document.getElementById('imageSearchResults');
+                
+                if (results.length === 0) {
+                    container.innerHTML = `
+                        <div style="text-align:center; padding:20px; color:#999;">
+                            <h3>😕 No similar products found</h3>
+                            <p style="font-size:14px;">Try uploading a different image</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                container.innerHTML = `
+                    <h3 style="margin: 20px 0 10px; color: #333;">
+                        Found ${results.length} similar products 
+                        <span style="font-size:14px; color:#999; font-weight:normal;">
+                            (by image similarity)
+                        </span>
+                    </h3>
+                    <div style="display: grid; gap: 12px;">
+                        ${results.slice(0, 10).map(product => `
+                            <div class="search-result-item" onclick="window.searchInstance.selectResult('${product.id}')">
+                                <div class="result-image">
+                                    <img src="${product.image}" alt="${product.name}" loading="lazy">
+                                </div>
+                                <div class="result-info">
+                                    <div class="result-name">${product.name}</div>
+                                    <div class="result-category">${product.category}</div>
+                                    <div class="result-price">${product.price}</div>
+                                </div>
+                                <div class="result-match-badge">${product.matchPercentage}% Match</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                
+                // Scroll to results
+                container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+
+            saveImageToHistory() {
+                const history = JSON.parse(localStorage.getItem('imageSearchHistory')) || [];
+                const timestamp = new Date().toLocaleString();
+                history.unshift({ timestamp, image: this.uploadedImageData.substring(0, 100) + '...' });
+                
+                if (history.length > 10) {
+                    history.pop();
+                }
+                
+                localStorage.setItem('imageSearchHistory', JSON.stringify(history));
+            }
+
+            clearUploadedImage() {
+                this.uploadedImageData = null;
+                this.uploadedImageFeatures = null;
+                
+                document.getElementById('imagePreviewContainer').classList.remove('active');
+                document.getElementById('uploadedImagePreview').src = '';
+                document.getElementById('imageInput').value = '';
+                document.getElementById('imageDropZone').style.display = '';
+                document.getElementById('imageSearchResults').innerHTML = '';
+                
+                this.updateImageBadge();
+                
+                // Close modal after clearing
+                setTimeout(() => {
+                    this.closeImageModal();
+                }, 500);
+            }
+
+            updateImageBadge() {
+                const badge = document.getElementById('imageBadge');
+                if (this.uploadedImageData) {
+                    badge.style.display = 'flex';
+                } else {
+                    badge.style.display = 'none';
                 }
             }
 
@@ -556,6 +893,21 @@
         }
 
         // ============================================
+        // GLOBAL FUNCTIONS
+        // ============================================
+        function searchByImage() {
+            if (window.searchInstance) {
+                window.searchInstance.searchByImage();
+            }
+        }
+
+        function clearUploadedImage() {
+            if (window.searchInstance) {
+                window.searchInstance.clearUploadedImage();
+            }
+        }
+
+        // ============================================
         // INITIALIZE EVERYTHING
         // ============================================
         document.addEventListener('DOMContentLoaded', () => {
@@ -570,11 +922,13 @@
                 maxHistory: 10
             });
             
-            console.log('✅ Smart Search initialized!');
+            console.log('✅ Smart Search with Image Search initialized!');
             console.log('📦 Products loaded:', myProducts.length);
             console.log('🎤 Voice search available:', 
                 'webkitSpeechRecognition' in window || 'SpeechRecognition' in window
             );
+            console.log('🖼️ Image search ready! Click the image icon 🖼️');
         });
+   
 
         

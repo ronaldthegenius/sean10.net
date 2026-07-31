@@ -80,24 +80,78 @@
       // HTML STRUCTURE
       // ============================================ -->
 
-<div class="search-wrapper">
-    <div class="search-bar">
-        <input 
-            type="text" 
-            id="searchInput" 
-            placeholder="🔍 Search for sean10.net products..." 
-            autocomplete="off"
-            aria-label="Search  products"
-        >
-        <button class="search-voice" onclick="window.searchInstance?.voiceSearch()" title="Voice search">
-            🎤
-        </button>
-        <button class="search-clear" onclick="document.getElementById('searchInput').value=''; window.searchInstance.hideResults();" title="Clear">
-            ✕
-        </button>
+ <div class="container">
+        <!-- ============================================
+        SEARCH BAR
+        ============================================ -->
+        <div class="search-wrapper">
+            <div class="search-bar">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="🔍 Search for sean10.net products..." 
+                    autocomplete="off"
+                    aria-label="Search products"
+                >
+                
+                <!-- Image Search Button -->
+                <button class="search-image-btn" id="imageSearchBtn" title="Search by image">
+                    🖼️
+                    <span class="badge" id="imageBadge" style="display:none;">1</span>
+                </button>
+                
+                <!-- Voice Search Button -->
+                <button class="search-voice" id="voiceBtn" title="Voice search">
+                    🎤
+                </button>
+                
+                <div class="search-voice-status" id="voiceStatus">
+                    <span class="pulse-dot"></span> Listening...
+                </div>
+                
+                <button class="search-clear" id="clearBtn" title="Clear search">
+                    ✕
+                </button>
+            </div>
+            <div id="searchResults" class="search-results"></div>
+        </div>
+
+        <!-- ============================================
+        IMAGE UPLOAD MODAL
+        ============================================ -->
+        <div class="image-upload-modal" id="imageUploadModal">
+            <div class="modal-content">
+                <button class="modal-close" id="modalCloseBtn">✕</button>
+                <h2>🖼️ Search by Image</h2>
+                <p style="color: #666; margin-bottom: 20px;">
+                    Upload a photo to find similar products
+                </p>
+                
+                <div class="image-drop-zone" id="imageDropZone">
+                    <span class="upload-icon">📸</span>
+                    <div class="upload-text">Drop an image here or click to upload</div>
+                    <div class="upload-subtext">Supports: JPG, PNG, GIF, WebP (Max 5MB)</div>
+                    <input type="file" id="imageInput" accept="image/*" style="display:none;">
+                </div>
+                
+                <div class="image-preview-container" id="imagePreviewContainer">
+                    <img id="uploadedImagePreview" src="" alt="Uploaded image">
+                    <div class="image-actions">
+                        <button class="btn-primary" onclick="searchByImage()">🔍 Search Similar</button>
+                        <button class="btn-danger" onclick="clearUploadedImage()">🗑️ Clear</button>
+                    </div>
+                </div>
+                
+                <div id="imageSearchResults" style="margin-top: 20px;"></div>
+            </div>
+        </div>
+
+        <!-- ============================================
+        PRODUCT GRID
+        ============================================ -->
+        <div class="product-grid" id="productGrid"></div>
     </div>
-    <div id="searchResults" class="search-results"></div>
-</div>
+
 <!-- */ -->
 
 </header>
