@@ -17,6 +17,7 @@
 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="sean10.netSEARCHBAR.css">
     <link rel="stylesheet" href="emailSeller.css">
     <link rel="stylesheet" href="sidebar-preview-content.moreDetails.css">
     <!-- <link rel="stylesheet" href="favorites.css"> Specific favorites styles second -->
@@ -29,6 +30,7 @@
      <!-- Google reCAPTCHA -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="sean10.net.js"defer></script>
+    <script src="sean10.netSEARCHBAR.js"defer></script>
     <script src="sean10.netDATA.js"defer></script>
     <script src="aside.js"defer></script>
     <script src="asideData.js"defer></script>
@@ -46,7 +48,9 @@
     <title>sean10.net</title>
 </head>
 
-  
+
+                <!-- <small style="display:block; margin-top:4px;">${product.location || ''}</small> -->
+
   
       <header> 
 
@@ -71,6 +75,30 @@
 
        <!-- Your HTML stays this short forever -->
       <div class="buttons" id="tradingButtons"></div>
+<!--       
+      // ============================================
+      // HTML STRUCTURE
+      // ============================================ -->
+
+<div class="search-wrapper">
+    <div class="search-bar">
+        <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="🔍 Search for products..." 
+            autocomplete="off"
+            aria-label="Search products"
+        >
+        <button class="search-voice" onclick="window.searchInstance?.voiceSearch()" title="Voice search">
+            🎤
+        </button>
+        <button class="search-clear" onclick="document.getElementById('searchInput').value=''; window.searchInstance.hideResults();" title="Clear">
+            ✕
+        </button>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+</div>
+<!-- */ -->
 
 </header>
   

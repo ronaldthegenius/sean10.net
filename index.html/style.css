@@ -575,6 +575,8 @@ text-align: center;
 }
 
 .logo .logo  {
+  margin: 0 auto;
+    display: table;
   /* background: linear-gradient(to left, #4CAF50, blue, cyan, red, yellowgreen);  */
     /* background: linear-gradient(to left, black, yellow, red); */
     /* background-clip: text; */
@@ -610,68 +612,6 @@ text-align: center;
 
 
 
-  /* search */
-
- form{
-  border-radius: px;
-  border: none;
-  padding: 5px;
-  justify-content: center;
-  align-items: center;
- }
-
-.logo span {
-  float: right;
-display: inline-flex;
-align-items: center;
-}
-
-.logo span input[type="search"] {
-  font-family: 'Courier New', Courier, monospace;
-padding: 10px;
-border: 1px solid #ccc;
-border-radius: 7px 0 0 7px; /* Match button border radius */
-width: 65%;
-/* border: #000 inset 3px; */
-border: groove;
-}
-
-.logo span button {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 12px;
-padding: 10px 20px;
-background-color: #4CAF50;
-color: white;
-border: none;
-border-radius: 0 7px 7px 0;
-cursor: pointer;
-border: #333 solid 1px;
-}
-
-
-.logo span button:hover{
-transform: scale(1.1);
-color: yellow;
-}
-
-
-
-
-/* the icons */
-.logo .login .bi-cart {
-  font-family: 'poppins', sans-serif;
-  color: green;
-  font-size: 20px;
-
-}
-.logo .login .bi-cart:hover {
-  /* transform: scale(1.2); */
-  color:blue;
-  cursor: pointer;
-}
-/* icon end */
-
-
 
 /* END OF NAV */
 
@@ -687,6 +627,7 @@ header .buttons{
   display:flex;
  flex-wrap: wrap;
  text-align: center;
+ margin: 0.5em;
 }
 
 

@@ -1,8 +1,13 @@
+function shuffleArray(array) {
+  let arr = [...array]; // make a copy so we don't mess up original order
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]]; // swap
+  }
+  return arr;
+}
 
-
-
-
-//START OF MAIN ITEMS
+// START OF MAIN ITEMS
 // 1. Render the initial grid
 function renderProducts() {
     const productList = document.getElementById('product-list');
@@ -15,35 +20,24 @@ function renderProducts() {
                 <img height="100px" width="110px" src="${product.image}" alt="${product.name}">
                 ${product.isNew ? '<mark>new</mark>' : ''}
                 <h3><span>${product.name}</span></h3>
-<p class="price-container">
-    <span> <del> ${product.oldPrice}</del>${product.newPrice}</span>
-</p>
-    
+                <p class="price-container">
+                    <span> <del>${product.oldPrice}</del>${product.newPrice}</span>
+                </p>
             </div>
         </div>
     `).join('');
 }
 
-//   CLOSE THE PREVIEW
+// CLOSE THE PREVIEW
 function closePreview() {
     const previewContainer = document.getElementById('products-preview-container');
     
     if (previewContainer) {
-        // 1. Hide it immediately from the user's view
         previewContainer.style.display = 'none';
-        
-        // 2. Clear the HTML to free up memory and reset the scroll position
         previewContainer.innerHTML = '';
-        
-        // Optional: If you use a class to show/hide (like .active), remove it too
         previewContainer.classList.remove('active');
     }
 }
-// PREVIEW CLOSED
-// Ensure the DOM is loaded before running
-// document.addEventListener('DOMContentLoaded', renderProducts);
-
-
 
 // 2. The Preview Function
 function openPreview(productId) {
@@ -52,22 +46,13 @@ function openPreview(productId) {
     
     if (!product || !previewContainer) return;
 
-    // We use imgLink here so every image in the array gets displayed
-    const galleryHTML = product.gallery.map(imgLink => `
+    // Gallery HTML
+    const galleryHTML = product.gallery ? product.gallery.map(imgLink => `
         <img src="${imgLink}" class="product-thumbnail" onclick="openFullImage('${imgLink}')">
-    `).join(''); 
+    `).join('') : '';
 
-    
-
-//start of preview
-
-// 1. Prepare the encoded message and clean number
-// const sellerMsg = encodeURIComponent("Hello s̸e̸a̸n̸10.! I need your item please, can we negotiate?");
-// const cleanWhatsApp = product.whatsappNumber.replace(/\D/g, ''); 
-
-
-// 2. Inject into the HTML
-previewContainer.innerHTML = `
+    // Start of preview
+    previewContainer.innerHTML = `
     <div class="preview active">
         <i class="fas fa-times" onclick="closePreview()"></i>
         <h2>Product Details</h2>
@@ -100,24 +85,24 @@ previewContainer.innerHTML = `
             <a href="https://wa.me/${product.whatsappNumber}" target="_blank" rel="noopener noreferrer">
                 <i class="bi bi-whatsapp"></i>
             </a>
-        </li> <!-- Added closing li -->
-
+        </li>
         <li> 
             <a href="tel:+${product.phoneNumber}">
                 <i class="bi bi-telephone"></i>
             </a>
         </li>
-          </ul>
+    </ul>
+  </div>
 
-          <!-- Global Dark Mode Toggle - Put this in your navigation bar -->
-<label class="dark-mode-toggle" style="position: fixed; top: 10px; right: 10px; z-index: 9999;">
+  <!-- Global Dark Mode Toggle -->
+  <label class="dark-mode-toggle" style="position: fixed; top: 10px; right: 10px; z-index: 9999;">
     <input type="checkbox" id="globalDarkModeToggle">
     <span class="toggle-slider"></span>
     <span style="margin-left: 10px;">Dark Mode</span>
-</label>
+  </label>
            
-      <!--   //   ============ YOUR HTML TEMPLATE ============  -->
-${product.sellerEmail ? `<div class="emailSeller" data-product-id="${product.id}">
+  <!-- EMAIL SELLER FORM -->
+  ${product.sellerEmail ? `<div class="emailSeller" data-product-id="${product.id}">
     <form class="online_chat" id="emailSellerForm_${product.id}" action="https://formspree.io/f/mjgzprel" method="POST">
         <input type="email" name="email" id="userEmail_${product.id}" class="user-email" placeholder="Your email" required autocomplete="email">
         
@@ -145,10 +130,8 @@ ${product.sellerEmail ? `<div class="emailSeller" data-product-id="${product.id}
         <button onclick="copyToClipboard('${product.id}')" style="margin-top:5px;">📋 Copy to Clipboard</button>
         <a href="mailto:${product.email}" style="display:block; margin-top:5px; color: var(--button-bg);">✉️ Or open Email App</a>
     </div>
-</div>` : ''}
+  </div>` : ''}
 
-</div>
-     
         <div class="condition">condition: <span>${product.condition}</span></div>
 
         <div class="location">
@@ -166,26 +149,22 @@ ${product.sellerEmail ? `<div class="emailSeller" data-product-id="${product.id}
             </div>` : ''
         }
 
-   
-
-            <div class="pdtdescription">
+        <div class="pdtdescription">
              ${product.descriptionTitle ? `<div class="descriptionTitle">${product.descriptionTitle}</div>` : ''} 
 
-            
-    ${product.Name ? `<div class="laptopsDetails">${product.PCname}<span><b>${product.PCtitle}</b></span></div>` : ''}
-    ${product.processor ? `<div class="laptopsDetails">${product.cpu}<span><b>${product.processor}</b></span></div>` : ''}
-    ${product.ram ? `<div class="laptopsDetails">${product.installedRam}<span><b>${product.ram}</b></span></div>` : ''}
-    ${product.storage ? `<div class="laptopsDetails">${product.installedStorage}<span><b>${product.storage}</b></span></div>` : ''}
-    ${product.gpu ? `<div class="laptopsDetails">${product.gpu}<span><b>${product.graphics}</b></span></div>` : ''}
-    ${product.dedicatedGPU ? `<div class="laptopsDetails">${product.dedicatedGPU}<span><b>${product.dedicatedGPUsize}</b></span></div>` : ''}
-    ${product.keypad ? `<div class="laptopsDetails">${product.keypad}<span><b>${product.keypadLight}</b></span></div>` : ''}
-    ${product.battery ? `<div class="laptopsDetails">${product.battery}<span><b>${product.batteryLIFE}</b></span></div>` : ''}
+            ${product.Name ? `<div class="laptopsDetails">${product.PCname}<span><b>${product.PCtitle}</b></span></div>` : ''}
+            ${product.processor ? `<div class="laptopsDetails">${product.cpu}<span><b>${product.processor}</b></span></div>` : ''}
+            ${product.ram ? `<div class="laptopsDetails">${product.installedRam}<span><b>${product.ram}</b></span></div>` : ''}
+            ${product.storage ? `<div class="laptopsDetails">${product.installedStorage}<span><b>${product.storage}</b></span></div>` : ''}
+            ${product.gpu ? `<div class="laptopsDetails">${product.gpu}<span><b>${product.graphics}</b></span></div>` : ''}
+            ${product.dedicatedGPU ? `<div class="laptopsDetails">${product.dedicatedGPU}<span><b>${product.dedicatedGPUsize}</b></span></div>` : ''}
+            ${product.keypad ? `<div class="laptopsDetails">${product.keypad}<span><b>${product.keypadLight}</b></span></div>` : ''}
+            ${product.battery ? `<div class="laptopsDetails">${product.battery}<span><b>${product.batteryLIFE}</b></span></div>` : ''}
 
-   
-    ${product.details ? `<div class="paragraph"><b>${product.details}</b></div>` : ''}
-    ${product.noteDetails ? `<div class="noteTitle">${product.noteDetails}</div>` : ''} 
-    ${product.note ? `<div class="note">${product.note}</div>` : ''}
-</div>
+            ${product.details ? `<div class="paragraph"><b>${product.details}</b></div>` : ''}
+            ${product.noteDetails ? `<div class="noteTitle">${product.noteDetails}</div>` : ''} 
+            ${product.note ? `<div class="note">${product.note}</div>` : ''}
+        </div>
         
         <div class="modal" id="productImageModal" style="display:none;">
             <div class="modal-content">
@@ -193,11 +172,10 @@ ${product.sellerEmail ? `<div class="emailSeller" data-product-id="${product.id}
                 <button class="close-btn" onclick="closeFullImage()">&times;</button>
             </div>
         </div>
-    `;
+    </div>`;
+    
     previewContainer.style.display = 'flex';
 }
-
-//end of preview
 
 // 3. Modal Logic Functions
 function openFullImage(imgSrc) {
@@ -206,7 +184,7 @@ function openFullImage(imgSrc) {
     
     if (modal && fullImg) {
         fullImg.src = imgSrc;
-        modal.classList.add('active'); // This matches your .modal.active CSS
+        modal.classList.add('active');
     }
 }
 
@@ -220,4 +198,3 @@ function closeFullImage() {
 // Ensure the DOM is loaded before running
 document.addEventListener('DOMContentLoaded', renderProducts);
 
-// PEVIEW FULL IMG ENDS
