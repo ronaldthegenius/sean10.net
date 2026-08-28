@@ -152,6 +152,7 @@ function showPreview(index) {
 
     sidebar.innerHTML = `
         <div class="sidebar-preview-content">
+         <h2>mini spare shop only<span>(for those looking for used spares only/mechanical)</span></h2>
             <button onclick="loadSidebarList()" class="back-btn"">← Back to Shop</button>
            <h1>${item.name}</h1>
             <img src="${imgSrc}" alt="${item.title}" >
