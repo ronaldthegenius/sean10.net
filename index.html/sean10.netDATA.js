@@ -1,7 +1,75 @@
 
 // START OF LOCAL STORAGE
 // This is exactly like JSON, but assigned to a variable
+// laptops ids 1,2,3
+// electronics 1,2
+// controllers 1,2,3
+
+
 const myProducts = [
+
+  // START OF DEPAY ITEMS
+  {                
+    "id": "laptops 3",
+    "class": "used",
+    "name": "MACBOOK AIR ",
+    "category": "laptops macOS used_items ",
+    "image": "/images/used-pack/depay/MACBOOK AIR retina13inch  2018.jpeg",
+    "gallery": [
+      "/images/used-pack/thumbnails/depay thumbnals/MACBOOK AIR retina13inch  2018   13.jpeg",
+      "/images/used-pack/thumbnails/depay thumbnals/MACBOOK AIR retina13inch  2018  1.jpeg",
+      "/images/used-pack/thumbnails/depay thumbnals/MACBOOK AIR retina13inch  2018  2.jpeg",
+      "/images/used-pack/thumbnails/depay thumbnals/MACBOOK AIR retina13inch  2018  3.jpeg",
+      "/images/used-pack/thumbnails/depay thumbnals/MACBOOK AIR retina13inch  2018  4.jpeg",
+      "/images/used-pack/thumbnails/depay thumbnals/MACBOOK AIR retina13inch  2018  5.jpeg",
+      "/images/used-pack/thumbnails/depay thumbnals/MACBOOK AIR retina13inch  2018  6.jpeg",
+      "/images/used-pack/thumbnails/depay thumbnals/MACBOOK AIR retina13inch  2018  7.jpeg",
+      "/images/used-pack/thumbnails/depay thumbnals/MACBOOK AIR retina13inch  2018  8.jpeg",
+      "/images/used-pack/thumbnails/depay thumbnals/MACBOOK AIR retina13inch  2018  9.jpeg",
+      "/images/used-pack/thumbnails/depay thumbnals/MACBOOK AIR retina13inch  2018  10.jpeg",
+      "/images/used-pack/thumbnails/depay thumbnals/MACBOOK AIR retina13inch  2018  11.jpeg",
+      "/images/used-pack/thumbnails/depay thumbnals/MACBOOK AIR retina13inch  2018  12.jpeg",
+      "/images/used-pack/thumbnails/depay thumbnals/MACBOOK AIR retina13inch  2018  14.jpeg",
+      "/images/used-pack/thumbnails/depay thumbnals/MACBOOK AIR retina13inch  2018  15.jpeg",
+    ],
+    // "span" : "price per piece",
+    "h4" : "1 piece available",
+      "whatsappNumber": "256708526887?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
+    "phoneNumber": "256708526887",
+    "location":" uganda >  kampala > ham shopping grounds",
+    //  "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28928.808191227257!2d55.104990877735254!3d24.99668297781386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f12a5fc60c251%3A0xcb332e4004272dc9!2sJebel%20Ali%20Industrial%20Area%20-%20Jabal%20Ali%20Industrial%20First%20-%20Dubai!5e0!3m2!1sen!2sae!4v1776783267254!5m2!1sen!2sae",
+    "condition": "used",
+    "descriptionTitle" : "descriptions;",
+     "PCname":"PCname",
+     "PCtitle": "MACBOOK AIR",
+       "cpu": "cpu",
+     "processor": " 1.6 Ghz Dual-core intel core i5",
+     "installedRam": "ram",
+     "installedStorage": "storage",
+     "storage": "[121gb ]",
+     "ram":" 8GB 2133MHz LPDDR3",
+     "gpu": "gpu",
+     "graphics" :"intel UHD graphics 617  1536MB",
+     "dedicatedGPU" : "dedicated gpu",
+     "dedicatedGPUsize": "intel UHD graphics 617  1536MB",
+     "keypad": "keypadLight",
+     "keypadLight": "yes|its white",
+     "battery": "batteryLIFE",
+     "batteryLIFE": "with scale of 1-10 is 7",
+    "details": [
+      "MACBOOK AIR  retina, 13-inch,  2018",
+     ],
+     "noteDetails" : "note",
+     "note" : "price negotiable",
+    "note": "slightly used but fully functioinal",
+    "oldPrice": "1,200,000ugsh",
+    "newPrice": "1,150,000ugsh",
+   
+  },
+// END OF DEPAY ITEMS
+
+
+  // START OF SEAN10 ITEMS
   {                
     "id": "chargers ",
     "class": "used",
@@ -538,9 +606,9 @@ const myProducts = [
     "oldPrice": "40.000ugsh",
     "newPrice": "35.000ugsh",
 
-  
+   },
 // END OF SEAN10 ITEMS
-  },
+ 
 
 
 // 2 START OF RICHARD darlington
