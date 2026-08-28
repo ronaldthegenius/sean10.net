@@ -5,6 +5,186 @@
 
 
 
+  /* ============================================
+           CSS VARIABLES - Light & Dark Themes
+           ============================================ */
+        :root {
+            --bg-primary: #f5f7fa;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #f0f0f0;
+            --text-primary: #2c3e50;
+            --text-secondary: #333333;
+            --text-muted: #666666;
+            --text-light: #999999;
+            --border-color: #e0e0e0;
+            --border-light: #f5f5f5;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --shadow-dark: rgba(0, 0, 0, 0.15);
+            --accent-color: #4CAF50;
+            --accent-hover: #45a049;
+            --danger-color: #ff4444;
+            --danger-hover: #cc0000;
+            --highlight-color: #ffeb3b;
+            --card-bg: #ffffff;
+            --hover-bg: #f5f7fa;
+            --scrollbar-track: #f5f5f5;
+            --scrollbar-thumb: #cccccc;
+            --modal-overlay: rgba(0, 0, 0, 0.7);
+            --toggle-bg: #cccccc;
+            --toggle-dot: #ffffff;
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #1a1a2e;
+            --bg-secondary: #16213e;
+            --bg-tertiary: #1f2a4a;
+            --text-primary: #e0e0e0;
+            --text-secondary: #d0d0d0;
+            --text-muted: #999999;
+            --text-light: #777777;
+            --border-color: #2a3a5a;
+            --border-light: #1f2a4a;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --shadow-dark: rgba(0, 0, 0, 0.5);
+            --accent-color: #66bb6a;
+            --accent-hover: #4caf50;
+            --danger-color: #ff6b6b;
+            --danger-hover: #ff4444;
+            --highlight-color: #ffd700;
+            --card-bg: #16213e;
+            --hover-bg: #1f2a5a;
+            --scrollbar-track: #1a2a4a;
+            --scrollbar-thumb: #3a5a8a;
+            --modal-overlay: rgba(0, 0, 0, 0.85);
+            --toggle-bg: #3a5a8a;
+            --toggle-dot: #ffd700;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .header h1 {
+            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 28px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* ===== DARK MODE TOGGLE ===== */
+        .dark-toggle-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .dark-toggle-wrapper span {
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .dark-toggle {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .dark-toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .dark-toggle .slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--toggle-bg);
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .dark-toggle .slider::before {
+            content: '☀️';
+            position: absolute;
+            height: 24px;
+            width: 24px;
+            left: 3px;
+            bottom: 3px;
+            background: var(--toggle-dot);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .dark-toggle input:checked + .slider {
+            background: #2a3a5a;
+        }
+
+        .dark-toggle input:checked + .slider::before {
+            transform: translateX(30px);
+            content: '🌙';
+        }
+
+        .dark-toggle .slider .toggle-icons {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 6px;
+            line-height: 30px;
+            color: white;
+            font-size: 14px;
+            pointer-events: none;
+        }
+
+        .dark-toggle:hover .slider {
+            box-shadow: 0 0 10px var(--accent-color);
+        }
+
+
 
 
 :root {
@@ -128,6 +308,27 @@ body  {
     padding: 20px;
    /* end of glass */
   }
+
+  .sidebar-preview-content h2{
+  background: black;
+    color: lightgoldenrodyellow;
+    border-radius: 20%;
+    padding: 3px;
+    text-align: center;
+    align-items: center;
+    font-size: clamp(1em, (5vh + 1em), 1.2em);
+    margin-bottom: 1em;
+}
+
+.sidebar-preview-content  span{
+  background: black;
+    color: lightgoldenrodyellow;
+    border-radius: 20%;
+    padding: 3px;
+    text-align: center;
+    align-items: center;
+    font-size:12px;
+}
 
 
 
@@ -302,12 +503,15 @@ body  {
 
 
 /* START OF sidebar preview */
+
 .sidebar-preview-content{
- padding: 3px;
+     padding: 3px;
     font-family: 'poppins', sans-serif;
     justify-content: center;
     align-items: center;
     text-align: center;
+    display: flex;
+    flex-wrap: wrap;
     overflow: scroll;
     height: 90dvh;
     height: 90vh;
@@ -324,6 +528,13 @@ body  {
     background: green;
     color: #fff;
     font-size: clamp(1em, calc(5vh + 1em), 1em);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    border: red 1px solid;
+    width: -webkit-fill-available;
 }
 .sidebar-preview-content img{
   margin: 1em;
@@ -344,14 +555,19 @@ body  {
 }
 
 .sidebar-preview-content  h1{
-  display: inline-block;
+  display: flex;
+    width: 100%;
     padding: 3px;
+    align-items: center;
+    justify-content: center;
     color: orange;
     text-transform: lowercase;
     background: #000;
     border-radius: 8px;
     margin: 1em;
     font-size: clamp(1em, (5vh + 1em), 1em);
+    flex-wrap: wrap;
+    text-align: center;
 }
 
 /* END OF SIDEBAR preview */
@@ -750,16 +966,25 @@ header  .buttons   .all:hover{
 
 
 .product-container {
-  overflow: hidden;
-  /* border: 1px solid red; */
-  background-color: #000;
-  /* background-image: url(/images/george2.jpg); */
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  text-align: center;
-  height: 80vh;
+   background: var(--card-bg);
+    border-radius: 12px;
+    /* overflow: hidden; */
+    box-shadow: 0 2px 10px var(--shadow-color);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid var(--border-color);
+ 
+
+    overflow: hidden;
+    /* border: 1px solid red; */
+    /* background-color: #000; */
+    /* background-image: url(/images/george2.jpg); */
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    height: 80vh;
     height: 80dvh;
 }
 
@@ -1712,7 +1937,12 @@ header  .buttons   .all:hover{
     width: 300px;
     display: none;
   }
+/* START OF sidebar preview */
 
+.sidebar-preview-content{
+     width: 92dvw;
+    width: 92vw;
+}
  
   /* start of navButton */
   #navButton{
