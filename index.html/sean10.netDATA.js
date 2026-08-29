@@ -64,7 +64,6 @@ const myProducts = [
     "note": "slightly used but fully functioinal",
     "oldPrice": "1,200,000ugsh",
     "newPrice": "1,150,000ugsh",
-   
   },
 // END OF DEPAY ITEMS
 
