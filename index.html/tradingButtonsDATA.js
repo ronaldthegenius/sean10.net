@@ -17,6 +17,7 @@ const categories = [
     { id: "autommotives", label: "AUTOMOTIVES" },
     { id: "workshop_tools", label: "WORKSHOP" },
     { id: "personal_care", label: "personal_care",  color: "orangered" },
-    { id: "electronics", label: "electronics",  }
+    { id: "electronics", label: "electronics" },
+    { id: "macOS", label: "macOS" }
     
 ];
