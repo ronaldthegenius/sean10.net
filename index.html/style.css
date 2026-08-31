@@ -505,6 +505,7 @@ body  {
 /* START OF sidebar preview */
 
 .sidebar-preview-content{
+  /* border: 1x blue solid; */
      padding: 3px;
     font-family: 'poppins', sans-serif;
     justify-content: center;
@@ -519,7 +520,7 @@ body  {
     border-radius: 20px;
     padding-bottom: 5em;
     margin-bottom: 5em;
-    margin-top: -2.2em;
+    margin-top: -2.3em;
 }
 
 .sidebar-preview-content  .back-btn{
@@ -537,22 +538,28 @@ body  {
     border: red 1px solid;
     width: -webkit-fill-available;
 }
+
 .sidebar-preview-content img{
-  margin: 1em;
-  text-align: center;
-    display: inline-block;
-    flex-wrap: wrap;
+   justify-content: center;
     align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    width: 20dvw; 
-    width: 20vw;
-    height: 20dvh;
-    height: 20vh;
-    color: orangered;
-    font-family: cursive;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+      border: grey 1px solid;
+      font-family: cursive;
     font-size: clamp(1em, calc(7vh + 1em), 1em);
     text-transform: uppercase;
+    margin: 1em;
+    border-radius: 10px;
+    /* width: 20dvw; */
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    /* height: 50%; */
+    /* height: 20vh; */
+    color: orangered;
+    padding: 10px;
 }
 
 .sidebar-preview-content  h1{
@@ -569,6 +576,7 @@ body  {
     font-size: clamp(1em, (5vh + 1em), 1em);
     flex-wrap: wrap;
     text-align: center;
+    border: groove 1px;
 }
 
 /* END OF SIDEBAR preview */
@@ -579,17 +587,6 @@ body  {
   display: none;
   text-decoration: none;
   border: none;
-  /* margin-top: 10px;
-    /* color: forestgreen; */
-    /* position: relative; */
-    /* align-items: center;
-    text-align: center;
-    font-size: 15px;
-    text-transform: lowercase;
-    
-    padding: 5px;
-    border-radius: 10px;
-    background: #000; */ 
 }
 
 /* /* #toggleBtn:hover{ */
@@ -1260,7 +1257,7 @@ header  .buttons   .all:hover{
     font-size: clamp(1.5em, calc(5vh + 1em), 1.rem);
     text-align: center;
     background: green;
-    color: white;
+    color: lightgoldenrodyellow;
     margin: 0.2em;
     padding: 3px;
     text-transform: uppercase;

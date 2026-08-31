@@ -25,13 +25,12 @@ function show_more(selectedProductName, button) {
   // FIX: Injected your scale effects, cursor styling, and click preview mechanics cleanly here
   const imagesGridHTML = matchedItem.images.map(imgSrc => `
     <img 
-      width="120px" 
-      height="140px" 
+      width="100px" 
+      height="100px" 
       src="${imgSrc}" 
       alt="${matchedItem.title || 'Image'}" 
       class="grid-gallery-img"
       onclick="openImagePreview('${imgSrc}', '${matchedItem.title || 'Image'}')"
-      style="cursor: pointer; transition: transform 0.2s; object-fit: cover; border-radius: 5px;"
       onmouseover="this.style.transform='scale(1.02)'"
       onmouseout="this.style.transform='scale(1)'"
       title="Click to view full size"
