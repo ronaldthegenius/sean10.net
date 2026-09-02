@@ -1,32 +1,5 @@
-function shuffleArray(array) {
-  let arr = [...array]; // make a copy so we don't mess up original order
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]]; // swap
-  }
-  return arr;
-}
 
-// START OF MAIN ITEMS
-// 1. Render the initial grid
-function renderProducts() {
-    const productList = document.getElementById('product-list');
-    if (!productList) return; // Safety check
 
-    productList.innerHTML = myProducts.map(product => `
-        <div class="product" data-category="${product.category}" onclick="openPreview('${product.id}')">
-            <div class="image_BX">
-              <span class="condition">${product.class}</span> 
-                <img height="100px" width="110px" src="${product.image}" alt="${product.name}">
-                ${product.isNew ? '<mark>new</mark>' : ''}
-                <h3><span>${product.name}</span></h3>
-                <p class="price-container">
-                    <span> <del>${product.oldPrice}</del>${product.newPrice}</span>
-                </p>
-            </div>
-        </div>
-    `).join('');
-}
 
 // CLOSE THE PREVIEW
 function closePreview() {
