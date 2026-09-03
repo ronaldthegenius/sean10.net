@@ -860,13 +860,6 @@ header  .buttons   .all:hover{
     /* height: 110px !important; */
     object-fit: cover;
     transition: transform 0.3s ease;
-    display: flex;
-    display: grid;
-    display: grid;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-template-columns: repeat(2, 1fr);
 }
 
 .product-container .product:hover .image_BX img {
@@ -1153,7 +1146,7 @@ header  .buttons   .all:hover{
 }
 .gallery-grid img{
     border-radius: 10px;
-    width: 80px;
+    width: 50px;
     height: 140px;
     max-width: 100%;
     height: auto;
@@ -1161,7 +1154,7 @@ header  .buttons   .all:hover{
     object-fit: cover;
     background: red;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
     gap: 10px;
     margin: 5px;
     border: groove;
@@ -1977,12 +1970,14 @@ header  .buttons   .all:hover{
 
  /* ===== PRODUCT CONTAINER (GRID) ===== */
 .product-container {
-     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-        grid-template-columns: repeat(2, 1fr); 
-        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+     grid-template-columns: repeat(auto-fill, minmax(125px, 1fr)); 
+        /* grid-template-columns: repeat(2, 1fr); */
+        grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
 }
 
-
+.product-container .product .availability{
+  display: none;
+}
 
 
 /* ============================================

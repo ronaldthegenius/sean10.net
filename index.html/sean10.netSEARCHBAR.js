@@ -1,4 +1,15 @@
 // ============================================
+// FISHER-YATES SHUFFLE UTILITY
+// ============================================
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+// ============================================
 // RENDER SEARCH BAR FUNCTION
 // ============================================
 function renderSearchBar() {
@@ -25,7 +36,7 @@ function renderSearchBar() {
                     🎤
                 </button>
                 
-                <div class="search-voice-status" id="voiceStatus">
+                <div class="search-voice-status" id="voiceStatus" style="display:none;">
                     <span class="pulse-dot"></span> Listening...
                 </div>
                 
@@ -65,7 +76,7 @@ function renderSearchBar() {
 }
 
 // ============================================
-// SEARCH ENGINE - MATCHES YOUR HTML STRUCTURE
+// SEARCH ENGINE MODULE
 // ============================================
 function initSearch() {
     const searchInput = document.getElementById('searchInput');
@@ -84,14 +95,13 @@ function initSearch() {
     let searchCount = parseInt(localStorage.getItem('searchCount')) || 0;
     let debounceTimer = null;
 
-    // Update counts
-    if (productCount) productCount.textContent = myProducts.length;
-    if (searchCountDisplay) searchCountDisplay.textContent = searchCount;
-
-    // ===== RENDER PRODUCTS - MATCHES YOUR HTML STRUCTURE =====
+    // ===== RENDER PRODUCTS =====
     function renderProducts(products) {
         const items = products || myProducts;
         if (!productContainer) return;
+
+        if (productCount) productCount.textContent = items.length;
+        if (searchCountDisplay) searchCountDisplay.textContent = searchCount;
         
         if (items.length === 0) {
             productContainer.innerHTML = `
@@ -103,40 +113,33 @@ function initSearch() {
             return;
         }
         
-       productContainer.innerHTML = items.map(product => `
-    <div class="product" data-category="${product.category}" onclick="openPreview('${product.id}')">
-        <div class="image_BX">
-            <img height="140px" width="160px" src="${product.image}" alt="${product.name}" loading="lazy">
-            ${product.class === 'new' ? '<mark>🔥 NEW</mark>' : ''}
-            ${product.class === 'used' ? '<mark class="used-mark">📦 USED</mark>' : ''}
-            <div class="product-info">
-                <div class="product-name">${product.name}</div>
-                
-                <!-- PRICE MARQUEE CONTAINER -->
-                <div class="price-container">
-                    <div class="price-track">
-                        ${product.oldPrice && product.oldPrice !== 'soon coming' && product.oldPrice !== 'negotiable' ? `<del>${product.oldPrice}</del>` : ''}
-                        <span class="${product.newPrice === 'negotiable' ? 'negotiable' : 'new-price'}">
-                            ${product.newPrice || 'Price on request'}
-                        </span>
+        productContainer.innerHTML = items.map(product => `
+            <div class="product" data-category="${product.category}" onclick="openPreview('${product.id}')">
+                <div class="image_BX">
+                    <img height="140px" width="160px" src="${product.image}" alt="${product.name}" loading="lazy">
+                    ${product.class === 'new' ? '<mark>🔥 NEW</mark>' : ''}
+                    ${product.class === 'used' ? '<mark class="used-mark">📦 USED</mark>' : ''}
+                    <div class="product-info">
+                        <div class="product-name">${product.name}</div>
+                        <div class="price-container">
+                            <div class="price-track">
+                                ${product.oldPrice && product.oldPrice !== 'soon coming' && product.oldPrice !== 'negotiable' ? `<del>${product.oldPrice}</del>` : ''}
+                                <span class="${product.newPrice === 'negotiable' ? 'negotiable' : 'new-price'}">
+                                    ${product.newPrice || 'Price on request'}
+                                </span>
+                            </div>
+                        </div>
+                        ${product.h4 ? `<div class="availability">${product.h4}</div>` : ''}
                     </div>
                 </div>
-
-                ${product.h4 ? `<div class="availability">${product.h4}</div>` : ''}
             </div>
-        </div>
-    </div>
-`).join('');
-       }
+        `).join('');
+    }
 
+    // Expose render function globally to handle reshuffles
+    window.renderProductsList = renderProducts;
 
-    
-
-
-
-
-
-    // ===== SEARCH FUNCTION - SEARCHES ALL FIELDS =====
+    // ===== SEARCH QUERY FILTER =====
     function searchProducts(query) {
         const q = query.toLowerCase().trim();
         if (!q) return [];
@@ -166,7 +169,7 @@ function initSearch() {
         });
     }
 
-    // ===== DISPLAY RESULTS IN DROPDOWN =====
+    // ===== DISPLAY DROPDOWN RESULTS =====
     function showResults(results, query) {
         if (!resultsContainer) return;
         
@@ -197,14 +200,13 @@ function initSearch() {
                     ${product.location ? `<div class="result-location">📍 ${product.location}</div>` : ''}
                     ${product.h4 ? `<div class="result-availability">${product.h4}</div>` : ''}
                 </div>
-                <div class="result-score">⭐ ${Math.floor(Math.random() * 30 + 70)}%</div>
             </div>
         `).join('');
 
         resultsContainer.style.display = 'block';
     }
 
-    // ===== SELECT PRODUCT - USES YOUR openPreview =====
+    // ===== SELECT PRODUCT =====
     window.selectProduct = function(id) {
         const product = myProducts.find(p => p.id === id);
         if (product) {
@@ -225,7 +227,7 @@ function initSearch() {
         }
     };
 
-    // ===== SAVE TO HISTORY =====
+    // ===== SAVE HISTORY =====
     function saveToHistory(query) {
         if (!query || query.length < 2) return;
         searchHistory = searchHistory.filter(item => item !== query);
@@ -238,7 +240,7 @@ function initSearch() {
         if (searchCountDisplay) searchCountDisplay.textContent = searchCount;
     }
 
-    // ===== HANDLE SEARCH =====
+    // ===== INPUT LISTENER =====
     function handleSearch(e) {
         const query = e.target.value;
         
@@ -261,7 +263,7 @@ function initSearch() {
         }, 300);
     }
 
-    // ===== CLEAR SEARCH =====
+    // ===== CLEAR BUTTON =====
     if (clearBtn) {
         clearBtn.addEventListener('click', function() {
             if (searchInput) searchInput.value = '';
@@ -272,24 +274,17 @@ function initSearch() {
         });
     }
 
-    // ===== SEARCH INPUT =====
+    // ===== LISTENERS =====
     if (searchInput) {
         searchInput.addEventListener('input', handleSearch);
-        searchInput.addEventListener('blur', function() {
-            setTimeout(() => {
-                if (resultsContainer) resultsContainer.style.display = 'none';
-            }, 200);
-        });
     }
 
-    // ===== CLICK OUTSIDE =====
     document.addEventListener('click', function(e) {
         if (!e.target.closest('.search-wrapper')) {
             if (resultsContainer) resultsContainer.style.display = 'none';
         }
     });
 
-    // ===== KEYBOARD SHORTCUT =====
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
             if (searchInput) {
@@ -310,40 +305,222 @@ function initSearch() {
         }
     });
 
-    // ===== INITIAL RENDER =====
     renderProducts(myProducts);
-
-    console.log('✅ Search initialized with your HTML structure!');
-    console.log('📦 Products loaded:', myProducts.length);
-    console.log('🔍 Container ID: productList | Class: product-container');
-    console.log('⌨️  Press Ctrl+K to focus search');
 }
 
 // ============================================
-// INITIALIZE EVERYTHING
+// AUTOMATIC SHUFFLE SCHEDULER
+// ============================================
+function initProductShuffle() {
+    if (typeof myProducts === 'undefined' || !Array.isArray(myProducts)) return;
+
+    function applyShuffle() {
+        console.log('🔀 Shuffling products with Fisher-Yates algorithm...');
+        shuffleArray(myProducts);
+        
+        // Re-render UI only if user isn't actively searching
+        const searchInput = document.getElementById('searchInput');
+        if (!searchInput || !searchInput.value.trim()) {
+            if (typeof window.renderProductsList === 'function') {
+                window.renderProductsList(myProducts);
+            }
+        }
+    }
+
+    // Shuffle immediately on initial load
+    applyShuffle();
+
+    // Reshuffle every 20 minutes (20 * 60 * 1000 ms)
+    const TWENTY_MINUTES = 20 * 60 * 1000;
+    setInterval(applyShuffle, TWENTY_MINUTES);
+}
+
+// ============================================
+// IMAGE SEARCH MODULE
+// ============================================
+function initImageSearch() {
+    const imageSearchBtn = document.getElementById('imageSearchBtn');
+    const modal = document.getElementById('imageUploadModal');
+    const closeBtn = document.getElementById('modalCloseBtn');
+    const dropZone = document.getElementById('imageDropZone');
+    const imageInput = document.getElementById('imageInput');
+    const previewContainer = document.getElementById('imagePreviewContainer');
+    const previewImg = document.getElementById('uploadedImagePreview');
+    const clearImageBtn = document.getElementById('clearImageBtn');
+    const searchSimilarBtn = document.getElementById('searchSimilarBtn');
+    const imageSearchResults = document.getElementById('imageSearchResults');
+
+    if (!imageSearchBtn || !modal) return;
+
+    imageSearchBtn.addEventListener('click', () => modal.style.display = 'flex');
+
+    if (closeBtn) closeBtn.addEventListener('click', () => modal.style.display = 'none');
+
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) modal.style.display = 'none';
+    });
+
+    if (dropZone && imageInput) {
+        dropZone.addEventListener('click', () => imageInput.click());
+
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('drag-over');
+        });
+
+        dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
+
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('drag-over');
+            if (e.dataTransfer.files.length) {
+                imageInput.files = e.dataTransfer.files;
+                handleImageUpload(e.dataTransfer.files[0]);
+            }
+        });
+
+        imageInput.addEventListener('change', (e) => {
+            if (e.target.files.length) handleImageUpload(e.target.files[0]);
+        });
+    }
+
+    function handleImageUpload(file) {
+        if (!file.type.startsWith('image/')) {
+            alert('Please upload an image file.');
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            previewImg.src = event.target.result;
+            previewContainer.style.display = 'block';
+            dropZone.style.display = 'none';
+        };
+        reader.readAsDataURL(file);
+    }
+
+    if (clearImageBtn) {
+        clearImageBtn.addEventListener('click', () => {
+            imageInput.value = '';
+            previewImg.src = '';
+            previewContainer.style.display = 'none';
+            dropZone.style.display = 'block';
+            if (imageSearchResults) imageSearchResults.innerHTML = '';
+        });
+    }
+
+    if (searchSimilarBtn) {
+        searchSimilarBtn.addEventListener('click', () => {
+            if (!imageSearchResults) return;
+            
+            imageSearchResults.innerHTML = `
+                <div style="text-align: center; padding: 10px;">
+                    <p>🔍 Scanning image and searching catalog...</p>
+                </div>
+            `;
+
+            setTimeout(() => {
+                const matches = myProducts.slice(0, 4); 
+
+                imageSearchResults.innerHTML = `
+                    <h3 style="margin-top: 15px;">Similar Products Found:</h3>
+                    <div class="similar-results-list" style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        ${matches.map(product => `
+                            <div class="product-card" onclick="selectProduct('${product.id}'); document.getElementById('imageUploadModal').style.display='none';" style="cursor: pointer; border: 1px solid #ccc; padding: 8px; border-radius: 6px; width: 45%;">
+                                <img src="${product.image}" alt="${product.name}" style="width: 100%; height: 80px; object-fit: contain;">
+                                <div style="font-weight: bold; font-size: 12px; margin-top: 5px;">${product.name}</div>
+                                <div style="color: green; font-size: 12px;">${product.newPrice || 'Price on request'}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            }, 600);
+        });
+    }
+}
+
+// ============================================
+// VOICE SEARCH MODULE
+// ============================================
+function initVoiceSearch() {
+    const voiceBtn = document.getElementById('voiceBtn');
+    const voiceStatus = document.getElementById('voiceStatus');
+    const searchInput = document.getElementById('searchInput');
+
+    if (!voiceBtn) return;
+
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    if (!SpeechRecognition) {
+        voiceBtn.style.display = 'none';
+        console.warn('Speech Recognition API is not supported in this browser.');
+        return;
+    }
+
+    const recognition = new SpeechRecognition();
+    recognition.continuous = false;
+    recognition.interimResults = false;
+    recognition.lang = 'en-US';
+
+    let isListening = false;
+
+    voiceBtn.addEventListener('click', () => {
+        if (isListening) {
+            recognition.stop();
+        } else {
+            try {
+                recognition.start();
+            } catch (err) {
+                console.error('Voice search failed to start:', err);
+            }
+        }
+    });
+
+    recognition.onstart = () => {
+        isListening = true;
+        if (voiceStatus) voiceStatus.style.display = 'inline-flex';
+        voiceBtn.classList.add('listening');
+    };
+
+    recognition.onend = () => {
+        isListening = false;
+        if (voiceStatus) voiceStatus.style.display = 'none';
+        voiceBtn.classList.remove('listening');
+    };
+
+    recognition.onerror = (event) => {
+        isListening = false;
+        if (voiceStatus) voiceStatus.style.display = 'none';
+        voiceBtn.classList.remove('listening');
+        console.error('Speech recognition error:', event.error);
+    };
+
+    recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        if (searchInput) {
+            searchInput.value = transcript;
+            searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+            searchInput.focus();
+        }
+    };
+}
+
+// ============================================
+// INITIALIZE APPLICATION
 // ============================================
 document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 Initializing application...');
     
-    // 1. Render the search bar
+    // 1. Render HTML structure inside #searchBar
     renderSearchBar();
     
-    // 2. Initialize search
+    // 2. Shuffle products on initial load and setup 20-min timer
+    initProductShuffle();
+
+    // 3. Initialize feature controllers
     initSearch();
+    initImageSearch();
+    initVoiceSearch();
     
     console.log('✅ Application initialized successfully!');
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
