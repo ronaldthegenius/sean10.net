@@ -817,9 +817,8 @@ header  .buttons   .all:hover{
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
     padding: 10px;
-    overflow: visible;
+    overflow:hidden;
     gap: 10px;
-    display: grid;
     /* grid-template-columns: repeat(2, 1fr); */
     /* /* grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); */
 }
@@ -858,10 +857,16 @@ header  .buttons   .all:hover{
 /* Override fixed inline width/height attributes dynamically */
 .product-container .product .image_BX img {
     width: 100% !important;
-    height: 180px !important;
+    /* height: 110px !important; */
     object-fit: cover;
     transition: transform 0.3s ease;
-    display: block;
+    display: flex;
+    display: grid;
+    display: grid;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .product-container .product:hover .image_BX img {
@@ -873,8 +878,8 @@ header  .buttons   .all:hover{
     position: absolute;
     top: 10px;
     left: -15px;
-    background: green;
-    color: lightgoldenrodyellow;
+    background: lightgoldenrodyellow;
+    color: green;
     font-size: clamp(1em, calc(1vh + 1em), 1.em);
     font-weight: 700;
     padding: 4px 8px;
@@ -882,7 +887,7 @@ header  .buttons   .all:hover{
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
     z-index: 2;
     rotate: 330deg;
-   animation: borderRotate 7s linear infinite;
+   animation: borderRotate 50s linear infinite;
 }
 
 
@@ -893,7 +898,8 @@ header  .buttons   .all:hover{
 }
 
 .product-container .product mark.used-mark {
-    background: #2ed573;
+    background: green;
+    color: lightgoldenrodyellow;
 }
 
 /* ===== PRODUCT INFO (NESTED IN IMAGE_BX) ===== */
@@ -1970,11 +1976,11 @@ header  .buttons   .all:hover{
  /*start of prdts  */
 
  /* ===== PRODUCT CONTAINER (GRID) ===== */
-/* .product-container {
-    /* grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+.product-container {
+     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
         grid-template-columns: repeat(2, 1fr); 
         grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-} */
+}
 
 
 
