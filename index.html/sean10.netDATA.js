@@ -1,15 +1,9 @@
-
 // START OF LOCAL STORAGE
-// This is exactly like JSON, but assigned to a variable
-// laptops ids 1,2,3
-// electronics 1,2
-// controllers 1,2,3
-
+// Laptops IDs: 1, 2, 3 | Electronics IDs: 1, 2 | Controllers IDs: 1, 2, 3
 
 const myProducts = [
-
   // START OF DEPAY ITEMS
-  {                
+  {
     "id": "laptops 3",
     "class": "used",
     "name": "MACBOOK AIR ",
@@ -30,46 +24,42 @@ const myProducts = [
       "/images/used-pack/thumbnails/depay thumbnals/MACBOOK AIR retina13inch  2018  11.jpeg",
       "/images/used-pack/thumbnails/depay thumbnals/MACBOOK AIR retina13inch  2018  12.jpeg",
       "/images/used-pack/thumbnails/depay thumbnals/MACBOOK AIR retina13inch  2018  14.jpeg",
-      "/images/used-pack/thumbnails/depay thumbnals/MACBOOK AIR retina13inch  2018  15.jpeg",
+      "/images/used-pack/thumbnails/depay thumbnals/MACBOOK AIR retina13inch  2018  15.jpeg"
     ],
-    // "span" : "price per piece",
-    "h4" : "1 piece available",
-      "whatsappNumber": "256708526887?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
+    "h4": "1 piece available",
+    "whatsappNumber": "256708526887?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
     "phoneNumber": "256708526887",
-    "location":" uganda >  kampala > ham shopping grounds",
-    //  "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28928.808191227257!2d55.104990877735254!3d24.99668297781386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f12a5fc60c251%3A0xcb332e4004272dc9!2sJebel%20Ali%20Industrial%20Area%20-%20Jabal%20Ali%20Industrial%20First%20-%20Dubai!5e0!3m2!1sen!2sae!4v1776783267254!5m2!1sen!2sae",
+    "location": " uganda >  kampala > ham shopping grounds",
     "condition": "used",
-    "descriptionTitle" : "descriptions;",
-     "PCname":"PCname",
-     "PCtitle": "MACBOOK AIR",
-       "cpu": "cpu",
-     "processor": " 1.6 Ghz Dual-core intel core i5",
-     "installedRam": "ram",
-     "installedStorage": "storage",
-     "storage": "[121gb ]",
-     "ram":" 8GB 2133MHz LPDDR3",
-     "gpu": "gpu",
-     "graphics" :"intel UHD graphics 617  1536MB",
-     "dedicatedGPU" : "dedicated gpu",
-     "dedicatedGPUsize": "intel UHD graphics 617  1536MB",
-     "keypad": "keypadLight",
-     "keypadLight": "yes|its white",
-     "battery": "batteryLIFE",
-     "batteryLIFE": "with scale of 1-10 is 7",
+    "descriptionTitle": "descriptions;",
+    "PCname": "PCname",
+    "PCtitle": "MACBOOK AIR",
+    "cpu": "cpu",
+    "processor": " 1.6 Ghz Dual-core intel core i5",
+    "installedRam": "ram",
+    "installedStorage": "storage",
+    "storage": "[121gb ]",
+    "ram": " 8GB 2133MHz LPDDR3",
+    "gpu": "gpu",
+    "graphics": "intel UHD graphics 617  1536MB",
+    "dedicatedGPU": "dedicated gpu",
+    "dedicatedGPUsize": "intel UHD graphics 617  1536MB",
+    "keypad": "keypadLight",
+    "keypadLight": "yes|its white",
+    "battery": "batteryLIFE",
+    "batteryLIFE": "with scale of 1-10 is 7",
     "details": [
-      "MACBOOK AIR  retina, 13-inch,  2018",
-     ],
-     "noteDetails" : "note",
-     "note" : "price negotiable",
-    "note": "slightly used but fully functioinal",
+      "MACBOOK AIR  retina, 13-inch,  2018"
+    ],
+    "noteDetails": "note",
+    "note": "price negotiable, slightly used but fully functional",
     "oldPrice": "1,200,000ugsh",
-    "newPrice": "1,150,000ugsh",
+    "newPrice": "1,150,000ugsh"
   },
-// END OF DEPAY ITEMS
-
+  // END OF DEPAY ITEMS
 
   // START OF SEAN10 ITEMS
-  {                
+  {
     "id": "chargers ",
     "class": "used",
     "name": "acer AC/DC adapter",
@@ -83,31 +73,24 @@ const myProducts = [
       "/images/used-pack/thumbnails/sean thumbnails/acer adapter  1.jpeg",
       "/images/used-pack/thumbnails/sean thumbnails/acer adapter  2.jpeg"
     ],
-    // "span" : "price per piece",
-    // "h4" : "1 piece available",
-      "whatsappNumber": "971522608061?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
+    "whatsappNumber": "971522608061?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
     "phoneNumber": "971522608061",
-    sellerEmail : "ronaldthegenius@gmail.com",
+    "sellerEmail": "ronaldthegenius@gmail.com",
     "email": "ronaldthegenius@gmail.com",
-    "email": "ronaldthegenius@vk.com",
-    "email": "ronaldthegenius@icloud.com",
-    "email": "jjembaronald@outlook.com",
-    "location":" uganda >  makindye > mubarack zone",
-    //  "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28928.808191227257!2d55.104990877735254!3d24.99668297781386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f12a5fc60c251%3A0xcb332e4004272dc9!2sJebel%20Ali%20Industrial%20Area%20-%20Jabal%20Ali%20Industrial%20First%20-%20Dubai!5e0!3m2!1sen!2sae!4v1776783267254!5m2!1sen!2sae",
+    "location": " uganda >  makindye > mubarack zone",
     "condition": "used",
-    "descriptionTitle" : "descriptions;",
+    "descriptionTitle": "descriptions;",
     "details": [
       "MODEL  ADP-135KB T",
       "INPUT:100-240V~1.9A  50-60Hz",
       "OUTPUT:19V  =7.1A"
     ],
-    "noteDetails" : "note",
+    "noteDetails": "note",
     "note": "slightly used but fully functioinal",
     "oldPrice": "70,000ugsh",
-    "newPrice": "negotiable",
-   
+    "newPrice": "negotiable"
   },
-  {                
+  {
     "id": "electronics 1 ",
     "class": "new",
     "name": "power disconnector",
@@ -116,27 +99,22 @@ const myProducts = [
     "gallery": [
       "/images/new-park/sean/power disconnector.jpeg"
     ],
-    "span" : "price per piece",
-    "h4" : "variaties available",
-      "whatsappNumber": "971522608061?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
+    "span": "price per piece",
+    "h4": "variaties available",
+    "whatsappNumber": "971522608061?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
     "phoneNumber": "971522608061",
-    sellerEmail : "ronaldthegenius@gmail.com",
+    "sellerEmail": "ronaldthegenius@gmail.com",
     "email": "ronaldthegenius@gmail.com",
-    "email": "ronaldthegenius@vk.com",
-    "email": "ronaldthegenius@icloud.com",
-    "email": "jjembaronald@outlook.com",
     "location": " uganda >  makindye > mubarack zone",
-    //  "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28928.808191227257!2d55.104990877735254!3d24.99668297781386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f12a5fc60c251%3A0xcb332e4004272dc9!2sJebel%20Ali%20Industrial%20Area%20-%20Jabal%20Ali%20Industrial%20First%20-%20Dubai!5e0!3m2!1sen!2sae!4v1776783267254!5m2!1sen!2sae",
     "condition": "new",
-    "descriptionTitle" : "descriptions;",
+    "descriptionTitle": "descriptions;",
     "details": "GUARD EVERY CHARGE , for tablet, switch, iphone, android, etc",
-    "noteDetails" : "note",
+    "noteDetails": "note",
     "note": "works with all type c devices",
     "oldPrice": "soon coming",
-    "newPrice": "soon coming",
-   
+    "newPrice": "soon coming"
   },
-  {                
+  {
     "id": "electronics 2 ",
     "class": "new",
     "name": "Type‑C Foldable Phone Holder Adapter",
@@ -146,30 +124,28 @@ const myProducts = [
       "/images/new-park/sean/thumbnails/Type‑C Foldable Phone Holder Adapter  2.jpeg",
       "/images/new-park/sean/thumbnails/Type‑C Foldable Phone Holder Adapter 1.jpeg"
     ],
-    "span" : "price per piece",
-    "h4" : "variaties available",
-      "whatsappNumber": "971522608061?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
+    "span": "price per piece",
+    "h4": "variaties available",
+    "whatsappNumber": "971522608061?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
     "phoneNumber": "971522608061",
     "location": " uganda >  makindye > mubarack zone",
-    //  "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28928.808191227257!2d55.104990877735254!3d24.99668297781386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f12a5fc60c251%3A0xcb332e4004272dc9!2sJebel%20Ali%20Industrial%20Area%20-%20Jabal%20Ali%20Industrial%20First%20-%20Dubai!5e0!3m2!1sen!2sae!4v1776783267254!5m2!1sen!2sae",
     "condition": "new",
-    "descriptionTitle" : "descriptions;",
+    "descriptionTitle": "descriptions;",
     "details": [
       "Key Features",
-"High-Power Fast Charging: Most adapters support up to 240W power delivery, enabling rapid charging for smartphones, tablets, laptops, and gaming devices via Type-C ",
-"Data Transfer: They typically support USB 2.0 speeds up to 480 Mbps, allowing you to transfer photos, videos, or files efficiently between devices ",
-". More advanced versions can support even higher speeds and 8K 60Hz video output, ideal for screen casting or presentations ",
-"Foldable Stand Functionality: The built-in foldable stand supports multiple viewing angles. This allows hands-free operation for activities like video calls, gaming, watching streaming content, or web browsing ",
-". Some adapters feature single-sided or side-support holders for extra stability and convenient access to ports while charging ",
-"Durable Construction: High-quality adapters are made of aluminum alloy or premium metal, ensuring heat dissipation, wear resistance, and compact portability, making them travel-friendly"
+      "High-Power Fast Charging: Most adapters support up to 240W power delivery, enabling rapid charging for smartphones, tablets, laptops, and gaming devices via Type-C",
+      "Data Transfer: They typically support USB 2.0 speeds up to 480 Mbps, allowing you to transfer photos, videos, or files efficiently between devices",
+      ". More advanced versions can support even higher speeds and 8K 60Hz video output, ideal for screen casting or presentations",
+      "Foldable Stand Functionality: The built-in foldable stand supports multiple viewing angles. This allows hands-free operation for activities like video calls, gaming, watching streaming content, or web browsing",
+      ". Some adapters feature single-sided or side-support holders for extra stability and convenient access to ports while charging",
+      "Durable Construction: High-quality adapters are made of aluminum alloy or premium metal, ensuring heat dissipation, wear resistance, and compact portability, making them travel-friendly"
     ],
-    "noteDetails" : "note",
+    "noteDetails": "note",
     "note": "A Type-C foldable phone holder adapter combines high-speed 240W fast charging, USB-C data transfer, and an adjustable foldable stand, providing hands-free viewing while charging your devices.",
     "oldPrice": "soon coming",
-    "newPrice": "soon coming",
-   
+    "newPrice": "soon coming"
   },
-  {                
+  {
     "id": "rides ",
     "class": "new",
     "name": "martin riders",
@@ -178,20 +154,17 @@ const myProducts = [
     "gallery": [
       "/images/new-park/asiimwe/thumbnails/martin riders.jpeg"
     ],
-    // "span" : "price per piece",
-    // "h4" : "variaties available",
-      "whatsappNumber": "9715592893398?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
+    "whatsappNumber": "9715592893398?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
     "phoneNumber": "0559289339",
     "location": " uganda > nansana,kawempe,kireka,kibuye, mengo,ntebe  ",
-     "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28928.808191227257!2d55.104990877735254!3d24.99668297781386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f12a5fc60c251%3A0xcb332e4004272dc9!2sJebel%20Ali%20Industrial%20Area%20-%20Jabal%20Ali%20Industrial%20First%20-%20Dubai!5e0!3m2!1sen!2sae!4v1776783267254!5m2!1sen!2sae",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28928.808191227257!2d55.104990877735254!3d24.99668297781386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f12a5fc60c251%3A0xcb332e4004272dc9!2sJebel%20Ali%20Industrial%20Area%20-%20Jabal%20Ali%20Industrial%20First%20-%20Dubai!5e0!3m2!1sen!2sae!4v1776783267254!5m2!1sen!2sae",
     "condition": "new",
-    "descriptionTitle" : "descriptions;",
+    "descriptionTitle": "descriptions;",
     "details": "we offer airport pick-ups, special drives | rides in all parts of kampala and nearby areas",
-    "noteDetails" : "note",
+    "noteDetails": "note",
     "note": "price negotiable",
     "oldPrice": "negotiable",
-    "newPrice": "negotiable",
-   
+    "newPrice": "negotiable"
   },
   {
     "id": "controllers 1",
@@ -202,31 +175,26 @@ const myProducts = [
     "image": "/images/used-pack/sean/ds4.jpeg",
     "gallery": [
       "/images/used-pack/sean/ds4.jpeg",
-       "/images/used-pack/thumbnails/sean thumbnails/ds4 3.jpeg",
-       "/images/used-pack/thumbnails/sean thumbnails/ds4 1.jpeg",
-       "/images/used-pack/thumbnails/sean thumbnails/ds4 2.jpeg",
+      "/images/used-pack/thumbnails/sean thumbnails/ds4 3.jpeg",
+      "/images/used-pack/thumbnails/sean thumbnails/ds4 1.jpeg",
+      "/images/used-pack/thumbnails/sean thumbnails/ds4 2.jpeg"
     ],
-    "span" : "price per piece",
-    "h4" : "1 piece available",
-      "whatsappNumber": "256750812318?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
+    "span": "price per piece",
+    "h4": "1 piece available",
+    "whatsappNumber": "256750812318?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
     "phoneNumber": "256750812318",
-    sellerEmail : "ronaldthegenius@gmail.com",
+    "sellerEmail": "ronaldthegenius@gmail.com",
     "email": "ronaldthegenius@gmail.com",
-    "email": "ronaldthegenius@vk.com",
-    "email": "ronaldthegenius@icloud.com",
-    "email": "jjembaronald@outlook.com",
-    "location": " united arab emirates > sharjah> ", 
-     "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28928.808191227257!2d55.104990877735254!3d24.99668297781386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f12a5fc60c251%3A0xcb332e4004272dc9!2sJebel%20Ali%20Industrial%20Area%20-%20Jabal%20Ali%20Industrial%20First%20-%20Dubai!5e0!3m2!1sen!2sae!4v1776783267254!5m2!1sen!2sae",
+    "location": " united arab emirates > sharjah> ",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28928.808191227257!2d55.104990877735254!3d24.99668297781386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f12a5fc60c251%3A0xcb332e4004272dc9!2sJebel%20Ali%20Industrial%20Area%20-%20Jabal%20Ali%20Industrial%20First%20-%20Dubai!5e0!3m2!1sen!2sae!4v1776783267254!5m2!1sen!2sae",
     "condition": "used",
-    "descriptionTitle" : "descriptions;",
+    "descriptionTitle": "descriptions;",
     "details": "slightly used , still in good condition, no refurbs",
-    "noteDetails" : "note",
+    "noteDetails": "note",
     "note": "price negotiable",
     "oldPrice": "50,000ugsh",
-    "newPrice": "40,000ugsh",
-   
+    "newPrice": "40,000ugsh"
   },
-
   {
     "id": "evisa ",
     "class": "new",
@@ -240,23 +208,19 @@ const myProducts = [
       "/images/new-park/sean/thumbnails/bye and fly 2.jpeg",
       "/images/new-park/sean/thumbnails/bye and fly 1.jpeg"
     ],
-      "whatsappNumber": "971522608061?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
+    "whatsappNumber": "971522608061?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
     "phoneNumber": "971522608061",
-    sellerEmail : "ronaldthegenius@gmail.com",
+    "sellerEmail": "ronaldthegenius@gmail.com",
     "email": "ronaldthegenius@gmail.com",
-    "email": "ronaldthegenius@vk.com",
-    "email": "ronaldthegenius@icloud.com",
-    "email": "jjembaronald@outlook.com",
     "location": " united arab emirates > dubai ",
-     "mapUrl": "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3605.3303571042147!2d55.385342490731425!3d25.36024238775342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjXCsDIxJzM2LjkiTiA1NcKwMjMnMTYuNCJF!5e0!3m2!1sen!2sae!4v1779392992416!5m2!1sen!2sae",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3605.3303571042147!2d55.385342490731425!3d25.36024238775342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjXCsDIxJzM2LjkiTiA1NcKwMjMnMTYuNCJF!5e0!3m2!1sen!2sae!4v1779392992416!5m2!1sen!2sae",
     "condition": "new",
-    "descriptionTitle" : "descriptions;",
+    "descriptionTitle": "descriptions;",
     "details": "from far outside | within the united arab emirates; get yourself an employment visa for 2 years in less than a week, just halla!.... or inbox for more. *trust, believe us",
-    "noteDetails" : "note",
+    "noteDetails": "note",
     "note": "we only deal in 2 years' visa/employment visas",
     "oldPrice": "7000aed",
-    "newPrice": "6500aed",
-
+    "newPrice": "6500aed"
   },
   {
     "id": "batteries",
@@ -270,29 +234,23 @@ const myProducts = [
       "/images/used-pack/thumbnails/sean thumbnails/AA and AAA charger batteries 1.jpeg",
       "/images/used-pack/thumbnails/sean thumbnails/AA and AAA charger batteries 3.jpeg",
       "/images/used-pack/thumbnails/sean thumbnails/AA and AAA charger batteries 2.jpeg",
-      "/images/used-pack/thumbnails/sean thumbnails/AA and AAA charger batteries 4.jpeg",
+      "/images/used-pack/thumbnails/sean thumbnails/AA and AAA charger batteries 4.jpeg"
     ],
-    "span" : "price per pair",
-    // "h4" : "1 piece available",
-      "whatsappNumber": "256750812318?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
+    "span": "price per pair",
+    "whatsappNumber": "256750812318?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
     "phoneNumber": "256750812318",
-    sellerEmail : "ronaldthegenius@gmail.com",
+    "sellerEmail": "ronaldthegenius@gmail.com",
     "email": "ronaldthegenius@gmail.com",
-    "email": "ronaldthegenius@vk.com",
-    "email": "ronaldthegenius@icloud.com",
-    "email": "jjembaronald@outlook.com",
-    "location": " united arab emirates > sharjah> ", 
-     "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28928.808191227257!2d55.104990877735254!3d24.99668297781386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f12a5fc60c251%3A0xcb332e4004272dc9!2sJebel%20Ali%20Industrial%20Area%20-%20Jabal%20Ali%20Industrial%20First%20-%20Dubai!5e0!3m2!1sen!2sae!4v1776783267254!5m2!1sen!2sae",
+    "location": " united arab emirates > sharjah> ",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28928.808191227257!2d55.104990877735254!3d24.99668297781386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f12a5fc60c251%3A0xcb332e4004272dc9!2sJebel%20Ali%20Industrial%20Area%20-%20Jabal%20Ali%20Industrial%20First%20-%20Dubai!5e0!3m2!1sen!2sae!4v1776783267254!5m2!1sen!2sae",
     "condition": "used",
-    "descriptionTitle" : "descriptions;",
+    "descriptionTitle": "descriptions;",
     "details": "reachargeable batteries all available in varius capacities and brands for'example; 600mAh =1.2v , 1000mAh Ni-MH energizer/camelion, this is used but also new rechargeable batteries available,NI_MH?Ni-Ca AA/AAA battery charger ",
-    "noteDetails" : "note",
+    "noteDetails": "note",
     "note": "remember these are AA batteries",
     "oldPrice": "50.000ugsh",
-    "newPrice": "50,000ugsh",
-
+    "newPrice": "50,000ugsh"
   },
-
   {
     "id": "chargers",
     "class": "used",
@@ -301,28 +259,23 @@ const myProducts = [
     "Location": "kampala",
     "image": "/images/used-pack/sean/AA and AAA charger.jpeg",
     "gallery": [
-       "/images/used-pack/thumbnails/sean thumbnails/AA and AAA charger 2.jpeg",
-       "/images/used-pack/thumbnails/sean thumbnails/AA and AAA charger 1.jpeg",
+      "/images/used-pack/thumbnails/sean thumbnails/AA and AAA charger 2.jpeg",
+      "/images/used-pack/thumbnails/sean thumbnails/AA and AAA charger 1.jpeg"
     ],
-    "span" : "price per piece",
-    // "h4" : "1 piece available",
-      "whatsappNumber": "256750812318?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
+    "span": "price per piece",
+    "whatsappNumber": "256750812318?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
     "phoneNumber": "256750812318",
-    sellerEmail : "ronaldthegenius@gmail.com",
+    "sellerEmail": "ronaldthegenius@gmail.com",
     "email": "ronaldthegenius@gmail.com",
-    "email": "ronaldthegenius@vk.com",
-    "email": "ronaldthegenius@icloud.com",
-    "email": "jjembaronald@outlook.com",
-    "location": " united arab emirates > sharjah> ", 
-     "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28928.808191227257!2d55.104990877735254!3d24.99668297781386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f12a5fc60c251%3A0xcb332e4004272dc9!2sJebel%20Ali%20Industrial%20Area%20-%20Jabal%20Ali%20Industrial%20First%20-%20Dubai!5e0!3m2!1sen!2sae!4v1776783267254!5m2!1sen!2sae",
+    "location": " united arab emirates > sharjah> ",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28928.808191227257!2d55.104990877735254!3d24.99668297781386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f12a5fc60c251%3A0xcb332e4004272dc9!2sJebel%20Ali%20Industrial%20Area%20-%20Jabal%20Ali%20Industrial%20First%20-%20Dubai!5e0!3m2!1sen!2sae!4v1776783267254!5m2!1sen!2sae",
     "condition": "used",
-    "descriptionTitle" : "descriptions;",
+    "descriptionTitle": "descriptions;",
     "details": "NI_MH?Ni-Ca AA/AAA battery charger ,this is used but also new chargers available, slightly used  still in good condition no refurbs",
-    "noteDetails" : "note",
+    "noteDetails": "note",
     "note": "price negotiable",
     "oldPrice": "35.000ugsh",
-    "newPrice": "30,000ugsh",
-   
+    "newPrice": "30,000ugsh"
   },
   {
     "id": "controllers 2",
@@ -332,34 +285,28 @@ const myProducts = [
     "Location": "kampala",
     "image": "/images/used-pack/sean/xbox xseries controller .jpeg",
     "gallery": [
-       "/images/used-pack/thumbnails/sean thumbnails/xbox xseries controller .jpeg",
-       "/images/used-pack/thumbnails/sean thumbnails/xbox xseries controller 1.jpeg",
-       "/images/used-pack/thumbnails/sean thumbnails/xbox xseries controller 2.jpeg",
-       "/images/used-pack/thumbnails/sean thumbnails/xbox xseries controller 3.jpeg",
-       "/images/used-pack/thumbnails/sean thumbnails/xbox xseries controller 4.jpeg"
+      "/images/used-pack/thumbnails/sean thumbnails/xbox xseries controller .jpeg",
+      "/images/used-pack/thumbnails/sean thumbnails/xbox xseries controller 1.jpeg",
+      "/images/used-pack/thumbnails/sean thumbnails/xbox xseries controller 2.jpeg",
+      "/images/used-pack/thumbnails/sean thumbnails/xbox xseries controller 3.jpeg",
+      "/images/used-pack/thumbnails/sean thumbnails/xbox xseries controller 4.jpeg"
     ],
-      "whatsappNumber": "256750812318?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
+    "whatsappNumber": "256750812318?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
     "phoneNumber": "256750812318",
-    sellerEmail : "ronaldthegenius@gmail.com",
+    "sellerEmail": "ronaldthegenius@gmail.com",
     "email": "ronaldthegenius@gmail.com",
-    "email": "ronaldthegenius@vk.com",
-    "email": "ronaldthegenius@icloud.com",
-    "email": "jjembaronald@outlook.com",
-    "location":" united arab emirates > dubai", 
-    "span" : "price per piece",
-    "h4" : "2 pieces available",
-     "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28928.808191227257!2d55.104990877735254!3d24.99668297781386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f12a5fc60c251%3A0xcb332e4004272dc9!2sJebel%20Ali%20Industrial%20Area%20-%20Jabal%20Ali%20Industrial%20First%20-%20Dubai!5e0!3m2!1sen!2sae!4v1776783267254!5m2!1sen!2sae",
+    "location": " united arab emirates > dubai",
+    "span": "price per piece",
+    "h4": "2 pieces available",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28928.808191227257!2d55.104990877735254!3d24.99668297781386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f12a5fc60c251%3A0xcb332e4004272dc9!2sJebel%20Ali%20Industrial%20Area%20-%20Jabal%20Ali%20Industrial%20First%20-%20Dubai!5e0!3m2!1sen!2sae!4v1776783267254!5m2!1sen!2sae",
     "condition": "used",
-    "descriptionTitle" : "descriptions;",
+    "descriptionTitle": "descriptions;",
     "details": "slightly used , still in good condition, no refurbs",
-    "noteDetails" : "note",
+    "noteDetails": "note",
     "note": "price negotiable",
     "oldPrice": "150,000ugsh",
-    "newPrice": "120,000ugsh",
-   
+    "newPrice": "120,000ugsh"
   },
-
- 
   {
     "id": "laptops 1",
     "class": "used",
@@ -368,45 +315,41 @@ const myProducts = [
     "Location": "kampala",
     "image": "/images/used-pack/sean/msi.jpeg",
     "gallery": [
-       "/images/used-pack/thumbnails/sean thumbnails/msi 9.jpeg",
-       "/images/used-pack/thumbnails/sean thumbnails/msi 8.jpeg",
-       "/images/used-pack/thumbnails/sean thumbnails/msi 7.jpeg",
-       "/images/used-pack/thumbnails/sean thumbnails/msi 6.jpeg",
-       "/images/used-pack/thumbnails/sean thumbnails/msi 5.jpeg",
-       "/images/used-pack/thumbnails/sean thumbnails/msi 4.jpeg",
-       "/images/used-pack/thumbnails/sean thumbnails/msi 3.jpeg",
-       "/images/used-pack/thumbnails/sean thumbnails/msi 2.jpeg",
-       "/images/used-pack/thumbnails/sean thumbnails/msi 1.jpeg",
+      "/images/used-pack/thumbnails/sean thumbnails/msi 9.jpeg",
+      "/images/used-pack/thumbnails/sean thumbnails/msi 8.jpeg",
+      "/images/used-pack/thumbnails/sean thumbnails/msi 7.jpeg",
+      "/images/used-pack/thumbnails/sean thumbnails/msi 6.jpeg",
+      "/images/used-pack/thumbnails/sean thumbnails/msi 5.jpeg",
+      "/images/used-pack/thumbnails/sean thumbnails/msi 4.jpeg",
+      "/images/used-pack/thumbnails/sean thumbnails/msi 3.jpeg",
+      "/images/used-pack/thumbnails/sean thumbnails/msi 2.jpeg",
+      "/images/used-pack/thumbnails/sean thumbnails/msi 1.jpeg"
     ],
-    // "span" : "price per piece",
-    "h4" : "1 piece available",
-      "whatsappNumber": "256750812318?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
+    "h4": "1 piece available",
+    "whatsappNumber": "256750812318?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
     "phoneNumber": "256750812318",
-    sellerEmail : "ronaldthegenius@gmail.com",
+    "sellerEmail": "ronaldthegenius@gmail.com",
     "email": "ronaldthegenius@gmail.com",
-    "email": "ronaldthegenius@vk.com",
-    "email": "ronaldthegenius@icloud.com",
-    "email": "jjembaronald@outlook.com",
-    "location": " united arab emirates > sharjah ", 
+    "location": " united arab emirates > sharjah ",
     "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28928.808191227257!2d55.104990877735254!3d24.99668297781386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f12a5fc60c251%3A0xcb332e4004272dc9!2sJebel%20Ali%20Industrial%20Area%20-%20Jabal%20Ali%20Industrial%20First%20-%20Dubai!5e0!3m2!1sen!2sae!4v1776783267254!5m2!1sen!2sae",
     "condition": " used",
-     "descriptionTitle" : "descriptions;",
-     "PCname":"PCname",
-     "PCtitle": "msi Gs63 stealth 8re",
-       "cpu": "cpu",
-     "processor": "Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz (12 CPUs), ~2.2GHz",
-     "installedRam": "ram",
-     "installedStorage": "storage",
-     "storage": "[128gb SSD hdd 1tb ]",
-     "ram":"16.0 GB (15.8 GB usable) DDR4 2 slot cards",
-     "gpu": "gpu",
-     "graphics" :"NVIDIA GeForce GTX 1060 6gb",
-     "dedicatedGPU" : "dedicated gpu",
-     "dedicatedGPUsize": "128mb",
-     "keypad": "keypadLight",
-     "keypadLight": "yes|its RGB",
-     "battery": "batteryLIFE",
-     "batteryLIFE": "3-4 hours when using cpu | intergrated card/simple work",
+    "descriptionTitle": "descriptions;",
+    "PCname": "PCname",
+    "PCtitle": "msi Gs63 stealth 8re",
+    "cpu": "cpu",
+    "processor": "Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz (12 CPUs), ~2.2GHz",
+    "installedRam": "ram",
+    "installedStorage": "storage",
+    "storage": "[128gb SSD hdd 1tb ]",
+    "ram": "16.0 GB (15.8 GB usable) DDR4 2 slot cards",
+    "gpu": "gpu",
+    "graphics": "NVIDIA GeForce GTX 1060 6gb",
+    "dedicatedGPU": "dedicated gpu",
+    "dedicatedGPUsize": "128mb",
+    "keypad": "keypadLight",
+    "keypadLight": "yes|its RGB",
+    "battery": "batteryLIFE",
+    "batteryLIFE": "3-4 hours when using cpu | intergrated card/simple work",
     "details": [
       "Chip type: Intel(R) UHD Graphics Family",
       " 64-bit operating system, x64-based processor",
@@ -414,13 +357,12 @@ const myProducts = [
       "refresh rate =60.01HZ",
       "DESKTOP MODE =1920*1080",
       "INTEL(R) = Intel(R) UHD Graphics 630"
-     ],
-     "noteDetails" : "note",
-     "note" : "price negotiable",
+    ],
+    "noteDetails": "note",
+    "note": "price negotiable",
     "oldPrice": "1.600.000ugsh",
-    "newPrice": "1.450.000ugsh",
+    "newPrice": "1.450.000ugsh"
   },
- 
   {
     "id": "laptops 2",
     "class": "used",
@@ -428,52 +370,46 @@ const myProducts = [
     "category": "laptops gaming used_items gaming_pc",
     "image": "/images/used-pack/sean/hp zbook .jpeg",
     "gallery": [
-       "/images/used-pack/thumbnails/sean thumbnails/hp zbook 1.jpeg",
-       "/images/used-pack/thumbnails/sean thumbnails/hp zbook 2.jpeg",
-       "/images/used-pack/thumbnails/sean thumbnails/hp zbook2.jpg",
-       "/images/used-pack/thumbnails/sean thumbnails/hp zbook3.jpeg",
-       "/images/used-pack/thumbnails/sean thumbnails/hp zbook4.jpeg",
-       "/images/used-pack/thumbnails/sean thumbnails/hp zbook5.jpg"
+      "/images/used-pack/thumbnails/sean thumbnails/hp zbook 1.jpeg",
+      "/images/used-pack/thumbnails/sean thumbnails/hp zbook 2.jpeg",
+      "/images/used-pack/thumbnails/sean thumbnails/hp zbook2.jpg",
+      "/images/used-pack/thumbnails/sean thumbnails/hp zbook3.jpeg",
+      "/images/used-pack/thumbnails/sean thumbnails/hp zbook4.jpeg",
+      "/images/used-pack/thumbnails/sean thumbnails/hp zbook5.jpg"
     ],
-    // "span" : "price per piece",
-    "h4" : "1 piece available",
-      "whatsappNumber": "256750812318?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
+    "h4": "1 piece available",
+    "whatsappNumber": "256750812318?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
     "phoneNumber": "256750812318",
-   sellerEmail : "ronaldthegenius@gmail.com",
+    "sellerEmail": "ronaldthegenius@gmail.com",
     "email": "ronaldthegenius@gmail.com",
-    "email": "ronaldthegenius@vk.com",
-    "email": "ronaldthegenius@icloud.com",
-    "email": "jjembaronald@outlook.com",
-    "location":" uganda >  makindye > mubarack zone",
-    // "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28928.808191227257!2d55.104990877735254!3d24.99668297781386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f12a5fc60c251%3A0xcb332e4004272dc9!2sJebel%20Ali%20Industrial%20Area%20-%20Jabal%20Ali%20Industrial%20First%20-%20Dubai!5e0!3m2!1sen!2sae!4v1776783267254!5m2!1sen!2sae",
+    "location": " uganda >  makindye > mubarack zone",
     "condition": " used",
-     "descriptionTitle" : "descriptions;",
-     "PCname":"PCname",
-     "PCtitle": "hp zbook",
-       "cpu": "cpu",
-     "processor": " [intel(R) core(TM) i7-4800MQ CPU @2.70GHz 2.70GHz (8CPUs)]",
-     "installedRam": "ram",
-     "installedStorage": "storage",
-     "storage": "[119GB SSD San disk X110 2.5 7MM 128GB]",
-     "ram":"(20.0GB /19.4Gb usable) DDR3 4 slot cards",
-     "gpu": "gpu",
-     "graphics" :" [NVIDIA Quadro K2900M(2 GB) intel(R) HD Graphics 4600'113MB']",
-     "dedicatedGPU" : "dedicated gpu",
-     "dedicatedGPUsize": "128mb",
-     "keypad": "keypadLight",
-     "keypadLight": "yes; color #fff/white",
-     "battery": "batteryLIFE",
-     "batteryLIFE": "drained /faulty",
+    "descriptionTitle": "descriptions;",
+    "PCname": "PCname",
+    "PCtitle": "hp zbook",
+    "cpu": "cpu",
+    "processor": " [intel(R) core(TM) i7-4800MQ CPU @2.70GHz 2.70GHz (8CPUs)]",
+    "installedRam": "ram",
+    "installedStorage": "storage",
+    "storage": "[119GB SSD San disk X110 2.5 7MM 128GB]",
+    "ram": "(20.0GB /19.4Gb usable) DDR3 4 slot cards",
+    "gpu": "gpu",
+    "graphics": " [NVIDIA Quadro K2900M(2 GB) intel(R) HD Graphics 4600'113MB']",
+    "dedicatedGPU": "dedicated gpu",
+    "dedicatedGPUsize": "128mb",
+    "keypad": "keypadLight",
+    "keypadLight": "yes; color #fff/white",
+    "battery": "batteryLIFE",
+    "batteryLIFE": "drained /faulty",
     "details": [
       " System type[64-bit, *64-based processor]",
       " ROM/WRITER<yes>"
-     ],
-     "noteDetails" : "note",
-     "note" : "price negotiable",
+    ],
+    "noteDetails": "note",
+    "note": "price negotiable",
     "oldPrice": "1,000.000ugsh",
-    "newPrice": "950.000ugsh",
+    "newPrice": "950.000ugsh"
   },
-
   {
     "id": "consoles",
     "class": "used",
@@ -482,31 +418,24 @@ const myProducts = [
     "image": "/images/used-pack/sean/xbox 1 console.jpeg",
     "gallery": [
       "/images/used-pack/thumbnails/sean thumbnails/xbox 1 console.jpeg",
-      "/images/used-pack/sean/xbox 1 console.jpeg",
+      "/images/used-pack/sean/xbox 1 console.jpeg"
     ],
-      "whatsappNumber": "256750812318?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
+    "whatsappNumber": "256750812318?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
     "phoneNumber": "256750812318",
-    sellerEmail : "ronaldthegenius@gmail.com",
+    "sellerEmail": "ronaldthegenius@gmail.com",
     "email": "ronaldthegenius@gmail.com",
-    "email": "ronaldthegenius@vk.com",
-    "email": "ronaldthegenius@icloud.com",
-    "email": "jjembaronald@outlook.com",
     "location": " united arab emirates > sharjah",
     "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28928.808191227257!2d55.104990877735254!3d24.99668297781386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f12a5fc60c251%3A0xcb332e4004272dc9!2sJebel%20Ali%20Industrial%20Area%20-%20Jabal%20Ali%20Industrial%20First%20-%20Dubai!5e0!3m2!1sen!2sae!4v1776783267254!5m2!1sen!2sae",
     "condition": " used",
-    "descriptionTitle" : "descriptions;",
+    "descriptionTitle": "descriptions;",
     "details": [
       "all types of used xbox consoles especially/basically ;xbox 360, xbox 1  are available"
-     ],
-     "noteDetails" : "note",
-     "note" : "hurry and grab , price ranges between 600.000 and 400.000",
-    
+    ],
+    "noteDetails": "note",
+    "note": "hurry and grab , price ranges between 600.000 and 400.000",
     "oldPrice": "600.000ugsh",
-    "newPrice": "400.000ugsh",
-
+    "newPrice": "400.000ugsh"
   },
-
-
   {
     "id": "game_controllers",
     "class": "used",
@@ -518,28 +447,21 @@ const myProducts = [
       "/images/used-pack/thumbnails/sean thumbnails/xbox 1 controller1.jpeg",
       "/images/used-pack/thumbnails/sean thumbnails/xbox 1 controller2.jpeg"
     ],
-    "span" : "price per piece",
-    // "h4" : "1 piece available",
-      "whatsappNumber": "256750812318?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
+    "span": "price per piece",
+    "whatsappNumber": "256750812318?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
     "phoneNumber": "256750812318",
-    sellerEmail : "ronaldthegenius@gmail.com",
+    "sellerEmail": "ronaldthegenius@gmail.com",
     "email": "ronaldthegenius@gmail.com",
-    "email": "ronaldthegenius@vk.com",
-    "email": "ronaldthegenius@icloud.com",
-    "email": "jjembaronald@outlook.com",
     "location": " united arab emirates > sharjah",
     "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28928.808191227257!2d55.104990877735254!3d24.99668297781386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f12a5fc60c251%3A0xcb332e4004272dc9!2sJebel%20Ali%20Industrial%20Area%20-%20Jabal%20Ali%20Industrial%20First%20-%20Dubai!5e0!3m2!1sen!2sae!4v1776783267254!5m2!1sen!2sae",
     "condition": " used",
-    "descriptionTitle" : "descriptions;",
+    "descriptionTitle": "descriptions;",
     "details": "limited pieces availabe",
-     "noteDetails" : "note",
-     "note" : "hurry , grab  have fun",
-    
+    "noteDetails": "note",
+    "note": "hurry , grab  have fun",
     "oldPrice": "50.000ugsh",
-    "newPrice": "37.000ugsh",
-
+    "newPrice": "37.000ugsh"
   },
-
   {
     "id": "gaming",
     "class": "new",
@@ -551,28 +473,20 @@ const myProducts = [
       "/images/new-park/sean/thumbnails/xbox xseries controller cover.jpeg",
       "/images/new-park/sean/thumbnails/xbox xseries controller cover 2.jpeg"
     ],
-    "span" : "price per piece",
-    // "h4" : "1 piece available",
-      "whatsappNumber": "256750812318?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
+    "span": "price per piece",
+    "whatsappNumber": "256750812318?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
     "phoneNumber": "256750812318",
-    sellerEmail : "ronaldthegenius@gmail.com",
+    "sellerEmail": "ronaldthegenius@gmail.com",
     "email": "ronaldthegenius@gmail.com",
-    "email": "ronaldthegenius@vk.com",
-    "email": "ronaldthegenius@icloud.com",
-    "email": "jjembaronald@outlook.com",
     "location": " china > guanzhou",
-    // "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28928.808191227257!2d55.104990877735254!3d24.99668297781386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f12a5fc60c251%3A0xcb332e4004272dc9!2sJebel%20Ali%20Industrial%20Area%20-%20Jabal%20Ali%20Industrial%20First%20-%20Dubai!5e0!3m2!1sen!2sae!4v1776783267254!5m2!1sen!2sae",
     "condition": " new",
-    "descriptionTitle" : "descriptions;",
+    "descriptionTitle": "descriptions;",
     "details": " availabe in all quantities",
-     "noteDetails" : "note",
-     "note" : "big discounts on large quantities",
-    
+    "noteDetails": "note",
+    "note": "big discounts on large quantities",
     "oldPrice": "20.000ugsh",
-    "newPrice": "19.000ugsh",
-
+    "newPrice": "19.000ugsh"
   },
-
   {
     "id": "workshop_tools",
     "class": "new",
@@ -582,35 +496,25 @@ const myProducts = [
     "gallery": [
       "/images/new-park/sean/ct 1.jpeg",
       "/images/new-park/sean/thumbnails/ct 1.jpeg",
-      "/images/new-park/sean/thumbnails/ct-1  2.jpg",
-      "https://www.bing.com/images/search?view=detailV2&ccid=cXIz0RiO&id=1E5C3A702E7373A50CD96D9F3221A126E9D7F6A5&thid=OIP.cXIz0RiOkKdT2fXRxY-ihAHaGY&mediaurl=https%3a%2f%2feasytools.com.np%2fwp-content%2fuploads%2f2025%2f10%2f20251013_114417-scaled.jpg&cdnurl=https%3a%2f%2fthf.bing.com%2fth%2fid%2fR.717233d1188e90a753d9f5d1c58fa284%3frik%3dpfbX6SahITKfbQ%26pid%3dImgRaw%26r%3d0&exph=2207&expw=2560&q=ctr+1+coil+tester&FORM=IRPRST&ck=D7AC1E4B6DE85959039A57E8CDDDFB77&selectedIndex=15&itb=0"
+      "/images/new-park/sean/thumbnails/ct-1  2.jpg"
     ],
-    "span" : "price per piece",
-    // "h4" : "1 piece available",
-      "whatsappNumber": "256750812318?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
+    "span": "price per piece",
+    "whatsappNumber": "256750812318?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
     "phoneNumber": "256750812318",
-    sellerEmail : "ronaldthegenius@gmail.com",
+    "sellerEmail": "ronaldthegenius@gmail.com",
     "email": "ronaldthegenius@gmail.com",
-    "email": "ronaldthegenius@vk.com",
-    "email": "ronaldthegenius@icloud.com",
-    "email": "jjembaronald@outlook.com",
     "location": " china > guanzhou",
-    // "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28928.808191227257!2d55.104990877735254!3d24.99668297781386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f12a5fc60c251%3A0xcb332e4004272dc9!2sJebel%20Ali%20Industrial%20Area%20-%20Jabal%20Ali%20Industrial%20First%20-%20Dubai!5e0!3m2!1sen!2sae!4v1776783267254!5m2!1sen!2sae",
     "condition": " new",
-    "descriptionTitle" : "descriptions;",
-    "details": "  The JTX CT-1 Motherboard Coil Tester is a compact, handheld diagnostic tool designed for quickly identifying faulty inductors (coils) on mobile phone or laptop motherboards. It uses electromagnetic induction to detect faults without soldering, featuring a green LED that lights up to indicate a working inductor. It is widely used for fast troubleshooting on powered-on boards.",
-     "noteDetails" : "note",
-     "note" : "comes without battery for shipping rules",
-    
+    "descriptionTitle": "descriptions;",
+    "details": "The JTX CT-1 Motherboard Coil Tester is a compact, handheld diagnostic tool designed for quickly identifying faulty inductors (coils) on mobile phone or laptop motherboards. It uses electromagnetic induction to detect faults without soldering, featuring a green LED that lights up to indicate a working inductor. It is widely used for fast troubleshooting on powered-on boards.",
+    "noteDetails": "note",
+    "note": "comes without battery for shipping rules",
     "oldPrice": "40.000ugsh",
-    "newPrice": "35.000ugsh",
+    "newPrice": "35.000ugsh"
+  },
+  // END OF SEAN10 ITEMS
 
-   },
-// END OF SEAN10 ITEMS
- 
-
-
-// 2 START OF RICHARD darlington
+  // START OF RICHARD DARLINGTON ITEMS
   {
     "id": "autommotives",
     "class": "new",
@@ -624,160 +528,17 @@ const myProducts = [
       "/images/new-park/richard/thumbnails/automotives 13.jpeg",
       "/images/new-park/richard/thumbnails/automotives 12.jpeg",
       "/images/new-park/richard/thumbnails/automotives 11.jpeg",
-      "/images/new-park/richard/thumbnails/automotives 10.jpeg",
-      "/images/new-park/richard/thumbnails/automotives 9.jpeg",
-      "/images/new-park/richard/thumbnails/automotives 8.jpeg",
-      "/images/new-park/richard/thumbnails/automotives 7.jpeg",
-      "/images/new-park/richard/thumbnails/automotives 6.jpeg",
-      "/images/new-park/richard/thumbnails/automotives 4.jpeg",
-      "/images/new-park/richard/thumbnails/automotives 3.jpeg",
-      "/images/new-park/richard/thumbnails/automotives 2.jpeg",
-      "/images/new-park/richard/thumbnails/automotives 1.jpeg",
+      "/images/new-park/richard/thumbnails/automotives 10.jpeg"
     ],
-    // "span" : "price per piece",
-    "h4" : "variaties available",
-      "whatsappNumber": "25675721863?text=Hello%20Mr%20Richi%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
-    "phoneNumber": "256757921863",
-    "location": "uganda> kampala  > kiseka market",
-    "mapUrl": "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3989.756939569294!2d32.570137774964685!3d0.31781749967906453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMMKwMTknMDQuMSJOIDMywrAzNCcyMS44IkU!5e0!3m2!1sen!2sae!4v1779302633501!5m2!1sen!2sae",
-    "condition": " new",
-    "descriptionTitle" : "descriptions;",
-    "details": " we're dealing in new and used spare parts e.g bumpers,lights,doors,boot,bonnet,fender, etc.",
-     "noteDetails" : "note",
-     "note" : "price is negotiable respectively",
-    
+    "whatsappNumber": "256750812318?text=Hello%20s̸e̸a̸n̸10.%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
+    "phoneNumber": "256750812318",
+    "location": " uganda > kiseka",
+    "condition": "new",
+    "descriptionTitle": "descriptions;",
+    "details": "automotive spare parts and accessories available",
+    "noteDetails": "note",
+    "note": "price negotiable",
     "oldPrice": "negotiable",
-    "newPrice": "negotiable",
-
-  },
-//2 END OF RICHARD
-
-
-
-
-  //START OF MUMBEJJA JOAN
-// blue napkins
-  {
-    "id": "personal_care",
-    "class": "new",
-    "name": "eco friendly sanitary pads",
-    "category": "personal_care new_items",
-    "image": "/images/new-park/mumbejja joan/napkins blue.jpeg",
-    "gallery": [
-      "/images/new-park/mumbejja joan/thumbnails/napkins blue/napkins blue 5.jpeg",
-      "/images/new-park/mumbejja joan/thumbnails/napkins blue/napkins blue 4.jpeg",
-      "/images/new-park/mumbejja joan/thumbnails/napkins blue/napkins blue 3.jpeg",
-      "/images/new-park/mumbejja joan/thumbnails/napkins blue/napkins blue 2.jpeg",
-      "/images/new-park/mumbejja joan/thumbnails/napkins blue/napkins blue 1.jpeg",
-    ],
-    "span" : "price per piece",
-    "h4" : "variaties available",
-    "whatsappNumber": "256760907687?text=Hello%20Dear%20Mumbejja%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
-    "phoneNumber": "256760907687",
-    "sellerEmail": "jhooanee@gmail.com",
-    "location": "uganda> kampala > nansana",
-    "condition": "new",
-    "descriptionTitle": "descriptions",
-     "details": [
-      "✨ INTRODUCING THE HC FRAGRANCE-FREE SERIES ✨",
-
-"A NEW PERIOD-CARE EXPERIENCE IS NOW AVAILABLE IN UGANDA.",
-
-"WHAT MAKES THE HC FRAGRANCE-FREE SERIES DIFFERENT?",
-
-"🤍 FRAGRANCE-FREE COMFORT",
-"No added fragrance for women who prefer a simple, gentle period-care experience.",
-
-"🌿 A GENTLE ALTERNATIVE",
-"Ideal for women who prefer to avoid the cooling or mint-like sensation associated with some period-care products.",
-
-"💧 RAPID ABSORPTION",
-"Designed to absorb quickly and help provide reliable protection throughout the day.",
-
-"✨ COMFORT WITHOUT THE EXTRA SENSATION.",
-"PERIOD CARE, THE WAY YOU PREFER IT.",
-
-"Launch offer: UGX 35,000 per pack.",
-
-"Limited first stock available.",
-
-"📦 Delivery fee charged separately based on your location.",
-
-"📩 Interested in trying the HC Fragrance-Free Series?",
-"Send us a private message to place your order or learn more."
-    ],
-     "noteDetails" : "note",
-    "note": "Designed for women seeking enhanced comfort, freshness, and confidence during their period—without added fragrance or a cooling/mint-like sensation.",
-    
-    "oldPrice": "50,000ugsh",
-    "newPrice": "35,000ugsh",
-   
-  },
-
-// green napkins
-  {
-    "id": "personal_care",
-    "class": "new",
-    "name": "eco friendly sanitary pads",
-    "category": "personal_care new_items",
-    "image": "/images/new-park/mumbejja joan/napkins green.jpeg",
-    "gallery": [
-      "/images/new-park/mumbejja joan/thumbnails/napkins green/napkins green 5.jpeg",
-      "/images/new-park/mumbejja joan/thumbnails/napkins green/napkins green 4.jpeg",
-      "/images/new-park/mumbejja joan/thumbnails/napkins green/napkins green 3.jpeg",
-      "/images/new-park/mumbejja joan/thumbnails/napkins green/napkins green 2.jpeg",
-      "/images/new-park/mumbejja joan/thumbnails/napkins green/napkins green 1.jpeg",
-    ],
-     "span" : "price per piece",
-    "h4" : "variaties available",
-    "whatsappNumber": "256760907687?text=Hello%20Dear%20Mumbejja%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
-    "phoneNumber": "256760907687",
-   " sellerEmail ": "jhooanee@gmail.com",
-    "location": "uganda> kampala> nansana",
-    "condition": "new",
-    "descriptionTitle": "descriptions",
-    "details":[
-      "✨ INTRODUCING THE HC AEROBIC TEA SERIES ✨",
-
-"A NEW PERIOD-CARE EXPERIENCE IS NOW AVAILABLE IN UGANDA.",
-
-"Designed for women seeking enhanced comfort, freshness, and confidence during their period.",
-
-"What makes the HC Aerobic Tea Series different?",
-
-"🌿 Active Oxygen Technology",
-"Helps provide a refreshing and comfortable period-care experience while supporting comfort during periods.",
-
-"❄️ Added Cooling Sensation",
-"Designed to provide a fresh, cooling feeling for enhanced comfort.",
-
-"⚖️ pH-Balancing Strip",
-"Designed to support freshness and comfort while helping maintain a balanced intimate-care experience.",
-
-"💧 Rapid Absorption",
-"Designed to absorb quickly and help provide reliable protection throughout the day.",
-
-"✨ MORE THAN JUST A PAD.",
-"A NEW APPROACH TO PERIOD CARE.",
-
-"Launch offer: UGX 35,000 per pack.",
-
-"Limited first stock available.",
-
-"📦 Delivery fee charged separately based on your location.",
-
-"📩 Interested in trying the HC Aerobic Tea Series?",
-"Send us a private message to place your order or learn more."
-    ],
-     "noteDetails" : "note",
-    "note": "🌿 Active Oxygen Technology Helps provide a refreshing and comfortable period-care experience while supporting comfort during periods.",
-    
-    "oldPrice": "50,000ugsh",
-    "newPrice": "35,000ugsh",
-  },
-  
-  //END OF MUMBEJJA JOAN
- 
-]
-
-// END OF LOCAL STORAGe
+    "newPrice": "negotiable"
+  }
+];
