@@ -58,6 +58,136 @@ const myProducts = [
   },
   // END OF DEPAY ITEMS
 
+
+
+
+  //START OF MUMBEJJA JOAN
+// blue napkins
+  {
+    "id": "personal_care",
+    "class": "new",
+    "name": "eco friendly sanitary pads",
+    "category": "personal_care new_items",
+    "image": "/images/new-park/mumbejja joan/napkins blue.jpeg",
+    "gallery": [
+      "/images/new-park/mumbejja joan/thumbnails/napkins blue/napkins blue 5.jpeg",
+      "/images/new-park/mumbejja joan/thumbnails/napkins blue/napkins blue 4.jpeg",
+      "/images/new-park/mumbejja joan/thumbnails/napkins blue/napkins blue 3.jpeg",
+      "/images/new-park/mumbejja joan/thumbnails/napkins blue/napkins blue 2.jpeg",
+      "/images/new-park/mumbejja joan/thumbnails/napkins blue/napkins blue 1.jpeg",
+    ],
+    "span" : "price per piece",
+    "h4" : "variaties available",
+    "whatsappNumber": "256760907687?text=Hello%20Dear%20Mumbejja%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
+    "phoneNumber": "256760907687",
+    "sellerEmail": "jhooanee@gmail.com",
+    "location": "uganda> kampala > nansana",
+    "condition": "new",
+    "descriptionTitle": "descriptions",
+     "details": [
+      "✨ INTRODUCING THE HC FRAGRANCE-FREE SERIES ✨",
+
+"A NEW PERIOD-CARE EXPERIENCE IS NOW AVAILABLE IN UGANDA.",
+
+"WHAT MAKES THE HC FRAGRANCE-FREE SERIES DIFFERENT?",
+
+"🤍 FRAGRANCE-FREE COMFORT",
+"No added fragrance for women who prefer a simple, gentle period-care experience.",
+
+"🌿 A GENTLE ALTERNATIVE",
+"Ideal for women who prefer to avoid the cooling or mint-like sensation associated with some period-care products.",
+
+"💧 RAPID ABSORPTION",
+"Designed to absorb quickly and help provide reliable protection throughout the day.",
+
+"✨ COMFORT WITHOUT THE EXTRA SENSATION.",
+"PERIOD CARE, THE WAY YOU PREFER IT.",
+
+"Launch offer: UGX 35,000 per pack.",
+
+"Limited first stock available.",
+
+"📦 Delivery fee charged separately based on your location.",
+
+"📩 Interested in trying the HC Fragrance-Free Series?",
+"Send us a private message to place your order or learn more."
+    ],
+     "noteDetails" : "note",
+    "note": "Designed for women seeking enhanced comfort, freshness, and confidence during their period—without added fragrance or a cooling/mint-like sensation.",
+    
+    "oldPrice": "50,000ugsh",
+    "newPrice": "35,000ugsh",
+   
+  },
+
+// green napkins
+  {
+    "id": "personal_care",
+    "class": "new",
+    "name": "eco friendly sanitary pads",
+    "category": "personal_care new_items",
+    "image": "/images/new-park/mumbejja joan/napkins green.jpeg",
+    "gallery": [
+      "/images/new-park/mumbejja joan/thumbnails/napkins green/napkins green 5.jpeg",
+      "/images/new-park/mumbejja joan/thumbnails/napkins green/napkins green 4.jpeg",
+      "/images/new-park/mumbejja joan/thumbnails/napkins green/napkins green 3.jpeg",
+      "/images/new-park/mumbejja joan/thumbnails/napkins green/napkins green 2.jpeg",
+      "/images/new-park/mumbejja joan/thumbnails/napkins green/napkins green 1.jpeg",
+    ],
+     "span" : "price per piece",
+    "h4" : "variaties available",
+    "whatsappNumber": "256760907687?text=Hello%20Dear%20Mumbejja%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20?.",
+    "phoneNumber": "256760907687",
+   " sellerEmail ": "jhooanee@gmail.com",
+    "location": "uganda> kampala> nansana",
+    "condition": "new",
+    "descriptionTitle": "descriptions",
+    "details":[
+      "✨ INTRODUCING THE HC AEROBIC TEA SERIES ✨",
+
+"A NEW PERIOD-CARE EXPERIENCE IS NOW AVAILABLE IN UGANDA.",
+
+"Designed for women seeking enhanced comfort, freshness, and confidence during their period.",
+
+"What makes the HC Aerobic Tea Series different?",
+
+"🌿 Active Oxygen Technology",
+"Helps provide a refreshing and comfortable period-care experience while supporting comfort during periods.",
+
+"❄️ Added Cooling Sensation",
+"Designed to provide a fresh, cooling feeling for enhanced comfort.",
+
+"⚖️ pH-Balancing Strip",
+"Designed to support freshness and comfort while helping maintain a balanced intimate-care experience.",
+
+"💧 Rapid Absorption",
+"Designed to absorb quickly and help provide reliable protection throughout the day.",
+
+"✨ MORE THAN JUST A PAD.",
+"A NEW APPROACH TO PERIOD CARE.",
+
+"Launch offer: UGX 35,000 per pack.",
+
+"Limited first stock available.",
+
+"📦 Delivery fee charged separately based on your location.",
+
+"📩 Interested in trying the HC Aerobic Tea Series?",
+"Send us a private message to place your order or learn more."
+    ],
+     "noteDetails" : "note",
+    "note": "🌿 Active Oxygen Technology Helps provide a refreshing and comfortable period-care experience while supporting comfort during periods.",
+    
+    "oldPrice": "50,000ugsh",
+    "newPrice": "35,000ugsh",
+  },
+  
+  //END OF MUMBEJJA JOAN
+ 
+
+
+
+
   // START OF SEAN10 ITEMS
   {
     "id": "chargers ",
@@ -514,6 +644,9 @@ const myProducts = [
   },
   // END OF SEAN10 ITEMS
 
+
+
+
   // START OF RICHARD DARLINGTON ITEMS
   {
     "id": "autommotives",
@@ -541,4 +674,11 @@ const myProducts = [
     "oldPrice": "negotiable",
     "newPrice": "negotiable"
   }
+  // END OF RICHARD DARLINGTON ITEMS
+
+
+  
+
+
+// END OF LOCAL STORAGe
 ];
