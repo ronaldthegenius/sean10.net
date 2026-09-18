@@ -1,0 +1,26 @@
+/* Add to your main CSS file (style.css / index.css) */
+
+/* Any wrapper around #tradingButtons */
+.main-content,
+.header,
+.navbar,
+.page-wrapper {
+  display: block;             /* OR flex with flex-wrap */
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* If your site has a global body/html rule, make sure it's not nowrap */
+html, body {
+  overflow-x: hidden;         /* prevents any accidental horizontal scroll */
+  max-width: 100%;
+}
+
+/* Optional: if #tradingButtons sits directly in body or a flex container */
+body > #tradingButtons,
+.flex-parent > #tradingButtons {
+  flex: 1 1 100%;
+  min-width: 0;
+}

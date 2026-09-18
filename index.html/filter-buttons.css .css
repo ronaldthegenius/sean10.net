@@ -1,0 +1,150 @@
+
+
+  /* ============================================
+   FILTER BUTTONS + DROPDOWNS + LOCATION SORT
+   ============================================ */
+
+#tradingButtons {
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+    padding: 6px 0;
+}
+
+.filter-buttons-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+    overflow: visible;
+}
+
+.btn-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    background: #fff;
+    color: #222;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.2;
+    white-space: nowrap;
+    transition: background .15s, border-color .15s;
+    font-family: inherit;
+}
+
+.filter-btn:hover {
+    background: #f2f2f2;
+}
+
+.filter-btn.has-dropdown {
+    padding-right: 28px;
+    position: relative;
+}
+
+.filter-btn.active {
+    background: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+.filter-btn.active:hover {
+    background: #0056b3;
+}
+
+.dropdown-arrow {
+    position: absolute;
+    right: 9px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 9px;
+    opacity: .7;
+    pointer-events: none;
+}
+
+/* ---------- DROPDOWN MENU ---------- */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    min-width: 180px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .15);
+    padding: 4px 0;
+    z-index: 9999;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 9px 14px;
+    border: 0;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+    font-size: 13px;
+    color: #222;
+    font-family: inherit;
+    white-space: nowrap;
+}
+
+.dropdown-item:hover {
+    background: #f2f2f2;
+}
+
+.dropdown-item.active-sub {
+    background: #007bff;
+    color: #fff;
+}
+
+/* ---------- LOCATION SORT ---------- */
+.location-sort-wrapper {
+    margin-left: auto;
+}
+
+.location-sort-select {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #fff;
+    font-size: 13px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.location-sort-select:hover {
+    border-color: #007bff;
+}
+
+/* ---------- FIXED (HOME) BUTTON ---------- */
+.fixed-btn {
+    background: #28a745;
+    color: #fff;
+    border-color: #28a745;
+}
+
+.fixed-btn:hover {
+    background: #218838;
+}
+
+.fixed-btn.active {
+    background: #28a745;
+    border-color: #28a745;
+}

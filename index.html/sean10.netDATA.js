@@ -7,6 +7,7 @@ const myProducts = [
     "id": "laptops 3",
     "class": "used",
     "name": "MACBOOK AIR ",
+    "brand": "macbook", // <-- Add brand property for subcategory filtering
     "category": "laptops macOS used_items ",
     "image": "/images/used-pack/depay/MACBOOK AIR retina13inch  2018.jpeg",
     "gallery": [
@@ -57,6 +58,7 @@ const myProducts = [
     "newPrice": "1,150,000ugsh"
   },
   // END OF DEPAY ITEMS
+
 
 
 
@@ -441,6 +443,7 @@ const myProducts = [
     "id": "laptops 1",
     "class": "used",
     "name": "msi Gs63 stealth 8re",
+    "brand": "msi",
     "category": "laptops gaming used_items gaming_pc",
     "Location": "kampala",
     "image": "/images/used-pack/sean/msi.jpeg",
@@ -497,6 +500,7 @@ const myProducts = [
     "id": "laptops 2",
     "class": "used",
     "name": "hp zbook",
+    "brand": "hp", // <-- Add brand property for subcategory filtering
     "category": "laptops gaming used_items gaming_pc",
     "image": "/images/used-pack/sean/hp zbook .jpeg",
     "gallery": [

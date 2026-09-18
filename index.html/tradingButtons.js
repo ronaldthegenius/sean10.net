@@ -1,28 +1,467 @@
+// ============================================
+// FILTER BUTTONS UI - filter-buttons.js
+// ============================================
 
+window.currentCategory = 'all';
+window.currentSubCategory = null;
+window.currentLocation = 'all';
+window.allProducts = [];
+window.originalProducts = [];
+window.filteredProducts = [];
 
-// Location options - EASY TO MODIFY
-const locationOptions = [
-    { value: "", label: "Sort by Location ▼" },
-    { value: "all", label: "All Locations" },
-    { value: "kampala", label: "Kampala, Uganda" },
-    { value: "makindye", label: "Makindye ,uganda" },
-    { value: " dubai", label: " Dubai, united arab emirates" },
-    { value: " sharjah", label: "sharjah, united arab emirates" },
-    { value: " nansana", label: "nansana, uganda" },
-    { value: " kawempe", label: "kawempe, uganda" },
-    { value: " kireka", label: "kireka, uganda" },
-    { value: " kibuye", label: "kibuye, uganda" },
-    { value: " mengo", label: "mengo, uganda" },
-    { value: " ntebbe", label: "ntebbe, uganda" },
-    { value: " guanzhou", label: "china , guanzhou" },
-    { value: " kiseka", label: "uganda , kiseka" }
-    
-   
-];
+let shuffleTimer = null;
 
-// SHUFFLE FUNCTION - using proper Fisher-Yates
+// --------------------------------------------
+// SAFE DATA ACCESS
+// --------------------------------------------
+function getCategories() {
+    return window.categories || (typeof categories !== 'undefined' ? categories : []);
+}
+
+function getLocationOptions() {
+    return window.locationOptions || (typeof locationOptions !== 'undefined' ? locationOptions : []);
+}
+
+function getBaseProducts() {
+    if (window.originalProducts && window.originalProducts.length) return window.originalProducts;
+    if (window.myProducts && Array.isArray(window.myProducts)) return window.myProducts;
+    if (typeof myProducts !== 'undefined' && Array.isArray(myProducts)) return myProducts;
+    return [];
+}
+
+// ============================================
+// INJECT CSS STYLES
+// ============================================
+function injectDropdownStyles() {
+    if (document.getElementById('filter-buttons-styles')) return;
+    const s = document.createElement('style');
+    s.id = 'filter-buttons-styles';
+    s.textContent = `
+    /* ---------- CONTAINER ---------- */
+    #tradingButtons {
+        width: 100%;
+        max-width: 100%;
+        overflow: visible;
+        padding: 6px 0;
+         position: relative;
+        z-index: 10000;         /* above product cards */
+    }
+
+    .filter-buttons-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+        width: 100%;
+        min-width: 0;
+        overflow: visible;
+        position: relative;
+        z-index: 10000;
+    }
+
+    /* ---------- BUTTON WRAPPER ---------- */
+    .btn-wrapper {
+        position: relative;
+        display: inline-block;
+        //  z-index: 10001;         /* each dropdown's wrapper */
+    }
+
+    /* ---------- FILTER BUTTON ---------- */
+    .filter-btn {
+        padding: 8px 16px;
+        border: 1px solid #ddd;
+        background: #fff;
+        color: #222;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 1.2;
+        white-space: nowrap;
+        transition: background .15s, border-color .15s;
+        font-family: inherit;
+    }
+
+    .filter-btn:hover {
+        background: #f2f2f2;
+    }
+
+    .filter-btn.has-dropdown {
+        padding-right: 28px;
+        position: relative;
+    }
+
+    .filter-btn.active {
+        background: #007bff;
+        color: #fff;
+        border-color: #007bff;
+    }
+
+    .filter-btn.active:hover {
+        background: #0056b3;
+    }
+
+    /* ---------- DROPDOWN ARROW ---------- */
+    .dropdown-arrow {
+        position: absolute;
+        right: 9px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 9px;
+        opacity: .7;
+        pointer-events: none;
+        color: green;
+    }
+    .dropdown-arrow:hover {
+        color: orange;
+    }
+
+    /* ---------- DROPDOWN MENU ---------- */
+    .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    /* color: green; */
+    /* background: #fff; */
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .15);
+    padding: 5px;
+    z-index: 99999;
+    /* overflow-y: auto; */
+    z-index: 10002;      /* actual dropdown, highest in the stack */
+}
+
+    .dropdown-menu.show {
+        display: block;
+    }
+
+    .dropdown-item {
+        display: block;
+        width: 100%;
+        padding: 9px 14px;
+        border: 0;
+        background: none;
+        text-align: left;
+        cursor: pointer;
+        font-size: 13px;
+        color: #222;
+        font-family: inherit;
+        white-space: nowrap;
+    }
+
+    .dropdown-item:hover {
+        background: #f2f2f2;
+    }
+
+    .dropdown-item.active-sub {
+        background: #007bff;
+        color: #fff;
+    }
+
+    /* ---------- LOCATION SORT ---------- */
+    .location-sort-wrapper {
+        margin-left: auto;
+    }
+
+    .location-sort-select {
+        padding: 8px 12px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        background: #fff;
+        font-size: 13px;
+        cursor: pointer;
+        font-family: inherit;
+    }
+
+    .location-sort-select:hover {
+        border-color: #007bff;
+    }
+
+    /* ---------- FIXED (HOME) BUTTON ---------- */
+    .fixed-btn {
+        background: #28a745;
+        color: #fff;
+        border-color: #28a745;
+    }
+
+    .fixed-btn:hover {
+        background: #218838;
+    }
+
+    .fixed-btn.active {
+        background: #28a745;
+        border-color: #28a745;
+    }
+    `;
+    document.head.appendChild(s);
+}
+
+// ============================================
+// LOCATION DROPDOWN
+// ============================================
+function generateLocationDropdown() {
+    const opts = getLocationOptions();
+    if (!opts.length) return '';
+
+    return `
+        <div class="location-sort-wrapper">
+            <select id="locationSort" class="location-sort-select">
+                ${opts.map(o => {
+                    const v = (o.value || '').trim();
+                    const sel = v === window.currentLocation ? 'selected' : '';
+                    return `<option value="${v}" ${sel}>${o.label}</option>`;
+                }).join('')}
+            </select>
+        </div>`;
+}
+
+// ============================================
+// RENDER FILTER BUTTONS
+// ============================================
+function renderFilterButtons() {
+    const container = document.getElementById('tradingButtons');
+    if (!container) {
+        console.error('❌ #tradingButtons container not found in HTML!');
+        return;
+    }
+
+    const cats = getCategories();
+    if (!cats.length) {
+        console.error('❌ categories data missing!');
+        return;
+    }
+
+    const buttonsHtml = cats.map(cat => {
+        const isActive = cat.id === window.currentCategory ? 'active' : '';
+        const isFixed = cat.fixed ? 'fixed-btn' : '';
+        const hasDropdown = cat.hasDropdown ? 'has-dropdown' : '';
+        const content = cat.color
+            ? `<span style="color:${cat.color};pointer-events:none;">${cat.label}</span>`
+            : cat.label;
+
+        let dropdownHtml = '';
+        if (cat.hasDropdown && cat.dropdownItems) {
+            const items = cat.dropdownItems.map(item => {
+                const isSub = window.currentSubCategory === item.id ? 'active-sub' : '';
+                return `<button type="button" class="dropdown-item ${isSub}"
+                          data-category="${cat.id}"
+                          data-sub="${item.id}"
+                          data-filter="${item.filter}">${item.label}</button>`;
+            }).join('');
+
+            dropdownHtml = `
+                <div class="dropdown-menu">
+                    <button type="button" class="dropdown-item"
+                            data-category="${cat.id}"
+                            data-sub="${cat.id}"
+                            data-filter="all">ALL ${cat.label}</button>
+                    ${items}
+                </div>`;
+        }
+
+        return `
+            <div class="btn-wrapper ${hasDropdown}">
+                <button type="button"
+                        class="filter-btn ${isActive} ${isFixed} ${hasDropdown}"
+                        data-category="${cat.id}"
+                        data-fixed="${cat.fixed || false}"
+                        data-has-dropdown="${cat.hasDropdown || false}">
+                    ${content}
+                    ${cat.hasDropdown ? '<span class="dropdown-arrow">▼</span>' : ''}
+                </button>
+                ${dropdownHtml}
+            </div>`;
+    }).join('');
+
+    container.innerHTML = `
+        <div class="filter-buttons-wrapper">${buttonsHtml}</div>
+        ${generateLocationDropdown()}
+    `;
+
+    // Re-attach location select listener (element is recreated each render)
+    const locSel = document.getElementById('locationSort');
+    if (locSel) {
+        locSel.addEventListener('change', (e) => {
+            window.currentLocation = e.target.value.trim() || 'all';
+            applyFilterAndRender(
+                window.currentCategory,
+                window.currentSubCategory || 'all'
+            );
+        });
+    }
+}
+
+// ============================================
+// SINGLE DELEGATED CLICK HANDLER
+// ============================================
+document.addEventListener('click', (e) => {
+    const dropdownItem = e.target.closest('.dropdown-item');
+    const dropdownBtn  = e.target.closest('.filter-btn.has-dropdown');
+    const regularBtn   = e.target.closest('.filter-btn');
+
+    // ---- Case 1: dropdown item clicked ----
+    if (dropdownItem) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const category    = dropdownItem.dataset.category;
+        const subCategory = dropdownItem.dataset.sub;
+        const filter      = dropdownItem.dataset.filter;
+
+        window.currentCategory    = category;
+        window.currentSubCategory = subCategory;
+
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.dropdown-item').forEach(d => d.classList.remove('active-sub'));
+        dropdownItem.classList.add('active-sub');
+
+        const wrap = dropdownItem.closest('.btn-wrapper');
+        const pbtn = wrap ? wrap.querySelector('.filter-btn') : null;
+        if (pbtn) pbtn.classList.add('active');
+
+        document.querySelectorAll('.dropdown-menu.show').forEach(m => m.classList.remove('show'));
+
+        window.allProducts = getShuffledProducts();
+        startFiveMinuteReshuffle();
+        applyFilterAndRender(category, filter);
+        return;
+    }
+
+    // ---- Case 2: dropdown toggle clicked ----
+    if (dropdownBtn) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const wrap = dropdownBtn.closest('.btn-wrapper');
+        const menu = wrap ? wrap.querySelector('.dropdown-menu') : null;
+        if (!menu) return;
+
+        const wasOpen = menu.classList.contains('show');
+        document.querySelectorAll('.dropdown-menu.show').forEach(m => m.classList.remove('show'));
+        if (!wasOpen) menu.classList.add('show');
+        return;
+    }
+
+    // ---- Case 3: regular filter button clicked ----
+    if (regularBtn) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const category = regularBtn.getAttribute('data-category');
+        const isFixed  = regularBtn.getAttribute('data-fixed') === 'true';
+
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        regularBtn.classList.add('active');
+
+        window.currentCategory    = category;
+        window.currentSubCategory = null;
+
+        if (isFixed || category === 'all') {
+            window.allProducts = [...getBaseProducts()];
+            if (shuffleTimer) clearInterval(shuffleTimer);
+        } else {
+            window.allProducts = getShuffledProducts();
+            startFiveMinuteReshuffle();
+        }
+
+        applyFilterAndRender(category, 'all');
+        return;
+    }
+
+    // ---- Case 4: click elsewhere → close dropdowns ----
+    document.querySelectorAll('.dropdown-menu.show').forEach(m => m.classList.remove('show'));
+});
+
+// ============================================
+// FILTER + RENDER
+// ============================================
+function applyFilterAndRender(category, filter) {
+    const base = getBaseProducts();
+    window.originalProducts = base.map(p => ({ ...p }));
+
+    let filtered = [...base];
+
+    // ---------- CATEGORY + SUBCATEGORY ----------
+    if (category && category !== 'all') {
+        filtered = filtered.filter(product => {
+            const pc = (product.category || '').toLowerCase().trim();
+            const tc = category.toLowerCase().trim();
+            const matchesCat =
+                pc === tc ||
+                pc.includes(tc) ||
+                pc.includes(tc.replace(/_/g, ' '));
+
+            if (filter && filter !== 'all') {
+                const pb   = (product.brand || '').toLowerCase().trim();
+                const psub = (product.subCategory || '').toLowerCase().trim();
+                const tf   = filter.toLowerCase().trim();
+                return matchesCat && (pb === tf || psub === tf);
+            }
+            return matchesCat;
+        });
+    }
+
+    // ---------- LOCATION ----------
+    if (window.currentLocation &&
+        window.currentLocation !== 'all' &&
+        window.currentLocation !== '') {
+
+        const loc = window.currentLocation.toLowerCase().trim();
+
+        filtered = filtered.filter(p => {
+            const raw = (p.location || '').toLowerCase();
+            // "uganda > kampala > ham shopping grounds" →
+            // "uganda kampala ham shopping grounds"
+            const normalized = raw
+                .replace(/[>|,]/g, ' ')
+                .replace(/\s+/g, ' ')
+                .trim();
+
+            return normalized.split(' ').includes(loc) || normalized.includes(loc);
+        });
+    }
+
+    window.filteredProducts = filtered;
+
+    // ---------- RENDER ----------
+    if (typeof window.renderProducts === 'function') {
+        window.renderProducts(filtered);
+    } else if (typeof renderProducts === 'function') {
+        renderProducts(filtered);
+    } else {
+        const container =
+            document.getElementById('productList') ||
+            document.getElementById('productGrid');
+
+        if (container) {
+            container.innerHTML = filtered.length
+                ? filtered.map(p => `
+                    <div class="product" data-category="${p.category || ''}">
+                        <div class="image_BX">
+                            <img src="${p.image}" alt="${p.name || ''}" loading="fast">
+                            <div class="product-info">
+                                <div class="product-name">${p.name || ''}</div>
+                                <div class="price-container">${p.newPrice || ''}</div>
+                            </div>
+                        </div>
+                    </div>`).join('')
+                : '<p>No products found.</p>';
+        }
+    }
+}
+
+// ============================================
+// SHUFFLE UTILITIES
+// ============================================
 function shuffleArray(array) {
-    let arr = [...array];
+    if (!Array.isArray(array)) return [];
+    const arr = array.map(i => ({ ...i }));
     for (let i = arr.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [arr[i], arr[j]] = [arr[j], arr[i]];
@@ -30,166 +469,70 @@ function shuffleArray(array) {
     return arr;
 }
 
-// Store current filters
-let currentCategory = 'all';
-let currentLocation = 'all';
-let allProducts = [];
-
-// Store original products for HOME button
-let originalProducts = [];
-
-// Dynamic dropdown generation
-function generateLocationDropdown() {
-    return `
-        <div class="location-sort-wrapper">
-            <select id="locationSort" class="location-sort-select">
-                ${locationOptions.map(opt => 
-                    `<option value="${opt.value}" ${opt.value === currentLocation ? 'selected' : ''}>${opt.label}</option>`
-                ).join('')}
-            </select>
-        </div>
-    `;
-}
-
-// Shuffle function using proper Fisher-Yates
 function getShuffledProducts() {
-    return shuffleArray(myProducts);
+    return shuffleArray(getBaseProducts());
 }
 
-// Render filter buttons + dropdown
-function renderFilterButtons() {
-    const container = document.getElementById('tradingButtons');
-    if (!container) return;
-
-    const filterButtonsHtml = categories.map(cat => {
-        const isActive = cat.id === currentCategory ? 'active' : '';
-        const isFixed = cat.fixed ? 'fixed-btn' : ''; // Special class for HOME button
-        const content = cat.color 
-            ? `<span style="color: ${cat.color}; pointer-events: none;">${cat.label}</span>` 
-            : cat.label;
-
-        return `
-            <button class="filter-btn ${isActive} ${isFixed}" data-category="${cat.id}" data-fixed="${cat.fixed || false}">
-                ${content}
-            </button>
-        `;
-    }).join('');
-
-    container.innerHTML = `
-        <div class="filter-buttons-wrapper">
-            ${filterButtonsHtml}
-        </div>
-        ${generateLocationDropdown()}
-    `;
-
-    // Location dropdown event
-    const locationSelect = document.getElementById('locationSort');
-    if (locationSelect) {
-        locationSelect.addEventListener('change', (e) => {
-            currentLocation = e.target.value;
-            renderProducts();
-        });
-    }
-}
-
-// Render products with filtering
-function renderProducts() {
-    const productList = document.getElementById('product-list');
-    if (!productList) return;
-
-    let filtered = allProducts;
-
-    // Filter by category
-    if (currentCategory !== 'all') {
-        filtered = filtered.filter(p => 
-            (p.category || "").toLowerCase().includes(currentCategory.toLowerCase())
-        );
-    }
-
-    // Filter by location
-    if (currentLocation !== 'all' && currentLocation !== '') {
-        filtered = filtered.filter(p => 
-            (p.location || "").toLowerCase().includes(currentLocation.toLowerCase())
-        );
-    }
-
-    if (filtered.length === 0) {
-        productList.innerHTML = `
-            <div class="no-products">
-                <p>No products found in this category</p>
-                <button onclick="resetToHome()" class="reset-btn">Show All Products</button>
-            </div>
-        `;
-        return;
-    }
-
-    productList.innerHTML = filtered.map(product => `
-        <div class="product" data-category="${product.category}" data-location="${product.location || ''}" onclick="openPreview('${product.id}')">
-            <div class="image_BX">
-                <span class="condition">${product.class}</span> 
-                <img height="100px" width="110px" src="${product.image}" alt="${product.name}">
-                ${product.isNew ? '<mark>new</mark>' : ''}
-                <h3><span>${product.name}</span></h3>
-                <p class="price-container">
-                    <span> <del>${product.oldPrice}</del>${product.newPrice}</span>
-                </p>
-            </div>
-        </div>
-    `).join('');
-}
-
-// Reset to HOME (no shuffle, show original order)
-function resetToHome() {
-    currentCategory = 'all';
-    currentLocation = 'all';
-    allProducts = [...originalProducts]; // Restore original order (no shuffle)
-    renderFilterButtons();
-    renderProducts();
-}
-
-// Main Logic Controller
-document.addEventListener('DOMContentLoaded', () => {
-    // Store original products (HOME state)
-    originalProducts = [...myProducts];
-    
-    // Initial load - HOME state (no shuffle)
-    allProducts = [...originalProducts];
-    
-    renderFilterButtons();
-    renderProducts();
-
-    const tradingButtonsContainer = document.getElementById('tradingButtons');
-
-    tradingButtonsContainer.addEventListener('click', (e) => {
-        const button = e.target.closest('.filter-btn');
-        if (!button) return;
-
-        const category = button.getAttribute('data-category');
-        const isFixed = button.getAttribute('data-fixed') === 'true';
-
-        // Remove active class from all buttons
-        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-
-        // Update current category
-        currentCategory = category;
-
-        // LOGIC: Only shuffle if NOT the HOME button
-        if (isFixed) {
-            // HOME button - restore original order (NO shuffle)
-            allProducts = [...originalProducts];
-        } else {
-            // Category buttons - SHUFFLE
-            allProducts = getShuffledProducts();
+function startFiveMinuteReshuffle() {
+    if (shuffleTimer) clearInterval(shuffleTimer);
+    shuffleTimer = setInterval(() => {
+        if (window.currentCategory !== 'all') {
+            window.allProducts = getShuffledProducts();
+            applyFilterAndRender(
+                window.currentCategory,
+                window.currentSubCategory || 'all'
+            );
         }
+    }, 5 * 60 * 1000);
+}
 
-        renderProducts();
-    });
-});
+// ============================================
+// RESET TO HOME
+// ============================================
+function resetToHome() {
+    window.currentCategory    = 'all';
+    window.currentSubCategory = null;
+    window.currentLocation    = 'all';
 
-// Optional: Keyboard shortcut to reset to HOME
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        resetToHome();
+    if (shuffleTimer) clearInterval(shuffleTimer);
+
+    renderFilterButtons();
+    applyFilterAndRender('all', 'all');
+}
+
+// ============================================
+// INIT
+// ============================================
+function initStoreUI() {
+    // Inject CSS first
+    injectDropdownStyles();
+
+    // Sync products from whatever global source exists
+    const base = getBaseProducts();
+    if (base.length) {
+        window.originalProducts = base.map(p => ({ ...p }));
+        window.allProducts      = [...window.originalProducts];
+        window.filteredProducts = [...window.originalProducts];
+    } else {
+        console.warn('⚠️ No products found. Is products.js loaded before filter-buttons.js?');
     }
+
+    renderFilterButtons();
+    applyFilterAndRender('all', 'all');
+}
+
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    initStoreUI();
+} else {
+    document.addEventListener('DOMContentLoaded', initStoreUI);
+}
+
+// Escape key → reset to home
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') resetToHome();
 });
+
+// Expose for other scripts / debugging
+window.renderFilterButtons  = renderFilterButtons;
+window.applyFilterAndRender = applyFilterAndRender;
+window.resetToHome          = resetToHome;

@@ -858,7 +858,7 @@ header  .buttons   .all:hover{
 /* Override fixed inline width/height attributes dynamically */
 .product-container .product .image_BX img {
     width: 100% !important;
-    /* height: 110px !important; */
+    height: 135px !important;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
@@ -1977,6 +1977,7 @@ header  .buttons   .all:hover{
 
  /* ===== PRODUCT CONTAINER (GRID) ===== */
 .product-container {
+  gap: 10px;
      grid-template-columns: repeat(auto-fill, minmax(125px, 1fr)); 
         /* grid-template-columns: repeat(2, 1fr); */
         grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
