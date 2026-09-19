@@ -1,5 +1,5 @@
 // ============================================
-// FILTER BUTTONS UI - filter-buttons.js
+// FILTER BUTTONS UI - filter-buttons.js - FINAL FIX FOR SEAN10.NET
 // ============================================
 
 window.currentCategory = 'all';
@@ -8,531 +8,278 @@ window.currentLocation = 'all';
 window.allProducts = [];
 window.originalProducts = [];
 window.filteredProducts = [];
-
 let shuffleTimer = null;
 
-// --------------------------------------------
-// SAFE DATA ACCESS
-// --------------------------------------------
 function getCategories() {
-    return window.categories || (typeof categories !== 'undefined' ? categories : []);
+    return window.categories || (typeof categories!== 'undefined'? categories : []);
 }
-
 function getLocationOptions() {
-    return window.locationOptions || (typeof locationOptions !== 'undefined' ? locationOptions : []);
+    return window.locationOptions || (typeof locationOptions!== 'undefined'? locationOptions : []);
 }
-
 function getBaseProducts() {
+    if (typeof myProducts!== 'undefined' && Array.isArray(myProducts) && myProducts.length) return myProducts;
+    if (window.myProducts && Array.isArray(window.myProducts) && window.myProducts.length) return window.myProducts;
     if (window.originalProducts && window.originalProducts.length) return window.originalProducts;
-    if (window.myProducts && Array.isArray(window.myProducts)) return window.myProducts;
-    if (typeof myProducts !== 'undefined' && Array.isArray(myProducts)) return myProducts;
     return [];
 }
 
-// ============================================
-// INJECT CSS STYLES
-// ============================================
 function injectDropdownStyles() {
     if (document.getElementById('filter-buttons-styles')) return;
     const s = document.createElement('style');
     s.id = 'filter-buttons-styles';
     s.textContent = `
-    /* ---------- CONTAINER ---------- */
-    #tradingButtons {
-        width: 100%;
-        max-width: 100%;
-        overflow: visible;
-        padding: 6px 0;
-         position: relative;
-        z-index: 10000;         /* above product cards */
-    }
-
-    .filter-buttons-wrapper {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        align-items: center;
-        width: 100%;
-        min-width: 0;
-        overflow: visible;
-        position: relative;
-        z-index: 10000;
-    }
-
-    /* ---------- BUTTON WRAPPER ---------- */
-    .btn-wrapper {
-        position: relative;
-        display: inline-block;
-        //  z-index: 10001;         /* each dropdown's wrapper */
-    }
-
-    /* ---------- FILTER BUTTON ---------- */
-    .filter-btn {
-        padding: 8px 16px;
-        border: 1px solid #ddd;
-        background: #fff;
-        color: #222;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 13px;
-        font-weight: 500;
-        line-height: 1.2;
-        white-space: nowrap;
-        transition: background .15s, border-color .15s;
-        font-family: inherit;
-    }
-
-    .filter-btn:hover {
-        background: #f2f2f2;
-    }
-
-    .filter-btn.has-dropdown {
-        padding-right: 28px;
-        position: relative;
-    }
-
-    .filter-btn.active {
-        background: #007bff;
-        color: #fff;
-        border-color: #007bff;
-    }
-
-    .filter-btn.active:hover {
-        background: #0056b3;
-    }
-
-    /* ---------- DROPDOWN ARROW ---------- */
-    .dropdown-arrow {
-        position: absolute;
-        right: 9px;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 9px;
-        opacity: .7;
-        pointer-events: none;
-        color: green;
-    }
-    .dropdown-arrow:hover {
-        color: orange;
-    }
-
-    /* ---------- DROPDOWN MENU ---------- */
-    .dropdown-menu {
-    display: none;
-    position: absolute;
-    top: calc(100% + 4px);
-    left: 0;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex-wrap: wrap;
-    /* color: green; */
-    /* background: #fff; */
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, .15);
-    padding: 5px;
-    z-index: 99999;
-    /* overflow-y: auto; */
-    z-index: 10002;      /* actual dropdown, highest in the stack */
-}
-
-    .dropdown-menu.show {
-        display: block;
-    }
-
-    .dropdown-item {
-        display: block;
-        width: 100%;
-        padding: 9px 14px;
-        border: 0;
-        background: none;
-        text-align: left;
-        cursor: pointer;
-        font-size: 13px;
-        color: #222;
-        font-family: inherit;
-        white-space: nowrap;
-    }
-
-    .dropdown-item:hover {
-        background: #f2f2f2;
-    }
-
-    .dropdown-item.active-sub {
-        background: #007bff;
-        color: #fff;
-    }
-
-    /* ---------- LOCATION SORT ---------- */
-    .location-sort-wrapper {
-        margin-left: auto;
-    }
-
-    .location-sort-select {
-        padding: 8px 12px;
-        border: 1px solid #ddd;
-        border-radius: 6px;
-        background: #fff;
-        font-size: 13px;
-        cursor: pointer;
-        font-family: inherit;
-    }
-
-    .location-sort-select:hover {
-        border-color: #007bff;
-    }
-
-    /* ---------- FIXED (HOME) BUTTON ---------- */
-    .fixed-btn {
-        background: #28a745;
-        color: #fff;
-        border-color: #28a745;
-    }
-
-    .fixed-btn:hover {
-        background: #218838;
-    }
-
-    .fixed-btn.active {
-        background: #28a745;
-        border-color: #28a745;
-    }
+    #tradingButtons { width: fit-content; padding: 6px 0; position: relative; }
+   .filter-buttons-wrapper { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; width: 100%; }
+   .btn-wrapper { position: relative; display: inline-block; }
+   .filter-btn { padding: 8px 16px; border: 1px solid #ddd; background: #fff; color: #222; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: 500; white-space: nowrap; }
+   .filter-btn:hover { background: #f2f2f2; }
+   .filter-btn.active { background: #007bff; color: #fff; border-color: #007bff; }
+   .filter-btn.has-dropdown { padding-right: 28px; }
+//    .dropdown-menu { display: none; position: absolute; top: 110%; left: 0; z-index: 999; background: #fff; border: 1px solid #ddd; border-radius: 6px; min-width: 170px; box-shadow: 0 4px 12px rgba(0,0,0,.12); }
+//    .dropdown-menu.showDropdown { display: block; }
+//    .dropdown-item { display: block; width: 100%; text-align: left; padding: 9px 12px; border: 0; background: #fff; cursor: pointer; font-size: 13px; }
+//    .dropdown-item:hover { background: #f5f5f5; }
+//    .dropdown-item.active-sub { background: #007bff; color: #fff; }
+//    .dropdown-arrow { margin-left: 6px; font-size: 10px; }
+//    .location-sort-wrapper { margin-left: auto; }
+//    .location-sort-select { padding: 8px 12px; border-radius: 6px; border: 1px solid #ddd; }
     `;
     document.head.appendChild(s);
 }
 
-// ============================================
-// LOCATION DROPDOWN
-// ============================================
 function generateLocationDropdown() {
     const opts = getLocationOptions();
     if (!opts.length) return '';
-
-    return `
-        <div class="location-sort-wrapper">
-            <select id="locationSort" class="location-sort-select">
-                ${opts.map(o => {
-                    const v = (o.value || '').trim();
-                    const sel = v === window.currentLocation ? 'selected' : '';
-                    return `<option value="${v}" ${sel}>${o.label}</option>`;
-                }).join('')}
-            </select>
-        </div>`;
+    return `<div class="location-sort-wrapper"><select id="locationSort" class="location-sort-select">${opts.map(o => {
+        const v = (o.value || '').trim();
+        const sel = v === window.currentLocation? 'selected' : '';
+        return `<option value="${v}" ${sel}>${o.label}</option>`;
+    }).join('')}</select></div>`;
 }
 
-// ============================================
-// RENDER FILTER BUTTONS
-// ============================================
 function renderFilterButtons() {
     const container = document.getElementById('tradingButtons');
-    if (!container) {
-        console.error('❌ #tradingButtons container not found in HTML!');
-        return;
-    }
-
+    if (!container) return;
     const cats = getCategories();
-    if (!cats.length) {
-        console.error('❌ categories data missing!');
-        return;
-    }
+    if (!cats.length) return;
 
     const buttonsHtml = cats.map(cat => {
-        const isActive = cat.id === window.currentCategory ? 'active' : '';
-        const isFixed = cat.fixed ? 'fixed-btn' : '';
-        const hasDropdown = cat.hasDropdown ? 'has-dropdown' : '';
-        const content = cat.color
-            ? `<span style="color:${cat.color};pointer-events:none;">${cat.label}</span>`
-            : cat.label;
-
+        const isActive = cat.id === window.currentCategory? 'active' : '';
+        const hasDropdown = cat.hasDropdown? 'has-dropdown' : '';
+        const content = cat.color? `<span style="color:${cat.color};pointer-events:none;">${cat.label}</span>` : cat.label;
         let dropdownHtml = '';
         if (cat.hasDropdown && cat.dropdownItems) {
             const items = cat.dropdownItems.map(item => {
-                const isSub = window.currentSubCategory === item.id ? 'active-sub' : '';
-                return `<button type="button" class="dropdown-item ${isSub}"
-                          data-category="${cat.id}"
-                          data-sub="${item.id}"
-                          data-filter="${item.filter}">${item.label}</button>`;
+                const isSub = window.currentSubCategory === item.id? 'active-sub' : '';
+                return `<button type="button" class="dropdown-item ${isSub}" data-category="${cat.id}" data-sub="${item.id}" data-filter="${item.filter}">${item.label}</button>`;
             }).join('');
-
-            dropdownHtml = `
-                <div class="dropdown-menu">
-                    <button type="button" class="dropdown-item"
-                            data-category="${cat.id}"
-                            data-sub="${cat.id}"
-                            data-filter="all">ALL ${cat.label}</button>
-                    ${items}
-                </div>`;
+            dropdownHtml = `<div class="dropdown-menu"><button type="button" class="dropdown-item" data-category="${cat.id}" data-sub="${cat.id}" data-filter="all">ALL ${cat.label}</button>${items}</div>`;
         }
-
-        return `
-            <div class="btn-wrapper ${hasDropdown}">
-                <button type="button"
-                        class="filter-btn ${isActive} ${isFixed} ${hasDropdown}"
-                        data-category="${cat.id}"
-                        data-fixed="${cat.fixed || false}"
-                        data-has-dropdown="${cat.hasDropdown || false}">
-                    ${content}
-                    ${cat.hasDropdown ? '<span class="dropdown-arrow">▼</span>' : ''}
-                </button>
-                ${dropdownHtml}
-            </div>`;
+        return `<div class="btn-wrapper ${hasDropdown}"><button type="button" class="filter-btn ${isActive} ${hasDropdown}" data-category="${cat.id}" data-fixed="${cat.fixed || false}" data-has-dropdown="${cat.hasDropdown || false}">${content} ${cat.hasDropdown? '<span class="dropdown-arrow">▼</span>' : ''}</button>${dropdownHtml}</div>`;
     }).join('');
 
-    container.innerHTML = `
-        <div class="filter-buttons-wrapper">${buttonsHtml}</div>
-        ${generateLocationDropdown()}
-    `;
+    container.innerHTML = `<div class="filter-buttons-wrapper">${buttonsHtml}</div>${generateLocationDropdown()}`;
 
-    // Re-attach location select listener (element is recreated each render)
     const locSel = document.getElementById('locationSort');
     if (locSel) {
         locSel.addEventListener('change', (e) => {
             window.currentLocation = e.target.value.trim() || 'all';
-            applyFilterAndRender(
-                window.currentCategory,
-                window.currentSubCategory || 'all'
-            );
+            applyFilterAndRender(window.currentCategory, window.currentSubCategory || 'all');
         });
     }
 }
 
-// ============================================
-// SINGLE DELEGATED CLICK HANDLER
-// ============================================
 document.addEventListener('click', (e) => {
     const dropdownItem = e.target.closest('.dropdown-item');
-    const dropdownBtn  = e.target.closest('.filter-btn.has-dropdown');
-    const regularBtn   = e.target.closest('.filter-btn');
+    const dropdownBtn = e.target.closest('.filter-btn.has-dropdown');
+    const regularBtn = e.target.closest('.filter-btn');
 
-    // ---- Case 1: dropdown item clicked ----
     if (dropdownItem) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        const category    = dropdownItem.dataset.category;
-        const subCategory = dropdownItem.dataset.sub;
-        const filter      = dropdownItem.dataset.filter;
-
-        window.currentCategory    = category;
-        window.currentSubCategory = subCategory;
-
+        e.preventDefault(); e.stopPropagation();
+        window.currentCategory = dropdownItem.dataset.category;
+        window.currentSubCategory = dropdownItem.dataset.sub;
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         document.querySelectorAll('.dropdown-item').forEach(d => d.classList.remove('active-sub'));
         dropdownItem.classList.add('active-sub');
-
-        const wrap = dropdownItem.closest('.btn-wrapper');
-        const pbtn = wrap ? wrap.querySelector('.filter-btn') : null;
+        const pbtn = dropdownItem.closest('.btn-wrapper')?.querySelector('.filter-btn');
         if (pbtn) pbtn.classList.add('active');
-
-        document.querySelectorAll('.dropdown-menu.show').forEach(m => m.classList.remove('show'));
-
-        window.allProducts = getShuffledProducts();
+        document.querySelectorAll('.dropdown-menu.showDropdown').forEach(m => m.classList.remove('showDropdown'));
+        applyFilterAndRender(dropdownItem.dataset.category, dropdownItem.dataset.filter);
         startFiveMinuteReshuffle();
-        applyFilterAndRender(category, filter);
         return;
     }
-
-    // ---- Case 2: dropdown toggle clicked ----
     if (dropdownBtn) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        const wrap = dropdownBtn.closest('.btn-wrapper');
-        const menu = wrap ? wrap.querySelector('.dropdown-menu') : null;
+        e.preventDefault(); e.stopPropagation();
+        const menu = dropdownBtn.closest('.btn-wrapper')?.querySelector('.dropdown-menu');
         if (!menu) return;
-
-        const wasOpen = menu.classList.contains('show');
-        document.querySelectorAll('.dropdown-menu.show').forEach(m => m.classList.remove('show'));
-        if (!wasOpen) menu.classList.add('show');
+        const wasOpen = menu.classList.contains('showDropdown');
+        document.querySelectorAll('.dropdown-menu.showDropdown').forEach(m => m.classList.remove('showDropdown'));
+        if (!wasOpen) menu.classList.add('showDropdown');
         return;
     }
-
-    // ---- Case 3: regular filter button clicked ----
     if (regularBtn) {
-        e.preventDefault();
-        e.stopPropagation();
-
+        e.preventDefault(); e.stopPropagation();
         const category = regularBtn.getAttribute('data-category');
-        const isFixed  = regularBtn.getAttribute('data-fixed') === 'true';
-
+        const isFixed = regularBtn.getAttribute('data-fixed') === 'true';
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         regularBtn.classList.add('active');
-
-        window.currentCategory    = category;
+        window.currentCategory = category;
         window.currentSubCategory = null;
-
-        if (isFixed || category === 'all') {
-            window.allProducts = [...getBaseProducts()];
-            if (shuffleTimer) clearInterval(shuffleTimer);
-        } else {
-            window.allProducts = getShuffledProducts();
-            startFiveMinuteReshuffle();
-        }
-
+        if (isFixed || category === 'all') { if (shuffleTimer) clearInterval(shuffleTimer); }
+        else { startFiveMinuteReshuffle(); }
         applyFilterAndRender(category, 'all');
         return;
     }
-
-    // ---- Case 4: click elsewhere → close dropdowns ----
-    document.querySelectorAll('.dropdown-menu.show').forEach(m => m.classList.remove('show'));
+    document.querySelectorAll('.dropdown-menu.showDropdown').forEach(m => m.classList.remove('showDropdown'));
 });
 
 // ============================================
-// FILTER + RENDER
+// MAIN FIXED FILTER - WORKS WITH YOUR DB
 // ============================================
 function applyFilterAndRender(category, filter) {
+    const grid = document.getElementById('productList') || document.getElementById('productGrid');
+    if (!grid) return;
+
+    const cat = (category || 'all').toLowerCase().trim();
+    const sub = (filter || 'all').toLowerCase().trim();
+    const loc = (window.currentLocation || 'all').toLowerCase().trim();
+
     const base = getBaseProducts();
-    window.originalProducts = base.map(p => ({ ...p }));
+    let filtered = [];
 
-    let filtered = [...base];
+    // 1. Filter from myProducts array - FIX FOR "laptops macOS used_items"
+    base.forEach(p => {
+        const rawCats = (p.category || '').toLowerCase().trim();
+        const pCats = rawCats.split(/[\s,]+/).filter(Boolean); // ["laptops","macos","used_items"]
+        const pBrand = (p.brand || '').toLowerCase().trim();
+        const pSub = (p.subCategory || '').toLowerCase().trim();
+        const pLoc = (p.location || '').toLowerCase().trim();
+        const pClass = (p.class || '').toLowerCase().trim();
 
-    // ---------- CATEGORY + SUBCATEGORY ----------
-    if (category && category !== 'all') {
-        filtered = filtered.filter(product => {
-            const pc = (product.category || '').toLowerCase().trim();
-            const tc = category.toLowerCase().trim();
-            const matchesCat =
-                pc === tc ||
-                pc.includes(tc) ||
-                pc.includes(tc.replace(/_/g, ' '));
+        let okCat = true;
+        if (cat!== 'all') {
+            okCat = pCats.includes(cat) || rawCats.includes(cat) || pClass === cat;
+        }
 
-            if (filter && filter !== 'all') {
-                const pb   = (product.brand || '').toLowerCase().trim();
-                const psub = (product.subCategory || '').toLowerCase().trim();
-                const tf   = filter.toLowerCase().trim();
-                return matchesCat && (pb === tf || psub === tf);
-            }
-            return matchesCat;
-        });
-    }
+        let okSub = true;
+        if (sub!== 'all') {
+            okSub = pBrand === sub || pSub === sub || pBrand.includes(sub) || pSub.includes(sub);
+        }
 
-    // ---------- LOCATION ----------
-    if (window.currentLocation &&
-        window.currentLocation !== 'all' &&
-        window.currentLocation !== '') {
+        let okLoc = true;
+        if (loc!== 'all') {
+            okLoc = pLoc.includes(loc);
+        }
 
-        const loc = window.currentLocation.toLowerCase().trim();
-
-        filtered = filtered.filter(p => {
-            const raw = (p.location || '').toLowerCase();
-            // "uganda > kampala > ham shopping grounds" →
-            // "uganda kampala ham shopping grounds"
-            const normalized = raw
-                .replace(/[>|,]/g, ' ')
-                .replace(/\s+/g, ' ')
-                .trim();
-
-            return normalized.split(' ').includes(loc) || normalized.includes(loc);
-        });
-    }
+        if (okCat && okSub && okLoc) {
+            filtered.push(p);
+        }
+    });
 
     window.filteredProducts = filtered;
 
-    // ---------- RENDER ----------
-    if (typeof window.renderProducts === 'function') {
-        window.renderProducts(filtered);
-    } else if (typeof renderProducts === 'function') {
-        renderProducts(filtered);
-    } else {
-        const container =
-            document.getElementById('productList') ||
-            document.getElementById('productGrid');
+    // 2. Now filter the EXISTING GRID - don't recreate
+    const keepIds = new Set(filtered.map(p => String(p.id).toLowerCase().trim()));
+    const keepNames = new Set(filtered.map(p => (p.name || '').toLowerCase().trim()));
 
-        if (container) {
-            container.innerHTML = filtered.length
-                ? filtered.map(p => `
-                    <div class="product" data-category="${p.category || ''}">
-                        <div class="image_BX">
-                            <img src="${p.image}" alt="${p.name || ''}" loading="fast">
-                            <div class="product-info">
-                                <div class="product-name">${p.name || ''}</div>
-                                <div class="price-container">${p.newPrice || ''}</div>
-                            </div>
-                        </div>
-                    </div>`).join('')
-                : '<p>No products found.</p>';
+    let visibleCount = 0;
+    const productsInDOM = grid.querySelectorAll(':scope >.product, :scope >.product-card, :scope > div[data-id]');
+
+    // If your grid renderer didn't add data-id, we use index fallback
+    if (productsInDOM.length === 0) {
+        // Fallback: if no DOM yet, call your original renderer once
+        if (typeof window.renderProducts === 'function') {
+            window.renderProducts(filtered.length? filtered : base);
         }
+        return;
     }
+
+    productsInDOM.forEach((el, idx) => {
+        if (el.id === 'noProductsMsg') return;
+
+        const elId = (el.dataset.id || el.getAttribute('data-id') || '').toLowerCase().trim();
+        const elName = (el.dataset.name || el.querySelector('.product-name')?.textContent || '').toLowerCase().trim();
+
+        let shouldShow = false;
+        if (cat === 'all' && sub === 'all' && loc === 'all') {
+            shouldShow = true;
+        } else if (elId && keepIds.has(elId)) {
+            shouldShow = true;
+        } else if (elName && keepNames.has(elName)) {
+            shouldShow = true;
+        } else if (!elId &&!elName) {
+            // If no id/name on DOM, match by position using myProducts index
+            const p = base[idx];
+            if (p && filtered.includes(p)) shouldShow = true;
+        }
+
+        el.style.display = shouldShow? '' : 'none';
+        if (shouldShow) visibleCount++;
+    });
+
+    let msg = document.getElementById('noProductsMsg');
+    if (visibleCount === 0) {
+        if (!msg) {
+            msg = document.createElement('div');
+            msg.id = 'noProductsMsg';
+            msg.style.cssText = 'grid-column:1/-1;text-align:center;padding:40px;color:#666;';
+            grid.appendChild(msg);
+        }
+        msg.textContent = `No products found in ${category}`;
+        msg.style.display = 'block';
+    } else if (msg) {
+        msg.style.display = 'none';
+    }
+
+    console.log(`[SEAN10 FILTER] ${cat} / ${sub} -> ${visibleCount} visible from ${base.length}`);
 }
 
-// ============================================
-// SHUFFLE UTILITIES
-// ============================================
 function shuffleArray(array) {
-    if (!Array.isArray(array)) return [];
-    const arr = array.map(i => ({ ...i }));
+    const arr = array.map(i => ({...i }));
     for (let i = arr.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [arr[i], arr[j]] = [arr[j], arr[i]];
     }
     return arr;
 }
-
-function getShuffledProducts() {
-    return shuffleArray(getBaseProducts());
-}
-
 function startFiveMinuteReshuffle() {
     if (shuffleTimer) clearInterval(shuffleTimer);
     shuffleTimer = setInterval(() => {
-        if (window.currentCategory !== 'all') {
-            window.allProducts = getShuffledProducts();
-            applyFilterAndRender(
-                window.currentCategory,
-                window.currentSubCategory || 'all'
-            );
+        if (window.currentCategory!== 'all') {
+            const grid = document.getElementById('productList') || document.getElementById('productGrid');
+            if (grid) {
+                const visible = Array.from(grid.children).filter(c => c.style.display!== 'none' && c.id!== 'noProductsMsg');
+                const shuffled = shuffleArray(visible);
+                shuffled.forEach(el => grid.appendChild(el));
+            }
         }
     }, 5 * 60 * 1000);
 }
-
-// ============================================
-// RESET TO HOME
-// ============================================
 function resetToHome() {
-    window.currentCategory    = 'all';
-    window.currentSubCategory = null;
-    window.currentLocation    = 'all';
-
+    window.currentCategory = 'all'; window.currentSubCategory = null; window.currentLocation = 'all';
     if (shuffleTimer) clearInterval(shuffleTimer);
-
     renderFilterButtons();
     applyFilterAndRender('all', 'all');
 }
-
-// ============================================
-// INIT
-// ============================================
 function initStoreUI() {
-    // Inject CSS first
     injectDropdownStyles();
-
-    // Sync products from whatever global source exists
     const base = getBaseProducts();
     if (base.length) {
-        window.originalProducts = base.map(p => ({ ...p }));
-        window.allProducts      = [...window.originalProducts];
+        window.originalProducts = base.map(p => ({...p }));
+        window.allProducts = [...window.originalProducts];
         window.filteredProducts = [...window.originalProducts];
-    } else {
-        console.warn('⚠️ No products found. Is products.js loaded before filter-buttons.js?');
     }
-
     renderFilterButtons();
-    applyFilterAndRender('all', 'all');
+    // Don't call applyFilter here, let your main grid render first
+    setTimeout(() => applyFilterAndRender('all', 'all'), 100);
 }
-
 if (document.readyState === 'complete' || document.readyState === 'interactive') {
-    initStoreUI();
+    setTimeout(initStoreUI, 0);
 } else {
-    document.addEventListener('DOMContentLoaded', initStoreUI);
+    document.addEventListener('DOMContentLoaded', () => setTimeout(initStoreUI, 0));
 }
-
-// Escape key → reset to home
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') resetToHome();
-});
-
-// Expose for other scripts / debugging
-window.renderFilterButtons  = renderFilterButtons;
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') resetToHome(); });
+window.renderFilterButtons = renderFilterButtons;
 window.applyFilterAndRender = applyFilterAndRender;
-window.resetToHome          = resetToHome;
+window.resetToHome = resetToHome;
+
