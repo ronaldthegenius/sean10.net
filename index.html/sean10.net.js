@@ -35,7 +35,7 @@ function renderProducts(products) {
   productContainer.innerHTML = items.map(product => `
     <div class="product" data-category="${product.category}" onclick="openPreview('${product.id}')">
       <div class="image_BX">
-        <img height="140px" width="160px" src="${product.image}" alt="${product.name}" loading="lazy">
+        <img height="140px" width="150px" src="${product.image}" alt="${product.name}" loading="lazy">
         ${product.class === 'new' ? '<mark>🔥 NEW</mark>' : ''}
         ${product.class === 'used' ? '<mark class="used-mark">📦 USED</mark>' : ''}
         <div class="product-info">
