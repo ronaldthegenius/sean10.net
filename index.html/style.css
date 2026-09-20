@@ -718,208 +718,8 @@ text-align: center;
 }
 
 
-
-
-
-
 /* END OF NAV */
 
-
-
-
-/* Target the anchor tags (links) within the list items (li) */
-
-header .buttons{
-  top: 0;
-  position: sticky;
-  justify-content:space-between;
-  align-items: center;
-  display:flex;
- flex-wrap: wrap;
- text-align: center;
- margin: 0.5em;
-}
-
-
-header .buttons button{
-  text-transform: lowercase;
-    margin: 4px;
-    text-decoration: none;
-    color: #000 /* Adjust this value for your desired color */;
-    opacity: 1.8;
-    /* font-size: clamp(0.75rem, 0.7rem + 5vw, 1rem); */
-    font-family: 'poppins', sans-serif;
-    font-weight: 600;
-    background-color: #ccc;
-    padding: 4px;
-    gap: 10px;
-    cursor: pointer;
-    border-radius: 10px;
-    text-align: center;
-    align-items: center;
-}
-
-
-/* Style for the hover effect (when the mouse is over a link) */
-header .buttons button:hover{
-  transform: scale(1.1);
-  /* Change the color on hover */
-  color: #007bff; /* Adjust this value for your desired hover color */
-  /* Optionally, add a slight font weight increase for emphasis */
-  font-weight: bold;
-}
-
-/* START OF DROPDOWN BTN */
-
-   
-    /* ---------- DROPDOWN ARROW ---------- */
-    .dropdown-arrow {
-        position: absolute;
-        right: 9px;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: clamp(0.75rem, 0.7rem + 0.5vw, 0.8125rem);
-        font-weight: 600;
-        opacity: .7;
-        pointer-events: none;
-        color: green;
-    }
-    .dropdown-arrow:hover {
-        color: orange;
-    }
-
-    /* ---------- DROPDOWN MENU ---------- */
-    .dropdown-menu {
-    display: none;
-    position: absolute;
-    top: calc(100% + 4px);
-    left: 0;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex-wrap: wrap;
-    /* color: green; */
-    /* background: #fff; */
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, .15);
-    padding: 5px;
-    z-index: 99999;
-    /* overflow-y: auto; */
-    z-index: 10002;      /* actual dropdown, highest in the stack */
-}
-
-   .dropdown-menu.showDropdown {
-    text-align: center;
-    display: flex;
-    flex-wrap: wrap;
-    background: green;
-    color: #fff;
-    align-items: center;
-    justify-content: center;
-    border-radius: 20px;
-}
-
-    .dropdown-item {
-        display: block;
-        width: fit-content;
-        padding: 3px;
-        border: groove 2px;
-        background: #000 !important;
-        text-align: center;
-        cursor: pointer;
-        font-size: clamp(0.6558rem, calc(0.77vh + 0.77em), 0.555rem);
-        color: rgb(140, 96, 14) !important;
-        font-family:'Courier New', Courier, monospace;
-        white-space: nowrap;
-    }
-
-    .dropdown-item:hover {
-       color: green !important;
-        background:#fff !important;
-        font-size: clamp(0.811rem, calc(0.81vh + 0.81em), 0.644rem);
-    }
-
-    .dropdown-item.active-sub {
-        background: #fff !important;
-        color: blue !important;
-        
-    }
-
-
-   /* ---------- LOCATION SORT ---------- */
-    .location-sort-wrapper {
-    justify-content: center;
-    background: #fff;
-    align-items: center;
-    text-align: center;
-    border: 1px green outset;
-    border-radius: 20px;
-    margin: 1em;
-    text-decoration: none;
-    text-transform: lowercase;
-    }
-    .location-sort-wrapper:hover {
-    /* color: green; */
-    border: yellowgreen 2px inset;
-    }
-
-    .location-sort-select {
-        font-weight: 1000;
-    padding: 8px;
-    border: none;
-    border-radius: 20px;
-    background: #fff;
-    color: green;
-    /* font-size: clamp(0.75rem, 0.7rem + 0.5vw, 0.8125rem); */
-    cursor: pointer;
-    /* font-family: inherit; */
-    font-family: cursive;
-    }
-
-    .location-sort-select:hover {
-        border-color: #b51094;
-    }
-
-    /* ---------- FIXED (HOME) BUTTON ---------- */
-    .fixed-btn {
-        background: #28a745;
-        color: #fff;
-        border-color: #28a745;
-    }
-
-    .fixed-btn:hover {
-        background: #218838;
-    }
-
-    .fixed-btn.active {
-        background: #28a745;
-        border-color: #28a745;
-    }
-/* END OF DROPDOWN BTN */
-
-
-/* home */
-/* header  .buttons .all{
-  background-color: forestgreen;
-  color: #fff;
-  font-family: 'poppins',sans-serif;
-  text-transform: uppercase;
-  margin-right: 30px;
-  letter-spacing: 2px;
-}
-header  .buttons   .all:hover{
-  color: green;
-  background-color: transparent;
-  
-} */
-
-.filter-btn.active {
-    background-color: #333;
-    color: white;
-    border: 2px solid gold; /* Or your brand color */
-}
-/* end of all */
 
 
 
@@ -928,12 +728,16 @@ header  .buttons   .all:hover{
 .product-container {
     /* border: red 1px solid;  */
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 10px;
+    /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
+     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     overflow:hidden;
-    gap: 10px;
-    margin-top: -4em;
+    gap: 12px;
+    padding: 12px;
+    /* gap: 10px; */
+    margin-top: -3em;
+    /* gap: 20px;
+    padding: 10px; */
+    
     /* grid-template-columns: repeat(2, 1fr); */
     /* /* grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); */
 }
@@ -2100,10 +1904,11 @@ header  .buttons   .all:hover{
 
  /* ===== PRODUCT CONTAINER (GRID) ===== */
 .product-container {
-        padding: 0 8px;
+        padding:  8px;
         box-sizing: border-box;
         gap: 10px;
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+         grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        /* grid-template-columns: repeat(2, minmax(0, 1fr)) !important; */
         /* grid-template-columns: repeat(2, 1fr); */
         /* /* grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); */
 }

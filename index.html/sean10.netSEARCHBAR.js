@@ -166,7 +166,6 @@ function initSearch() {
     const resultsContainer = document.getElementById('searchResults');
     const productContainer = document.getElementById('productList') || document.getElementById('productsContainer');
     const clearBtn = document.getElementById('clearBtn');
-    const productCount = document.getElementById('productCount');
     const searchCountDisplay = document.getElementById('searchCount');
     const recentBox = document.getElementById('recentSearches');
 
@@ -177,45 +176,6 @@ function initSearch() {
 
     let debounceTimer = null;
     let searchCount = parseInt(localStorage.getItem('searchCount')) || 0;
-
-    function renderProducts(products) {
-        const items = products || (window.myProducts || []);
-        if (productCount) productCount.textContent = items.length;
-        if (searchCountDisplay) searchCountDisplay.textContent = searchCount;
-
-        if (items.length === 0) {
-            productContainer.innerHTML = `
-                <div class="no-products">
-                    <h3>🔍 No products found</h3>
-                    <p>Try adjusting your search terms</p>
-                </div>`;
-            return;
-        }
-
-        productContainer.innerHTML = items.map(product => `
-            <div class="product" data-category="${product.category}" onclick="openPreview('${product.id}')">
-                <div class="image_BX">
-                    <img height="140px" width="160px" src="${product.image}" alt="${product.name}" loading="lazy">
-                    ${product.class === 'new' ? '<mark>🔥 NEW</mark>' : ''}
-                    ${product.class === 'used' ? '<mark class="used-mark">📦 USED</mark>' : ''}
-                    <div class="product-info">
-                        <div class="product-name">${product.name}</div>
-                        <div class="price-container">
-                            <div class="price-track">
-                                ${product.oldPrice && product.oldPrice !== 'soon coming' && product.oldPrice !== 'negotiable' ? `<del>${product.oldPrice}</del>` : ''}
-                                <span class="${product.newPrice === 'negotiable' ? 'negotiable' : 'new-price'}">
-                                    ${product.newPrice || 'Price on request'}
-                                </span>
-                            </div>
-                        </div>
-                        ${product.h4 ? `<div class="availability">${product.h4}</div>` : ''}
-                    </div>
-                </div>
-            </div>
-        `).join('');
-    }
-
-    window.renderProductsList = renderProducts;
 
     // ---------- SEARCH ----------
     function searchProducts(query) {
@@ -286,7 +246,7 @@ function initSearch() {
         if (query.length === 0) {
             resultsContainer.style.display = 'none';
             if (recentBox) renderRecentSearches();
-            renderProducts(window.myProducts || myProducts);
+            window.renderProductsList?.(window.myProducts || myProducts);
             return;
         }
 
@@ -296,7 +256,7 @@ function initSearch() {
         clearTimeout(debounceTimer);
         debounceTimer = setTimeout(() => {
             const results = searchProducts(query);
-            renderProducts(results);
+            window.renderProductsList?.(results);
             showResults(results, query);
 
             if (query.trim().length >= 3 && results.length > 0) {
@@ -314,7 +274,7 @@ function initSearch() {
             this.classList.remove('visible');
             resultsContainer.style.display = 'none';
             if (recentBox) renderRecentSearches();
-            renderProducts(window.myProducts || myProducts);
+            window.renderProductsList?.(window.myProducts || myProducts);
             searchInput.focus();
         });
     }
@@ -338,7 +298,7 @@ function initSearch() {
             if (clearBtn) clearBtn.classList.remove('visible');
             resultsContainer.style.display = 'none';
             if (recentBox) recentBox.style.display = 'none';
-            renderProducts(window.myProducts || myProducts);
+            window.renderProductsList?.(window.myProducts || myProducts);
             searchInput.blur();
         }
         if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
@@ -348,21 +308,15 @@ function initSearch() {
         }
     });
 
-    renderProducts(window.myProducts || myProducts);
+    window.renderProductsList?.(window.myProducts || myProducts);
 }
 
 // ============================================
 // IMAGE SEARCH — REAL (with graceful fallback)
 // ============================================
-// ⚙️ Configure your API here. If left blank, falls back to
-//    keyword matching based on image filename + optional tag input.
 const IMAGE_SEARCH_CONFIG = {
-    // Example for OpenAI (GPT-4o mini vision). Put your key here to enable real AI search.
-    // ⚠️ Do NOT ship a private API key in frontend code for a public site.
-    //    For production use a backend proxy.
-    openaiApiKey: '',                // <-- put key here to enable real AI
+    openaiApiKey: '',
     openaiModel: 'gpt-4o-mini',
-    // fallback keyword vocabulary
     keywords: {
         laptop:    ['laptop', 'macbook', 'notebook', 'computer'],
         phone:     ['phone', 'iphone', 'android', 'samsung', 'tecno', 'infinix'],
@@ -451,7 +405,6 @@ function initImageSearch() {
         });
     }
 
-    // ---------- The actual search ----------
     if (searchSimilarBtn) {
         searchSimilarBtn.addEventListener('click', async () => {
             if (!currentDataUrl) {
@@ -466,7 +419,6 @@ function initImageSearch() {
 
             let keywords = [];
 
-            // Try AI first
             if (IMAGE_SEARCH_CONFIG.openaiApiKey) {
                 try {
                     keywords = await analyzeImageWithOpenAI(currentDataUrl);
@@ -475,12 +427,10 @@ function initImageSearch() {
                 }
             }
 
-            // Fallback: derive keywords from filename + config vocabulary
             if (keywords.length === 0) {
                 keywords = guessKeywordsFromFilename(currentFile?.name || '');
             }
 
-            // If still nothing, show help
             if (keywords.length === 0) {
                 imageSearchResults.innerHTML = `
                     <div style="padding:12px;border:1px solid #eee;border-radius:6px;">
@@ -520,7 +470,6 @@ function initImageSearch() {
         });
     }
 
-    // Fallback keyword search exposed to window
     window.runImageFallbackSearch = function(keyword) {
         const matches = searchProductsByKeywords([keyword]);
         imageSearchResults.innerHTML = `
@@ -660,9 +609,7 @@ function initProductShuffle() {
         shuffleArray(source);
         const searchInput = document.getElementById('searchInput');
         if (!searchInput || !searchInput.value.trim()) {
-            if (typeof window.renderProductsList === 'function') {
-                window.renderProductsList(source);
-            }
+            window.renderProductsList?.(source);
         }
     }
 
@@ -682,3 +629,4 @@ document.addEventListener('DOMContentLoaded', function() {
     initVoiceSearch();
     console.log('✅ Application initialized successfully!');
 });
+

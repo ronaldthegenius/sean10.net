@@ -1,26 +1,183 @@
 /* Add to your main CSS file (style.css / index.css) */
 
-/* Any wrapper around #tradingButtons */
-.main-content,
-.header,
-.navbar,
-.page-wrapper {
-  display: block;             /* OR flex with flex-wrap */
-  flex-wrap: wrap;
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
+
+  /* ============================================
+   FILTER BUTTONS + DROPDOWNS + LOCATION SORT
+   ============================================ */
+    /* ---------start of- FIXED (HOME) BUTTON ---------- */  
+.filter-btn.active {
+     background: #28a745;
+    color: #fff;
+    text-transform: uppercase;
+    border-color: orangered;
+    border: groove;
+}
+    
+.filter-btn.active:hover {
+     background: #fff !important;
+     color: green;
+     border: #000 1px inset;
+}
+    
+/* ----------end of FIXED (HOME) BUTTON ---------- */
+
+
+header .buttons{
+  top: 0;
+  position: sticky;
+  justify-content:space-between;
+  align-items: center;
+  display:flex;
+ flex-wrap: wrap;
+ text-align: center;
+ margin: 0.5em;
 }
 
-/* If your site has a global body/html rule, make sure it's not nowrap */
-html, body {
-  overflow-x: hidden;         /* prevents any accidental horizontal scroll */
-  max-width: 100%;
+
+header .buttons button{
+  text-transform: lowercase;
+    margin: 4px;
+    text-decoration: none;
+    color: #000 /* Adjust this value for your desired color */;
+    opacity: 1.8;
+    /* font-size: clamp(0.75rem, 0.7rem + 5vw, 1rem); */
+    font-family: 'poppins', sans-serif;
+    font-weight: 600;
+    background-color: #ccc;
+    padding: 4px;
+    gap: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    text-align: center;
+    align-items: center;
 }
 
-/* Optional: if #tradingButtons sits directly in body or a flex container */
-body > #tradingButtons,
-.flex-parent > #tradingButtons {
-  flex: 1 1 100%;
-  min-width: 0;
+
+/* Style for the hover effect (when the mouse is over a link) */
+header .buttons button:hover{
+  transform: scale(1.1);
+  /* Change the color on hover */
+  color: #007bff; /* Adjust this value for your desired hover color */
+  /* Optionally, add a slight font weight increase for emphasis */
+  font-weight: bold;
 }
+
+
+/* START OF DROPDOWN BTN */
+   
+    /* ---------- DROPDOWN ARROW ---------- */
+    .dropdown-arrow {
+        position: absolute;
+        right: 9px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: clamp(0.75rem, 0.7rem + 0.5vw, 0.8125rem);
+        font-weight: 600;
+        opacity: .7;
+        pointer-events: none;
+        color: green;
+    }
+    .dropdown-arrow:hover {
+        color: orange;
+    }
+
+    /* ---------- DROPDOWN MENU ---------- */
+    .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    /* color: green; */
+    /* background: #fff; */
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .15);
+    padding: 5px;
+    z-index: 99999;
+    /* overflow-y: auto; */
+    z-index: 10002;      /* actual dropdown, highest in the stack */
+}
+
+   .dropdown-menu.showDropdown {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    background: green;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+}
+
+    .dropdown-item {
+        display: block;
+        width: fit-content;
+        padding: 3px;
+        border: groove 2px;
+        background: #000 !important;
+        text-align: center;
+        cursor: pointer;
+        font-size: clamp(0.6558rem, calc(0.77vh + 0.77em), 0.555rem);
+        color: rgb(140, 96, 14) !important;
+        font-family:'Courier New', Courier, monospace;
+        white-space: nowrap;
+    }
+
+    .dropdown-item:hover {
+       color: green !important;
+        background:#fff !important;
+        font-size: clamp(0.811rem, calc(0.81vh + 0.81em), 0.644rem);
+    }
+
+    .dropdown-item.active-sub {
+        background: #fff !important;
+        color: blue !important;
+        
+    }
+
+
+   /* ---------- LOCATION SORT ---------- */
+    .location-sort-wrapper {
+    justify-content: center;
+    background: #fff;
+    align-items: center;
+    text-align: center;
+    border: 1px green outset;
+    border-radius: 20px;
+    margin: 1em;
+    text-decoration: none;
+    text-transform: lowercase;
+    }
+    .location-sort-wrapper:hover {
+    /* color: green; */
+    border: yellowgreen 2px inset;
+    }
+
+    .location-sort-select {
+        font-weight: 1000;
+    padding: 8px;
+    border: none;
+    border-radius: 20px;
+    background: #fff;
+    color: green;
+    /* font-size: clamp(0.75rem, 0.7rem + 0.5vw, 0.8125rem); */
+    cursor: pointer;
+    /* font-family: inherit; */
+    font-family: cursive;
+    }
+
+    .location-sort-select:hover {
+        border-color: #b51094;
+    }
+
+
+/* END OF DROPDOWN BTN */
+
+
+
+
+

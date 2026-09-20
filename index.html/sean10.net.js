@@ -1,5 +1,71 @@
 
+// ============================================
+// PRODUCT RENDERER
+// ============================================
 
+function renderProducts(products) {
+  // Resolve container — works with any of these IDs
+  const productContainer =
+    document.getElementById('productList') ||
+    document.getElementById('productGrid') ||
+    document.getElementById('productsContainer');
+
+  if (!productContainer) {
+    console.error('❌ No product container found (expected #productList)');
+    return;
+  }
+
+  const items = products || window.myProducts || [];
+
+  // Count display (if present)
+  const productCount = document.getElementById('productCount');
+  if (productCount) productCount.textContent = items.length;
+
+  // Empty state
+  if (items.length === 0) {
+    productContainer.innerHTML = `
+      <div class="no-products">
+        <h3>🔍 No products found</h3>
+        <p>Try adjusting your search terms</p>
+      </div>`;
+    return;
+  }
+
+  // Render cards
+  productContainer.innerHTML = items.map(product => `
+    <div class="product" data-category="${product.category}" onclick="openPreview('${product.id}')">
+      <div class="image_BX">
+        <img height="140px" width="160px" src="${product.image}" alt="${product.name}" loading="lazy">
+        ${product.class === 'new' ? '<mark>🔥 NEW</mark>' : ''}
+        ${product.class === 'used' ? '<mark class="used-mark">📦 USED</mark>' : ''}
+        <div class="product-info">
+          <div class="product-name">${product.name}</div>
+          <div class="price-container">
+            <div class="price-track">
+              ${product.oldPrice && product.oldPrice !== 'soon coming' && product.oldPrice !== 'negotiable'
+                ? `<del>${product.oldPrice}</del>` : ''}
+              <span class="${product.newPrice === 'negotiable' ? 'negotiable' : 'new-price'}">
+                ${product.newPrice || 'Price on request'}
+              </span>
+            </div>
+          </div>
+          ${product.h4 ? `<div class="availability">${product.h4}</div>` : ''}
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ============================================
+// EXPOSE GLOBALLY (inline onclick needs these)
+// ============================================
+window.myProducts = myProducts;              // assuming myProducts is defined above
+window.renderProductsList = renderProducts;
+
+// ============================================
+// INIT
+// ============================================
+document.addEventListener('DOMContentLoaded', () => renderProducts());
 
 // CLOSE THE PREVIEW
 function closePreview() {

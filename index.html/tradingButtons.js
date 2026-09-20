@@ -33,7 +33,7 @@ function injectDropdownStyles() {
    .btn-wrapper { position: relative; display: inline-block; }
    .filter-btn { padding: 8px 16px; border: 1px solid #ddd; background: #fff; color: #222; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: 500; white-space: nowrap; }
    .filter-btn:hover { background: #f2f2f2; }
-   .filter-btn.active { background: #007bff; color: #fff; border-color: #007bff; }
+//    .filter-btn.active { background: #007bff; color: #fff; border-color: #007bff; }
    .filter-btn.has-dropdown { padding-right: 28px; }
 //    .dropdown-menu { display: none; position: absolute; top: 110%; left: 0; z-index: 999; background: #fff; border: 1px solid #ddd; border-radius: 6px; min-width: 170px; box-shadow: 0 4px 12px rgba(0,0,0,.12); }
 //    .dropdown-menu.showDropdown { display: block; }
