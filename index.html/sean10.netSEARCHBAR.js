@@ -129,30 +129,7 @@ function renderSearchBar() {
         </div>
 
         <!-- ===== IMAGE UPLOAD MODAL ===== -->
-        <div class="image-upload-modal" id="imageUploadModal" style="display:none;">
-            <div class="modal-content">
-                <button class="modal-close" id="modalCloseBtn">✕</button>
-                <h2>🖼️ Search by Image</h2>
-                <p>Upload a photo to find similar products</p>
-
-                <div class="image-drop-zone" id="imageDropZone">
-                    <span class="upload-icon">📸</span>
-                    <div class="upload-text">Drop an image here or click to upload</div>
-                    <div class="upload-subtext">Supports: JPG, PNG, GIF, WebP (Max 5MB)</div>
-                    <input type="file" id="imageInput" accept="image/*" style="display:none;">
-                </div>
-
-                <div class="image-preview-container" id="imagePreviewContainer" style="display:none;">
-                    <img id="uploadedImagePreview" src="" alt="Uploaded image">
-                    <div class="image-actions">
-                        <button class="btn-primary" id="searchSimilarBtn">🔍 Search Similar</button>
-                        <button class="btn-danger" id="clearImageBtn">🗑️ Clear</button>
-                    </div>
-                </div>
-
-                <div id="imageSearchResults"></div>
-            </div>
-        </div>
+       
     `;
 
     renderRecentSearches();
