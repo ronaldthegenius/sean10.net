@@ -1580,13 +1580,18 @@ text-align: center;
 
 
 .close-btn {
+    border-radius: 50%;
+    z-index: 9999999;
     position: absolute;
-    top: -40px;
-    right: 0;
-    color: white;
+    top: 2px;
+    border: 1px dotted red;
+    background: green;
+    right: 5px;
+    color: yellow;
     font-size: 50px;
-    background: none;
-    border: none;
+    padding: 2px;
+    /* background: none; */
+    /* border: none; */
     cursor: pointer;
     transition: 0.2s;
 }
