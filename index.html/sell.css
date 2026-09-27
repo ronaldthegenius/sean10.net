@@ -331,7 +331,7 @@
     }
 
     /* ---------- Responsive ---------- */
-    @media (max-width: 500px) {
+    @media (max-width: 600px) {
       /* .sellSection { padding: 1.5rem; }
       .sellBTNS    { font-size: 1rem; padding: 0.6rem 1.2rem; } */
 
@@ -343,6 +343,20 @@
      gap: 1px;/* spacing between buttons */
     max-width: fit-content;/* so the box hugs the buttons instead of stretching */
 }
+        .sellSection mark{
+          font-family: 'Courier New', Courier, monospace;
+          font-weight: 1000;
+        }
+        .sellSection h1{
+          font-family: 'Courier New', Courier, monospace;
+          font-weight: 1000;}
+        .sellSection h2{
+          font-family: 'Courier New', Courier, monospace;
+          font-weight: 1000;
+        }
+          .sellSection strong{
+          font-weight: 900;
+        }
     }
     
   
