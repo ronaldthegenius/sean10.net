@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>sean10.met Control panel</title>
+<script>
+const MY_PASS = "winnie19";
+if(localStorage.getItem('s10_auth') !== MY_PASS){
+  let p = prompt("Password:");
+  if(p !== MY_PASS){ document.body.innerHTML="⛔ ACCESS DENIED"; throw Error("no"); }
+  localStorage.setItem('s10_auth', MY_PASS);
+  setTimeout(()=>localStorage.removeItem('s10_auth'), 10*60*1000);
+}
+</script>
+<style>
+body{font-family:Inter,sans-serif;background:#f6f6f6;padding:15px;max-width:650px;margin:auto}
+.card{background:#fff;padding:14px;border-radius:12px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 1px 3px rgba(0,0,0,.1)}
+.active{border-left:5px solid #22c55e}.expired{border-left:5px solid #ef4444}.warning{border-left:5px solid #f59e0b}
+button{padding:8px 12px;border:none;border-radius:8px;cursor:pointer;font-weight:600;font-size:13px}
+.pay{background:#22c55e;color:#fff}.del{background:#ef4444;color:#fff}
+.addBox{display:flex;gap:6px;margin-bottom:15px;flex-wrap:wrap;background:#fff;padding:12px;border-radius:12px}
+.addBox input{padding:11px;border-radius:8px;border:1px solid #ddd}
+#vName{flex:2;min-width:120px}#vDays{flex:1;min-width:80px}
+.addBtn{background:#111;color:#fff;flex:1}
+.copy{background:#111;color:#fff;margin-top:15px;width:100%;padding:12px;border-radius:8px}
+#jsonOutput{background:#111;color:#0f0;padding:12px;border-radius:8px;white-space:pre-wrap;margin-top:10px;font-size:12px;display:none}
+.badge{font-size:11px;padding:3px 8px;border-radius:20px;color:#fff;margin-left:6px}
+.b-active{background:#22c55e}.b-exp{background:#ef4444}.b-warn{background:#f59e0b}
+</style>
+</head>
+<body>
+<h1>sean10.net Vendors 💼</h1>
+
+<div class="addBox">
+  <input id="vName" placeholder="vendor e.g. depay" />
+  <input id="vDays" type="number" placeholder="days e.g. 30" value="30" />
+  <button class="addBtn" onclick="addVendorFromInput()">Add Vendor</button>
+</div>
+
+<div id="adminList"></div>
+
+<button class="copy" onclick="generateJSON()">Generate vendors.json for upload</button>
+<div id="jsonOutput"></div>
+
+
+
+<script src="sean10.net.Vendors.html.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,348 @@
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+
+
+          
+    /* minimal styling to keep things clean and visible */
+    /* body {
+      font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+      background: #f7f9fc;
+      margin: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    } */
+
+#sell {
+  border: 1px solid green;
+    margin: 1em auto;/* was -3em top / 3em bottom — now balanced */
+    padding: 0.8em 1em;/* real breathing room, but small */
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 2.2em; /*spacing between buttons */
+    font-weight: 900;
+    font-family: 'poppins', sans-serif;
+    max-width: fit-content;/* so the box hugs the buttons instead of stretching */
+    margin-bottom: 3em;
+    margin-top: -3em;
+}
+
+#sell:hover{
+    border: grey 1px outset ;
+}
+
+ .sellBTNS{
+    text-transform: capitalize;
+    cursor: pointer;
+    border-radius: 10px 20px;
+    padding: 5px;
+    background: green;
+    color: #fff;
+    font-size: clamp(0.75rem, 0.7rem + 5vw, 0.2rem);
+}
+ .sellBTNS:hover{
+    border-radius: 10px 20px 15px 40p;
+    padding: 3px;
+    background: transparent;
+    color: green;
+    font-weight: 900;
+    font-size: clamp(1em, (5vh + 1em), 0.8em);
+}
+
+.sellBTNS .bi{
+    color: orangered;
+    margin: 7px;
+}
+
+
+
+
+  
+
+
+
+    /* containers — each will hold one dynamic section */
+    #sell-container, #about-container, #help-container {
+      /* width: 100%;
+      max-width: 780px; */
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+    /* shared style for all dynamic sections */
+    .sellSection {
+        position: relative;/* ← without this, absolute × flies off-card */
+      background: #ffffff;
+      /* border-left: 6px solid #2c6eb0; */
+      border-left: 6px solid green;
+      border-radius: 18px;
+      padding: 2rem 2rem 1.8rem 2rem;
+      margin: 1.6rem 0 0.8rem 0;
+      box-shadow: 0 12px 28px -8px rgba(0, 40, 80, 0.18);
+      line-height: 1.6;
+      color: #1c2a44;
+      animation: fadeSlide 0.25s ease;
+    }
+    @keyframes fadeSlide {
+      0% { opacity: 0.3; transform: translateY(8px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .sellSection mark {
+       text-align: center;
+       align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    display: flex;
+        text-transform: uppercase;
+      background: #ffecaa;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-weight: 900;
+    color: green;
+    display: inline-block;
+    margin-bottom: 1rem;
+    font-family: cursive;
+    font-size: clamp(0.75rem, 0.7rem + 5vw, 1.3rem);
+    }
+    .sellSection p {
+       text-align: center;
+       align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    display: flex;
+        text-transform: lowercase;
+      color: #000;
+    margin: 1rem 0;
+    /* font-size: 1.05rem; */
+    font-size: clamp(0.2rem, 0.7rem + 5vw, 1rem);
+    }
+    .sellSection strong {
+       text-align: center;
+       align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* display: flex; */
+     font-size: clamp(0.78rem, 0.7rem + 5vw, 0.1rem);
+    font-family: cursive;
+    font-weight: 100;
+    color: forestgreen;
+    padding: 4px;
+    border-radius: 10px;
+    background: transparent;
+    border: 1px green inset;
+    border-top-style: none;
+    border-left-style: none;
+    text-transform: capitalize;
+    }
+    .sellSection h1{
+       text-align: center;
+       align-items: center;
+    /* flex-wrap: wrap;
+    justify-content: center;
+    display: flex; */
+        font-family: monospace;
+    font-weight: normal;
+    color: #0c2d4b;
+    font-size: clamp(0.75rem, 0.7rem + 5vw, 1rem);
+    background: lightgoldenrodyellow;
+    padding: 0.2rem 0.4rem;
+    border-radius: 20px;
+    }
+    .sellSection h2{
+      text-align: center;
+       align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    display: flex;
+    font-family: monospace;
+    font-weight: bolder;
+    color: red;
+    font-size: clamp(0.75rem, 0.7rem + 5vw, 1rem);
+    background: lightgoldenrodyellow;
+    padding: 0.2rem 0.4rem;
+    border-radius: 8px;
+    }
+    .sellSection span {
+       text-align: center;
+       align-items: center;
+   
+    justify-content: center;
+   
+      display: block;
+      background: #f0f5ff;
+      padding: 0.9rem 1.2rem;
+      border-radius: 18px;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      word-break: break-word;
+      margin: 1.2rem 0;
+      /* color: #0c2d4b; */
+      color: forestgreen;
+      text-transform: lowercase;
+      font-size: 0.95rem;
+      border: 1px dashed #b8cef0;
+    }
+    .sellSection a {
+       text-align: center;
+       align-items: center;
+    
+    justify-content: center;
+    
+      display: inline-block;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: blueviolet;
+    text-decoration: none;
+    font-weight: 500;
+    /* border-bottom: 2px dotted #90b4e0; */
+    word-break: break-word;
+    font-size: 0.9rem;
+    font-family: sans-serif;
+    font-weight: 500;
+    color: forestgreen;
+    padding: 4px;
+    border-radius: 10px;
+    background: transparent;
+    border: 1px green outset;
+    border-bottom-style: none;
+    border-right-style: none;
+    text-transform: lowercase;
+    }
+    .sellSection a:hover {
+     color: #0c3b6b;
+    border: groove;
+    background: transparent;
+    text-transform: uppercase;
+    }
+
+
+
+    /* Contact chips */
+.contactChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.45rem 0.9rem;
+  border-radius: 40px;
+  background: #eef3fb;
+  color: #1e3a6b !important;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border: 1px solid #cfddee;
+  transition: all 0.15s;
+}
+.contactChip:hover {
+  background: #dbe9ff;
+  border-color: #6f9ed6;
+  transform: translateY(-1px);
+}
+.contactChip--wa {
+  background: #e7f8ee;
+  color: #1a7a3f !important;
+  border-color: #b8e6c9;
+}
+.contactChip--wa:hover { background: #d4f1e0; }
+.contactChip--vk {
+  background: #e8f1fb;
+  color: #1b5a99 !important;
+  border-color: #b8d3ec;
+}
+.contactChip--vk:hover { background: #d6e6f7; }
+
+
+
+
+    
+    /* close (×) button inside each section */
+    
+    /* ---------- Close (×) button inside each section ---------- */
+    .sectionClose {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: #eef3fb;
+  color: #2c6eb0;
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, transform 0.15s;
+  padding: 0;
+  font-family: inherit;
+    }
+    
+
+    .sectionClose:hover {
+    font-size: 2rem;
+    color: red;
+    border-radius: 10px 30px 25px;
+    border: groove;
+    background: #dbe9ff;
+    transform: rotate(90deg);
+}
+    
+
+    /* ---------- "Close all" bar ---------- */
+    .closeAllBar {
+      margin-top: 1.5rem;
+      text-align: center;
+      min-height: 40px;
+    }
+
+    #closeAllBtn {
+      background: #fff;
+      border: 1px solid #e0b4b4;
+      color: #a63a3a;
+      padding: 0.5rem 1.4rem;
+      border-radius: 40px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: none;            /* shown via JS when a section is open */
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s;
+      font-family: inherit;
+    }
+
+    #closeAllBtn:hover {
+     font-size: 0.8rem;
+    background: red;
+    color: #fff;
+    /* border-color: #d18a8a; */
+    border-color: forestgreen;
+    border: groove;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 500px) {
+      /* .sellSection { padding: 1.5rem; }
+      .sellBTNS    { font-size: 1rem; padding: 0.6rem 1.2rem; } */
+
+      #sell {
+      display: flex;
+      justify-content: center;
+      /* flex-wrap: wrap; */
+     padding: 1px;/*real breathing room, but small */
+     gap: 1px;/* spacing between buttons */
+    max-width: fit-content;/* so the box hugs the buttons instead of stretching */
+}
+    }
+    
+  

@@ -118,11 +118,12 @@ header .buttons button:hover{
         width: fit-content;
         padding: 3px;
         border: groove 2px;
-        background: #000 !important;
+        background: #777 !important;
         text-align: center;
         cursor: pointer;
         font-size: clamp(0.6558rem, calc(0.77vh + 0.77em), 0.555rem);
-        color: rgb(140, 96, 14) !important;
+        /* color: rgb(140, 96, 14) !important; */
+        color: #fff !important;
         font-family:'Courier New', Courier, monospace;
         white-space: nowrap;
     }
@@ -167,7 +168,8 @@ header .buttons button:hover{
     /* font-size: clamp(0.75rem, 0.7rem + 0.5vw, 0.8125rem); */
     cursor: pointer;
     /* font-family: inherit; */
-    font-family: cursive;
+    /* font-family: cursive; */
+        font-family: 'poppins', sans-serif;
     }
 
     .location-sort-select:hover {

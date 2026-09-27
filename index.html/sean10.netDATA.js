@@ -5,6 +5,7 @@ const myProducts = [
   // START OF DEPAY ITEMS
   {
     "id": "laptops 3",
+     "vendor": "depay", 
     "class": "used",
     "name": "MACBOOK AIR ",
     "brand": "macbook", // <-- Add brand property for subcategory filtering
@@ -67,6 +68,7 @@ const myProducts = [
 // blue napkins
   {
     "id": "personal_care",
+     "vendor": "mumbejja joan", 
     "class": "new",
     "name": "eco friendly sanitary pads",
     "category": "personal_care new_items",
@@ -125,6 +127,7 @@ const myProducts = [
 // green napkins
   {
     "id": "personal_care",
+     "vendor": "mumbejja joan", 
     "class": "new",
     "name": "eco friendly sanitary pads",
     "category": "personal_care new_items",
@@ -303,7 +306,6 @@ const myProducts = [
     "class": "used",
     "name": "ds4 controller",
     "category": "game_controllers  gaming used_items",
-    "Location": "uae> dubai",
     "image": "/images/used-pack/sean/ds4.jpeg",
     "gallery": [
       "/images/used-pack/sean/ds4.jpeg",
@@ -332,7 +334,6 @@ const myProducts = [
     "class": "new",
     "name": "uae 2 year visas",
     "category": "evisa kampala new_items",
-    "Location": "uae> dubai",
     "image": "/images/new-park/sean/bye and fly.jpeg",
     "gallery": [
       "/images/new-park/sean/thumbnails/bye and fly 4.jpeg",
@@ -359,7 +360,6 @@ const myProducts = [
     "class": "used",
     "name": "rechargeable batteries",
     "category": "batteries  used_items new_items",
-    "Location": "uae> dubai",
     "image": "/images/used-pack/sean/AA and AAA charger batteries.jpeg",
     "gallery": [
       "/images/used-pack/thumbnails/sean thumbnails/AA and AAA charger batteries 5.jpeg",
@@ -388,7 +388,6 @@ const myProducts = [
     "class": "used",
     "name": "camelion charger",
     "category": "chargers used_items new_items",
-    "Location": "kampala",
     "image": "/images/used-pack/sean/AA and AAA charger.jpeg",
     "gallery": [
       "/images/used-pack/thumbnails/sean thumbnails/AA and AAA charger 2.jpeg",
@@ -414,7 +413,6 @@ const myProducts = [
     "class": "used",
     "name": "xbox xseries controller",
     "category": "controllers gaming used_items",
-    "Location": "kampala",
     "image": "/images/used-pack/sean/xbox xseries controller .jpeg",
     "gallery": [
       "/images/used-pack/thumbnails/sean thumbnails/xbox xseries controller .jpeg",
@@ -445,7 +443,6 @@ const myProducts = [
     "name": "msi Gs63 stealth 8re",
     "brand": "msi",
     "category": "laptops gaming used_items gaming_pc",
-    "Location": "kampala",
     "image": "/images/used-pack/sean/msi.jpeg",
     "gallery": [
       "/images/used-pack/thumbnails/sean thumbnails/msi 9.jpeg",

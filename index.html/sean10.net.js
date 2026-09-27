@@ -1,27 +1,44 @@
 
+
+// --- VENDOR LOCK SYSTEM ---
+let vendorsLock = {};
+
+async function applyVendorLock() {
+  try {
+    const res = await fetch('/vendors.json?v=' + Date.now());
+    vendorsLock = await res.json();
+  } catch(e) {
+    console.warn("vendors.json not found, showing all");
+    vendorsLock = {};
+    return myProducts;
+  }
+
+  return myProducts.filter(p => {
+    const v = vendorsLock[p.vendor];
+    if (!v) return true; // your own products without vendor field
+    return v.status === 'active' && Date.now() < v.expiresAt;
+  });
+}
+
 // ============================================
 // PRODUCT RENDERER
 // ============================================
-
 function renderProducts(products) {
-  // Resolve container — works with any of these IDs
   const productContainer =
     document.getElementById('productList') ||
     document.getElementById('productGrid') ||
     document.getElementById('productsContainer');
 
   if (!productContainer) {
-    console.error('❌ No product container found (expected #productList)');
+    console.error('❌ No product container found');
     return;
   }
 
-  const items = products || window.myProducts || [];
+  const items = products || [];
 
-  // Count display (if present)
   const productCount = document.getElementById('productCount');
   if (productCount) productCount.textContent = items.length;
 
-  // Empty state
   if (items.length === 0) {
     productContainer.innerHTML = `
       <div class="no-products">
@@ -31,7 +48,6 @@ function renderProducts(products) {
     return;
   }
 
-  // Render cards
   productContainer.innerHTML = items.map(product => `
     <div class="product" data-category="${product.category}" onclick="openPreview('${product.id}')">
       <div class="image_BX">
@@ -57,10 +73,17 @@ function renderProducts(products) {
 }
 
 // ============================================
-// EXPOSE GLOBALLY (inline onclick needs these)
+// INIT - ONLY ONE PLACE
 // ============================================
-window.myProducts = myProducts;              // assuming myProducts is defined above
+window.myProducts = myProducts;
 window.renderProductsList = renderProducts;
+
+document.addEventListener('DOMContentLoaded', async () => {
+  const availableProducts = await applyVendorLock();
+  console.log(`🔒 Lock check: ${availableProducts.length}/${myProducts.length} products active`);
+  renderProducts(availableProducts);
+});
+
 
 // ============================================
 // INIT

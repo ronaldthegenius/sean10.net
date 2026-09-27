@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="sidebar-preview-content.moreDetails.css">
     <link rel="stylesheet" href="tradingButtons.css">
     <link rel="stylesheet" href="dropDownMenu.css">
+    <link rel="stylesheet" href="sell.css">
+    <link rel="stylesheet" href="sean10.net.vendors.html">
     <!-- <link rel="stylesheet" href="favorites.css"> Specific favorites styles second -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"> 
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
@@ -33,6 +35,7 @@
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
       <script src="sean10.netDATA.js"defer></script>
     <script src="sean10.net.js"defer></script>
+    <script src="sean10.net.vendors.json"defer></script>
     <script src="sean10.netSEARCHBAR.js"defer></script>
     <script src="aside.js"defer></script>
     <script src="asideData.js"defer></script>
@@ -132,6 +135,278 @@
 <div class="product-grid" id="productGrid"></div>
 <!-- ===== PRODUCT GRID ===== -->
 
+<!-- start of sell.help.about/section -->
+  <!-- original button + container structure (only IDs kept, classes unchanged) -->
+<!-- ============ BUTTONS + CONTAINERS ============ -->
+<div id="sell">
+  <button type="button" onclick="toggleSection('sell')" class="sellBTNS" id="sellBtn">
+    <i class="bi bi-arrow-bar-down"></i> sell
+  </button>
+  <div id="sell-container"></div>
+
+  <button type="button" onclick="toggleSection('about')" class="sellBTNS" id="aboutBtn">
+    <i class="bi bi-arrow-repeat"></i> about
+  </button>
+  <div id="about-container"></div>
+
+  <button type="button" onclick="toggleSection('help')" class="sellBTNS" id="helpBtnBtn">
+    <i class="bi bi-arrow-down-up"></i> help <i class="bi bi-arrow-left-right"></i>
+  </button>
+  <div id="help-container"></div>
+  <button type="button" onclick="toggleSection('contact')" class="sellBTNS" id="contactBtn">
+  <i class="bi bi-chat-dots"></i> contact
+</button>
+<div id="contact-container"></div>
+  <!-- ============ CLOSE ALL ============ -->
+<div class="closeAllBar">
+  <button type="button" id="closeAllBtn" onclick="closeAllSections()">
+    <i class="bi bi-x-circle"></i> close all
+  </button>
+</div>
+<!-- ============ CLOSE ALL ============ -->
+</div>
+
+  <!-- end of sell.help.about/section -->
+
+
+
+
+
+
+  <!-- JavaScript: three independent functions, each fills its own container with unique HTML -->
+  
+ <!-- ============ SCRIPT ============ -->
+<script>
+  /* ==================================================================
+     CONFIG
+     ================================================================== */
+  const SECTIONS = {
+    sell: {
+  containerId: 'sell-container',
+  buttonId:    'sellBtn',
+  html: `
+    <section class="sellSection" id="sellSectionContent">
+      <button type="button" class="sectionClose" onclick="toggleSection('sell')" aria-label="Close sell section">&times;</button>
+
+      <mark>💰 sell with Sean10.net 💰</mark>
+
+        
+      <h1>dont run out cash dear brother | sister, dont even just throw your item without buyers  "#you have an item that you dont use yet someone needs the same item eagerly
+      sell with us as described below  and then go to our sean10.net search "engine" find what your looking for   [voice search also allowed  and its precise]  </h1> 
+      <p><strong>Got something to sell? We'll list it for you — after contacting us.</strong>
+      Sean10.net is a Ugandan marketplace for electronics, gaming gear, home
+      essentials, automotives, and more. Send us your item details and we
+      post it for buyers to see.</p>
+
+      <p><strong>Send us these 10 details and we'll list it free:</strong></p>
+       <h2>note:<span>illigel items not allowed,</span> like drugs, etc</h2>
+      <h1>
+        <strong>1.</strong> Your email<br>
+        <strong>2.</strong> Product name — e.g. MacBook Air M1<br>
+        <strong>3.</strong> Price in UGX (or "negotiable" / "soon coming")<br>
+        <strong>4.</strong> Condition — New or Used<br>
+        <strong>5.</strong> Category — phones, laptops, gaming, automotives, etc.<br>
+        <strong>6.</strong> Availability — "1 piece available", "varieties available"<br>
+        <strong>7.</strong> Photos — 2–10(between) clear shots, good lighting<br>
+        <strong>8.</strong> Google Location — open Google Maps, search your area, tap <em>Share → Copy link</em>, and paste it here. (The exact spot where the item is — the buyer will see it on a map when we list it.)<br>
+        <strong>9.</strong> Your WhatsApp number
+        <strong>10.</strong> calling number
+      </h1>
+
+      <span>📦 phones · laptops · game consoles · controllers · batteries · chargers · home &amp; personal care · automotives · used &amp; new</span>
+
+      <p>💬 Send everything in one message to WhatsApp <strong>+256 750 812 318</strong> and we'll list it the same day.</p>
+
+      <a href="https://wa.me/256750812318" target="_blank" rel="noopener">→ send us your item to list</a>
+    </section>
+  `
+},
+    
+    about: {
+      containerId: 'about-container',
+      buttonId:    'aboutBtn',
+      html: `
+        <section class="sellSection" id="aboutSectionContent">
+  <button type="button" class="sectionClose" onclick="toggleSection('about')" aria-label="Close about section">&times;</button>
+  <mark>🌀 about Sean10.net 🌀</mark>
+
+  <p><strong>A Ugandan marketplace built for real people.</strong>
+  Sean10.net started as a small electronics shop and grew into a full
+  marketplace — phones, laptops, gaming, home goods, automotives, and
+  even UAE evisas from trusted people, all your used items ,
+  <strong>sean10.com  as ADMIN</strong>.</p>
+
+  <h1>We believe buying and selling shouldn't be complicated. No listing
+  fees. No inflated prices. Everything is <strong>negotiable</strong> —
+  you talk to us directly, we post  post your item  and then meet your suitable customers.</h1>
+  <span>note:<h2>discussions between your custormer are directed to the contact/s you provide</h2></span>
+
+  <strong>🌍 Based in Uganda · serving buyers &amp; sellers nationwide<br>
+  🤝 Trusted by our WhatsApp &amp; Telegram community</strong>
+
+  <span>📬 sean10.com💬<br>📨 Telegram: search: ronaldthegenius@gmail.com</span>
+
+  <a href="https://sean10.com" target="_blank" rel="noopener">↻ vist sean10.com /developer</a>
+</section>
+      `
+    },
+    help: {
+      containerId: 'help-container',
+      buttonId:    'helpBtnBtn',
+      html: `
+        <section class="sellSection" id="helpSectionContent">
+  <button type="button" class="sectionClose" onclick="toggleSection('help')" aria-label="Close help section">&times;</button>
+  <mark>❓ how to buy &amp; sell on Sean10.net ❓</mark>
+
+  <p><strong>🛒 Buying is simple:</strong></p>
+  <p>
+    <strong>1.</strong> use voice search; just tap the microphone icon ,it will start listening >say any item/s like laptop >if you stop talking the search will start automatically<br>
+     <strong>2.</strong>Browse categories or use the search bar<br>
+     <strong>3.</strong>also image search soon or later<br>
+    <strong>4.</strong> Tap any item to see full details &amp; price<br>
+    <strong>5.</strong> Message seller on WhatsApp or via email — prices are <em>negotiable</em><br>
+    <strong>6.</strong> Agree on payment &amp; pickup/delivery after you agree with seller
+    <h2>remember  each item has a different seller</h2>
+  </p>
+
+  <p><strong>💸 Payment &amp; delivery:</strong></p>
+  <p>
+    sellers accept <strong>Mobile Money (MTN &amp; Airtel)</strong> and cash on
+    local pickup. For delivery, any seller arranges it based on your location —
+    just ask when you message us.
+  </p>
+
+  <p><strong>📦 Selling your item:</strong></p>
+  <p>
+    Send us photos, a short description, and your asking price on
+    WhatsApp. We list it on the site for free and pass buyers to you.
+  </p>
+
+  <span>📖 popular questions: Are prices negotiable? · Do you deliver? · Can I return an item? · How do evisas work?</span>
+
+  <p>Still stuck? WhatsApp us directly — we reply fast.</p>
+
+  <a href="https://wa.me/256750812318" target="_blank" rel="noopener">💬 chat on WhatsApp — +256 750 812 318</a>
+</section>
+      `
+    },
+contact: {
+  containerId: 'contact-container',
+  buttonId:    'contactBtn',
+  html: `
+    <section class="sellSection" id="contactSectionContent">
+      <button type="button" class="sectionClose" onclick="toggleSection('contact')" aria-label="Close contact section">&times;</button>
+      <mark>📞 get in touch 📞</mark>
+
+      <p><strong>We reply fast — pick whichever channel you prefer.</strong></p>
+
+      <p style="display:flex; flex-wrap:wrap; gap:10px; margin-top:1rem;">
+        <a href="mailto:ronaldthegenius@gmail.com" class="contactChip">
+          <i class="bi bi-envelope-fill"></i> Gmail
+        </a>
+        <a href="mailto:jjembaronald@outlook.com" class="contactChip">
+          <i class="bi bi-envelope-at-fill"></i> Outlook 1
+        </a>
+        <a href="mailto:ronaldthegenius@icloud.com" class="contactChip">
+          <i class="bi bi-apple"></i> iCloud
+        </a>
+        <a href="https://wa.me/256750812318" target="_blank" rel="noopener" class="contactChip contactChip--wa">
+          <i class="bi bi-whatsapp"></i> WhatsApp
+        </a>
+        <a href="https://vk.ru/im?sel=383532823" target="_blank" rel="noopener" class="contactChip contactChip--vk">
+          <i class="bi bi-person-badge"></i> VK
+        </a>
+      </p>
+
+      <p style="margin-top:1.4rem;">
+        💬 <strong>WhatsApp:</strong> +256 750 812 318<br>
+        📧 <strong>Email:</strong> any of the four above — we check them all
+      </p>
+
+      <span>🕒 open daily · 8:00 AM – 10:00 PM (EAT) · replies usually within minutes</span>
+
+      <a href="https://wa.me/256750812318" target="_blank" rel="noopener">💬 message us on WhatsApp</a>
+    </section>
+  `
+},
+       
+  };
+
+  
+
+  /* ==================================================================
+     TOGGLE
+     ================================================================== */
+  function toggleSection(key) {
+    const cfg = SECTIONS[key];
+    if (!cfg) { console.error('Unknown section:', key); return; }
+
+    const container = document.getElementById(cfg.containerId);
+    const button    = document.getElementById(cfg.buttonId);
+    if (!container || !button) {
+      console.error('Missing element for section:', key);
+      return;
+    }
+
+    const isOpen = container.innerHTML.trim() !== '';
+
+    if (isOpen) {
+      closeSection(key);
+    } else {
+      container.innerHTML = cfg.html;
+      button.classList.add('active');
+      const newSection = container.querySelector('.sellSection');
+      if (newSection) newSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    updateCloseAllVisibility();
+  }
+
+  function closeSection(key) {
+    const cfg = SECTIONS[key];
+    if (!cfg) return;
+    const container = document.getElementById(cfg.containerId);
+    const button    = document.getElementById(cfg.buttonId);
+    if (container) container.innerHTML = '';
+    if (button)    button.classList.remove('active');
+    updateCloseAllVisibility();
+  }
+
+  function closeAllSections() {
+    Object.keys(SECTIONS).forEach(closeSection);
+  }
+
+  /* ==================================================================
+     CLOSE-ALL VISIBILITY
+     ================================================================== */
+  function updateCloseAllVisibility() {
+    const bar = document.getElementById('closeAllBtn');
+    if (!bar) { console.warn('[closeAll] button not found'); return; }
+
+    const anyOpen = Object.values(SECTIONS).some(cfg => {
+      const c = document.getElementById(cfg.containerId);
+      return c && c.innerHTML.trim() !== '';
+    });
+
+    bar.style.display = anyOpen ? 'inline-flex' : 'none';
+  }
+
+  /* ==================================================================
+     Init
+     ================================================================== */
+  window.addEventListener('DOMContentLoaded', updateCloseAllVisibility);
+</script>
+
+  <!-- Note: 
+       The original code had a conflict: it tried to remove an element with id="helpBtnBtn"
+       which is also the button itself, and then inserted a section with the same id.
+       That would break the button. The solution above keeps each button and container
+       separate and gives each section a unique id (e.g., "helpSectionContent").
+       All three functions are independent and target their own containers.
+  -->
+
+
+
 <!-- ===== PRODUCT GRID ===== -->
 <div class="product-container" id="productList">
     <!-- Products will be rendered here -->
@@ -146,7 +421,7 @@
    
 </body>
 <footer>
-    <p>&copy; All Rights Reserved ,  managed by final destination  | property of<span> <a href="https://sean10.com/" style=" font-size: clamp(1.5em, calc(5vh + 1em), 1.3em);border-radius: 10% 20% 40%; border-top: solid;border-right-style: hidden; color: green;padding: 3px; text-decoration: none; letter-spacing: normal;" >s̸e̸a̸n̸ 10.com</a>  </span> <span style="text-transform: uppercase;font-weight: bolder;font-size: 2em;">|  FOR MORE  </span>
+    <p>&copy; All Rights Reserved ,  managed by final destination  | property of<span> <a href="https://sean10.com" style=" font-size: clamp(1.5em, calc(5vh + 1em), 1.3em);border-radius: 10% 20% 40%; border-top: solid;border-right-style: hidden; color: green;padding: 3px; text-decoration: none; letter-spacing: normal;" >s̸e̸a̸n̸ 10.com</a>  </span> <span style="text-transform: uppercase;font-weight: bolder;font-size: 2em;">|  FOR MORE  </span>
        <span style="cursor: pointer;background-color: none;opacity: 1.0; letter-spacing: 15px;"><a href="https://wa.me/+256750812318"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="green" class="bi bi-whatsapp" viewBox="0 0 16 16">
       <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
     </svg></a>  
