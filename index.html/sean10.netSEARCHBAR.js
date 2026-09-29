@@ -107,9 +107,7 @@ function renderSearchBar() {
                     aria-label="Search products"
                 >
 
-                <button class="search-btn search-image-btn" id="imageSearchBtn" title="Search by image">
-                    🖼️
-                </button>
+              
 
                 <button class="search-btn search-voice" id="voiceBtn" title="Voice search">
                     🎤
