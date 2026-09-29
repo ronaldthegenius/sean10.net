@@ -4,161 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sean10.net · Product Generator</title>
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
-      background: #f0f4fa;
-      margin: 0;
-      padding: 1.5rem;
-      color: #1c2a44;
-    }
-    .wrap {
-      max-width: 820px;
-      margin: 0 auto;
-    }
-    h1 {
-      font-size: 1.6rem;
-      color: #0c2d4b;
-      margin: 0 0 0.3rem 0;
-    }
-    .sub {
-      color: #5a6b85;
-      margin-bottom: 1.5rem;
-      font-size: 0.95rem;
-    }
-    .card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 1.5rem;
-      box-shadow: 0 8px 24px -10px rgba(0,40,80,0.15);
-      margin-bottom: 1.2rem;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-    .grid-3 {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 1rem;
-    }
-    label {
-      display: block;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: #2c4767;
-      margin-bottom: 0.3rem;
-    }
-    input, select, textarea {
-      width: 100%;
-      padding: 0.6rem 0.8rem;
-      border: 1px solid #cfddee;
-      border-radius: 10px;
-      font-size: 0.95rem;
-      font-family: inherit;
-      color: #1c2a44;
-      background: #fafcff;
-      transition: border-color 0.15s;
-    }
-    input:focus, select:focus, textarea:focus {
-      outline: none;
-      border-color: #2c6eb0;
-      background: #fff;
-    }
-    textarea { resize: vertical; min-height: 60px; }
-    .field { margin-bottom: 1rem; }
-    .hint {
-      font-size: 0.78rem;
-      color: #6a7c95;
-      margin-top: 0.25rem;
-    }
-    fieldset {
-      border: 1px dashed #cfddee;
-      border-radius: 12px;
-      padding: 1rem;
-      margin: 0 0 1rem 0;
-    }
-    legend {
-      font-weight: 700;
-      color: #2c6eb0;
-      padding: 0 0.5rem;
-      font-size: 0.9rem;
-    }
-    .row-actions {
-      display: flex;
-      gap: 0.6rem;
-      flex-wrap: wrap;
-      margin-top: 0.5rem;
-    }
-    button {
-      background: #2c6eb0;
-      color: white;
-      border: none;
-      padding: 0.7rem 1.4rem;
-      border-radius: 40px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      cursor: pointer;
-      font-family: inherit;
-      transition: background 0.15s, transform 0.15s;
-    }
-    button:hover { background: #1e5a96; transform: translateY(-1px); }
-    button.ghost {
-      background: #eef3fb;
-      color: #2c6eb0;
-    }
-    button.ghost:hover { background: #dbe9ff; }
-    button.danger {
-      background: #fff;
-      color: #a63a3a;
-      border: 1px solid #e0b4b4;
-    }
-    button.danger:hover { background: #ffecec; }
-    #output {
-      background: #0c1a2e;
-      color: #c8e3ff;
-      border-radius: 12px;
-      padding: 1rem 1.2rem;
-      font-family: 'SF Mono', 'Fira Code', Menlo, monospace;
-      font-size: 0.85rem;
-      line-height: 1.5;
-      white-space: pre-wrap;
-      word-break: break-all;
-      max-height: 500px;
-      overflow-y: auto;
-      border: 1px solid #1e3a6b;
-    }
-    .status {
-      font-size: 0.85rem;
-      color: #1a7a3f;
-      margin-top: 0.5rem;
-      min-height: 1.2rem;
-    }
-    .badge {
-      display: inline-block;
-      padding: 0.15rem 0.5rem;
-      background: #e9f0fe;
-      color: #2c6eb0;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      margin-left: 0.4rem;
-    }
-    hr { border: none; border-top: 1px dashed #cfddee; margin: 1.2rem 0; }
-    @media (max-width: 640px) {
-      .grid, .grid-3 { grid-template-columns: 1fr; }
-    }
-  </style>
+  <link rel="stylesheet" href="sean10.netAdmin.css">
 </head>
 <body>
   <div class="wrap">
     <h1>Sean10.net · Product Generator <span class="badge">admin</span></h1>
     <p class="sub">Fill in the fields below, click <strong>Generate</strong>, and copy the product object into your <code>products</code> array.</p>
 
-    <form id="productForm" class="card" onsubmit="event.preventDefault(); generate();">
+    <form id="productForm" class="card">
 
+      <!-- ========== BASIC INFO ========== -->
       <fieldset>
         <legend>Basic info</legend>
 
@@ -201,7 +56,6 @@
               <option value="workshop">workshop</option>
               <option value="personal_care">personal care</option>
             </select>
-            <div class="hint">Match exactly to your filter buttons.</div>
           </div>
           <div class="field">
             <label for="h4">Availability</label>
@@ -210,18 +64,74 @@
         </div>
       </fieldset>
 
+      <!-- ========== PRICING ========== -->
       <fieldset>
         <legend>Pricing</legend>
 
         <div class="grid">
           <div class="field">
             <label for="oldPrice">Old price (optional)</label>
-            <input type="text" id="oldPrice" placeholder="50,000ugsh">
-            <div class="hint">Leave blank if no discount. Shows with strikethrough.</div>
+            <div class="price-row">
+              <input type="text" id="oldPrice" placeholder="50,000">
+              <select id="oldPriceCurrency">
+                <option value="UGX" selected>UGX</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+                <option value="AED">AED</option>
+                <option value="KES">KES</option>
+                <option value="TZS">TZS</option>
+                <option value="RWF">RWF</option>
+                <option value="ZAR">ZAR</option>
+                <option value="NGN">NGN</option>
+                <option value="INR">INR</option>
+                <option value="CNY">CNY</option>
+                <option value="JPY">JPY</option>
+                <option value="CAD">CAD</option>
+                <option value="AUD">AUD</option>
+                <option value="CHF">CHF</option>
+                <option value="SAR">SAR</option>
+                <option value="QAR">QAR</option>
+                <option value="KWD">KWD</option>
+                <option value="BHD">BHD</option>
+                <option value="OMR">OMR</option>
+                <option value="JOD">JOD</option>
+                <option value="TRY">TRY</option>
+              </select>
+            </div>
+            <div class="hint">Leave blank if no discount.</div>
           </div>
+
           <div class="field">
             <label for="newPrice">New price *</label>
-            <input type="text" id="newPrice" placeholder="40,000ugsh" required>
+            <div class="price-row">
+              <input type="text" id="newPrice" placeholder="40,000" required>
+              <select id="newPriceCurrency">
+                <option value="UGX" selected>UGX</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+                <option value="AED">AED</option>
+                <option value="KES">KES</option>
+                <option value="TZS">TZS</option>
+                <option value="RWF">RWF</option>
+                <option value="ZAR">ZAR</option>
+                <option value="NGN">NGN</option>
+                <option value="INR">INR</option>
+                <option value="CNY">CNY</option>
+                <option value="JPY">JPY</option>
+                <option value="CAD">CAD</option>
+                <option value="AUD">AUD</option>
+                <option value="CHF">CHF</option>
+                <option value="SAR">SAR</option>
+                <option value="QAR">QAR</option>
+                <option value="KWD">KWD</option>
+                <option value="BHD">BHD</option>
+                <option value="OMR">OMR</option>
+                <option value="JOD">JOD</option>
+                <option value="TRY">TRY</option>
+              </select>
+            </div>
             <div class="hint">Or write <em>negotiable</em> / <em>soon coming</em>.</div>
           </div>
         </div>
@@ -238,6 +148,7 @@
         </div>
       </fieldset>
 
+      <!-- ========== MEDIA ========== -->
       <fieldset>
         <legend>Media</legend>
 
@@ -251,10 +162,11 @@
           <textarea id="gallery" placeholder="/images/used-pack/sean/ds4.jpeg
 /images/used-pack/thumbnails/sean thumbnails/ds4 1.jpeg
 /images/used-pack/thumbnails/sean thumbnails/ds4 2.jpeg"></textarea>
-          <div class="hint">Each line becomes one image. Main image is usually included.</div>
+          <div class="hint">Each line becomes one image.</div>
         </div>
       </fieldset>
 
+      <!-- ========== LOCATION ========== -->
       <fieldset>
         <legend>Location &amp; map</legend>
 
@@ -271,6 +183,7 @@
         </div>
       </fieldset>
 
+      <!-- ========== SELLER ========== -->
       <fieldset>
         <legend>Seller contact</legend>
 
@@ -285,8 +198,28 @@
             <div class="hint">International format, no + or spaces.</div>
           </div>
         </div>
+
+        <div class="field">
+          <label for="country">Country</label>
+          <select id="country">
+            <option value="">-- pick --</option>
+            <option value="Uganda" selected>Uganda</option>
+            <option value="Kenya">Kenya</option>
+            <option value="Tanzania">Tanzania</option>
+            <option value="Rwanda">Rwanda</option>
+            <option value="United Arab Emirates">United Arab Emirates</option>
+            <option value="United States">United States</option>
+            <option value="United Kingdom">United Kingdom</option>
+            <option value="India">India</option>
+            <option value="China">China</option>
+            <option value="South Africa">South Africa</option>
+            <option value="Nigeria">Nigeria</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
       </fieldset>
 
+      <!-- ========== DESCRIPTION ========== -->
       <fieldset>
         <legend>Description</legend>
 
@@ -308,8 +241,8 @@
 
       <div class="row-actions">
         <button type="submit">⚙️ Generate product object</button>
-        <button type="button" class="ghost" onclick="fillDemo()">📋 Load demo data</button>
-        <button type="button" class="danger" onclick="resetForm()">↺ Reset</button>
+        <button type="button" class="ghost" id="demoBtn">📋 Load demo data</button>
+        <button type="button" class="danger" id="resetBtn">↺ Reset</button>
       </div>
 
       <div class="status" id="status"></div>
@@ -320,143 +253,12 @@
       <p class="sub" style="margin-bottom:0.8rem;">Copy the block below and paste it into your <code>products</code> array.</p>
       <pre id="output"></pre>
       <div class="row-actions">
-        <button type="button" onclick="copyOutput()">📄 Copy to clipboard</button>
-        <button type="button" class="ghost" onclick="document.getElementById('outputCard').style.display='none'">Hide</button>
+        <button type="button" id="copyBtn">📄 Copy to clipboard</button>
+        <button type="button" class="ghost" id="hideBtn">Hide</button>
       </div>
     </div>
   </div>
 
-  <script>
-    /* -----------------------------------------------------
-       Build the product object from the form
-    ----------------------------------------------------- */
-    function generate() {
-      const v = (id) => document.getElementById(id).value.trim();
-
-      // Required check
-      const required = ['id', 'name', 'newPrice', 'image', 'location', 'email', 'phone', 'details'];
-      for (const field of required) {
-        if (!v(field)) {
-          setStatus('❌ Please fill in all required fields.', true);
-          document.getElementById(field).focus();
-          return;
-        }
-      }
-
-      // Build the WhatsApp string with your custom text
-      const waText = 'Hello%20s̸e̸a̸n̸10%21%20I%20need%20your%20item%20please%20can%20we%20negotiate%20%3F.';
-      const whatsappNumber = `${v('phone')}?text=${waText}`;
-
-      // Build the gallery array from textarea lines
-      const gallery = v('gallery')
-        .split('\n')
-        .map(line => line.trim())
-        .filter(Boolean);
-
-      // Build the product object
-      const product = {
-        id: v('id'),
-        class: v('condition'),
-        name: v('name'),
-        category: v('category'),
-        Location: v('location'),       // uppercase (kept for your existing code)
-        image: v('image'),
-        gallery: gallery,
-        span: v('span') || 'price per piece',
-        h4: v('h4'),
-        whatsappNumber: whatsappNumber,
-        phoneNumber: v('phone'),
-        sellerEmail: v('email'),
-        email: v('email'),
-        location: v('location'),       // lowercase (kept for your existing code)
-        mapUrl: v('mapUrl'),
-        condition: v('condition'),
-        descriptionTitle: v('descriptionTitle') || 'descriptions;',
-        details: v('details'),
-        noteDetails: v('noteDetails') || 'note',
-        note: v('note'),
-        oldPrice: v('oldPrice'),
-        newPrice: v('newPrice')
-      };
-
-      // Clean: remove empty optional fields so the object stays readable
-      Object.keys(product).forEach(key => {
-        const val = product[key];
-        if (val === '' || val === undefined || val === null) {
-          delete product[key];
-        }
-      });
-
-      // Always keep gallery as an array even if empty
-      if (!product.gallery) product.gallery = [];
-
-      // Format as pretty JS
-      const formatted = JSON.stringify(product, null, 2)
-        .replace(/"([a-zA-Z_][a-zA-Z0-9_]*)":/g, '$1:');   // remove quotes from keys
-
-      // Show output
-      document.getElementById('output').textContent = formatted + ',';
-      document.getElementById('outputCard').style.display = 'block';
-      document.getElementById('outputCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setStatus('✅ Generated — scroll down and copy.');
-    }
-
-    /* -----------------------------------------------------
-       Copy output to clipboard
-    ----------------------------------------------------- */
-    function copyOutput() {
-      const text = document.getElementById('output').textContent;
-      navigator.clipboard.writeText(text).then(
-        () => setStatus('📄 Copied to clipboard!'),
-        () => setStatus('❌ Copy failed — select and copy manually.', true)
-      );
-    }
-
-    /* -----------------------------------------------------
-       Fill with demo data
-    ----------------------------------------------------- */
-    function fillDemo() {
-      document.getElementById('id').value = 'controllers-1';
-      document.getElementById('name').value = 'DS4 Controller';
-      document.getElementById('condition').value = 'used';
-      document.getElementById('category').value = 'game_controllers';
-      document.getElementById('h4').value = '1 piece available';
-      document.getElementById('oldPrice').value = '50,000ugsh';
-      document.getElementById('newPrice').value = '40,000ugsh';
-      document.getElementById('span').value = 'price per piece';
-      document.getElementById('note').value = 'Price negotiable';
-      document.getElementById('image').value = '/images/used-pack/sean/ds4.jpeg';
-      document.getElementById('gallery').value =
-        '/images/used-pack/sean/ds4.jpeg\n' +
-        '/images/used-pack/thumbnails/sean thumbnails/ds4 1.jpeg\n' +
-        '/images/used-pack/thumbnails/sean thumbnails/ds4 2.jpeg';
-      document.getElementById('location').value = 'Jebel Ali Industrial Area, Dubai';
-      document.getElementById('mapUrl').value = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28928.808191227257!2d55.104990877735254!3d24.99668297781386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f12a5fc60c251%3A0xcb332e4004272dc9!2sJebel%20Ali%20Industrial%20Area%20-%20Jabal%20Ali%20Industrial%20First%20-%20Dubai!5e0!3m2!1sen!2sae!4v1776783267254!5m2!1sen!2sae';
-      document.getElementById('email').value = 'ronaldthegenius@gmail.com';
-      document.getElementById('phone').value = '256750812318';
-      document.getElementById('descriptionTitle').value = 'descriptions;';
-      document.getElementById('details').value = 'Slightly used, still in good condition, no refurbs.';
-      document.getElementById('noteDetails').value = 'note';
-      setStatus('📋 Demo loaded — click Generate.');
-    }
-
-    /* -----------------------------------------------------
-       Reset form
-    ----------------------------------------------------- */
-    function resetForm() {
-      document.getElementById('productForm').reset();
-      document.getElementById('outputCard').style.display = 'none';
-      setStatus('');
-    }
-
-    /* -----------------------------------------------------
-       Small status message helper
-    ----------------------------------------------------- */
-    function setStatus(msg, isError = false) {
-      const el = document.getElementById('status');
-      el.textContent = msg;
-      el.style.color = isError ? '#a63a3a' : '#1a7a3f';
-    }
-  </script>
+  <script src="sean10.netAdmin.js"></script>
 </body>
 </html>

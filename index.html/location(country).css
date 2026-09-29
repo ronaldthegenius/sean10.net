@@ -1,0 +1,53 @@
+
+/*start of SORT BY COUNTRY */
+
+
+
+   /* ---------- LOCATION SORT ---------- */
+    .location-sort-wrapper {
+    justify-content: center;
+    background: #fff;
+    align-items: center;
+    text-align: center;
+    border: 1px green outset;
+    border-radius: 20px;
+    margin: 1em;
+    text-decoration: none;
+    text-transform: lowercase;
+    }
+    .location-sort-wrapper:hover {
+    /* color: green; */
+    border: yellowgreen 2px inset;
+    }
+
+    .location-sort-select {
+        font-weight: 1000;
+    padding: 8px;
+    border: none;
+    border-radius: 20px;
+    background: #fff;
+    color: green;
+    /* font-size: clamp(0.75rem, 0.7rem + 0.5vw, 0.8125rem); */
+    cursor: pointer;
+    /* font-family: inherit; */
+    /* font-family: cursive; */
+        font-family: 'poppins', sans-serif;
+    }
+
+    .location-sort-select:hover {
+        border-color: #b51094;
+    }
+
+
+
+
+
+@media (max-width: 640px) {
+  .location-sort-wrapper {
+    margin-left: 0;
+    width: 100%;
+    flex-direction: column;
+  }
+  .location-sort-select { width: 100%; }
+}
+/*end of  SORT BY COUNTRY */

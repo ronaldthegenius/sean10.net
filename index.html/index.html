@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="tradingButtons.css">
     <link rel="stylesheet" href="dropDownMenu.css">
     <link rel="stylesheet" href="sell.css">
+    <link rel="stylesheet" href="location(country).css">
     <link rel="stylesheet" href="sean10.net.vendors.html">
     <!-- <link rel="stylesheet" href="favorites.css"> Specific favorites styles second -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"> 
@@ -185,40 +186,48 @@
   containerId: 'sell-container',
   buttonId:    'sellBtn',
   html: `
-    <section class="sellSection" id="sellSectionContent">
-      <button type="button" class="sectionClose" onclick="toggleSection('sell')" aria-label="Close sell section">&times;</button>
+<section class="sellSection" id="sellSectionContent">
+  <button type="button" class="sectionClose" onclick="toggleSection('sell')" aria-label="Close sell section">&times;</button>
 
-      <mark>💰 sell with Sean10.net 💰</mark>
+  <mark>💰 sell with Sean10.net 💰</mark>
 
-        
-      <h1>dont run out cash dear brother | sister, dont even just throw your item without buyers  "#you have an item that you dont use yet someone needs the same item eagerly
-      sell with us as described below  and then go to our sean10.net search "engine" find what your looking for   [voice search also allowed  and its precise]  </h1> 
-      <p><strong>Got something to sell? We'll list it for you — after contacting us.</strong>
-      Sean10.net is a Ugandan marketplace for electronics, gaming gear, home
-      essentials, automotives, and more. Send us your item details and we
-      post it for buyers to see.</p>
+  <p><strong>Don't run out of cash, dear brother &amp; sister.</strong>
+  Don't just throw your item away when someone out there needs it eagerly.
+  You have something you don't use anymore — someone else is searching for
+  exactly that. Sell with us as described below, then go to the
+  <strong>Sean10.net search engine</strong> to find what you're looking for.
+  <em>Voice search is also allowed — and it's precise.</em></p>
 
-      <p><strong>Send us these 10 details and we'll list it free:</strong></p>
-       <h2>note:<span>illigel items not allowed,</span> like drugs, etc</h2>
-      <h1>
-        <strong>1.</strong> Your email<br>
-        <strong>2.</strong> Product name — e.g. MacBook Air M1<br>
-        <strong>3.</strong> Price in UGX (or "negotiable" / "soon coming")<br>
-        <strong>4.</strong> Condition — New or Used<br>
-        <strong>5.</strong> Category — phones, laptops, gaming, automotives, etc.<br>
-        <strong>6.</strong> Availability — "1 piece available", "varieties available"<br>
-        <strong>7.</strong> Photos — 2–10(between) clear shots, good lighting<br>
-        <strong>8.</strong> Google Location — open Google Maps, search your area, tap <em>Share → Copy link</em>, and paste it here. (The exact spot where the item is — the buyer will see it on a map when we list it.)<br>
-        <strong>9.</strong> Your WhatsApp number
-        <strong>10.</strong> calling number
-      </h1>
+  <p><strong>Got something to sell? We'll list it for you — after contacting us.</strong>
+  Sean10.net is a Ugandan marketplace for electronics, gaming gear, home
+  essentials, automotives, and more. Send us your item details and we
+  post it for buyers to see.</p>
 
-      <span>📦 phones · laptops · game consoles · controllers · batteries · chargers · home &amp; personal care · automotives · used &amp; new</span>
+  <p><strong>Send us these 10 details and we'll list it free:</strong></p>
 
-      <p>💬 Send everything in one message to WhatsApp <strong>+256 750 812 318</strong> and we'll list it the same day.</p>
+  <p><strong>⚠️ Note:</strong> illegal items are not allowed — no drugs,
+  no stolen goods, no counterfeits. We'll remove any listing that breaks
+  these rules.</p>
 
-      <a href="https://wa.me/256750812318" target="_blank" rel="noopener">→ send us your item to list</a>
-    </section>
+  <h1>
+    <strong>1.</strong> Your email<br>
+    <strong>2.</strong> Product name — e.g. MacBook Air M1<br>
+    <strong>3.</strong> Price in UGX (or "negotiable" / "soon coming")<br>
+    <strong>4.</strong> Condition — New or Used<br>
+    <strong>5.</strong> Category — phones, laptops, gaming, automotives, etc.<br>
+    <strong>6.</strong> Availability — "1 piece available", "varieties available"<br>
+    <strong>7.</strong> Photos — 2–10 clear shots, good lighting<br>
+    <strong>8.</strong> Google Location — open Google Maps, search your area, tap <em>Share → Copy link</em>, and paste it here. (The exact spot where the item is — the buyer will see it on a map when we list it.)<br>
+    <strong>9.</strong> Your WhatsApp number<br>
+    <strong>10.</strong> Calling number
+  </h1>
+
+  <span>📦 phones · laptops · game consoles · controllers · batteries · chargers · home &amp; personal care · automotives · used &amp; new</span>
+
+  <p>💬 Send everything in the form and we'll list it the same day.</p>
+
+  <a href="sellForm.html" target="_blank" rel="noopener">📝 tap here — fill the form</a>
+</section>
   `
 },
     
@@ -246,7 +255,7 @@
 
   <span>📬 sean10.com💬<br>📨 Telegram: search: ronaldthegenius@gmail.com</span>
 
-  <a href="https://sean10.com" target="_blank" rel="noopener">↻ vist sean10.com /developer</a>
+  <a href="https://sean10.com" target="_blank" rel="noopener">↻ vist sean10. #ecoSystem </a>
 </section>
       `
     },
@@ -286,7 +295,7 @@
 
   <p>Still stuck? WhatsApp us directly — we reply fast.</p>
 
-  <a href="https://wa.me/256750812318" target="_blank" rel="noopener">💬 chat on WhatsApp — +256 750 812 318</a>
+  <a href="https://wa.me/256750812318" target="_blank" rel="noopener">💬 chat on WhatsApp</a>
 </section>
       `
     },
@@ -316,12 +325,12 @@ contact: {
         <a href="https://vk.ru/im?sel=383532823" target="_blank" rel="noopener" class="contactChip contactChip--vk">
           <i class="bi bi-person-badge"></i> VK
         </a>
+        <a href="https://t.me/ronaldthegenius@gmail.com" target="_blank" rel="noopener" class="contactChip contactChip--te">
+          <i class="bi bi-person-badge"></i> telegram
+        </a>
       </p>
 
-      <p style="margin-top:1.4rem;">
-        💬 <strong>WhatsApp:</strong> +256 750 812 318<br>
-        📧 <strong>Email:</strong> any of the four above — we check them all
-      </p>
+  
 
       <span>🕒 open daily · 8:00 AM – 10:00 PM (EAT) · replies usually within minutes</span>
 

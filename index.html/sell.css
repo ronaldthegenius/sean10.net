@@ -120,7 +120,7 @@
        align-items: center;
     flex-wrap: wrap;
     justify-content: center;
-    display: flex;
+    /* display: flex; */
         text-transform: lowercase;
       color: #000;
     margin: 1rem 0;

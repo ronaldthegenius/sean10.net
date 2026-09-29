@@ -1,0 +1,341 @@
+/* ==================================================
+   Base
+   ================================================== */
+* { box-sizing: border-box; }
+
+body {
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  background: #f0f4fa;
+  margin: 0;
+  padding: 1.5rem;
+  color: #1c2a44;
+}
+
+.wrap { max-width: 680px; margin: 0 auto; }
+
+h1 {
+  font-size: 1.5rem;
+  color: #0c2d4b;
+  margin: 0 0 0.3rem 0;
+}
+
+.sub {
+  color: #5a6b85;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 24px -10px rgba(0,40,80,0.15);
+  border-left: 6px solid #2c6eb0;
+}
+
+/* ==================================================
+   Fields
+   ================================================== */
+.field { margin-bottom: 1rem; }
+
+label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #2c4767;
+  margin-bottom: 0.3rem;
+}
+
+.req { color: #a63a3a; }
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid #cfddee;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: #1c2a44;
+  background: #fafcff;
+  transition: border-color 0.15s;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: #2c6eb0;
+  background: #fff;
+}
+
+textarea { resize: vertical; min-height: 70px; }
+
+.hint {
+  font-size: 0.78rem;
+  color: #6a7c95;
+  margin-top: 0.25rem;
+}
+
+/* ==================================================
+   Grids
+   ================================================== */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+/* ==================================================
+   Submit button
+   ================================================== */
+button[type="submit"] {
+  width: 100%;
+  background: #1a7a3f;
+  color: white;
+  border: none;
+  padding: 0.85rem 1.4rem;
+  border-radius: 40px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  margin-top: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.15s, transform 0.15s;
+}
+button[type="submit"]:hover {
+  background: #155f30;
+  transform: translateY(-1px);
+}
+
+/* ==================================================
+   Location row
+   ================================================== */
+.loc-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem;
+  align-items: stretch;
+}
+.loc-row button {
+  width: auto;
+  margin: 0;
+  padding: 0 1rem;
+  background: #eef3fb;
+  color: #2c6eb0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid #cfddee;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: inherit;
+  transition: background 0.15s;
+}
+.loc-row button:hover { background: #dbe9ff; }
+
+/* ==================================================
+   Price + currency row
+   ================================================== */
+.price-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.4rem;
+  align-items: stretch;
+}
+.price-row select {
+  width: auto;
+  min-width: 90px;
+  padding: 0.65rem 0.6rem;
+  background: #eef3fb;
+  border: 1px solid #cfddee;
+  border-radius: 10px;
+  font-weight: 600;
+  color: #2c4767;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.price-row select:focus {
+  outline: none;
+  border-color: #2c6eb0;
+  background: #fff;
+}
+
+/* ==================================================
+   Info note
+   ================================================== */
+.note {
+  background: #fff8e1;
+  border-left: 4px solid #ffc107;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #6d4c00;
+  margin-bottom: 1.2rem;
+}
+
+/* ==================================================
+   Status line
+   ================================================== */
+.status {
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  text-align: center;
+  min-height: 1.2rem;
+  font-weight: 600;
+}
+
+/* ==================================================
+   Spec sections
+   ================================================== */
+.spec-section {
+  display: none;
+  background: #f7fbff;
+  border: 1px dashed #b8cef0;
+  border-radius: 12px;
+  padding: 1.2rem;
+  margin-bottom: 1rem;
+}
+.spec-section.active { display: block; }
+
+.spec-title {
+  font-weight: 700;
+  color: #2c6eb0;
+  font-size: 0.95rem;
+  margin: 0 0 0.3rem 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.spec-hint {
+  font-size: 0.8rem;
+  color: #5a6b85;
+  margin: 0 0 1rem 0;
+}
+
+.sub-heading {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #2c4767;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 1.2rem 0 0.6rem 0;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px dashed #cfddee;
+}
+.sub-heading:first-of-type { margin-top: 0.6rem; }
+
+/* ==================================================
+   Checkbox grid
+   ================================================== */
+.check-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 1rem;
+  margin-bottom: 0.4rem;
+}
+.check-grid.three { grid-template-columns: 1fr 1fr 1fr; }
+
+.check-grid label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #1c2a44;
+  margin: 0;
+  cursor: pointer;
+  padding: 0.35rem 0.5rem;
+  border-radius: 8px;
+  transition: background 0.15s;
+}
+.check-grid label:hover { background: #eaf2fd; }
+
+.check-grid input[type="checkbox"],
+.check-grid input[type="radio"] {
+  width: auto;
+  margin: 0;
+  accent-color: #2c6eb0;
+  cursor: pointer;
+}
+
+/* ==================================================
+   Radio pills
+   ================================================== */
+.radio-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+.radio-pills label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.45rem 0.9rem;
+  background: #fff;
+  border: 1px solid #cfddee;
+  border-radius: 40px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: #1c2a44;
+  margin: 0;
+  transition: all 0.15s;
+}
+.radio-pills label:hover {
+  border-color: #6f9ed6;
+  background: #f0f6ff;
+}
+.radio-pills input[type="radio"] { display: none; }
+.radio-pills label:has(input:checked) {
+  background: #dbe9ff;
+  border-color: #2c6eb0;
+  color: #0c3b6b;
+  font-weight: 600;
+}
+
+/* ==================================================
+   Small checkbox row (negotiable / soon coming)
+   ================================================== */
+.check-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.check-row label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #1c2a44;
+  margin: 0;
+  cursor: pointer;
+}
+.check-row input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+  accent-color: #2c6eb0;
+}
+
+/* ==================================================
+   Responsive
+   ================================================== */
+@media (max-width: 560px) {
+  .grid, .grid-3 { grid-template-columns: 1fr; }
+  .loc-row { grid-template-columns: 1fr; }
+  .check-grid, .check-grid.three { grid-template-columns: 1fr 1fr; }
+}
+
